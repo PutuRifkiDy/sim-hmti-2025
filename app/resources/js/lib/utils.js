@@ -5,6 +5,10 @@ export function cn(...inputs) {
   return twMerge(clsx(inputs));
 }
 
+export function flashMessage(params) {
+    return params.props.flash_message;
+}
+
 export const STATUS = {
     VERIFIED: 'verified',
     REQUEST: 'request',
