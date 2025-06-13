@@ -1,26 +1,34 @@
 import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react';
 
-export default forwardRef(function TextInput({ type = 'text', className = '', isFocused = false, ...props }, ref) {
-	const localRef = useRef(null);
+export default forwardRef(function TextInput(
+    { type = 'text', className = '', onErrors, isFocused = false, ...props },
+    ref,
+) {
+    const localRef = useRef(null);
 
-	useImperativeHandle(ref, () => ({
-		focus: () => localRef.current?.focus(),
-	}));
+    useImperativeHandle(ref, () => ({
+        focus: () => localRef.current?.focus(),
+    }));
 
-	useEffect(() => {
-		if (isFocused) {
-			localRef.current?.focus();
-		}
-	}, [isFocused]);
+    useEffect(() => {
+        if (isFocused) {
+            localRef.current?.focus();
+        }
+    }, [isFocused]);
 
-	return (
-		<input
-			{...props}
-			type={type}
-			className={
-				'rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 ' + className
-			}
-			ref={localRef}
-		/>
-	);
+    return (
+        <div className="mt-2">z
+            <input
+                {...props}
+                type={type}
+                className={
+                    'block w-full rounded-md border border-input bg-background p-2 text-foreground shadow-sm outline-none placeholder:text-muted-foreground sm:text-sm sm:leading-6' +
+                    className
+                }
+                ref={localRef}
+            />
+
+            {onErrors && <p className="mt-2 text-sm text-red-600">{onErrors}</p>}
+        </div>
+    );
 });
