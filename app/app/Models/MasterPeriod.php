@@ -1,7 +1,7 @@
 <?php
-
 namespace App\Models;
 
+use App\Models\Himpunan;
 use Illuminate\Database\Eloquent\Model;
 
 class MasterPeriod extends Model
@@ -13,4 +13,10 @@ class MasterPeriod extends Model
         'start_date',
         'end_date',
     ];
+
+    public function himpunans()
+    {
+        return $this->hasMany(Himpunan::class);
+    }
+
 }
