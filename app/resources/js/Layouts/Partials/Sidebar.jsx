@@ -202,7 +202,7 @@ export default function Sidebar({ navigations, children, header, description }) 
                                         {/* <img src={`${window.location.origin}/assets/images/landing/icon_people_sidebar.png`} className="md:w-[40px] w-[50px] h-auto md:h-auto" alt="" /> */}
                                         <Avatar>
                                             {auth.img_path ? (
-                                                <AvatarImage src={auth.img_path} alt={auth.name} />
+                                                <AvatarImage src={auth.img_path} alt={auth.name} className="object-cover w-full" />
                                             ) : (
                                                 <AvatarFallback>{auth.nim.substring(0, 2)}</AvatarFallback>
                                             )}

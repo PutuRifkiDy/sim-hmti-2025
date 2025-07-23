@@ -1,8 +1,8 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Traits\HasFile;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -13,6 +13,7 @@ use Inertia\Response;
 
 class ProfileController extends Controller
 {
+    use HasFile;
     /**
      * Display the user's profile form.
      */
@@ -20,7 +21,7 @@ class ProfileController extends Controller
     {
         return Inertia::render('Profile/Edit', [
             'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
-            'status' => session('status'),
+            'status'          => session('status'),
         ]);
     }
 
@@ -29,13 +30,37 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $request->user()->fill($request->validated());
+        // $request->user()->fill($request->validated());
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        // if ($request->user()->isDirty('email')) {
+        //     $request->user()->email_verified_at = null;
+        // }
+
+        // $request->user()->save();
+
+        $user = $request->user();
+
+        $user->fill($request->validated());
+
+        $imgPath = $request->hasFile('img_path')
+        ? $this->update_file($request, $user, 'img_path', 'img_profile')
+        : ($user->img_path ?? null);
+
+        if ($imgPath) {
+            $user->img_path = $imgPath;
         }
 
-        $request->user()->save();
+        if ($user->isDirty('email')) {
+            $user->email_verified_at = null;
+        }
+
+        $user->already_filled = true;
+
+        if ($user->save()) {
+            flashMessage('Profil anda berhasil diperbarui.', 'success');
+        } else {
+            flashMessage('Profil anda gagal diperbarui.', 'danger');
+        }
 
         return Redirect::route('profile.edit');
     }
@@ -57,6 +82,8 @@ class ProfileController extends Controller
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();
+
+        flashMessage('Akun anda berhasil dihapus.', 'success');
 
         return Redirect::to('/');
     }

@@ -4,16 +4,16 @@ import Sidebar from './Partials/Sidebar';
 import { IconBerandaSideBar, IconProfileSideBar } from '@/Components/IconAdmin';
 import { Toaster } from '@/Components/ui/sonner';
 
-export default function DashboardLayout({ children, title }) {
+export default function DashboardLayout({ children, title, header, description }) {
     const route_sidebar = [
         {
             icon: <IconBerandaSideBar />,
-            text: "Dashboard",
+            text: "Beranda",
             link: route("dashboard"),
         },
         {
             icon: <IconProfileSideBar />,
-            text: "Profile",
+            text: "Profil",
             link: route('profile.edit'),
         }
     ];
@@ -22,7 +22,7 @@ export default function DashboardLayout({ children, title }) {
         <>
             <Head title={title} />
             <Toaster position="top-center" richColors />
-            <Sidebar navigations={route_sidebar}>
+            <Sidebar navigations={route_sidebar} header={header} description={description}>
                 {children}
             </Sidebar>
         </>

@@ -45,7 +45,7 @@ class LoginRequest extends FormRequest
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'nim' => trans('auth.failed'),
+                'nim' => $this->messages()['auth.failed'],
             ]);
         }
 
@@ -81,5 +81,19 @@ class LoginRequest extends FormRequest
     public function throttleKey(): string
     {
         return Str::transliterate(Str::lower($this->input('email')).'|'.$this->ip());
+    }
+
+    // ubah pesan validasi
+    public function messages()
+    {
+        return [
+            'nim.required' => 'NIM harus diisi.',
+            'password.required' => 'Password harus diisi.',
+            'nim.exists' => 'NIM tidak ditemukan.',
+            'password.exists' => 'Password tidak ditemukan.',
+            'nim.min' => 'NIM harus terdiri dari 10 karakter.',
+            'nim.max' => 'NIM harus terdiri dari 10 karakter.',
+            'auth.failed' => 'Credentials tidak cocok dengan data kami.',
+        ];
     }
 }

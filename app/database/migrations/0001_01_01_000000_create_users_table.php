@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('username')->nullable()->unique();
             $table->string('img_path')->nullable();
+            $table->boolean('already_filled')->default(false);
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

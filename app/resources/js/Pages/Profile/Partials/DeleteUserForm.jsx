@@ -1,99 +1,98 @@
-import DangerButton from '@/Components/DangerButton';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import Modal from '@/Components/Modal';
-import SecondaryButton from '@/Components/SecondaryButton';
 import TextInput from '@/Components/TextInput';
+import { Button } from '@/Components/ui/button';
 import { useForm } from '@inertiajs/react';
 import { useRef, useState } from 'react';
 
 export default function DeleteUserForm({ className = '' }) {
-	const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false);
-	const passwordInput = useRef();
+    const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false);
+    const passwordInput = useRef();
 
-	const {
-		data,
-		setData,
-		delete: destroy,
-		processing,
-		reset,
-		errors,
-		clearErrors,
-	} = useForm({
-		password: '',
-	});
+    const {
+        data,
+        setData,
+        delete: destroy,
+        processing,
+        reset,
+        errors,
+        clearErrors,
+    } = useForm({
+        password: '',
+    });
 
-	const confirmUserDeletion = () => {
-		setConfirmingUserDeletion(true);
-	};
+    const confirmUserDeletion = () => {
+        setConfirmingUserDeletion(true);
+    };
 
-	const deleteUser = (e) => {
-		e.preventDefault();
+    const deleteUser = (e) => {
+        e.preventDefault();
 
-		destroy(route('profile.destroy'), {
-			preserveScroll: true,
-			onSuccess: () => closeModal(),
-			onError: () => passwordInput.current.focus(),
-			onFinish: () => reset(),
-		});
-	};
+        destroy(route('profile.destroy'), {
+            preserveScroll: true,
+            onSuccess: () => closeModal(),
+            onError: () => passwordInput.current.focus(),
+            onFinish: () => reset(),
+        });
+    };
 
-	const closeModal = () => {
-		setConfirmingUserDeletion(false);
+    const closeModal = () => {
+        setConfirmingUserDeletion(false);
 
-		clearErrors();
-		reset();
-	};
+        clearErrors();
+        reset();
+    };
 
-	return (
-		<section className={`space-y-6 ${className}`}>
-			<header>
-				<h2 className="text-lg font-medium text-gray-900">Delete Account</h2>
+    return (
+        <section className={`space-y-6 ${className}`}>
+            <header>
+                <h2 className="text-lg font-medium text-gray-900">Hapus Akun</h2>
 
-				<p className="mt-1 text-sm text-gray-600">
-					Once your account is deleted, all of its resources and data will be permanently deleted. Before
-					deleting your account, please download any data or information that you wish to retain.
-				</p>
-			</header>
+                <p className="mt-1 text-sm text-gray-600 md:max-w-[400px] w-full">
+                    Saat anda menghapus akun anda, semua data dan informasi akan dihapus secara permanen. Sebelum menghapus akun anda, tolong unduh data atau informasi yang anda inginkan untuk di simpan.
+                </p>
+            </header>
 
-			<DangerButton onClick={confirmUserDeletion}>Delete Account</DangerButton>
+            <Button variant="red" onClick={confirmUserDeletion}>Delete Account</Button>
 
-			<Modal show={confirmingUserDeletion} onClose={closeModal}>
-				<form onSubmit={deleteUser} className="p-6">
-					<h2 className="text-lg font-medium text-gray-900">Are you sure you want to delete your account?</h2>
+            <Modal show={confirmingUserDeletion} onClose={closeModal}>
+                <form onSubmit={deleteUser} className="p-6">
+                    <h2 className="text-lg font-medium text-gray-900">
+                        Apakah anda yakin ingin menghapus akun?
+                    </h2>
 
-					<p className="mt-1 text-sm text-gray-600">
-						Once your account is deleted, all of its resources and data will be permanently deleted. Please
-						enter your password to confirm you would like to permanently delete your account.
-					</p>
+                    <p className="mt-1 text-sm text-gray-600">
+                        Setelah akun Anda dihapus, semua sumber daya dan data terkait akan dihapus secara permanen. Silakan masukkan kata sandi Anda untuk mengonfirmasi bahwa Anda ingin menghapus akun Anda secara permanen.
+                    </p>
 
-					<div className="mt-6">
-						<InputLabel htmlFor="password" value="Password" className="sr-only" />
+                    <div className="mt-6">
+                        <InputLabel htmlFor="password" value="Password" className="sr-only" />
 
-						<TextInput
-							id="password"
-							type="password"
-							name="password"
-							ref={passwordInput}
-							value={data.password}
-							onChange={(e) => setData('password', e.target.value)}
-							className="mt-1 block w-3/4"
-							isFocused
-							placeholder="Password"
-						/>
+                        <TextInput
+                            id="password"
+                            type="password"
+                            name="password"
+                            ref={passwordInput}
+                            value={data.password}
+                            onChange={(e) => setData('password', e.target.value)}
+                            className="mt-1 block w-3/4"
+                            isFocused
+                            placeholder="Password"
+                            onErrors={errors.password && <InputError message={errors.password} className="mt-2" />}
+                        />
 
-						<InputError message={errors.password} className="mt-2" />
-					</div>
+                    </div>
 
-					<div className="mt-6 flex justify-end">
-						<SecondaryButton onClick={closeModal}>Cancel</SecondaryButton>
+                    <div className="mt-6 flex justify-end">
+                        <Button type="button" variant="blue" onClick={closeModal}>Batal</Button>
 
-						<DangerButton className="ms-3" disabled={processing}>
-							Delete Account
-						</DangerButton>
-					</div>
-				</form>
-			</Modal>
-		</section>
-	);
+                        <Button type="submit" variant="red" className="ms-3" disabled={processing}>
+                            Hapus Akun
+                        </Button>
+                    </div>
+                </form>
+            </Modal>
+        </section>
+    );
 }

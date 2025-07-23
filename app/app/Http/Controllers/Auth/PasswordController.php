@@ -24,6 +24,8 @@ class PasswordController extends Controller
             'password' => Hash::make($validated['password']),
         ]);
 
+        flashMessage('Password berhasil diubah', 'success');
+
         return back();
     }
 }
