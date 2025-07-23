@@ -44,12 +44,19 @@ export default function Sidebar({ navigations, children, header, description }) 
                         href={route('welcome')}
                         className="flex w-full flex-row items-center justify-center gap-1 border-b-[1px] border-slate-200 py-[1.16rem] text-[24px] font-bold text-[#0F114C] dark:border-slate-600 tracking-[0.03em] truncate"
                     >
-                        HMTI-<span className="text-red-500">NG</span>
+                        {isSidebarOpen ? (
+                            <div>
+                                HMTI-<span className="text-red-500">NG</span>
+                            </div>
+                        ) : (
+                            <span className="text-red-500">TI</span>
+                        )}
+
                     </Link>
                     <img
-                        src={`${window.location.origin}/assets/images/landing/icon-maskot-itcc-with-shield.png`}
+                        src={`${window.location.origin}/assets/icon/logo_hmti.png`}
                         alt="Profile"
-                        className={`${isSidebarOpen ? 'h-auto w-[160px]' : 'h-[50px] w-[50px]'}`}
+                        className={`${isSidebarOpen ? 'h-auto w-[80px] pt-5 pb-5' : 'h-[50px] w-[50px]'}`}
                     />
                     <nav className={`mt-1 w-full ${isSidebarOpen ? 'px-5' : ' '} text-center`}>
                         <ul className="font-bold">
