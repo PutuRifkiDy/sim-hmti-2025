@@ -2,6 +2,7 @@ import { Head, Link, usePage } from '@inertiajs/react';
 import { useState } from 'react';
 import Sidebar from './Partials/Sidebar';
 import { IconBerandaSideBar, IconProfileSideBar } from '@/Components/IconAdmin';
+import { Toaster } from '@/Components/ui/sonner';
 
 export default function DashboardLayout({ children, title }) {
     const route_sidebar = [
@@ -20,6 +21,7 @@ export default function DashboardLayout({ children, title }) {
     return (
         <>
             <Head title={title} />
+            <Toaster position="top-center" richColors />
             <Sidebar navigations={route_sidebar}>
                 {children}
             </Sidebar>

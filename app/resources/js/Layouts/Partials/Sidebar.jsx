@@ -14,6 +14,7 @@ import { ArrowRightStartOnRectangleIcon, Squares2X2Icon, SunIcon, UserCircleIcon
 import { UserIcon } from '@heroicons/react/24/outline';
 import { User } from 'lucide-react';
 import { ThemeSwitcher } from '@/Components/ThemeSwitcher';
+import { Avatar, AvatarFallback, AvatarImage } from '@/Components/ui/avatar';
 
 
 export default function Sidebar({ navigations, children, header, description }) {
@@ -37,14 +38,13 @@ export default function Sidebar({ navigations, children, header, description }) 
             <div className="flex flex-col justify-between md:flex-row">
                 {/* Sidebar */}
                 <aside
-                    className={`hidden flex-col items-center justify-start gap-6 overflow-hidden border-r-[1px] border-r-slate-200 transition-all duration-200 ease-in-out dark:border-r-slate-600 md:flex ${isSidebarOpen ? 'w-16 md:w-[300px]' : 'w-0 md:w-24'} fixed min-h-screen`}
+                    className={`hidden flex-col items-center justify-start gap-6 overflow-hidden border-r-[1px] border-r-slate-200 transition-all duration-200 ease-in-out dark:border-r-slate-600 md:flex py-3 ${isSidebarOpen ? 'w-16 md:w-[300px]' : 'w-0 md:w-24'} fixed min-h-screen`}
                 >
                     <Link
                         href={route('welcome')}
                         className="flex w-full flex-row items-center justify-center gap-1 border-b-[1px] border-slate-200 py-[1.16rem] text-[24px] font-bold text-[#0F114C] dark:border-slate-600 tracking-[0.03em] truncate"
                     >
-                        <img src={`${window.location.origin}/assets/images/image_for_icon_logo_itcc.png`} alt="" className="w-[80px] h-auto dark:hidden block" />
-                        <img src={`${window.location.origin}/assets/images/landing/ITCC.png`} alt="" className="w-[80px] h-auto dark:block hidden" />
+                        HMTI-<span className="text-red-500">NG</span>
                     </Link>
                     <img
                         src={`${window.location.origin}/assets/images/landing/icon-maskot-itcc-with-shield.png`}
@@ -111,7 +111,7 @@ export default function Sidebar({ navigations, children, header, description }) 
                 >
                     <div className="flex items-center justify-between border-b p-5">
                         <span className="text-xl font-bold text-[#0F114C]">
-                            ITCC{" "}<span className="text-[#264A9D]">2025</span>
+                            HMTI-<span className="text-red-500">NG</span>
                         </span>
                         <button onClick={() => setIsSidebarOpen(false)} className="">
                             <Bars3BottomRightIcon className="h-6 w-6 text-gray-600" />
@@ -192,9 +192,16 @@ export default function Sidebar({ navigations, children, header, description }) 
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
                                     <p className='cursor-pointer flex flex-row gap-4 justify-center items-center text-gray-800 dark:text-gray-200'>
-                                        <img src={`${window.location.origin}/assets/images/landing/icon_people_sidebar.png`} className="md:w-[40px] w-[50px] h-auto md:h-auto" alt="" />
+                                        {/* <img src={`${window.location.origin}/assets/images/landing/icon_people_sidebar.png`} className="md:w-[40px] w-[50px] h-auto md:h-auto" alt="" /> */}
+                                        <Avatar>
+                                            {auth.img_path ? (
+                                                <AvatarImage src={auth.img_path} alt={auth.name} />
+                                            ) : (
+                                                <AvatarFallback>{auth.nim.substring(0, 2)}</AvatarFallback>
+                                            )}
+                                        </Avatar>
                                         <div className='flex flex-col items-start'>
-                                            {auth.name}
+                                            {auth.name ?? auth.nim}
                                             <div className='flex flex-row gap-1 items-center'>
                                                 <div className='w-2 h-2 bg-green-700 rounded-full'></div>
                                                 <p className='text-green-500'>Online</p>

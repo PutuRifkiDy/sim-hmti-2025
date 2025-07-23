@@ -34,7 +34,7 @@ export default function Login({ status, canResetPassword }) {
                 <Card>
                     <CardHeader className="flex flex-col items-center justify-center">
                         <Link href="/" className="text-4xl font-black leading-relaxed tracking-tighter">
-                            RifsTasks<span className="text-red-500">.</span>
+                            HMTI-<span className="text-red-500">NG</span>
                         </Link>
                         <h2 className="text-left text-lg font-medium leading-relaxed tracking-tight text-muted-foreground">
                             Sign in to your account
@@ -76,6 +76,7 @@ export default function Login({ status, canResetPassword }) {
                                         )}
                                     </div> */}
                                     <div>
+                                        <InputLabel htmlFor="password" value="Password" />
                                         <TextInput
                                             id="password"
                                             type="password"

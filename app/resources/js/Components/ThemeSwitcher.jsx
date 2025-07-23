@@ -20,7 +20,6 @@ export function ThemeSwitcher() {
             localStorage.setItem('theme', 'dark');
         }
 
-        // matikan rotasi setelah selesai animasi (0.5 detik)
         setTimeout(() => setIsRotating(false), 500);
     };
 
