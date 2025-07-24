@@ -25,7 +25,13 @@ export default function DashboardLayout({ children, title, header, description }
             icon: <IconProfileSideBar />,
             text: "Master Sie",
             link: route('master-sie.index'),
-        }
+        },
+        {
+            icon: <IconProfileSideBar />,
+            text: "Master Periode",
+            link: route('master-period.index'),
+        },
+
     ];
 
     return (

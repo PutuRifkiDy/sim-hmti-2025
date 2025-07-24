@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\MasterPeriodController;
+use App\Http\Controllers\MasterPositionController;
 use App\Http\Controllers\MasterSieController;
 use App\Http\Controllers\MasterUserController;
 use App\Http\Controllers\ProfileController;
@@ -27,7 +29,7 @@ Route::controller(MasterUserController::class)->group(function () {
     Route::get('/master-user/{id}/edit', 'edit')->name('master-user.edit');
     Route::put('/master-user/{id}/update', 'update')->name('master-user.update');
     Route::delete('/master-user/{id}/delete', 'destroy')->name('master-user.destroy');
-});
+})->middleware('auth');
 
 Route::controller(MasterSieController::class)->group(function () {
     Route::get('/master-sie', 'index')->name('master-sie.index');
@@ -37,6 +39,15 @@ Route::controller(MasterSieController::class)->group(function () {
     Route::put('/master-sie/{id}/update', 'update')->name('master-sie.update');
     Route::delete('/master-sie/{id}/delete', 'destroy')->name('master-sie.destroy');
 });
+
+Route::controller(MasterPeriodController::class)->group(function () {
+    Route::get('/master-period', 'index')->name('master-period.index');
+    Route::get('/master-period/create', 'create')->name('master-period.create');
+    Route::post('/master-period/store', 'store')->name('master-period.store');
+    Route::get('/master-period/{id}/edit', 'edit')->name('master-period.edit');
+    Route::put('/master-period/{id}/update', 'update')->name('master-period.update');
+    Route::delete('/master-period/{id}/delete', 'destroy')->name('master-period.destroy');
+})->middleware('auth');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

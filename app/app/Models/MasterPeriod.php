@@ -14,6 +14,11 @@ class MasterPeriod extends Model
         'end_date',
     ];
 
+    protected $casts = [
+        'start_date' => 'date',
+        'end_date'   => 'date',
+    ];
+
     public function himpunans()
     {
         return $this->hasMany(Himpunan::class);
