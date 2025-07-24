@@ -22,6 +22,13 @@ export default function Index() {
     const master_sies = usePage().props.master_sies;
     const { props } = usePage();
 
+    const flash_message = usePage().props.flash_message;
+    useEffect(() => {
+        if (flash_message?.message) {
+            toast[flash_message.type || 'success'](flash_message.message);
+        }
+    }, [flash_message]);
+
     const [sies, setSies] = useState(master_sies);
     const [selectIdSie, setSelectIdSie] = useState(0);
     const [globalFilterValue, setGlobalFilterValue] = useState('');
@@ -154,7 +161,6 @@ export default function Index() {
                         onClick={() => modalFormOpenHandler(rowData.id)}>
                         <XCircleIcon className="text-[#E82323] w-5 h-5" />
                     </Button>
-
                 </div>
             </>
         );

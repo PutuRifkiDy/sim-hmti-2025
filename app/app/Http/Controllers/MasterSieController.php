@@ -34,12 +34,38 @@ class MasterSieController extends Controller
             'sie_name' => $request->sie_name,
         ]);
 
+        flashMessage("Sie $request->sie_name berhasil ditambahkan", 'success');
+
+        return to_route('master-sie.index');
+    }
+
+    public function edit($id): Response
+    {
+        $sie = MasterSie::find($id);
+
+        return inertia(component: 'MasterSie/Edit', props: [
+            'sie' => fn() => new MasterSieResource($sie),
+        ]);
+    }
+
+    public function update(MasterSieRequest $request, $id): RedirectResponse
+    {
+        $sie = MasterSie::find($id);
+        $sie->update([
+            'sie_name' => $request->sie_name,
+        ]);
+
+        flashMessage("Sie $request->sie_name berhasil diupdate", 'success');
+
         return to_route('master-sie.index');
     }
 
     public function destroy($id): RedirectResponse
     {
-        MasterSie::find($id)->delete();
+        $sie = MasterSie::find($id);
+        $sie->delete();
+
+        flashMessage("Sie $sie->sie_name berhasil dihapus", "success");
         return to_route('master-sie.index');
     }
 }

@@ -61,7 +61,7 @@ export default function Create() {
                                 onChange={(e) => setData('sie_name', e.target.value)}
                                 required
                                 isFocused
-                                placeholder="Contoh: Keamanan Angkasa Raya"
+                                placeholder="Contoh: Keamanan Alam Semesta"
                                 autoComplete="sie_name"
                                 onErrors={errors.sie_name && <InputError message={errors.sie_name} className="mt-2" />}
                             />
