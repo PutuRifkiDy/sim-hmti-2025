@@ -20,6 +20,11 @@ export default function DashboardLayout({ children, title, header, description }
             icon: <IconProfileSideBar />,
             text: "Master User",
             link: route('master-user.index'),
+        },
+        {
+            icon: <IconProfileSideBar />,
+            text: "Master Sie",
+            link: route('master-sie.index'),
         }
     ];
 

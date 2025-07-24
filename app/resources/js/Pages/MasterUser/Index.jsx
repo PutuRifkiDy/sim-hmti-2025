@@ -62,7 +62,6 @@ export default function Index() {
     const [loading, setLoading] = useState(true);
     const [modalOpen, setModalOpen] = useState(false);
     const [selectIdUser, setSelectIdUser] = useState(0);
-    console.log(selectIdUser);
     const dt = useRef(null);
 
     useEffect(() => {
