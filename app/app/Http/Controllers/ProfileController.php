@@ -43,7 +43,7 @@ class ProfileController extends Controller
         $user->fill($request->validated());
 
         $imgPath = $request->hasFile('img_path')
-        ? $this->update_file($request, $user, 'img_path', 'img_profile')
+        ? $this->update_file($request, $user, 'img_path', 'user/foto_profile')
         : ($user->img_path ?? null);
 
         if ($imgPath) {

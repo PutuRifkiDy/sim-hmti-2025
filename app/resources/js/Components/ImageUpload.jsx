@@ -27,7 +27,7 @@ export function ImageUpload({ imagePath, onChangeImage, errorMessage }) {
         if (imagePath && fullPath !== `${window.location.origin}/storage/`)
             return fullPath;
 
-        return `${window.location.origin}/assets/images/default_image_profile.png`;
+        return `${window.location.origin}/assets/icon/default_image_profile.png`;
     };
 
     return (

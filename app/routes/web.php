@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MasterUserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -17,6 +18,15 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::controller(MasterUserController::class)->group(function() {
+    Route::get('/master-user', 'index')->name('master-user.index');
+    Route::get('/master-user/create', 'create')->name('master-user.create');
+    Route::post('/master-user/store', 'store')->name('master-user.store');
+    Route::get('/master-user/{id}/edit', 'edit')->name('master-user.edit');
+    Route::put('/master-user/{id}/update', 'update')->name('master-user.update');
+    Route::delete('/master-user/{id}/delete', 'destroy')->name('master-user.destroy');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

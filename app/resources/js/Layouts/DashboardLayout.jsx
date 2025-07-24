@@ -15,6 +15,11 @@ export default function DashboardLayout({ children, title, header, description }
             icon: <IconProfileSideBar />,
             text: "Profil",
             link: route('profile.edit'),
+        },
+        {
+            icon: <IconProfileSideBar />,
+            text: "Master User",
+            link: route('master-user.index'),
         }
     ];
 

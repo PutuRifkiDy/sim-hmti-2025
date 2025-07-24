@@ -11,12 +11,11 @@ export default function Dashboard() {
         }
     }, [flash_message]);
     return (
-        <DashboardLayout header={<h2 className="text-xl font-semibold leading-tight text-gray-800">Dashboard</h2>}>
-            <Head title="Profile" />
 
-            <div className="py-12">
+        <div className="py-12">
 
-            </div>
-        </DashboardLayout>
+        </div>
     );
 }
+
+Dashboard.layout = (page) => <DashboardLayout children={page} title={"Dashboard"} header={"Dashboard"} description={"Kelola dashboard anda di page ini"}/>;
