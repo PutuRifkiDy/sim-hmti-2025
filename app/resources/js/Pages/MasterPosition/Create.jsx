@@ -1,72 +1,70 @@
+import DashboardLayout from "@/Layouts/DashboardLayout";
+import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
 import TextInput from "@/Components/TextInput";
 import { Button } from "@/Components/ui/button";
-import DashboardLayout from "@/Layouts/DashboardLayout";
+import { Card, CardContent } from "@/Components/ui/card";
 import { Transition } from "@headlessui/react";
-import { CheckBadgeIcon } from "@heroicons/react/24/solid";
-import { ArrowLeftIcon } from "@heroicons/react/24/solid";
+import { ArrowLeftIcon, CheckBadgeIcon } from "@heroicons/react/24/solid";
 import { Link, useForm, usePage } from "@inertiajs/react";
-
-export default function Edit() {
-    const sie = usePage().props.sie;
-    const {data, setData, processing, post, reset, errors, recentlySuccessful} = useForm({
-        sie_name: sie.sie_name ?? '',
-        _method: 'PUT'
+import { Input } from "postcss";
+import { useEffect } from "react";
+import { toast } from "sonner";
+export default function Create() {
+    const flash_message = usePage().props.flash_message;
+    useEffect(() => {
+        if (flash_message?.message) {
+            toast[flash_message.type || 'success'](flash_message.message);
+        }
+    }, [flash_message]);
+    const { data, setData, post, processing, errors, recentlySuccessful } = useForm({
+        title: '',
+        _method: 'POST'
     });
 
     const onHandleSubmit = (e) => {
         e.preventDefault();
-
-        post(route('master-sie.update', sie.id), {
+        post(route('master-position.store'), {
             preserveScroll: true,
             preserveState: true,
         });
-    }
-
-    const onHandleChange = (e) => {
-        setData(e.target.name, e.target.value);
-    }
+    };
     return (
-
         <>
             <div className="py-5">
                 <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
                     <div className='flex flex-row justify-between w-full'>
                         <header>
-                            <h2 className="text-lg font-medium text-gray-900">Update Sie</h2>
+                            <h2 className="text-lg font-medium text-gray-900">Tambah Jabatan</h2>
 
                             <p className="mt-1 text-sm text-gray-600">
-                                Update data sie di bawah ini
+                                Masukkan name jabatan untuk membuat jabatan
                             </p>
                         </header>
 
                         <Button variant="blue" type="button" asChild>
-                            <Link as="button" href={route('master-sie.index')} className="flex flex-row items-center text-[14px] font-bold">
+                            <Link as="button" href={route('master-position.index')} className="flex flex-row items-center text-[14px] font-bold">
                                 <ArrowLeftIcon className="w-3 h-3 mr-2 font-bold" />
                                 Kembali
                             </Link>
                         </Button>
                     </div>
-                    <form onSubmit={onHandleSubmit} className="mt-6 space-y-6">
-                        <div className='grid md:grid-cols-2 grid-cols-1 gap-5'>
-                            <div>
-                                <InputLabel htmlFor="sie_name" value="Nama Sie" />
-
-                                <TextInput
-                                    id="sie_name"
-                                    className="mt-1 block w-full"
-                                    name="sie_name"
-                                    type="text"
-                                    value={data.sie_name}
-                                    onChange={onHandleChange}
-                                    required
-                                    isFocused
-                                    placeholder="Masukkan sie_name anda"
-                                    autoComplete="sie_name"
-                                    onErrors={errors.sie_name && <InputError message={errors.sie_name} className='mt-2' />}
-                                />
-
-                            </div>
+                    <form onSubmit={onHandleSubmit} className="space-y-6">
+                        <div>
+                            <InputLabel htmlFor="title" value="Nama Jabatan" />
+                            <TextInput
+                                id="title"
+                                className="mt-1 block w-full"
+                                value={data.title}
+                                name="title"
+                                type="text"
+                                onChange={(e) => setData('title', e.target.value)}
+                                required
+                                isFocused
+                                placeholder="Contoh: Orang Himpunan"
+                                autoComplete="title"
+                                onErrors={errors.title && <InputError message={errors.title} className="mt-2" />}
+                            />
                         </div>
 
                         <div className="flex items-center gap-4">
@@ -92,4 +90,4 @@ export default function Edit() {
     );
 }
 
-Edit.layout = (page) => <DashboardLayout children={page} title={"Edit Master Sie"} />;
+Create.layout = (page) => <DashboardLayout children={page} title={"Create Master Sie"} />;

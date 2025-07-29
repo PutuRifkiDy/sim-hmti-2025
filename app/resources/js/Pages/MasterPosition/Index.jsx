@@ -1,22 +1,25 @@
-import Modal from "@/Components/Modal";
-import { Button } from "@/Components/ui/button";
-import { Card, CardContent } from "@/Components/ui/card";
 import DashboardLayout from "@/Layouts/DashboardLayout";
-import { DocumentArrowDownIcon, DocumentPlusIcon, EyeIcon, PencilSquareIcon, XCircleIcon } from "@heroicons/react/24/solid";
+import Dashboard from "../Dashboard";
+import { Card, CardContent } from "@/Components/ui/card";
 import { Link, router, usePage } from "@inertiajs/react";
-import { FilterMatchMode } from "primereact/api";
-import { Column } from "primereact/column";
-import { DataTable } from "primereact/datatable";
-import { IconField } from "primereact/iconfield";
-import { InputIcon } from "primereact/inputicon";
-import { InputText } from "primereact/inputtext";
-import { Tooltip } from "primereact/tooltip";
 import { useEffect, useRef, useState } from "react";
+import { classNames } from 'primereact/utils';
+import { FilterMatchMode, FilterOperator } from 'primereact/api';
+import { DataTable } from 'primereact/datatable';
+import { Column } from 'primereact/column';
+import { InputText } from 'primereact/inputtext';
+import { IconField } from 'primereact/iconfield';
+import { InputIcon } from 'primereact/inputicon';
+import { Tooltip } from 'primereact/tooltip';
+import { Avatar, AvatarFallback, AvatarImage } from "@/Components/ui/avatar";
+import { Button } from "@/Components/ui/button";
+import { DocumentArrowDownIcon, DocumentCheckIcon, DocumentPlusIcon, PencilSquareIcon, XCircleIcon } from "@heroicons/react/24/solid";
 import { toast } from "sonner";
+import Modal from "@/Components/Modal";
 
 export default function Index() {
-    const master_periods = usePage().props.master_periods;
 
+    const master_positions = usePage().props.master_positions;
     const { props } = usePage();
 
     const flash_message = usePage().props.flash_message;
@@ -26,15 +29,15 @@ export default function Index() {
         }
     }, [flash_message]);
 
-    const [periods, setPeriods] = useState(master_periods);
-    const [selectIdPeriods, setSelectIdPeriods] = useState(0);
+    const [positions, setPositions] = useState(master_positions);
+    const [selectIdPosition, setSelectIdPosition] = useState(0);
     const [globalFilterValue, setGlobalFilterValue] = useState('');
     const [loading, setLoading] = useState(true);
     const [modalOpen, setModalOpen] = useState(false);
 
-    const modalFormOpenHandler = (periodId) => {
+    const modalFormOpenHandler = (sieId) => {
         setModalOpen(true);
-        setSelectIdPeriods(periodId);
+        setSelectIdPosition(sieId);
     };
 
     useEffect(() => {
@@ -43,29 +46,26 @@ export default function Index() {
 
     const closeModal = () => {
         setModalOpen(false);
-        setSelectIdPeriods(0);
+        setSelectIdPosition(0);
     };
 
     const dt = useRef(null);
     const [filters, setFilters] = useState({
         global: { value: null, matchMode: FilterMatchMode.CONTAINS },
         title: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
-        start_date: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
-        end_date: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
     });
 
     useEffect(() => {
-        setPeriods(
-            props.master_periods.map((master_period) => {
+        setPositions(
+            props.master_positions.map((master_position) => {
                 return {
-                    id: master_period.id,
-                    title: master_period.title ?? '',
-                    start_date: master_period.start_date ?? '',
-                    end_date: master_period.end_date ?? '',
+                    id: master_position.id,
+                    title: master_position.title ?? '',
                 };
             })
         );
-    }, [props.master_periods]);
+    }, [props.master_positions]);
+
 
     const onGlobalFilterChange = (e) => {
         const value = e.target.value;
@@ -77,27 +77,24 @@ export default function Index() {
         setGlobalFilterValue(value);
     };
 
-
     const exportCSV = (selectionOnly) => {
         dt.current.exportCSV({ selectionOnly });
     };
     const exportExcel = () => {
         import('xlsx').then((xlsx) => {
 
-            const exportData = master_periods.map(master_period => ({
-                ID: master_period.id ?? '',
-                Title: master_period.title ?? '',
-                StartDate: master_period.start_date ?? '',
-                EndDate: master_period.end_date ?? '',
+            const exportData = master_positions.map(master_position => ({
+                ID: master_position.id ?? '',
+                Title: master_position.title ?? '',
             }));
             const worksheet = xlsx.utils.json_to_sheet(exportData);
-            const workbook = { Sheets: { 'master_periods': worksheet }, SheetNames: ['master_periods'] };
+            const workbook = { Sheets: { 'master_position': worksheet }, SheetNames: ['master_position'] };
             const excelBuffer = xlsx.write(workbook, {
                 bookType: 'xlsx',
                 type: 'array'
             });
 
-            saveAsExcelFile(excelBuffer, 'master_periods');
+            saveAsExcelFile(excelBuffer, 'master_positions');
         });
     };
 
@@ -133,7 +130,12 @@ export default function Index() {
                     </Button>
                 </div>
                 <Button variant="blue" type="button" asChild>
-                    <Link as="button" href={route('master-period.create')} className="text-[14px] font-bold py-5">Tambah Periode</Link>
+                    <Link
+                        as="button"
+                        href={route('master-position.create')}
+                        className="text-[14px] font-bold py-5">
+                        Tambah Jabatan
+                    </Link>
                 </Button>
             </div>
         );
@@ -145,26 +147,14 @@ export default function Index() {
                 <div className="flex flex-row gap-2 items-center action_buttons">
                     <Button
                         variant="none"
-                        data-pr-tooltip="Lihat anggota di periode ini"
-                        className="w-0"
-                    >
-                        <Link
-                            className="flex justify-center items-center border-2 rounded-md border-[#4880FF] p-1.5 hover:bg-[#4880FF]/40 transition-all duration-300 ease-in-out"
-                            type="button"
-                            href={route('master-himpunan.index', rowData.id)}>
-                            <EyeIcon className="text-[#4880FF] w-5 h-5" />
-                        </Link>
-                    </Button>
-
-                    <Button
-                        variant="none"
                         data-pr-tooltip="Edit data"
                         className="w-0"
                     >
                         <Link
                             className="flex justify-center items-center border-2 rounded-md border-[#dfe44d] p-1.5 hover:bg-[#4DE45C]/20 transition-all duration-300 ease-in-out"
                             type="button"
-                            href={route('master-period.edit', rowData.id)}>
+
+                            href={route('master-position.edit', rowData.id)}>
                             <PencilSquareIcon className="text-[#dfe44d] w-5 h-5" />
                         </Link>
                     </Button>
@@ -180,8 +170,6 @@ export default function Index() {
             </>
         );
     }
-
-    console.log(master_periods);
     return (
         <>
             <div className="py-5">
@@ -194,12 +182,12 @@ export default function Index() {
                                     <Tooltip target=".action_buttons>button" position="bottom" />
                                     <DataTable
                                         header={renderHeader()}
-                                        value={periods}
+                                        value={positions}
                                         ref={dt}
                                         paginator rows={5}
                                         loading={loading}
                                         filters={filters}
-                                        globalFilterFields={['title', 'start_date', 'end_date']}
+                                        globalFilterFields={['sie_name']}
                                         emptyMessage="Tidak ada sie yang tersedia."
                                         rowsPerPageOptions={[5, 10, 25, 50]}
                                         tableStyle={{ minWidth: '50rem' }}
@@ -218,18 +206,6 @@ export default function Index() {
                                             className="min-w-[12rem]">
                                         </Column>
                                         <Column
-                                            field="start_date"
-                                            header="Nama Sie"
-                                            body={(rowData) => rowData.start_date ? rowData.start_date : '-'}
-                                            className="min-w-[12rem]">
-                                        </Column>
-                                        <Column
-                                            field="end_date"
-                                            header="Nama Sie"
-                                            body={(rowData) => rowData.end_date ? rowData.end_date : '-'}
-                                            className="min-w-[12rem]">
-                                        </Column>
-                                        <Column
                                             field="action"
                                             header="Aksi"
                                             body={actionTemplate}
@@ -239,7 +215,7 @@ export default function Index() {
                                     <Modal show={modalOpen} onClose={closeModal} maxWidth="md" >
                                         <div className="p-5">
                                             <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
-                                                Apakah anda yakin menghapus periode ini
+                                                Apakah anda yakin menghapus jabatan ini
                                             </h2>
 
                                             <p className="mt-1 text-sm text-gray-600 dark:text-white">
@@ -251,7 +227,7 @@ export default function Index() {
                                                 <Button
                                                     variant="red"
                                                     onClick={() => {
-                                                        router.delete(route('master-period.destroy', { id: selectIdPeriods }), {
+                                                        router.delete(route('master-position.destroy', { id: selectIdPosition }), {
                                                             preserveScroll: true,
                                                             preserveState: true,
                                                             onSuccess: () => {
@@ -272,9 +248,8 @@ export default function Index() {
                     </Card>
                 </div>
             </div>
-
         </>
     );
 }
 
-Index.layout = (page) => <DashboardLayout children={page} title={"Master Periode"} header={"Master Periode"} description={"Kelola Periode di page ini"} />;
+Index.layout = (page) => <DashboardLayout children={page} title={"Master Position"} header={"Master Position"} description={"Kelola master position di page ini"} />;

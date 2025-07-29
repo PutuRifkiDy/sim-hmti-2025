@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MasterHimpunanController;
 use App\Http\Controllers\MasterPeriodController;
 use App\Http\Controllers\MasterPositionController;
 use App\Http\Controllers\MasterSieController;
@@ -47,6 +48,21 @@ Route::controller(MasterPeriodController::class)->group(function () {
     Route::get('/master-period/{id}/edit', 'edit')->name('master-period.edit');
     Route::put('/master-period/{id}/update', 'update')->name('master-period.update');
     Route::delete('/master-period/{id}/delete', 'destroy')->name('master-period.destroy');
+})->middleware('auth');
+
+Route::controller(MasterPositionController::class)->group(function () {
+    Route::get('/master-position', 'index')->name('master-position.index');
+    Route::get('/master-position/create', 'create')->name('master-position.create');
+    Route::post('/master-position/store', 'store')->name('master-position.store');
+    Route::get('/master-position/{id}/edit', 'edit')->name('master-position.edit');
+    Route::put('/master-position/{id}/update', 'update')->name('master-position.update');
+    Route::delete('/master-position/{id}/delete', 'destroy')->name('master-position.destroy');
+});
+
+Route::controller(MasterHimpunanController::class)->group(function() {
+    Route::get('/master-himpunan/{id}/show', 'index')->name('master-himpunan.index');
+    Route::get('/master-himpunan/{id}/create', 'create')->name('master-himpunan.create');
+    Route::post('/master-himpunan/store', 'store')->name('master-himpunan.store');
 })->middleware('auth');
 
 Route::middleware('auth')->group(function () {

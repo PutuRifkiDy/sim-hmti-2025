@@ -55,7 +55,7 @@ class MasterSieController extends Controller
             'sie_name' => $request->sie_name,
         ]);
 
-        flashMessage("Sie $request->sie_name berhasil diupdate", 'success');
+        flashMessage("Sie ini berhasil diupdate", 'success');
 
         return to_route('master-sie.index');
     }

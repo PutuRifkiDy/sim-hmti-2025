@@ -59,7 +59,7 @@ class MasterPeriodController extends Controller
             'end_date'   => $request->end_date,
         ]);
 
-        flashMessage("Periode $request->title berhasil diupdate", 'success');
+        flashMessage("Periode ini berhasil diupdate", 'success');
         return to_route('master-period.index');
     }
 

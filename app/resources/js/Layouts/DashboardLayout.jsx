@@ -31,6 +31,11 @@ export default function DashboardLayout({ children, title, header, description }
             text: "Master Periode",
             link: route('master-period.index'),
         },
+        {
+            icon: <IconProfileSideBar />,
+            text: "Master Jabatan",
+            link: route('master-position.index'),
+        },
 
     ];
 

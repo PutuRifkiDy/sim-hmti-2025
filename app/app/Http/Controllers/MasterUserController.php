@@ -90,7 +90,7 @@ class MasterUserController extends Controller
             'img_path'     => $request->hasFile('img_path') ? $this->upload_file($request, 'img_path', 'user/foto_profile') : $user->img_path,
         ]);
 
-        flashMessage('Mahasiswa berhasil diupdate', 'success');
+        flashMessage('Mahasiswa ini berhasil diupdate', 'success');
 
         return to_route('master-user.index');
     }

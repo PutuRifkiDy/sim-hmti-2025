@@ -8,16 +8,16 @@ import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 import { Link, useForm, usePage } from "@inertiajs/react";
 
 export default function Edit() {
-    const sie = usePage().props.sie;
-    const {data, setData, processing, post, reset, errors, recentlySuccessful} = useForm({
-        sie_name: sie.sie_name ?? '',
+    const position = usePage().props.position;
+    const { data, setData, processing, post, reset, errors, recentlySuccessful } = useForm({
+        title: position.title ?? '',
         _method: 'PUT'
     });
 
     const onHandleSubmit = (e) => {
         e.preventDefault();
 
-        post(route('master-sie.update', sie.id), {
+        post(route('master-position.update', position.id), {
             preserveScroll: true,
             preserveState: true,
         });
@@ -33,15 +33,15 @@ export default function Edit() {
                 <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
                     <div className='flex flex-row justify-between w-full'>
                         <header>
-                            <h2 className="text-lg font-medium text-gray-900">Update Sie</h2>
+                            <h2 className="text-lg font-medium text-gray-900">Update Jabatan</h2>
 
                             <p className="mt-1 text-sm text-gray-600">
-                                Update data sie di bawah ini
+                                Update data jabatan di bawah ini
                             </p>
                         </header>
 
                         <Button variant="blue" type="button" asChild>
-                            <Link as="button" href={route('master-sie.index')} className="flex flex-row items-center text-[14px] font-bold">
+                            <Link as="button" href={route('master-position.index')} className="flex flex-row items-center text-[14px] font-bold">
                                 <ArrowLeftIcon className="w-3 h-3 mr-2 font-bold" />
                                 Kembali
                             </Link>
@@ -50,20 +50,20 @@ export default function Edit() {
                     <form onSubmit={onHandleSubmit} className="mt-6 space-y-6">
                         <div className='grid md:grid-cols-2 grid-cols-1 gap-5'>
                             <div>
-                                <InputLabel htmlFor="sie_name" value="Nama Sie" />
+                                <InputLabel htmlFor="title" value="Nama Jabatan" />
 
                                 <TextInput
-                                    id="sie_name"
+                                    id="title"
                                     className="mt-1 block w-full"
-                                    name="sie_name"
+                                    name="title"
                                     type="text"
-                                    value={data.sie_name}
+                                    value={data.title}
                                     onChange={onHandleChange}
                                     required
                                     isFocused
-                                    placeholder="Masukkan sie_name anda"
-                                    autoComplete="sie_name"
-                                    onErrors={errors.sie_name && <InputError message={errors.sie_name} className='mt-2' />}
+                                    placeholder="Contoh: Orang Himpunan"
+                                    autoComplete="title"
+                                    onErrors={errors.title && <InputError message={errors.title} className='mt-2' />}
                                 />
 
                             </div>
@@ -92,4 +92,4 @@ export default function Edit() {
     );
 }
 
-Edit.layout = (page) => <DashboardLayout children={page} title={"Edit Master Sie"} />;
+Edit.layout = (page) => <DashboardLayout children={page} title={"Edit Master Position"} />;
