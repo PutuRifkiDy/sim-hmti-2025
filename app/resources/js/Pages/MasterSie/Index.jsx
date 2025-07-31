@@ -20,6 +20,7 @@ import Modal from "@/Components/Modal";
 export default function Index() {
 
     const master_sies = usePage().props.master_sies;
+    const total_sie = usePage().props.total_sie;
     const { props } = usePage();
 
     const flash_message = usePage().props.flash_message;
@@ -169,6 +170,16 @@ export default function Index() {
         <>
             <div className="py-5">
                 <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
+                    <div className="flex flex-col md:flex-row justify-between gap-2 mt-5">
+                        <div className="flex flex-row gap-10 rounded-[14px] p-5 bg-white  shadow">
+                            <div className="flex flex-col gap-1">
+                                <p className="font-medium text-[16px] light:text-[#202224]/70  tracking-[0.03em]">Jumlah Sie</p>
+                                <p className=" font-bold text-[28px] tracking-[1px]">{total_sie}</p>
+                            </div>
+                            <img src="/assets/icon/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
+                        </div>
+
+                    </div>
                     <Card className="dark:bg-[#040529] dark:border dark:border-white rounded-xl">
                         <CardContent className="overflow-hidden">
                             <div className="my-8">

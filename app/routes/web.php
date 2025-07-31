@@ -3,6 +3,7 @@
 use App\Http\Controllers\MasterHimpunanController;
 use App\Http\Controllers\MasterPeriodController;
 use App\Http\Controllers\MasterPositionController;
+use App\Http\Controllers\MasterProgramKerjaController;
 use App\Http\Controllers\MasterSieController;
 use App\Http\Controllers\MasterUserController;
 use App\Http\Controllers\ProfileController;
@@ -59,7 +60,7 @@ Route::controller(MasterPositionController::class)->group(function () {
     Route::delete('/master-position/{id}/delete', 'destroy')->name('master-position.destroy');
 });
 
-Route::controller(MasterHimpunanController::class)->group(function() {
+Route::controller(MasterHimpunanController::class)->group(function () {
     Route::get('/master-period/master-himpunan/{id}/show', 'index')->name('master-himpunan.index');
     Route::get('/master-period/master-himpunan/create/{id}', 'create')->name('master-himpunan.create');
     Route::post('/master-period/master-himpunan/store/{id}', 'store')->name('master-himpunan.store');
@@ -67,6 +68,15 @@ Route::controller(MasterHimpunanController::class)->group(function() {
     Route::put('/master-period/master-himpunan/{id}/update', 'update')->name('master-himpunan.update');
     Route::delete('/master-period/master-himpunan/{id}/delete', 'destroy')->name('master-himpunan.destroy');
 })->middleware('auth');
+
+Route::controller(MasterProgramKerjaController::class)->group(function () {
+    Route::get('/master-period/master-program-kerja/{id}/show', 'index')->name('master-program-kerja.index');
+    Route::get('/master-period/master-program-kerja/create/{id}', 'create')->name('master-program-kerja.create');
+    Route::post('/master-period/master-program-kerja/store/{id}', 'store')->name('master-program-kerja.store');
+    Route::get('/master-period/master-program-kerja/{id}/edit', 'edit')->name('master-program-kerja.edit');
+    Route::put('/master-period/master-program-kerja/{id}/update', 'update')->name('master-program-kerja.update');
+    Route::delete('/master-period/master-program-kerja/{id}/delete', 'destroy')->name('master-program-kerja.destroy');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

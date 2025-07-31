@@ -19,9 +19,11 @@ class MasterPositionController extends Controller
         }
 
         $master_positions = MasterPosition::get();
+        $total_position = MasterPosition::count();
 
         return inertia(component: 'MasterPosition/Index', props: [
             'master_positions' => MasterPositionResource::collection($master_positions),
+            'total_position'  => $total_position
         ]);
     }
 

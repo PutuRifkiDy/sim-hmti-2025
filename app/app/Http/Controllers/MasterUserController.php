@@ -22,9 +22,11 @@ class MasterUserController extends Controller
         }
 
         $master_users = User::get();
+        $total_user = User::count();
 
         return inertia(component: 'MasterUser/Index', props: [
             'master_users' => UserSingleResource::collection($master_users),
+            'total_user'  => $total_user
         ]);
     }
 

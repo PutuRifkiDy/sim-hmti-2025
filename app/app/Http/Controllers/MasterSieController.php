@@ -17,9 +17,11 @@ class MasterSieController extends Controller
         }
 
         $master_sies = MasterSie::get();
+        $total_sie = MasterSie::count();
 
         return inertia(component: 'MasterSie/Index', props: [
             'master_sies' => MasterSieResource::collection($master_sies),
+            'total_sie'  => $total_sie
         ]);
     }
 

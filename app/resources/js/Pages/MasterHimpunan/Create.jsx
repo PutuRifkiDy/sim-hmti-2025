@@ -56,7 +56,7 @@ export default function Create() {
                 preserveState: true,
                 onError: () => {
                     reset('user_id', 'position_id');
-                    toast.error('Input tidak valid. Form telah direset.');
+                    toast.error('Input tidak valid. Form telah direset. Silahkan isi kembali form ini.');
                 }
             });
             setIsReadyToSubmit(false);

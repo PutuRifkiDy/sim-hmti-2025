@@ -12,13 +12,14 @@ import { InputIcon } from 'primereact/inputicon';
 import { Tooltip } from 'primereact/tooltip';
 import { Avatar, AvatarFallback, AvatarImage } from "@/Components/ui/avatar";
 import { Button } from "@/Components/ui/button";
-import { DocumentArrowDownIcon, DocumentCheckIcon, DocumentPlusIcon, PencilSquareIcon, XCircleIcon } from "@heroicons/react/24/solid";
+import { DocumentArrowDownIcon, DocumentCheckIcon, DocumentPlusIcon, PencilSquareIcon, UserIcon, XCircleIcon } from "@heroicons/react/24/solid";
 import { toast } from "sonner";
 import Modal from "@/Components/Modal";
 
 export default function Index() {
     const { props } = usePage();
     const master_users = usePage().props.master_users;
+    const total_user = usePage().props.total_user;
     const [users, setUsers] = useState(master_users);
     const flash_message = usePage().props.flash_message;
     useEffect(() => {
@@ -204,6 +205,17 @@ export default function Index() {
         <>
             <div className="py-5">
                 <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
+                    <div className="flex flex-col md:flex-row justify-between gap-2 mt-5">
+                        <div className="flex flex-row gap-10 rounded-[14px] p-5 bg-white  shadow">
+                            <div className="flex flex-col gap-1">
+                                <p className="font-medium text-[16px] light:text-[#202224]/70  tracking-[0.03em]">Jumlah Pengguna</p>
+                                <p className=" font-bold text-[28px] tracking-[1px]">{total_user}</p>
+                            </div>
+                            <img src="/assets/icon/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
+                            {/* <UserIcon className="w-[60px] h-[60px]" /> */}
+                        </div>
+
+                    </div>
                     <Card className="dark:bg-[#040529] dark:border dark:border-white rounded-xl">
                         <CardContent className="overflow-hidden">
                             <div className="my-8">

@@ -268,7 +268,7 @@ export default function MasterHimpunan() {
                                         loading={loading}
                                         filters={filters}
                                         globalFilterFields={['position.title', 'user.nim', 'user.name']}
-                                        emptyMessage="Tidak ada anggota himpunan yang tersedia di periode ini."
+                                        emptyMessage="Tidak ada fungsionaris yang tersedia di periode ini."
                                         rowsPerPageOptions={[5, 10, 25, 50]}
                                         tableStyle={{ minWidth: '50rem' }}
                                         paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"

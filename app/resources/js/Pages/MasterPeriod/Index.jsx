@@ -16,6 +16,9 @@ import { toast } from "sonner";
 
 export default function Index() {
     const master_periods = usePage().props.master_periods;
+    const total_period = usePage().props.total_period;
+    const total_fungsionaris = usePage().props.total_fungsionaris;
+    const total_programkerja = usePage().props.total_programkerja;
 
     const { props } = usePage();
 
@@ -145,6 +148,19 @@ export default function Index() {
                 <div className="flex flex-row gap-2 items-center action_buttons">
                     <Button
                         variant="none"
+                        data-pr-tooltip="Lihat program kerja di periode ini"
+                        className="w-0"
+                    >
+                        <Link
+                            className="flex justify-center items-center border-2 rounded-md border-[#3ff876] p-1.5 hover:bg-[#3ff876]/40 transition-all duration-300 ease-in-out"
+                            type="button"
+                            href={route('master-program-kerja.index', rowData.id)}>
+                            <EyeIcon className="text-[#3ff876] w-5 h-5" />
+                        </Link>
+                    </Button>
+
+                    <Button
+                        variant="none"
                         data-pr-tooltip="Lihat anggota di periode ini"
                         className="w-0"
                     >
@@ -186,6 +202,29 @@ export default function Index() {
         <>
             <div className="py-5">
                 <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
+                    <div className="flex flex-col md:flex-row justify-between gap-2 mt-5">
+                        <div className="flex flex-row gap-10 rounded-[14px] p-5 bg-white  shadow">
+                            <div className="flex flex-col gap-1">
+                                <p className="font-medium text-[16px] light:text-[#202224]/70  tracking-[0.03em]">Jumlah Periode</p>
+                                <p className=" font-bold text-[28px] tracking-[1px]">{total_period}</p>
+                            </div>
+                            <img src="/assets/icon/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
+                        </div>
+                        <div className="flex flex-row gap-10 rounded-[14px] p-5 bg-white  shadow">
+                            <div className="flex flex-col gap-1">
+                                <p className="font-medium text-[16px] light:text-[#202224]/70  tracking-[0.03em]">Jumlah Fungsionaris</p>
+                                <p className=" font-bold text-[28px] tracking-[1px]">{total_fungsionaris}</p>
+                            </div>
+                            <img src="/assets/icon/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
+                        </div>
+                        <div className="flex flex-row gap-10 rounded-[14px] p-5 bg-white  shadow">
+                            <div className="flex flex-col gap-1">
+                                <p className="font-medium text-[16px] light:text-[#202224]/70  tracking-[0.03em]">Jumlah Program Kerja</p>
+                                <p className=" font-bold text-[28px] tracking-[1px]">{total_programkerja}</p>
+                            </div>
+                            <img src="/assets/icon/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
+                        </div>
+                    </div>
                     <Card className="dark:bg-[#040529] dark:border dark:border-white rounded-xl">
                         <CardContent className="overflow-hidden">
                             <div className="my-8">
@@ -200,7 +239,7 @@ export default function Index() {
                                         loading={loading}
                                         filters={filters}
                                         globalFilterFields={['title', 'start_date', 'end_date']}
-                                        emptyMessage="Tidak ada sie yang tersedia."
+                                        emptyMessage="Tidak ada periode yang tersedia."
                                         rowsPerPageOptions={[5, 10, 25, 50]}
                                         tableStyle={{ minWidth: '50rem' }}
                                         paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
@@ -213,19 +252,19 @@ export default function Index() {
                                         </Column>
                                         <Column
                                             field="title"
-                                            header="Nama Sie"
+                                            header="Nama Periode"
                                             body={(rowData) => rowData.title ? rowData.title : '-'}
                                             className="min-w-[12rem]">
                                         </Column>
                                         <Column
                                             field="start_date"
-                                            header="Nama Sie"
+                                            header="Periode Mulai"
                                             body={(rowData) => rowData.start_date ? rowData.start_date : '-'}
                                             className="min-w-[12rem]">
                                         </Column>
                                         <Column
                                             field="end_date"
-                                            header="Nama Sie"
+                                            header="Periode Selesai"
                                             body={(rowData) => rowData.end_date ? rowData.end_date : '-'}
                                             className="min-w-[12rem]">
                                         </Column>

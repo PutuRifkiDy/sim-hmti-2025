@@ -24,4 +24,9 @@ class MasterPeriod extends Model
         return $this->hasMany(Himpunan::class);
     }
 
+    public function program_kerjas()
+    {
+        return $this->hasMany(MasterProgramKerja::class);
+    }
+
 }

@@ -3,7 +3,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\MasterPeriodeRequest;
 use App\Http\Resources\MasterPeriodResource;
+use App\Models\Himpunan;
 use App\Models\MasterPeriod;
+use App\Models\MasterProgramKerja;
 use Illuminate\Http\RedirectResponse;
 use Inertia\Response;
 
@@ -18,9 +20,15 @@ class MasterPeriodController extends Controller
         }
 
         $master_periods = MasterPeriod::get();
+        $total_period = MasterPeriod::count();
+        $total_fungsionaris = Himpunan::count();
+        $total_programkerja = MasterProgramKerja::count();
 
         return inertia(component: 'MasterPeriod/Index', props: [
             'master_periods' => MasterPeriodResource::collection($master_periods),
+            'total_period'  => $total_period,
+            'total_fungsionaris'  => $total_fungsionaris,
+            'total_programkerja'  => $total_programkerja
         ]);
     }
 
