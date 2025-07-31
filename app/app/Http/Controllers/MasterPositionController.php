@@ -1,17 +1,15 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Http\Requests\MasterPositionRequest;
 use App\Http\Resources\MasterPositionResource;
 use App\Models\MasterPosition;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Inertia\Response;
 
 class MasterPositionController extends Controller
 {
-    public function index(): Response|RedirectResponse
+    public function index(): Response | RedirectResponse
     {
         $user_login = auth()->user();
         if (! $user_login) {
@@ -19,15 +17,15 @@ class MasterPositionController extends Controller
         }
 
         $master_positions = MasterPosition::get();
-        $total_position = MasterPosition::count();
+        $total_position   = MasterPosition::count();
 
         return inertia(component: 'MasterPosition/Index', props: [
             'master_positions' => MasterPositionResource::collection($master_positions),
-            'total_position'  => $total_position
+            'total_position'   => $total_position,
         ]);
     }
 
-    public function create(): Response|RedirectResponse
+    public function create(): Response | RedirectResponse
     {
         $user_login = auth()->user();
 
@@ -49,7 +47,7 @@ class MasterPositionController extends Controller
         return to_route('master-position.index');
     }
 
-    public function edit($id): Response|RedirectResponse
+    public function edit($id): Response | RedirectResponse
     {
         $user_login = auth()->user();
         if (! $user_login) {

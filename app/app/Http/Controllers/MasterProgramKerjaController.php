@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Http\Requests\MasterProgramKerjaRequest;
@@ -9,7 +8,6 @@ use App\Models\MasterPeriod;
 use App\Models\MasterProgramKerja;
 use App\Traits\HasFile;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Inertia\Response;
 
 class MasterProgramKerjaController extends Controller
@@ -18,13 +16,12 @@ class MasterProgramKerjaController extends Controller
     public function index($idPeriod): Response | RedirectResponse
     {
         $user = auth()->user();
-        if (!$user) {
+        if (! $user) {
             return to_route('login');
         }
 
         $prokers = MasterProgramKerja::where('period_id', $idPeriod)->with('period')->get();
-        $period = MasterPeriod::find($idPeriod);
-
+        $period  = MasterPeriod::find($idPeriod);
 
         return inertia(component: 'MasterProgramKerja/Index', props: [
             'prokers' => MasterProgramKerjaResource::collection($prokers),

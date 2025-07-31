@@ -19,16 +19,16 @@ class MasterPeriodController extends Controller
             return to_route('login');
         }
 
-        $master_periods = MasterPeriod::get();
-        $total_period = MasterPeriod::count();
+        $master_periods     = MasterPeriod::get();
+        $total_period       = MasterPeriod::count();
         $total_fungsionaris = Himpunan::count();
         $total_programkerja = MasterProgramKerja::count();
 
         return inertia(component: 'MasterPeriod/Index', props: [
-            'master_periods' => MasterPeriodResource::collection($master_periods),
-            'total_period'  => $total_period,
-            'total_fungsionaris'  => $total_fungsionaris,
-            'total_programkerja'  => $total_programkerja
+            'master_periods'     => MasterPeriodResource::collection($master_periods),
+            'total_period'       => $total_period,
+            'total_fungsionaris' => $total_fungsionaris,
+            'total_programkerja' => $total_programkerja,
         ]);
     }
 
