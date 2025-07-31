@@ -2,7 +2,7 @@ import Modal from "@/Components/Modal";
 import { Button } from "@/Components/ui/button";
 import { Card, CardContent } from "@/Components/ui/card";
 import DashboardLayout from "@/Layouts/DashboardLayout";
-import { DocumentArrowDownIcon, DocumentPlusIcon, EyeIcon, PencilSquareIcon, XCircleIcon } from "@heroicons/react/24/solid";
+import { DocumentArrowDownIcon, DocumentPlusIcon, EyeIcon, PencilSquareIcon, UserGroupIcon, XCircleIcon } from "@heroicons/react/24/solid";
 import { Link, router, usePage } from "@inertiajs/react";
 import { FilterMatchMode } from "primereact/api";
 import { Column } from "primereact/column";
@@ -152,7 +152,7 @@ export default function Index() {
                             className="flex justify-center items-center border-2 rounded-md border-[#4880FF] p-1.5 hover:bg-[#4880FF]/40 transition-all duration-300 ease-in-out"
                             type="button"
                             href={route('master-himpunan.index', rowData.id)}>
-                            <EyeIcon className="text-[#4880FF] w-5 h-5" />
+                            <UserGroupIcon className="text-[#4880FF] w-5 h-5" />
                         </Link>
                     </Button>
 

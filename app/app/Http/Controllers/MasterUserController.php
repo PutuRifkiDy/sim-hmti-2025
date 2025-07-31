@@ -43,10 +43,18 @@ class MasterUserController extends Controller
         $nimsGenerate = [];
 
         for ($i = $start; $i <= $end; $i++) {
-            $nim            = $angkatan . '0555100' . $i;
+            if ($i < 10) {
+                $nim_middle = '0555100';
+            } elseif ($i >= 10 && $i < 100) {
+                $nim_middle = '055510';
+            } else {
+                $nim_middle = '05551';
+            }
+            $nim            = $angkatan . $nim_middle . $i;
             $nimsGenerate[] = $nim;
             $user[]         = [
                 'nim'        => $nim,
+                'name'       => $nim,
                 'password'   => bcrypt($nim),
                 'created_at' => Carbon::now()->format('Y-m-d'),
                 'updated_at' => Carbon::now()->format('Y-m-d'),

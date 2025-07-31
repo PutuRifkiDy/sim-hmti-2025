@@ -60,9 +60,12 @@ Route::controller(MasterPositionController::class)->group(function () {
 });
 
 Route::controller(MasterHimpunanController::class)->group(function() {
-    Route::get('/master-himpunan/{id}/show', 'index')->name('master-himpunan.index');
-    Route::get('/master-himpunan/{id}/create', 'create')->name('master-himpunan.create');
-    Route::post('/master-himpunan/store', 'store')->name('master-himpunan.store');
+    Route::get('/master-period/master-himpunan/{id}/show', 'index')->name('master-himpunan.index');
+    Route::get('/master-period/master-himpunan/create/{id}', 'create')->name('master-himpunan.create');
+    Route::post('/master-period/master-himpunan/store/{id}', 'store')->name('master-himpunan.store');
+    Route::get('/master-period/master-himpunan/{id}/edit', 'edit')->name('master-himpunan.edit');
+    Route::put('/master-period/master-himpunan/{id}/update', 'update')->name('master-himpunan.update');
+    Route::delete('/master-period/master-himpunan/{id}/delete', 'destroy')->name('master-himpunan.destroy');
 })->middleware('auth');
 
 Route::middleware('auth')->group(function () {

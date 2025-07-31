@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('position_id')->constrained('master_positions')->cascadeOnDelete();
             $table->foreignId('period_id')->constrained('master_periods')->cascadeOnDelete();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->string('img_himpunan_path')->nullable();
             $table->timestamps();
         });
     }

@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             MasterSieSeeder::class,
             MasterPeriodSeeder::class,
-            MasterPositionSeeder::class
+            MasterPositionSeeder::class,
+            HimpunanSeeder::class
         ]);
     }
 }

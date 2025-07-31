@@ -14,6 +14,7 @@ class Himpunan extends Model
         'position_id',
         'period_id',
         'user_id',
+        'img_himpunan_path',
     ];
 
     public function user()
