@@ -136,6 +136,7 @@ export default function Create() {
                             <AutoComplete
                                 multiple
                                 field="label"
+                                dropdown
                                 value={data.user_id}
                                 suggestions={items}
                                 completeMethod={search}

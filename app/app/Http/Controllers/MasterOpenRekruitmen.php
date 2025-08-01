@@ -24,9 +24,11 @@ class MasterOpenRekruitmen extends Controller
         }
 
         $oprecs = Oprec::get();
+        $total_oprec = $oprecs->count();
 
         return inertia(component: 'MasterOpenRekruitmen/Index', props: [
             'oprecs' => MasterOpenRekruitmenResource::collection($oprecs),
+            'total_oprec' => $total_oprec,
         ]);
     }
 

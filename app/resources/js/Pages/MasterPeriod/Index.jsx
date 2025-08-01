@@ -161,7 +161,7 @@ export default function Index() {
 
                     <Button
                         variant="none"
-                        data-pr-tooltip="Lihat anggota di periode ini"
+                        data-pr-tooltip="Lihat fungsionaris di periode ini"
                         className="w-0"
                     >
                         <Link
