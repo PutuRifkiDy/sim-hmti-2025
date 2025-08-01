@@ -127,7 +127,7 @@ export default function Edit() {
                         </div>
 
                         <div>
-                            <InputLabel htmlFor="img_himpunan_path" value={"Foto Diri Himpunan"} />
+                            <InputLabel htmlFor="img_himpunan_path" value={"Foto Fungsionaris"} />
 
                             <ImageUpload
                                 imagePath={himpunan.img_himpunan_path}
