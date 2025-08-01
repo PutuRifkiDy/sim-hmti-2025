@@ -29,7 +29,6 @@ export default function Edit() {
             preserveState: true
         })
     }
-    console.log(proker);
     return (
         <>
             <div className="py-5">

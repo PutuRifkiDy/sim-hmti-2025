@@ -1,0 +1,122 @@
+<?php
+namespace App\Http\Controllers;
+
+use App\Http\Requests\MasterOpenRekruitmenRequest;
+use App\Http\Resources\MasterOpenRekruitmenResource;
+use App\Http\Resources\MasterSieResource;
+use App\Http\Resources\OprecSieResource;
+use App\Models\MasterSie;
+use App\Models\Oprec;
+use App\Models\OprecSie;
+use App\Traits\HasFile;
+use Illuminate\Http\RedirectResponse;
+use Inertia\Response;
+
+class MasterOpenRekruitmen extends Controller
+{
+    use HasFile;
+
+    public function index(): Response | RedirectResponse
+    {
+        $user = auth()->user();
+        if (! $user) {
+            return to_route('login');
+        }
+
+        $oprecs = Oprec::get();
+
+        return inertia(component: 'MasterOpenRekruitmen/Index', props: [
+            'oprecs' => MasterOpenRekruitmenResource::collection($oprecs),
+        ]);
+    }
+
+    public function create(): Response | RedirectResponse
+    {
+        $user = auth()->user();
+        if (! $user) {
+            return to_route('login');
+        }
+
+        $master_sies = MasterSie::get();
+
+        return inertia(component: 'MasterOpenRekruitmen/Create', props: [
+            'master_sies' => MasterSieResource::collection($master_sies),
+        ]);
+    }
+
+    public function store(MasterOpenRekruitmenRequest $request): RedirectResponse
+    {
+        $oprec = Oprec::create([
+            'oprec_name'  => $request->oprec_name,
+            'description' => $request->description,
+            'start_date'  => $request->start_date,
+            'end_date'    => $request->end_date,
+            'poster_path' => $request->hasFile('poster_path') ? $this->upload_file($request, 'poster_path', 'oprec') : null,
+            'postmsg'     => $request->postmsg,
+        ]);
+
+        foreach ($request->sie_id as $key => $value) {
+            $oprecsie           = new OprecSie();
+            $oprecsie->sie_id   = $value;
+            $oprecsie->oprec_id = $oprec->id;
+            $oprecsie->save();
+        }
+
+        flashMessage('Open Rekruitmen berhasil ditambahkan', 'success');
+        return to_route('master-open-rekruitmen.index');
+    }
+
+    public function edit($id): Response | RedirectResponse
+    {
+        $user = auth()->user();
+
+        if (! $user) {
+            return to_route('login');
+        }
+
+        $oprec       = Oprec::find($id);
+        $sies        = OprecSie::where('oprec_id', $id)->with('master_sie', 'oprec')->get();
+        $master_sies = MasterSie::get();
+
+        return inertia(component: 'MasterOpenRekruitmen/Edit', props: [
+            'oprec'       => fn()       => new MasterOpenRekruitmenResource($oprec),
+            'sies'        => OprecSieResource::collection($sies),
+            'master_sies' => MasterSieResource::collection($master_sies),
+        ]);
+    }
+
+    public function update(MasterOpenRekruitmenRequest $request, $id): RedirectResponse
+    {
+
+        $oprec = Oprec::find($id);
+        $oprec->update([
+            'oprec_name'  => $request->oprec_name,
+            'description' => $request->description,
+            'start_date'  => $request->start_date,
+            'end_date'    => $request->end_date,
+            'postmsg'     => $request->postmsg,
+            'poster_path' => $request->hasFile('poster_path') ? $this->upload_file($request, 'poster_path', 'oprec') : $oprec->poster_path,
+        ]);
+        foreach ($request->sie_id as $key => $value) {
+            $oprecsie           = new OprecSie();
+            OprecSie::where('oprec_id', $id)->whereNotIn('sie_id', $request->sie_id)->delete();
+
+
+            $oprecsie->updateOrCreate([
+                'sie_id' => $value,
+                'oprec_id' => $oprec->id,
+            ]);
+        }
+
+        flashMessage('Open Rekruitmen berhasil diupdate', 'success');
+        return to_route('master-open-rekruitmen.index');
+    }
+
+    public function destroy($id): RedirectResponse
+    {
+        $oprec = Oprec::find($id);
+        $oprec->delete();
+        flashMessage('Open Rekruitmen berhasil dihapus', 'success');
+        return to_route('master-open-rekruitmen.index');
+    }
+}

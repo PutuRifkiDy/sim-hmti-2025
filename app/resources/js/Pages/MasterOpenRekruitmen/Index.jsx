@@ -1,10 +1,10 @@
-import InputLabel from "@/Components/InputLabel";
+import { IconPreviewImageProfile } from "@/Components/IconAdmin";
 import Modal from "@/Components/Modal";
-import { Avatar, AvatarFallback, AvatarImage } from "@/Components/ui/avatar";
 import { Button } from "@/Components/ui/button";
 import { Card, CardContent } from "@/Components/ui/card";
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/Components/ui/dialog";
 import DashboardLayout from "@/Layouts/DashboardLayout";
-import { ArrowLeftIcon, DocumentArrowDownIcon, DocumentPlusIcon, PencilSquareIcon, XCircleIcon } from "@heroicons/react/24/solid";
+import { DocumentArrowDownIcon, PencilSquareIcon, XCircleIcon } from "@heroicons/react/24/solid";
 import { Link, router, usePage } from "@inertiajs/react";
 import { FilterMatchMode } from "primereact/api";
 import { Column } from "primereact/column";
@@ -18,9 +18,7 @@ import { toast } from "sonner";
 
 export default function Index() {
     const { props } = usePage();
-    const positions = usePage().props.positions;
-    const himpunan_members_in_this_periode = usePage().props.himpunan_members_in_this_periode;
-    const periode = usePage().props.periode;
+    const oprecs = usePage().props.oprecs;
 
     const flash_message = usePage().props.flash_message;
     useEffect(() => {
@@ -29,16 +27,16 @@ export default function Index() {
         }
     }, [flash_message]);
 
-    const [himpunanMembers, setHimpunanMembers] = useState(himpunan_members_in_this_periode);
-    const [selectIdHimpunanMembers, setSelectIdMembers] = useState(0);
+    const [oprecsData, setOprecData] = useState(oprecs);
+    const [selectIdOprecs, setSelectIdOprecs] = useState(0);
     const [globalFilterValue, setGlobalFilterValue] = useState('');
     const [loading, setLoading] = useState(true);
     const [modalOpen, setModalOpen] = useState(false);
 
-    const modalFormOpenHandler = (himpunanMembersId) => {
+    const modalFormOpenHandler = (oprecId) => {
         setModalOpen(true);
-        setSelectIdMembers(himpunanMembersId);
-    }
+        setSelectIdOprecs(oprecId);
+    };
 
     useEffect(() => {
         setLoading(false);
@@ -46,35 +44,35 @@ export default function Index() {
 
     const closeModal = () => {
         setModalOpen(false);
-        setSelectIdMembers(0);
+        setSelectIdOprecs(0);
     }
 
     const dt = useRef(null);
 
     const [filters, setFilters] = useState({
         global: { value: null, matchMode: FilterMatchMode.CONTAINS },
-        title: { value: null, matchMode: FilterMatchMode.EQUALS },
-        nim: { value: null, matchMode: FilterMatchMode.EQUALS },
-        name: { value: null, matchMode: FilterMatchMode.EQUALS },
-        period: { value: null, matchMode: FilterMatchMode.EQUALS },
+        oprec_name: { value: null, matchMode: FilterMatchMode.CONTAINS },
+        description: { value: null, matchMode: FilterMatchMode.CONTAINS },
+        start_date: { value: null, matchMode: FilterMatchMode.CONTAINS },
+        end_date: { value: null, matchMode: FilterMatchMode.CONTAINS },
+        postmsg: { value: null, matchMode: FilterMatchMode.CONTAINS },
     });
 
     useEffect(() => {
-        setHimpunanMembers(
-            props.himpunan_members_in_this_periode.map((himpunan_member) => {
+        setOprecData(
+            props.oprecs?.map((oprec) => {
                 return {
-                    id: himpunan_member.id,
-                    position_id: himpunan_member.position_id,
-                    user_id: himpunan_member.user_id,
-                    img_himpunan_path: himpunan_member.img_himpunan_path,
-                    period_id: himpunan_member.period_id,
-                    position: himpunan_member.position,
-                    user: himpunan_member.user,
-                    period: himpunan_member.period
+                    id: oprec.id,
+                    oprec_name: oprec.oprec_name ?? '',
+                    description: oprec.description ?? '',
+                    start_date: oprec.start_date ?? '',
+                    end_date: oprec.end_date ?? '',
+                    poster_path: oprec.poster_path ?? '',
+                    postmsg: oprec.postmsg ?? '',
                 };
             })
         );
-    }, [props.himpunan_members_in_this_periode]);
+    }, [props.oprecs]);
 
     const onGlobalFilterChange = (e) => {
         const value = e.target.value;
@@ -89,29 +87,26 @@ export default function Index() {
     const exportExcel = () => {
         import('xlsx').then((xlsx) => {
 
-            const exportData = himpunan_members_in_this_periode.map(himpunanMembers => ({
-                ID: himpunanMembers.id ?? '',
-                Nama: himpunanMembers.user.name ?? '',
-                NIM: himpunanMembers.user.nim ?? '',
-                Email: himpunanMembers.user.email ?? '',
-                LineID: himpunanMembers.user.line_id ?? '',
-                NomorTelepon: himpunanMembers.user.phone_number ?? '',
-                TanggalLahir: himpunanMembers.user.birthday ?? '',
-                Alamat: himpunanMembers.user.address ?? '',
-                Username: himpunanMembers.user.username ?? '',
-                Periode: himpunanMembers.period.title ?? '',
-                Jabatan: himpunanMembers.position.title ?? '',
+            const exportData = oprecs.map(oprec => ({
+                ID: oprec.id ?? '',
+                Title: oprec.oprec_name ?? '',
+                Description: oprec.description ?? '',
+                StartDate: oprec.start_date ?? '',
+                EndDate: oprec.end_date ?? '',
+                PosterPath: oprec.poster_path ?? '',
+                PostMsg: oprec.postmsg ?? '',
             }));
             const worksheet = xlsx.utils.json_to_sheet(exportData);
-            const workbook = { Sheets: { 'master_himpunans': worksheet }, SheetNames: ['master_himpunans'] };
+            const workbook = { Sheets: { 'master_oprecs': worksheet }, SheetNames: ['master_oprecs'] };
             const excelBuffer = xlsx.write(workbook, {
                 bookType: 'xlsx',
                 type: 'array'
             });
 
-            saveAsExcelFile(excelBuffer, 'master_himpunans');
+            saveAsExcelFile(excelBuffer, 'master_oprecs');
         });
     };
+
 
     const saveAsExcelFile = (buffer, fileName) => {
         import('file-saver').then((module) => {
@@ -143,13 +138,14 @@ export default function Index() {
                     </Button>
                 </div>
                 <Button variant="blue" type="button" asChild>
-                    <Link as="button" href={route('master-himpunan.create', { id: periode.id })} className="text-[14px] font-bold py-5">Tambah Fungsionaris</Link>
+                    <Link as="button" href={route('master-open-rekruitmen.create')} className="text-[14px] font-bold py-5">Tambah Oprec</Link>
                 </Button>
             </div>
         );
     };
 
     const rowNumberTemplate = (rowData, column) => column.rowIndex + 1;
+
 
     const actionTemplate = (rowData) => {
         return (
@@ -164,7 +160,7 @@ export default function Index() {
                         <Link
                             className="flex justify-center items-center border-2 rounded-md border-[#dfe44d] p-1.5 hover:bg-[#4DE45C]/20 transition-all duration-300 ease-in-out"
                             type="button"
-                            href={route('master-himpunan.edit', rowData.id)}>
+                            href={route('master-open-rekruitmen.edit', rowData.id)}>
                             <PencilSquareIcon className="text-[#dfe44d] w-5 h-5" />
                         </Link>
                     </Button>
@@ -181,79 +177,31 @@ export default function Index() {
         );
     }
 
-    const penjabatTemplate = (rowData) => {
+    const imgOprecTemplate = (rowData) => {
         return (
             <>
-                <div className="flex flex-row items-center gap-2">
-                    <Avatar>
-                        {rowData.user.img_path ? (
-                            <AvatarImage src={rowData.user.img_path} alt={rowData.user.name} className="object-cover w-full" />
-                        ) : (
-                            <AvatarFallback>{rowData.user.nim?.substring(0, 2)}</AvatarFallback>
-                        )}
-                    </Avatar>
-                    {rowData.user.name ? rowData.user.name : rowData.user.nim}
-                </div>
+                <Dialog>
+                    <DialogTrigger className='flex flex-row gap-3 justify-center items-center d font-normal'>
+                        Buka
+                        <IconPreviewImageProfile />
+                    </DialogTrigger>
+                    <DialogContent className="dark:bg-[#0F114C]">
+                        <DialogTitle>
+                            Gambar Oprec
+                        </DialogTitle>
+                        <img src={rowData?.poster_path ? `${rowData.poster_path}` : 'assets/icon/default_image_profile.png'} className="h-64 w-auto" alt="" />
+                        <a href={rowData?.poster_path ? `${rowData.poster_path}` : 'assets/icon/default_image_profile.png'} className="text-center" target="_blank" rel="noopener noreferrer">Buka di tab baru</a>
+                    </DialogContent>
+                </Dialog>
             </>
         );
     }
-
-    const imgHimpunanTemplate = (rowData) => {
-        return (
-            <>
-                <div className="flex flex-row items-center gap-2">
-                    <Avatar>
-                        {rowData.img_himpunan_path ? (
-                            <AvatarImage src={rowData.img_himpunan_path} alt={rowData.user.name} className="object-cover w-full" />
-                        ) : (
-                            <AvatarFallback>{rowData.user.nim?.substring(0, 2)}</AvatarFallback>
-                        )}
-                    </Avatar>
-                    {rowData.position.title ? rowData.position.title : '-'}
-                </div>
-            </>
-        );
-    }
-
 
 
     return (
         <>
             <div className="py-5">
                 <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
-                    <div className='flex flex-row justify-between w-full'>
-                        <header>
-                            <h2 className="text-lg font-medium text-gray-900">
-                                Daftar Anggota Himpunan di Periode {periode.title}
-                            </h2>
-
-                            <p className="mt-1 text-sm text-gray-600">
-                                Kelola daftar anggota himpunan di periode ini
-                            </p>
-                        </header>
-
-                        <Button variant="blue" type="button" asChild>
-                            <Link as="button" href={route('master-period.index')} className="flex flex-row items-center text-[14px] font-bold">
-                                <ArrowLeftIcon className="w-3 h-3 mr-2 font-bold" />
-                                Kembali
-                            </Link>
-                        </Button>
-                    </div>
-                    <div className='mt-2 mb-10 grid md:grid-cols-3 grid-cols-1 gap-5'>
-                        <div>
-                            <InputLabel htmlFor="title" value="Periode" className='text-[12px] text-[#676767] font-normal dark:text-gray-400' />
-                            <p>{periode.title ? periode.title : '-'}</p>
-                        </div>
-                        <div>
-                            <InputLabel htmlFor="start_date" value="Tanggal Mulai" className='text-[12px] text-[#676767] font-normal dark:text-gray-400' />
-                            <p>{periode.start_date ? periode.start_date : '-'}</p>
-                        </div>
-                        <div>
-                            <InputLabel htmlFor="end_date" value="Tanggal Selesai" className='text-[12px] text-[#676767] font-normal dark:text-gray-400' />
-                            <p>{periode.end_date ? periode.end_date : '-'}</p>
-                        </div>
-                    </div>
-
                     <Card className="dark:bg-[#040529] dark:border dark:border-white rounded-xl">
                         <CardContent className="overflow-hidden">
                             <div className="my-8">
@@ -262,13 +210,13 @@ export default function Index() {
                                     <Tooltip target=".action_buttons>button" position="bottom" />
                                     <DataTable
                                         header={renderHeader()}
-                                        value={himpunanMembers}
+                                        value={oprecsData}
                                         ref={dt}
                                         paginator rows={5}
                                         loading={loading}
                                         filters={filters}
-                                        globalFilterFields={['position.title', 'user.nim', 'user.name']}
-                                        emptyMessage="Tidak ada fungsionaris yang tersedia di periode ini."
+                                        globalFilterFields={['oprec_name', 'description', 'postmsg', 'start_date', 'end_date']}
+                                        emptyMessage="Tidak ada oprec yang tersedia"
                                         rowsPerPageOptions={[5, 10, 25, 50]}
                                         tableStyle={{ minWidth: '50rem' }}
                                         paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
@@ -280,15 +228,39 @@ export default function Index() {
                                             className="min-w-[5rem]">
                                         </Column>
                                         <Column
-                                            field="position.title"
-                                            header="Jabatan"
-                                            body={imgHimpunanTemplate}
+                                            field="oprec_name"
+                                            header="Nama Oprec"
+                                            body={(rowData) => rowData.oprec_name ?? '-'}
                                             className="min-w-[12rem]">
                                         </Column>
                                         <Column
-                                            field="user.name"
-                                            header="Penjabat"
-                                            body={penjabatTemplate}
+                                            field="description"
+                                            header="Deskripsi"
+                                            body={(rowData) => rowData.description ?? '-'}
+                                            className="min-w-[12rem]">
+                                        </Column>
+                                        <Column
+                                            field="start_date"
+                                            header="Tanggal Mulai"
+                                            body={(rowData) => rowData.start_date ?? '-'}
+                                            className="min-w-[12rem]">
+                                        </Column>
+                                        <Column
+                                            field="end_date"
+                                            header="Tanggal Selesai"
+                                            body={(rowData) => rowData.end_date ?? '-'}
+                                            className="min-w-[12rem]">
+                                        </Column>
+                                        <Column
+                                            field="end_date"
+                                            header="Pesan Oprec"
+                                            body={(rowData) => rowData.postmsg ?? '-'}
+                                            className="min-w-[12rem]">
+                                        </Column>
+                                        <Column
+                                            field="poster_path"
+                                            header="Poster Oprec"
+                                            body={imgOprecTemplate}
                                             className="min-w-[12rem]">
                                         </Column>
                                         <Column
@@ -313,7 +285,7 @@ export default function Index() {
                                                 <Button
                                                     variant="red"
                                                     onClick={() => {
-                                                        router.delete(route('master-himpunan.destroy', { id: selectIdHimpunanMembers }), {
+                                                        router.delete(route('master-open-rekruitmen.destroy', { id: selectIdOprecs }), {
                                                             preserveScroll: true,
                                                             preserveState: true,
                                                             onSuccess: () => {
@@ -334,9 +306,8 @@ export default function Index() {
                     </Card>
                 </div>
             </div>
-
         </>
     );
 }
 
-Index.layout = (page) => <DashboardLayout children={page} title={"Master Himpunan"} header={"Master Himpunan"} description={"Kelola master himpunan di page ini"} />;
+Index.layout = (page) => <DashboardLayout children={page} title={"Master Open Rekruitmen"} header={"Master Open Rekruitmen"} description={"Kelola master open rekruitmen di page ini"} />;

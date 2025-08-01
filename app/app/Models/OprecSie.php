@@ -21,6 +21,6 @@ class OprecSie extends Model
 
     public function master_sie()
     {
-        return $this->belongsTo(MasterSie::class);
+        return $this->belongsTo(MasterSie::class, 'sie_id', 'id');
     }
 }

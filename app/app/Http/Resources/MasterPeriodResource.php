@@ -16,8 +16,8 @@ class MasterPeriodResource extends JsonResource
         return [
             'id'         => $this->id,
             'title'      => $this->title,
-            'start_date' => $this->start_date ? $this->start_date->format('Y-M-d') : null,
-            'end_date'   => $this->end_date ? $this->end_date->format('Y-M-d') : null,
+            'start_date' => $this->start_date ? $this->start_date->format('Y-m-d') : null,
+            'end_date'   => $this->end_date ? $this->end_date->format('Y-m-d') : null,
         ];
     }
 }

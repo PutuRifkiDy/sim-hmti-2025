@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MasterHimpunanController;
+use App\Http\Controllers\MasterOpenRekruitmen;
 use App\Http\Controllers\MasterPeriodController;
 use App\Http\Controllers\MasterPositionController;
 use App\Http\Controllers\MasterProgramKerjaController;
@@ -76,6 +77,15 @@ Route::controller(MasterProgramKerjaController::class)->group(function () {
     Route::get('/master-period/master-program-kerja/{id}/edit', 'edit')->name('master-program-kerja.edit');
     Route::put('/master-period/master-program-kerja/{id}/update', 'update')->name('master-program-kerja.update');
     Route::delete('/master-period/master-program-kerja/{id}/delete', 'destroy')->name('master-program-kerja.destroy');
+});
+
+Route::controller(MasterOpenRekruitmen::class)->group(function () {
+    Route::get('/master-open-rekruitmen', 'index')->name('master-open-rekruitmen.index');
+    Route::get('/master-open-rekruitmen/create', 'create')->name('master-open-rekruitmen.create');
+    Route::post('/master-open-rekruitmen/store', 'store')->name('master-open-rekruitmen.store');
+    Route::get('/master-open-rekruitmen/{id}/edit', 'edit')->name('master-open-rekruitmen.edit');
+    Route::put('/master-open-rekruitmen/{id}/update', 'update')->name('master-open-rekruitmen.update');
+    Route::delete('/master-open-rekruitmen/{id}/delete', 'destroy')->name('master-open-rekruitmen.destroy');
 });
 
 Route::middleware('auth')->group(function () {

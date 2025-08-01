@@ -36,6 +36,11 @@ export default function DashboardLayout({ children, title, header, description }
             text: "Master Jabatan",
             link: route('master-position.index'),
         },
+        {
+            icon: <IconProfileSideBar />,
+            text: "Master Oprec",
+            link: route('master-open-rekruitmen.index'),
+        },
 
     ];
 

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->dateTimeTz('start_date');
             $table->dateTimeTz('end_date');
             $table->string('postmsg')->nullable();
-            $table->string('poster_path');
+            $table->string('poster_path')->nullable();
             $table->timestamps();
         });
     }
