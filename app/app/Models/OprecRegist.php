@@ -20,16 +20,16 @@ class OprecRegist extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function oprec()
     {
-        return $this->belongsTo(Oprec::class);
+        return $this->belongsTo(Oprec::class, 'oprec_id', 'id');
     }
 
     public function master_sie()
     {
-        return $this->belongsTo(MasterSie::class);
+        return $this->belongsTo(MasterSie::class, 'sie_id', 'id');
     }
 }

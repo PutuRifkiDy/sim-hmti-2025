@@ -15,6 +15,7 @@ import { InputText } from "primereact/inputtext";
 import { Tooltip } from "primereact/tooltip";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
+import DOMPurify from 'dompurify';
 
 export default function Index() {
     const { props } = usePage();
@@ -198,6 +199,14 @@ export default function Index() {
         );
     }
 
+    const descriptionTemplate = (rowData) => {
+        const cleanDescription = DOMPurify.sanitize(rowData.description);
+
+        return (
+            <div dangerouslySetInnerHTML={{ __html: cleanDescription }} className="w-full line-clamp-3" />
+        );
+    }
+
 
     return (
         <>
@@ -246,8 +255,8 @@ export default function Index() {
                                         <Column
                                             field="description"
                                             header="Deskripsi"
-                                            body={(rowData) => rowData.description ?? '-'}
-                                            className="min-w-[12rem]">
+                                            body={descriptionTemplate}
+                                            className="min-w-[20rem]">
                                         </Column>
                                         <Column
                                             field="start_date"

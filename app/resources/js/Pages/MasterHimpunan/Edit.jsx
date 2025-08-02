@@ -60,10 +60,6 @@ export default function Edit() {
         });
     };
 
-
-
-    console.log("Form Data:", data);
-
     return (
         <>
             <div className="py-5">

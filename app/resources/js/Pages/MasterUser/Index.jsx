@@ -308,7 +308,6 @@ export default function Index() {
 
                                             <div className="mt-10 flex justify-end flex-row gap-5">
                                                 <Button onClick={closeModal} variant="blue" type="button">Cancel</Button>
-                                                {console.log(selectIdUser)}
                                                 <Button
                                                     variant="red"
                                                     onClick={() => {

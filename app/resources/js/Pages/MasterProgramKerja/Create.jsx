@@ -40,7 +40,6 @@ export default function Create() {
             preserveState: true
         });
     }
-    console.log(period);
     return (
         <>
             <div className="py-5">

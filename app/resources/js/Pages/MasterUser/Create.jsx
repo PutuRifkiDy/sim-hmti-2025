@@ -12,10 +12,6 @@ import { useEffect } from "react";
 import { toast } from "sonner";
 
 export default function Create() {
-    // 1. input berupa angkatan
-    // 2. input berupa nomer pertama
-    // 3. input berupa nomer terakhir
-    // misal angkatan yang di inputkan itu 23, nomor pertama itu 1, nomor terakhir itu 10, maka akan create data users dengan nim 2305551001 - 2305551010
     const flash_message = usePage().props.flash_message;
     useEffect(() => {
         if (flash_message?.message) {
@@ -47,7 +43,7 @@ export default function Create() {
 
                         <Button variant="blue" type="button" asChild>
                             <Link as="button" href={route('master-user.index')} className="flex flex-row items-center text-[14px] font-bold">
-                             <ArrowLeftIcon className="w-3 h-3 mr-2 font-bold" />
+                                <ArrowLeftIcon className="w-3 h-3 mr-2 font-bold" />
                                 Kembali
                             </Link>
                         </Button>
@@ -126,4 +122,4 @@ export default function Create() {
     );
 }
 
-Create.layout = (page) => <DashboardLayout children={page} title={"Master User"}/>;
+Create.layout = (page) => <DashboardLayout children={page} title={"Master User"} />;

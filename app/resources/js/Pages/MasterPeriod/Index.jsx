@@ -197,7 +197,6 @@ export default function Index() {
         );
     }
 
-    console.log(master_periods);
     return (
         <>
             <div className="py-5">

@@ -8,6 +8,7 @@ import { Transition } from "@headlessui/react";
 import { ArrowLeftIcon, CheckBadgeIcon } from "@heroicons/react/24/solid";
 import { Link, useForm, usePage } from "@inertiajs/react";
 import { AutoComplete } from "primereact/autocomplete";
+import { Editor } from "primereact/editor";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
@@ -122,100 +123,119 @@ export default function Edit() {
                             <InputError message={errors.sie_id} className="mt-2 text-red-600" />
                         </div>
                         <div className="">
-                            <InputLabel htmlFor="oprec_name" value="Nama Oprec" />
+                            <InputLabel htmlFor="description" value="Deskripsi" />
 
-                            <TextInput
-                                id="oprec_name"
-                                type="text"
-                                name="oprec_name"
-                                value={data.oprec_name}
-                                onChange={(e) => setData('oprec_name', e.target.value)}
-                                className="mt-1 block w-full"
-                                autoComplete="oprec_name"
-                                isFocused
-                                required
-                                placeholder="Masukkan Nama Oprec"
-                                onErrors={errors.oprec_name && <InputError message={errors.oprec_name} className="mt-2 text-red-600" />}
-                            />
-                        </div>
-                        <div className="">
-                            <InputLabel htmlFor="description" value="Nama Oprec" />
-
-                            <TextInput
-                                id="description"
-                                type="text"
-                                name="description"
+                            {/* <TextInput
+                                                        id="description"
+                                                        type="text"
+                                                        name="description"
+                                                        value={data.description}
+                                                        onChange={(e) => setData('description', e.target.value)}
+                                                        className="mt-1 block w-full"
+                                                        autoComplete="description"
+                                                        isFocused
+                                                        required
+                                                        placeholder="Masukkan Description"
+                                                        onErrors={errors.description && <InputError message={errors.description} className="mt-2 text-red-600" />}
+                                                    /> */}
+                            <Editor
                                 value={data.description}
-                                onChange={(e) => setData('description', e.target.value)}
-                                className="mt-1 block w-full"
                                 autoComplete="description"
-                                isFocused
-                                required
-                                placeholder="Masukkan Description"
-                                onErrors={errors.description && <InputError message={errors.description} className="mt-2 text-red-600" />}
-                            />
-                        </div>
-                        <div className="">
-                            <InputLabel htmlFor="start_date" value="Tanggal Mulai" />
+                                onTextChange={(e) => setData('description', e.htmlValue)}
+                                name="description"
+                                style={{ height: '200px' }}
+                                placeholder="Masukkan Deskripsi"
 
-                            <TextInput
-                                id="start_date"
-                                type="datetime-local"
-                                name="start_date"
-                                value={data.start_date}
-                                onChange={(e) => setData('start_date', e.target.value)}
-                                className="mt-1 block w-full"
-                                autoComplete="start_date"
-                                isFocused
-                                required
-                                placeholder="Masukkan Tanggal Mulai"
-                                onErrors={errors.start_date && <InputError message={errors.start_date} className="mt-2 text-red-600" />}
                             />
-                        </div>
-                        <div className="">
-                            <InputLabel htmlFor="end_date" value="Tanggal Selesai" />
+                            <InputError message={errors.description} className="mt-2 text-red-600" />
 
-                            <TextInput
-                                id="end_date"
-                                type="datetime-local"
-                                name="end_date"
-                                value={data.end_date}
-                                onChange={(e) => setData('end_date', e.target.value)}
-                                className="mt-1 block w-full"
-                                autoComplete="end_date"
-                                isFocused
-                                required
-                                placeholder="Masukkan Tanggal Selesai"
-                                onErrors={errors.end_date && <InputError message={errors.end_date} className="mt-2 text-red-600" />}
-                            />
                         </div>
-                        <div className="">
-                            <InputLabel htmlFor="postmsg" value="Pesan Poster" />
+                        <div className="grid md:grid-cols-2 grid-cols-1 gap-5">
+                            <div className="">
+                                <InputLabel htmlFor="oprec_name" value="Nama Oprec" />
 
-                            <TextInput
-                                id="postmsg"
-                                type="text"
-                                name="postmsg"
-                                value={data.postmsg}
-                                onChange={(e) => setData('postmsg', e.target.value)}
-                                className="mt-1 block w-full"
-                                autoComplete="postmsg"
-                                required
-                                placeholder="Masukkan Nama Oprec"
-                                onErrors={errors.postmsg && <InputError message={errors.postmsg} className="mt-2 text-red-600" />}
-                            />
-                        </div>
-                        <div className="">
-                            <InputLabel htmlFor="poster_path" value="Gambar Poster" />
+                                <TextInput
+                                    id="oprec_name"
+                                    type="text"
+                                    name="oprec_name"
+                                    value={data.oprec_name}
+                                    onChange={(e) => setData('oprec_name', e.target.value)}
+                                    className="mt-1 block w-full"
+                                    autoComplete="oprec_name"
+                                    isFocused
+                                    required
+                                    placeholder="Masukkan Nama Oprec"
+                                    onErrors={errors.oprec_name && <InputError message={errors.oprec_name} className="mt-2 text-red-600" />}
+                                />
+                            </div>
 
-                            <ImageUpload
-                                imagePath={oprec.poster_path}
-                                onChangeImage={(file, previewUrl) => {
-                                    setData('poster_path', file);
-                                    setPreview(previewUrl);
-                                }}
-                                errorMessage={errors.poster_path}
-                            />
+
+                            <div className="">
+                                <InputLabel htmlFor="postmsg" value="Pesan Poster" />
+
+                                <TextInput
+                                    id="postmsg"
+                                    type="text"
+                                    name="postmsg"
+                                    value={data.postmsg}
+                                    onChange={(e) => setData('postmsg', e.target.value)}
+                                    className="mt-1 block w-full"
+                                    autoComplete="postmsg"
+                                    isFocused
+                                    required
+                                    placeholder="Masukkan Nama Oprec"
+                                    onErrors={errors.postmsg && <InputError message={errors.postmsg} className="mt-2 text-red-600" />}
+                                />
+                            </div>
+
+                            <div className="">
+                                <InputLabel htmlFor="start_date" value="Tanggal Mulai" />
+
+                                <TextInput
+                                    id="start_date"
+                                    type="datetime-local"
+                                    name="start_date"
+                                    value={data.start_date}
+                                    onChange={(e) => setData('start_date', e.target.value)}
+                                    className="mt-1 block w-full"
+                                    autoComplete="start_date"
+                                    isFocused
+                                    required
+                                    placeholder="Masukkan Tanggal Mulai"
+                                    onErrors={errors.start_date && <InputError message={errors.start_date} className="mt-2 text-red-600" />}
+                                />
+                            </div>
+
+
+                            <div className="">
+                                <InputLabel htmlFor="end_date" value="Tanggal Selesai" />
+
+                                <TextInput
+                                    id="end_date"
+                                    type="datetime-local"
+                                    name="end_date"
+                                    value={data.end_date}
+                                    onChange={(e) => setData('end_date', e.target.value)}
+                                    className="mt-1 block w-full"
+                                    autoComplete="end_date"
+                                    isFocused
+                                    required
+                                    placeholder="Masukkan Tanggal Selesai"
+                                    onErrors={errors.end_date && <InputError message={errors.end_date} className="mt-2 text-red-600" />}
+                                />
+                            </div>
+                            <div className="flex flex-col gap-2">
+                                <InputLabel htmlFor="poster_path" value="Gambar Poster" />
+
+                                <ImageUpload
+                                    imagePath={data.poster_path}
+                                    onChangeImage={(file, previewUrl) => {
+                                        setData('poster_path', file);
+                                        setPreview(previewUrl);
+                                    }}
+                                    errorMessage={errors.poster_path}
+                                />
+                            </div>
                         </div>
 
                         <div className="flex items-center gap-4">

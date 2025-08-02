@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('oprecs', function (Blueprint $table) {
             $table->id();
             $table->string('oprec_name');
-            $table->string('description');
+            $table->text('description');
             $table->dateTimeTz('start_date');
             $table->dateTimeTz('end_date');
             $table->string('postmsg')->nullable();

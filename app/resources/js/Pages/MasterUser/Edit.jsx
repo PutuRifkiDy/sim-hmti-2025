@@ -43,7 +43,6 @@ export default function Edit() {
     const onHandleChange = (e) => {
         setData(e.target.name, e.target.value);
     };
-    console.log(users);
     return (
         <>
             <div className="py-5">

@@ -23,7 +23,7 @@ class MasterOpenRekruitmenRequest extends FormRequest
         return [
             'sie_id'      => ['required', 'array'],
             'oprec_name'  => ['required', 'max:255'],
-            'description' => ['required', 'max:255'],
+            'description' => ['required', 'max:60000'],
             'start_date'  => ['required', 'date'],
             'end_date'    => ['required', 'date'],
             'poster_path' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1048'],

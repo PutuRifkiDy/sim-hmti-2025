@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\MasterOpenRekruitmenRequest;
 use App\Http\Resources\MasterOpenRekruitmenResource;
 use App\Http\Resources\MasterSieResource;
+use App\Http\Resources\OprecRegisResource;
 use App\Http\Resources\OprecSieResource;
 use App\Models\MasterSie;
 use App\Models\Oprec;
+use App\Models\OprecRegist;
 use App\Models\OprecSie;
 use App\Traits\HasFile;
 use Illuminate\Http\RedirectResponse;
@@ -120,5 +122,22 @@ class MasterOpenRekruitmen extends Controller
         $oprec->delete();
         flashMessage('Open Rekruitmen berhasil dihapus', 'success');
         return to_route('master-open-rekruitmen.index');
+    }
+
+    public function seeRegistered($id): Response | RedirectResponse
+    {
+        $user = auth()->user();
+        if (! $user) {
+            return to_route('login');
+        }
+
+        // $total_registered = OprecRegist::where('oprec_id', $id)->count();
+        $oprec_registered = OprecRegist::with('user', 'master_sie', 'oprec')
+            ->where('oprec_id', $id)
+            ->get();
+
+        return inertia(component: 'MasterOpenRekruitmen/SeeRegistered', props: [
+            'oprec_registered' => OprecRegisResource::collection($oprec_registered),
+        ]);
     }
 }

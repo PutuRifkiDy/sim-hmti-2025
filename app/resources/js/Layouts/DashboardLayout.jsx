@@ -1,8 +1,9 @@
 import { Head, Link, usePage } from '@inertiajs/react';
 import { useState } from 'react';
 import Sidebar from './Partials/Sidebar';
-import { IconBerandaSideBar, IconProfileSideBar } from '@/Components/IconAdmin';
+import { IconBerandaSideBar, IconOpenRekrutmen, IconProfileSideBar } from '@/Components/IconAdmin';
 import { Toaster } from '@/Components/ui/sonner';
+import { UserGroupIcon } from '@heroicons/react/24/outline';
 
 export default function DashboardLayout({ children, title, header, description }) {
     const route_sidebar = [
@@ -17,30 +18,35 @@ export default function DashboardLayout({ children, title, header, description }
             link: route('profile.edit'),
         },
         {
-            icon: <IconProfileSideBar />,
-            text: "Master User",
-            link: route('master-user.index'),
+            icon: <IconOpenRekrutmen />,
+            text: "Open Rekruitmen",
+            link: route('oprec-regist.index'),
         },
-        {
-            icon: <IconProfileSideBar />,
-            text: "Master Sie",
-            link: route('master-sie.index'),
-        },
-        {
-            icon: <IconProfileSideBar />,
-            text: "Master Periode",
-            link: route('master-period.index'),
-        },
-        {
-            icon: <IconProfileSideBar />,
-            text: "Master Jabatan",
-            link: route('master-position.index'),
-        },
-        {
-            icon: <IconProfileSideBar />,
-            text: "Master Oprec",
-            link: route('master-open-rekruitmen.index'),
-        },
+        // {
+        //     icon: <IconProfileSideBar />,
+        //     text: "Master User",
+        //     link: route('master-user.index'),
+        // },
+        // {
+        //     icon: <IconProfileSideBar />,
+        //     text: "Master Sie",
+        //     link: route('master-sie.index'),
+        // },
+        // {
+        //     icon: <IconProfileSideBar />,
+        //     text: "Master Periode",
+        //     link: route('master-period.index'),
+        // },
+        // {
+        //     icon: <IconProfileSideBar />,
+        //     text: "Master Jabatan",
+        //     link: route('master-position.index'),
+        // },
+        // {
+        //     icon: <IconProfileSideBar />,
+        //     text: "Master Oprec",
+        //     link: route('master-open-rekruitmen.index'),
+        // },
 
     ];
 

@@ -7,6 +7,7 @@ use App\Http\Controllers\MasterPositionController;
 use App\Http\Controllers\MasterProgramKerjaController;
 use App\Http\Controllers\MasterSieController;
 use App\Http\Controllers\MasterUserController;
+use App\Http\Controllers\OprecRegistController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -77,7 +78,7 @@ Route::controller(MasterProgramKerjaController::class)->group(function () {
     Route::get('/master-period/master-program-kerja/{id}/edit', 'edit')->name('master-program-kerja.edit');
     Route::put('/master-period/master-program-kerja/{id}/update', 'update')->name('master-program-kerja.update');
     Route::delete('/master-period/master-program-kerja/{id}/delete', 'destroy')->name('master-program-kerja.destroy');
-});
+})->middleware('auth');
 
 Route::controller(MasterOpenRekruitmen::class)->group(function () {
     Route::get('/master-open-rekruitmen', 'index')->name('master-open-rekruitmen.index');
@@ -86,7 +87,15 @@ Route::controller(MasterOpenRekruitmen::class)->group(function () {
     Route::get('/master-open-rekruitmen/{id}/edit', 'edit')->name('master-open-rekruitmen.edit');
     Route::put('/master-open-rekruitmen/{id}/update', 'update')->name('master-open-rekruitmen.update');
     Route::delete('/master-open-rekruitmen/{id}/delete', 'destroy')->name('master-open-rekruitmen.destroy');
-});
+    Route::get('master-open-rekruitmen/{id}/see-registered', 'seeRegistered')->name('master-open-rekruitmen.see-registered');
+})->middleware('auth');
+
+Route::controller(OprecRegistController::class)->group(function () {
+    Route::get('/master-open-rekruitmen/master-oprec-regist', 'index')->name('oprec-regist.index');
+    Route::get('/master-open-rekruitmen/master-oprec-regist/show/{id}', 'show')->name('oprec-regist.show');
+    Route::post('/master-open-rekruitmen/master-oprec-regist/store', 'store')->name('oprec-regist.store');
+    Route::get('/master-open-rekruitmen/master-oprec-regist/{idOprec}/registered/{idUser}', 'registered')->name('oprec-regist.edit');
+})->middleware('auth');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
