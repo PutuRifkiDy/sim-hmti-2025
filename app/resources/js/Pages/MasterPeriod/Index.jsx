@@ -1,6 +1,8 @@
+import { IconPreviewImageProfile } from "@/Components/IconAdmin";
 import Modal from "@/Components/Modal";
 import { Button } from "@/Components/ui/button";
 import { Card, CardContent } from "@/Components/ui/card";
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/Components/ui/dialog";
 import DashboardLayout from "@/Layouts/DashboardLayout";
 import { DocumentArrowDownIcon, DocumentPlusIcon, EyeIcon, PencilSquareIcon, UserGroupIcon, XCircleIcon } from "@heroicons/react/24/solid";
 import { Link, router, usePage } from "@inertiajs/react";
@@ -65,6 +67,10 @@ export default function Index() {
                     title: master_period.title ?? '',
                     start_date: master_period.start_date ?? '',
                     end_date: master_period.end_date ?? '',
+                    anggaran_dasar: master_period.anggaran_dasar ?? '',
+                    anggaran_rumah_tangga: master_period.anggaran_rumah_tangga ?? '',
+                    agenda_khusus: master_period.agenda_khusus ?? '',
+                    youtube_link: master_period.youtube_link ?? '',
                 };
             })
         );
@@ -92,6 +98,10 @@ export default function Index() {
                 Title: master_period.title ?? '',
                 StartDate: master_period.start_date ?? '',
                 EndDate: master_period.end_date ?? '',
+                'Anggaran Dasar': master_period.anggaran_dasar ?? '',
+                'Anggaran Rumah Tangga': master_period.anggaran_rumah_tangga ?? '',
+                'Agenda Khusus': master_period.agenda_khusus ?? '',
+                'YouTube Link': master_period.youtube_link ?? '',
             }));
             const worksheet = xlsx.utils.json_to_sheet(exportData);
             const workbook = { Sheets: { 'master_periods': worksheet }, SheetNames: ['master_periods'] };
@@ -141,6 +151,96 @@ export default function Index() {
             </div>
         );
     };
+
+    const anggaranDasarTemplate = (rowData) => {
+        return (
+            <>
+                <Dialog>
+                    <DialogTrigger className='flex flex-row gap-3 justify-center items-center d font-normal'>
+                        Buka
+                        <IconPreviewImageProfile />
+                    </DialogTrigger>
+                    <DialogContent className="dark:bg-[#0F114C]">
+                        <DialogTitle>
+                            Anggaran Dasar
+                        </DialogTitle>
+                        <iframe class="flex-grow h-screen" src={rowData.anggaran_dasar ? `${rowData.anggaran_dasar}` : 'assets/icon/default_image_profile.png'}
+                            allow="autoplay"></iframe>
+                        <a href={rowData?.anggaran_dasar ? `${rowData.anggaran_dasar}` : 'assets/icon/default_image_profile.png'} className="text-center" target="_blank" rel="noopener noreferrer">Buka di tab baru</a>
+                    </DialogContent>
+                </Dialog>
+            </>
+        );
+    }
+
+    const anggaranRumahTanggaTemplate = (rowData) => {
+        return (
+            <>
+                <Dialog>
+                    <DialogTrigger className='flex flex-row gap-3 justify-center items-center d font-normal'>
+                        Buka
+                        <IconPreviewImageProfile />
+                    </DialogTrigger>
+                    <DialogContent className="dark:bg-[#0F114C]">
+                        <DialogTitle>
+                            Anggaran Rumah Tangga
+                        </DialogTitle>
+                        <iframe class="flex-grow h-screen" src={rowData.anggaran_rumah_tangga ? `${rowData.anggaran_rumah_tangga}` : 'assets/icon/default_image_profile.png'}
+                            allow="autoplay"></iframe>
+                        <a href={rowData?.anggaran_rumah_tangga ? `${rowData.anggaran_rumah_tangga}` : 'assets/icon/default_image_profile.png'} className="text-center" target="_blank" rel="noopener noreferrer">Buka di tab baru</a>
+                    </DialogContent>
+                </Dialog>
+            </>
+        );
+    }
+
+    const agendaKhususTemplate = (rowData) => {
+        return (
+            <>
+                <Dialog>
+                    <DialogTrigger className='flex flex-row gap-3 justify-center items-center d font-normal'>
+                        Buka
+                        <IconPreviewImageProfile />
+                    </DialogTrigger>
+                    <DialogContent className="dark:bg-[#0F114C]">
+                        <DialogTitle>
+                            Agenda Khusus
+                        </DialogTitle>
+                        <iframe class="flex-grow h-screen" src={rowData.agenda_khusus ? `${rowData.agenda_khusus}` : 'assets/icon/default_image_profile.png'}
+                            allow="autoplay"></iframe>
+                        <a href={rowData?.agenda_khusus ? `${rowData.agenda_khusus}` : 'assets/icon/default_image_profile.png'} className="text-center" target="_blank" rel="noopener noreferrer">Buka di tab baru</a>
+                    </DialogContent>
+                </Dialog>
+            </>
+        );
+    }
+
+    const youtubeLinkTemplate = (rowData) => {
+        return (
+            <>
+                <Dialog>
+                    <DialogTrigger className='flex flex-row gap-3 justify-center items-center d font-normal'>
+                        Buka
+                        <IconPreviewImageProfile />
+                    </DialogTrigger>
+                    <DialogContent className="dark:bg-[#0F114C]">
+                        <DialogTitle>
+                            Video Himpunan
+                        </DialogTitle>
+                        <iframe
+                            src={rowData.youtube_link ? `${rowData.youtube_link}` : 'https://www.youtube.com/embed/VIDEO_ID'}
+                            title="Himpunan Video"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            className="h-96 w-full rounded-lg shadow-lg"
+                        ></iframe>
+                    </DialogContent>
+                </Dialog>
+            </>
+        );
+    }
+
 
     const actionTemplate = (rowData) => {
         return (
@@ -265,6 +365,30 @@ export default function Index() {
                                             field="end_date"
                                             header="Periode Selesai"
                                             body={(rowData) => rowData.end_date ? rowData.end_date : '-'}
+                                            className="min-w-[12rem]">
+                                        </Column>
+                                        <Column
+                                            field="anggaran_dasar"
+                                            header="Anggaran Dasar"
+                                            body={anggaranDasarTemplate}
+                                            className="min-w-[12rem]">
+                                        </Column>
+                                        <Column
+                                            field="anggaran_rumah_tangga"
+                                            header="Anggaran Rumah Tangga"
+                                            body={anggaranRumahTanggaTemplate}
+                                            className="min-w-[12rem]">
+                                        </Column>
+                                        <Column
+                                            field="agenda_khusus"
+                                            header="Angenda Khusus"
+                                            body={agendaKhususTemplate}
+                                            className="min-w-[12rem]">
+                                        </Column>
+                                        <Column
+                                            field="youtube_link"
+                                            header="Link Youtube"
+                                            body={youtubeLinkTemplate}
                                             className="min-w-[12rem]">
                                         </Column>
                                         <Column

@@ -40,9 +40,13 @@ class MasterPeriodController extends Controller
     public function store(MasterPeriodeRequest $request): RedirectResponse
     {
         MasterPeriod::create([
-            'title'      => $request->title,
-            'start_date' => $request->start_date,
-            'end_date'   => $request->end_date,
+            'title'                 => $request->title,
+            'start_date'            => $request->start_date,
+            'end_date'              => $request->end_date,
+            'anggaran_dasar'        => $request->anggaran_dasar,
+            'anggaran_rumah_tangga' => $request->anggaran_rumah_tangga,
+            'agenda_khusus'         => $request->agenda_khusus,
+            'youtube_link'          => $request->youtube_link,
         ]);
         flashMessage("Periode $request->title berhasil ditambahkan", 'success');
         return to_route('master-period.index');
@@ -62,9 +66,13 @@ class MasterPeriodController extends Controller
         $periode = MasterPeriod::find($id);
 
         $periode->update([
-            'title'      => $request->title,
-            'start_date' => $request->start_date,
-            'end_date'   => $request->end_date,
+            'title'                 => $request->title,
+            'start_date'            => $request->start_date,
+            'end_date'              => $request->end_date,
+            'anggaran_dasar'        => $request->anggaran_dasar,
+            'anggaran_rumah_tangga' => $request->anggaran_rumah_tangga,
+            'agenda_khusus'         => $request->agenda_khusus,
+            'youtube_link'          => $request->youtube_link,
         ]);
 
         flashMessage("Periode ini berhasil diupdate", 'success');

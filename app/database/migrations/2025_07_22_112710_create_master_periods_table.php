@@ -16,6 +16,10 @@ return new class extends Migration
             $table->string('title');
             $table->dateTimeTz('start_date');
             $table->dateTimeTz('end_date');
+            $table->string('anggaran_dasar')->nullable();
+            $table->string('anggaran_rumah_tangga')->nullable();
+            $table->string('agenda_khusus')->nullable();
+            $table->string('youtube_link')->nullable();
             $table->timestamps();
         });
     }

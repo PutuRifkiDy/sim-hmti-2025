@@ -12,6 +12,10 @@ class MasterPeriod extends Model
         'title',
         'start_date',
         'end_date',
+        'anggaran_dasar',
+        'anggaran_rumah_tangga',
+        'agenda_khusus',
+        'youtube_link',
     ];
 
     protected $casts = [
