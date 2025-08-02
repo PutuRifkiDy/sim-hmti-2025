@@ -6,11 +6,13 @@ use App\Http\Resources\MasterPeriodResource;
 use App\Models\Himpunan;
 use App\Models\MasterPeriod;
 use App\Models\MasterProgramKerja;
+use App\Traits\HasFile;
 use Illuminate\Http\RedirectResponse;
 use Inertia\Response;
 
 class MasterPeriodController extends Controller
 {
+    use HasFile;
     public function index(): Response | RedirectResponse
     {
         $user = auth()->user();
@@ -47,6 +49,7 @@ class MasterPeriodController extends Controller
             'anggaran_rumah_tangga' => $request->anggaran_rumah_tangga,
             'agenda_khusus'         => $request->agenda_khusus,
             'youtube_link'          => $request->youtube_link,
+            'cover_path'            => $request->hasFile('cover_path') ? $this->upload_file($request, 'cover_path', 'cover_period') : null,
         ]);
         flashMessage("Periode $request->title berhasil ditambahkan", 'success');
         return to_route('master-period.index');
@@ -73,6 +76,7 @@ class MasterPeriodController extends Controller
             'anggaran_rumah_tangga' => $request->anggaran_rumah_tangga,
             'agenda_khusus'         => $request->agenda_khusus,
             'youtube_link'          => $request->youtube_link,
+            'cover_path'            => $request->hasFile('cover_path') ? $this->upload_file($request, 'cover_path', 'cover_period') : $periode->cover_path,
         ]);
 
         flashMessage("Periode ini berhasil diupdate", 'success');

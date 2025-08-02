@@ -71,6 +71,7 @@ export default function Index() {
                     anggaran_rumah_tangga: master_period.anggaran_rumah_tangga ?? '',
                     agenda_khusus: master_period.agenda_khusus ?? '',
                     youtube_link: master_period.youtube_link ?? '',
+                    cover_path: master_period.cover_path ?? '',
                 };
             })
         );
@@ -156,17 +157,18 @@ export default function Index() {
         return (
             <>
                 <Dialog>
-                    <DialogTrigger className='flex flex-row gap-3 justify-center items-center d font-normal'>
+                    <DialogTrigger className='flex flex-row gap-3 justify-center items-center font-normal'>
                         Buka
                         <IconPreviewImageProfile />
                     </DialogTrigger>
-                    <DialogContent className="dark:bg-[#0F114C]">
+                    <DialogContent className="dark:bg-[#0F114C] max-w-3xl h-[80%]">
                         <DialogTitle>
                             Anggaran Dasar
                         </DialogTitle>
-                        <iframe class="flex-grow h-screen" src={rowData.anggaran_dasar ? `${rowData.anggaran_dasar}` : 'assets/icon/default_image_profile.png'}
-                            allow="autoplay"></iframe>
-                        <a href={rowData?.anggaran_dasar ? `${rowData.anggaran_dasar}` : 'assets/icon/default_image_profile.png'} className="text-center" target="_blank" rel="noopener noreferrer">Buka di tab baru</a>
+                        <div className="overflow-hidden">
+                            <iframe className="w-full h-screen" src={rowData.anggaran_dasar ? `${rowData.anggaran_dasar}` : 'assets/icon/default_image_profile.png'}
+                                allow="autoplay"></iframe>
+                        </div>
                     </DialogContent>
                 </Dialog>
             </>
@@ -181,13 +183,14 @@ export default function Index() {
                         Buka
                         <IconPreviewImageProfile />
                     </DialogTrigger>
-                    <DialogContent className="dark:bg-[#0F114C]">
+                    <DialogContent className="dark:bg-[#0F114C] max-w-3xl h-[80%]">
                         <DialogTitle>
                             Anggaran Rumah Tangga
                         </DialogTitle>
-                        <iframe class="flex-grow h-screen" src={rowData.anggaran_rumah_tangga ? `${rowData.anggaran_rumah_tangga}` : 'assets/icon/default_image_profile.png'}
-                            allow="autoplay"></iframe>
-                        <a href={rowData?.anggaran_rumah_tangga ? `${rowData.anggaran_rumah_tangga}` : 'assets/icon/default_image_profile.png'} className="text-center" target="_blank" rel="noopener noreferrer">Buka di tab baru</a>
+                        <div className="overflow-hidden">
+                            <iframe class="w-full h-screen" src={rowData.anggaran_rumah_tangga ? `${rowData.anggaran_rumah_tangga}` : 'assets/icon/default_image_profile.png'}
+                                allow="autoplay"></iframe>
+                        </div>
                     </DialogContent>
                 </Dialog>
             </>
@@ -202,13 +205,14 @@ export default function Index() {
                         Buka
                         <IconPreviewImageProfile />
                     </DialogTrigger>
-                    <DialogContent className="dark:bg-[#0F114C]">
+                    <DialogContent className="dark:bg-[#0F114C] max-w-3xl h-[80%]">
                         <DialogTitle>
                             Agenda Khusus
                         </DialogTitle>
-                        <iframe class="flex-grow h-screen" src={rowData.agenda_khusus ? `${rowData.agenda_khusus}` : 'assets/icon/default_image_profile.png'}
-                            allow="autoplay"></iframe>
-                        <a href={rowData?.agenda_khusus ? `${rowData.agenda_khusus}` : 'assets/icon/default_image_profile.png'} className="text-center" target="_blank" rel="noopener noreferrer">Buka di tab baru</a>
+                        <div className="overflow-hidden">
+                            <iframe class="w-full h-screen" src={rowData.agenda_khusus ? `${rowData.agenda_khusus}` : 'assets/icon/default_image_profile.png'}
+                                allow="autoplay"></iframe>
+                        </div>
                     </DialogContent>
                 </Dialog>
             </>
@@ -223,24 +227,46 @@ export default function Index() {
                         Buka
                         <IconPreviewImageProfile />
                     </DialogTrigger>
-                    <DialogContent className="dark:bg-[#0F114C]">
+                    <DialogContent className="dark:bg-[#0F114C]  max-w-3xl h-[80%]">
                         <DialogTitle>
                             Video Himpunan
                         </DialogTitle>
-                        <iframe
-                            src={rowData.youtube_link ? `${rowData.youtube_link}` : 'https://www.youtube.com/embed/VIDEO_ID'}
-                            title="Himpunan Video"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                            className="h-96 w-full rounded-lg shadow-lg"
-                        ></iframe>
+                        <div className="overflow-hidden">
+                            <iframe
+                                src={rowData.youtube_link ? `${rowData.youtube_link}` : 'https://www.youtube.com/embed/VIDEO_ID'}
+                                title="Himpunan Video"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                                className="w-full h-screen"
+                            ></iframe>
+                        </div>
                     </DialogContent>
                 </Dialog>
             </>
         );
     }
 
+
+    const coverImagePeriodTemplate = (rowData) => {
+        return (
+            <>
+                <Dialog>
+                    <DialogTrigger className='flex flex-row gap-3 justify-center items-center d font-normal'>
+                        Buka
+                        <IconPreviewImageProfile />
+                    </DialogTrigger>
+                    <DialogContent className="dark:bg-[#0F114C] max-w-xl">
+                        <DialogTitle>
+                            Gambar Cover
+                        </DialogTitle>
+                        <img src={rowData?.cover_path ? `${rowData.cover_path}` : 'assets/icon/default_image_profile.png'} className="h-64 w-auto" alt="" />
+                        <a href={rowData?.cover_path ? `${rowData.cover_path}` : 'assets/icon/default_image_profile.png'} className="text-center" target="_blank" rel="noopener noreferrer">Buka di tab baru</a>
+                    </DialogContent>
+                </Dialog>
+            </>
+        );
+    }
 
     const actionTemplate = (rowData) => {
         return (
@@ -390,6 +416,12 @@ export default function Index() {
                                             header="Link Youtube"
                                             body={youtubeLinkTemplate}
                                             className="min-w-[12rem]">
+                                        </Column>
+                                        <Column
+                                            field="cover_path"
+                                            header="Cover Periode Himpunan"
+                                            body={coverImagePeriodTemplate}
+                                            className="min-w-[15rem]">
                                         </Column>
                                         <Column
                                             field="action"

@@ -3,6 +3,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Storage;
 
 class MasterPeriodResource extends JsonResource
 {
@@ -22,6 +23,7 @@ class MasterPeriodResource extends JsonResource
             'anggaran_rumah_tangga' => $this->anggaran_rumah_tangga,
             'agenda_khusus'         => $this->agenda_khusus,
             'youtube_link'          => $this->youtube_link,
+            'cover_path'            => $this->cover_path ? Storage::url($this->cover_path) : null,
         ];
     }
 }

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('anggaran_rumah_tangga')->nullable();
             $table->string('agenda_khusus')->nullable();
             $table->string('youtube_link')->nullable();
+            $table->string('cover_path')->nullable();
             $table->timestamps();
         });
     }

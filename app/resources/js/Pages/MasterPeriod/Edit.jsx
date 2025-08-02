@@ -1,3 +1,4 @@
+import { ImageUpload } from "@/Components/ImageUpload";
 import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
 import TextInput from "@/Components/TextInput";
@@ -25,11 +26,16 @@ export default function Edit() {
         anggaran_rumah_tangga: period.anggaran_rumah_tangga ?? '',
         agenda_khusus: period.agenda_khusus ?? '',
         youtube_link: period.youtube_link ?? '',
+        cover_path: period.cover_path ?? '',
         _method: 'PUT'
     });
 
     const onHandleSubmit = (e) => {
         e.preventDefault();
+
+        if (!(data.cover_path instanceof File)) {
+            delete data.cover_path;
+        }
         post(route('master-period.update', period.id), {
             preserveScroll: true,
             preserveState: true,
@@ -171,6 +177,15 @@ export default function Edit() {
                                 />
                             </div>
                         </div>
+
+                        <ImageUpload
+                            imagePath={period.cover_path}
+                            onChangeImage={(file, previewUrl) => {
+                                setData("cover_path", file);
+                                setPreview(previewUrl);
+                            }}
+                            errorMessage={errors.cover_path}
+                        />
 
                         <div className="flex items-center gap-4">
                             <Button type="submit" variant="blue" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#0F114C]">

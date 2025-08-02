@@ -16,6 +16,7 @@ class MasterPeriod extends Model
         'anggaran_rumah_tangga',
         'agenda_khusus',
         'youtube_link',
+        'cover_path',
     ];
 
     protected $casts = [
