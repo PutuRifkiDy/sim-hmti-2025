@@ -4,7 +4,7 @@ import { Button } from "@/Components/ui/button";
 import { Card, CardContent } from "@/Components/ui/card";
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/Components/ui/dialog";
 import DashboardLayout from "@/Layouts/DashboardLayout";
-import { DocumentArrowDownIcon, PencilSquareIcon, XCircleIcon } from "@heroicons/react/24/solid";
+import { DocumentArrowDownIcon, EyeIcon, PencilSquareIcon, UserIcon, XCircleIcon } from "@heroicons/react/24/solid";
 import { Link, router, usePage } from "@inertiajs/react";
 import { FilterMatchMode } from "primereact/api";
 import { Column } from "primereact/column";
@@ -21,6 +21,7 @@ export default function Index() {
     const { props } = usePage();
     const oprecs = usePage().props.oprecs;
     const total_oprec = usePage().props.total_oprec;
+    const total_registered = usePage().props.total_registered;
 
     const flash_message = usePage().props.flash_message;
     useEffect(() => {
@@ -148,7 +149,6 @@ export default function Index() {
 
     const rowNumberTemplate = (rowData, column) => column.rowIndex + 1;
 
-
     const actionTemplate = (rowData) => {
         return (
             <>
@@ -156,11 +156,24 @@ export default function Index() {
 
                     <Button
                         variant="none"
+                        data-pr-tooltip="Lihat pendaftar"
+                        className="w-0"
+                    >
+                        <Link
+                            className="flex justify-center items-center border-2 rounded-md border-[#00D238] p-1.5 hover:bg-[#00D238]/20 transition-all duration-300 ease-in-out"
+                            type="button"
+                            href={route('master-open-rekruitmen.see-registered', rowData.id)}>
+                            <EyeIcon className="text-[#00D238] w-5 h-5" />
+                        </Link>
+                    </Button>
+
+                    <Button
+                        variant="none"
                         data-pr-tooltip="Edit data"
                         className="w-0"
                     >
                         <Link
-                            className="flex justify-center items-center border-2 rounded-md border-[#dfe44d] p-1.5 hover:bg-[#4DE45C]/20 transition-all duration-300 ease-in-out"
+                            className="flex justify-center items-center border-2 rounded-md border-[#dfe44d] p-1.5 hover:bg-[#dfe44d]/20 transition-all duration-300 ease-in-out"
                             type="button"
                             href={route('master-open-rekruitmen.edit', rowData.id)}>
                             <PencilSquareIcon className="text-[#dfe44d] w-5 h-5" />
@@ -204,6 +217,17 @@ export default function Index() {
 
         return (
             <div dangerouslySetInnerHTML={{ __html: cleanDescription }} className="w-full line-clamp-3" />
+        );
+    }
+
+
+    const totalPendaftarTemplate = (rowData) => {
+        const totalRegistered = total_registered[rowData.id] || 0;
+        return (
+            <div className="flex flex-row items-center gap-2">
+                <UserIcon className="w-5 h-5 text-gray-500 dark:text-white" />
+                <p>{totalRegistered} Pendaftar</p>
+            </div>
         );
     }
 
@@ -280,6 +304,12 @@ export default function Index() {
                                             field="poster_path"
                                             header="Poster Oprec"
                                             body={imgOprecTemplate}
+                                            className="min-w-[12rem]">
+                                        </Column>
+                                        <Column
+                                            field="total_pendaftar"
+                                            header="Total Pendaftar"
+                                            body={totalPendaftarTemplate}
                                             className="min-w-[12rem]">
                                         </Column>
                                         <Column

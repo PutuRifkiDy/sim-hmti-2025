@@ -28,9 +28,17 @@ class MasterOpenRekruitmen extends Controller
         $oprecs = Oprec::get();
         $total_oprec = $oprecs->count();
 
+        $total_registered = [];
+        foreach ($oprecs as $oprec) {
+            $total_registered[$oprec->id] = OprecRegist::where('oprec_id', $oprec->id)->count();
+        }
+
+        // dd($total_registered);
+
         return inertia(component: 'MasterOpenRekruitmen/Index', props: [
             'oprecs' => MasterOpenRekruitmenResource::collection($oprecs),
             'total_oprec' => $total_oprec,
+            'total_registered' => $total_registered,
         ]);
     }
 
@@ -131,13 +139,14 @@ class MasterOpenRekruitmen extends Controller
             return to_route('login');
         }
 
-        // $total_registered = OprecRegist::where('oprec_id', $id)->count();
         $oprec_registered = OprecRegist::with('user', 'master_sie', 'oprec')
             ->where('oprec_id', $id)
             ->get();
+        $oprec = Oprec::find($id);
 
         return inertia(component: 'MasterOpenRekruitmen/SeeRegistered', props: [
             'oprec_registered' => OprecRegisResource::collection($oprec_registered),
+            'oprec' => new MasterOpenRekruitmenResource($oprec),
         ]);
     }
 }

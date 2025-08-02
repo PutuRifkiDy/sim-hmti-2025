@@ -42,7 +42,7 @@ Route::controller(MasterSieController::class)->group(function () {
     Route::get('/master-sie/{id}/edit', 'edit')->name('master-sie.edit');
     Route::put('/master-sie/{id}/update', 'update')->name('master-sie.update');
     Route::delete('/master-sie/{id}/delete', 'destroy')->name('master-sie.destroy');
-});
+})->middleware('auth');
 
 Route::controller(MasterPeriodController::class)->group(function () {
     Route::get('/master-period', 'index')->name('master-period.index');
@@ -60,7 +60,7 @@ Route::controller(MasterPositionController::class)->group(function () {
     Route::get('/master-position/{id}/edit', 'edit')->name('master-position.edit');
     Route::put('/master-position/{id}/update', 'update')->name('master-position.update');
     Route::delete('/master-position/{id}/delete', 'destroy')->name('master-position.destroy');
-});
+})->middleware('auth');
 
 Route::controller(MasterHimpunanController::class)->group(function () {
     Route::get('/master-period/master-himpunan/{id}/show', 'index')->name('master-himpunan.index');
