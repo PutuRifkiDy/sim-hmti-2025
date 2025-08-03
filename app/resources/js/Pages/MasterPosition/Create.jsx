@@ -10,7 +10,9 @@ import { Link, useForm, usePage } from "@inertiajs/react";
 import { Input } from "postcss";
 import { useEffect } from "react";
 import { toast } from "sonner";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/Components/ui/select";
 export default function Create() {
+    const master_positions = usePage().props.master_positions;
     const flash_message = usePage().props.flash_message;
     useEffect(() => {
         if (flash_message?.message) {
@@ -19,6 +21,7 @@ export default function Create() {
     }, [flash_message]);
     const { data, setData, post, processing, errors, recentlySuccessful } = useForm({
         title: '',
+        parent_id: '',
         _method: 'POST'
     });
 
@@ -29,6 +32,7 @@ export default function Create() {
             preserveState: true,
         });
     };
+
     return (
         <>
             <div className="py-5">
@@ -65,6 +69,27 @@ export default function Create() {
                                 autoComplete="title"
                                 onErrors={errors.title && <InputError message={errors.title} className="mt-2" />}
                             />
+                        </div>
+                        <div>
+                            <InputLabel htmlFor="parent_id" value="Jabatan Induk" />
+                            <Select
+                                value={data.parent_id}
+                                onValueChange={(value) => setData('parent_id', value)}
+                                className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F] focus:border-none focus:ring-none"
+                            >
+                                <SelectTrigger>
+                                    <SelectValue placeholder="Pilih Jabatan Induk"  />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    {master_positions.map((position) => (
+                                        <SelectItem key={position.id} value={String(position.id)}>
+                                            {position.title}
+                                        </SelectItem>
+                                    ))}
+                                </SelectContent>
+                            </Select>
+                            <InputError
+                                message={errors.parent_id} className="mt- text-red-600" />
                         </div>
 
                         <div className="flex items-center gap-4">

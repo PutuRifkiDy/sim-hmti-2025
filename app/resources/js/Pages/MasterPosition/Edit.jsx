@@ -1,6 +1,8 @@
+import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
 import TextInput from "@/Components/TextInput";
 import { Button } from "@/Components/ui/button";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/Components/ui/select";
 import DashboardLayout from "@/Layouts/DashboardLayout";
 import { Transition } from "@headlessui/react";
 import { CheckBadgeIcon } from "@heroicons/react/24/solid";
@@ -9,8 +11,10 @@ import { Link, useForm, usePage } from "@inertiajs/react";
 
 export default function Edit() {
     const position = usePage().props.position;
+    const master_positions = usePage().props.master_positions;
     const { data, setData, processing, post, reset, errors, recentlySuccessful } = useForm({
         title: position.title ?? '',
+        parent_id: position.parent_id ?? '',
         _method: 'PUT'
     });
 
@@ -48,7 +52,7 @@ export default function Edit() {
                         </Button>
                     </div>
                     <form onSubmit={onHandleSubmit} className="mt-6 space-y-6">
-                        <div className='grid md:grid-cols-2 grid-cols-1 gap-5'>
+                        <div className='grid grid-cols-1 gap-5'>
                             <div>
                                 <InputLabel htmlFor="title" value="Nama Jabatan" />
 
@@ -67,7 +71,32 @@ export default function Edit() {
                                 />
 
                             </div>
+                            <div>
+                                <InputLabel htmlFor="position_id" value="Jabatan" />
+
+                                <Select
+                                    value={data.parent_id}
+                                    onValueChange={(value) => setData('parent_id', value)}
+                                    className="mt-1 block w-full rounded-[10px] border-[1px] border-[#818181] px-4 placeholder:text-[14px] placeholder:text-[#6F6F6F] dark:bg-[#040529] focus:border-none focus:ring-none"
+                                >
+                                    <SelectTrigger>
+                                        <SelectValue placeholder="Pilih Jabatan" />
+                                    </SelectTrigger>
+                                    <SelectContent className="dark:bg-[#040529]">
+                                        {master_positions.map((position) => (
+                                            <SelectItem key={position.id} value={String(position.id)}>
+                                                {position.title}
+                                            </SelectItem>
+                                        ))}
+                                    </SelectContent>
+                                </Select>
+
+                                <InputError
+                                    message={errors.parent_id} className="mt- text-red-600" />
+
+                            </div>
                         </div>
+
 
                         <div className="flex items-center gap-4">
                             <Button type="submit" variant="blue" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#0F114C]">

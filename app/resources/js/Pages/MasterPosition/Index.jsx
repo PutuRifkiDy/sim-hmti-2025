@@ -23,6 +23,8 @@ export default function Index() {
     const total_position = usePage().props.total_position;
     const { props } = usePage();
 
+    console.log(master_positions);
+
     const flash_message = usePage().props.flash_message;
     useEffect(() => {
         if (flash_message?.message) {
@@ -62,6 +64,8 @@ export default function Index() {
                 return {
                     id: master_position.id,
                     title: master_position.title ?? '',
+                    parent_id: master_position.parent_id ?? '',
+                    parents: master_position.parents
                 };
             })
         );
@@ -213,6 +217,12 @@ export default function Index() {
                                             field="title"
                                             header="Nama Sie"
                                             body={(rowData) => rowData.title ? rowData.title : '-'}
+                                            className="min-w-[12rem]">
+                                        </Column>
+                                        <Column
+                                            field="parent_id"
+                                            header="Induk Jabatan"
+                                            body={(rowData) => rowData?.parents?.title ? rowData?.parents?.title : '-'}
                                             className="min-w-[12rem]">
                                         </Column>
                                         <Column

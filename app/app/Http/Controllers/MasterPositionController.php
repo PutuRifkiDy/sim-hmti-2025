@@ -27,19 +27,23 @@ class MasterPositionController extends Controller
 
     public function create(): Response | RedirectResponse
     {
-        $user_login = auth()->user();
+        $user_login       = auth()->user();
+        $master_positions = MasterPosition::get();
 
         if (! $user_login) {
             return to_route('login');
         }
 
-        return inertia(component: 'MasterPosition/Create');
+        return inertia(component: 'MasterPosition/Create', props: [
+            'master_positions' => MasterPositionResource::collection($master_positions),
+        ]);
     }
 
     public function store(MasterPositionRequest $request): RedirectResponse
     {
         $position = MasterPosition::create([
-            'title' => $request->title,
+            'title'     => $request->title,
+            'parent_id' => $request->parent_id,
         ]);
 
         flashMessage("Posisi $request->title berhasil ditambahkan", 'success');
@@ -49,14 +53,16 @@ class MasterPositionController extends Controller
 
     public function edit($id): Response | RedirectResponse
     {
-        $user_login = auth()->user();
+        $master_positions = MasterPosition::get();
+        $user_login       = auth()->user();
         if (! $user_login) {
             return to_route('login');
         }
 
         $position = MasterPosition::find($id);
         return inertia(component: 'MasterPosition/Edit', props: [
-            'position' => fn() => new MasterPositionResource($position),
+            'position'         => fn()         => new MasterPositionResource($position),
+            'master_positions' => MasterPositionResource::collection($master_positions),
         ]);
     }
 
@@ -64,7 +70,8 @@ class MasterPositionController extends Controller
     {
         $position = MasterPosition::find($id);
         $position->update([
-            'title' => $request->title,
+            'title'     => $request->title,
+            'parent_id' => $request->parent_id,
         ]);
 
         flashMessage("Posisi ini berhasil diupdate", 'success');
