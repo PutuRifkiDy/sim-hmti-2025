@@ -22,10 +22,10 @@ class OprecRegistRequest extends FormRequest
     {
         return [
             'reason_join' => ['required', 'string', 'max:255'],
-            'experience' => ['nullable', 'string', 'max:255'],
-            'sie_id'     => ['required'],
-            'oprec_id'   => ['required'],
-            'user_id'    => ['required'],
+            'experience'  => ['nullable', 'string', 'max:255'],
+            'sie_id'      => ['required'],
+            'oprec_id'    => ['required'],
+            'user_id'     => ['required'],
         ];
     }
 }

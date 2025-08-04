@@ -1,18 +1,18 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Http\Requests\MasterOpenRekruitmenRequest;
-use App\Http\Resources\MasterOpenRekruitmenResource;
+use App\Models\Oprec;
+use Inertia\Response;
+use App\Traits\HasFile;
+use App\Models\OprecSie;
+use App\Models\MasterSie;
+use App\Models\OprecRegist;
+use Illuminate\Http\RedirectResponse;
+use App\Http\Resources\OprecSieResource;
 use App\Http\Resources\MasterSieResource;
 use App\Http\Resources\OprecRegisResource;
-use App\Http\Resources\OprecSieResource;
-use App\Models\MasterSie;
-use App\Models\Oprec;
-use App\Models\OprecRegist;
-use App\Models\OprecSie;
-use App\Traits\HasFile;
-use Illuminate\Http\RedirectResponse;
-use Inertia\Response;
+use App\Http\Requests\MasterOpenRekruitmenRequest;
+use App\Http\Resources\MasterOpenRekruitmenResource;
 
 class MasterOpenRekruitmen extends Controller
 {

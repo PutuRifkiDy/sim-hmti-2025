@@ -2,7 +2,10 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
+use App\Http\Resources\MasterSieResource;
+use App\Http\Resources\UserSingleResource;
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\MasterOpenRekruitmenResource;
 
 class OprecRegisResource extends JsonResource
 {

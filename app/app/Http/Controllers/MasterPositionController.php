@@ -1,11 +1,11 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Http\Requests\MasterPositionRequest;
-use App\Http\Resources\MasterPositionResource;
+use Inertia\Response;
 use App\Models\MasterPosition;
 use Illuminate\Http\RedirectResponse;
-use Inertia\Response;
+use App\Http\Requests\MasterPositionRequest;
+use App\Http\Resources\MasterPositionResource;
 
 class MasterPositionController extends Controller
 {

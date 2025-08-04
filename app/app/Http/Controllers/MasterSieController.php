@@ -1,11 +1,11 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Http\Requests\MasterSieRequest;
-use App\Http\Resources\MasterSieResource;
+use Inertia\Response;
 use App\Models\MasterSie;
 use Illuminate\Http\RedirectResponse;
-use Inertia\Response;
+use App\Http\Requests\MasterSieRequest;
+use App\Http\Resources\MasterSieResource;
 
 class MasterSieController extends Controller
 {

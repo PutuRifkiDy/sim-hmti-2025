@@ -1,16 +1,16 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Http\Requests\OprecRegistRequest;
-use App\Http\Resources\MasterOpenRekruitmenResource;
-use App\Http\Resources\OprecRegisResource;
-use App\Http\Resources\OprecSieResource;
-use App\Http\Resources\UserSingleResource;
 use App\Models\Oprec;
-use App\Models\OprecRegist;
-use App\Models\OprecSie;
-use Illuminate\Http\RedirectResponse;
 use Inertia\Response;
+use App\Models\OprecSie;
+use App\Models\OprecRegist;
+use Illuminate\Http\RedirectResponse;
+use App\Http\Resources\OprecSieResource;
+use App\Http\Requests\OprecRegistRequest;
+use App\Http\Resources\OprecRegisResource;
+use App\Http\Resources\UserSingleResource;
+use App\Http\Resources\MasterOpenRekruitmenResource;
 
 class OprecRegistController extends Controller
 {

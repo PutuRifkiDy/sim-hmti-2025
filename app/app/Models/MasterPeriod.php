@@ -2,6 +2,8 @@
 namespace App\Models;
 
 use App\Models\Himpunan;
+use App\Models\MasterFinancial;
+use App\Models\MasterProgramKerja;
 use Illuminate\Database\Eloquent\Model;
 
 class MasterPeriod extends Model
@@ -32,6 +34,11 @@ class MasterPeriod extends Model
     public function program_kerjas()
     {
         return $this->hasMany(MasterProgramKerja::class);
+    }
+
+    public function financials()
+    {
+        return $this->hasMany(MasterFinancial::class, 'period_id');
     }
 
 }

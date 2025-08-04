@@ -1,14 +1,14 @@
 <?php
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
+use App\Models\User;
+use Inertia\Response;
+use App\Traits\HasFile;
+use Illuminate\Http\RedirectResponse;
+use App\Http\Resources\UserSingleResource;
 use App\Http\Requests\CreateMahasiswaRequest;
 use App\Http\Requests\MasterUserUpdateRequest;
-use App\Http\Resources\UserSingleResource;
-use App\Models\User;
-use App\Traits\HasFile;
-use Carbon\Carbon;
-use Illuminate\Http\RedirectResponse;
-use Inertia\Response;
 
 class MasterUserController extends Controller
 {

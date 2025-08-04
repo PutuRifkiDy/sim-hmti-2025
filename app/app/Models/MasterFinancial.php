@@ -5,18 +5,17 @@ namespace App\Models;
 use App\Models\MasterPeriod;
 use Illuminate\Database\Eloquent\Model;
 
-class MasterProgramKerja extends Model
+class MasterFinancial extends Model
 {
-    protected $table = 'master_program_kerjas';
     protected $fillable = [
         'title',
-        'description',
-        'img_path',
+        'month',
+        'total_income',
         'period_id',
     ];
 
     public function period()
     {
-        return $this->belongsTo(MasterPeriod::class);
+        return $this->belongsTo(MasterPeriod::class, 'period_id');
     }
 }
