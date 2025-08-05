@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Sidebar from './Partials/Sidebar';
 import { IconBerandaSideBar, IconOpenRekrutmen, IconProfileSideBar } from '@/Components/IconAdmin';
 import { Toaster } from '@/Components/ui/sonner';
-import { UserGroupIcon } from '@heroicons/react/24/outline';
+import { DocumentIcon, UserGroupIcon } from '@heroicons/react/24/outline';
 
 export default function DashboardLayout({ children, title, header, description }) {
     const route_sidebar = [
@@ -22,6 +22,11 @@ export default function DashboardLayout({ children, title, header, description }
             text: "Open Rekruitmen",
             link: route('oprec-regist.index'),
         },
+        {
+            icon: <DocumentIcon className='w-[22px] h-[22px]' />,
+            text: "AD/ART",
+            link: route('master-adart.index'),
+        }
         // {
         //     icon: <IconProfileSideBar />,
         //     text: "Master User",

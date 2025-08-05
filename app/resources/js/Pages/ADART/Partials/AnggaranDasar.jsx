@@ -1,8 +1,12 @@
-export default function AnggaranDasar()
-{
-    return(
+export default function AnggaranDasar(anggaran_dasar) {
+    console.log(anggaran_dasar);
+    return (
         <>
-            <p>Ini adalah page anggaran dasar</p>
+            <iframe
+                className="w-full h-screen"
+                src={anggaran_dasar.anggaran_dasar ? `${anggaran_dasar.anggaran_dasar}` : 'assets/icon/default_image_profile.png'}
+                allow="autoplay">
+            </iframe>
         </>
     );
 }

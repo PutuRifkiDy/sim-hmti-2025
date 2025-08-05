@@ -1,12 +1,16 @@
-import { Head } from '@inertiajs/react';
+import { Head, usePage } from '@inertiajs/react';
 import DeleteUserForm from './Partials/DeleteUserForm';
 import UpdatePasswordForm from './Partials/UpdatePasswordForm';
 import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm';
 import DashboardLayout from '@/Layouts/DashboardLayout';
+import { toast } from 'sonner';
 
 export default function Edit({ mustVerifyEmail, status }) {
+    const flash_message = usePage().props.flash_message;
+    if(flash_message?.message) {
+        toast[flash_message.type || 'success'](flash_message.message);
+    }
 	return (
-
 
 			<div className="py-5">
 				<div className="mx-auto w-full space-y-6">

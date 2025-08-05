@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ADARTController;
 use App\Http\Controllers\MasterFinancialController;
 use App\Http\Controllers\MasterHimpunanController;
 use App\Http\Controllers\MasterOpenRekruitmen;
@@ -92,13 +93,6 @@ Route::controller(MasterOpenRekruitmen::class)->group(function () {
     Route::get('master-open-rekruitmen/{id}/see-registered', 'seeRegistered')->name('master-open-rekruitmen.see-registered');
 })->middleware('auth');
 
-Route::controller(OprecRegistController::class)->group(function () {
-    Route::get('/master-open-rekruitmen/master-oprec-regist', 'index')->name('oprec-regist.index');
-    Route::get('/master-open-rekruitmen/master-oprec-regist/show/{id}', 'show')->name('oprec-regist.show');
-    Route::post('/master-open-rekruitmen/master-oprec-regist/store', 'store')->name('oprec-regist.store');
-    Route::get('/master-open-rekruitmen/master-oprec-regist/{idOprec}/registered/{idUser}', 'registered')->name('oprec-regist.edit');
-})->middleware('auth');
-
 Route::controller(MasterFinancialController::class)->group(function () {
     Route::get('/master-financial/{id}/show', 'index')->name('master-financial.index');
     Route::get('/master-financial/create/{id}', 'create')->name('master-financial.create');
@@ -107,6 +101,17 @@ Route::controller(MasterFinancialController::class)->group(function () {
     Route::put('/master-financial/{id}/update', 'update')->name('master-financial.update');
     Route::delete('/master-financial/{id}/delete', 'destroy')->name('master-financial.destroy');
 })->middleware('auth');
+
+Route::controller(OprecRegistController::class)->group(function () {
+    Route::get('/master-open-rekruitmen/master-oprec-regist', 'index')->name('oprec-regist.index');
+    Route::get('/master-open-rekruitmen/master-oprec-regist/show/{id}', 'show')->name('oprec-regist.show');
+    Route::post('/master-open-rekruitmen/master-oprec-regist/store', 'store')->name('oprec-regist.store');
+    Route::get('/master-open-rekruitmen/master-oprec-regist/{idOprec}/registered/{idUser}', 'registered')->name('oprec-regist.edit');
+})->middleware('auth');
+
+Route::controller(ADARTController::class)->group(function () {
+    Route::get('/master-adart', 'index')->name('master-adart.index');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
