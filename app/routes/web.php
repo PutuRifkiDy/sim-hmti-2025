@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MasterFinancialController;
 use App\Http\Controllers\MasterHimpunanController;
 use App\Http\Controllers\MasterOpenRekruitmen;
 use App\Http\Controllers\MasterPeriodController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\MasterSieController;
 use App\Http\Controllers\MasterUserController;
 use App\Http\Controllers\OprecRegistController;
 use App\Http\Controllers\ProfileController;
+use App\Models\MasterFinancial;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -95,6 +97,15 @@ Route::controller(OprecRegistController::class)->group(function () {
     Route::get('/master-open-rekruitmen/master-oprec-regist/show/{id}', 'show')->name('oprec-regist.show');
     Route::post('/master-open-rekruitmen/master-oprec-regist/store', 'store')->name('oprec-regist.store');
     Route::get('/master-open-rekruitmen/master-oprec-regist/{idOprec}/registered/{idUser}', 'registered')->name('oprec-regist.edit');
+})->middleware('auth');
+
+Route::controller(MasterFinancialController::class)->group(function () {
+    Route::get('/master-financial/{id}/show', 'index')->name('master-financial.index');
+    Route::get('/master-financial/create/{id}', 'create')->name('master-financial.create');
+    Route::post('/master-financial/store', 'store')->name('master-financial.store');
+    Route::get('/master-financial/{id}/edit', 'edit')->name('master-financial.edit');
+    Route::put('/master-financial/{id}/update', 'update')->name('master-financial.update');
+    Route::delete('/master-financial/{id}/delete', 'destroy')->name('master-financial.destroy');
 })->middleware('auth');
 
 Route::middleware('auth')->group(function () {

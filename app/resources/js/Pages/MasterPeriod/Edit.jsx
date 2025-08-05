@@ -42,7 +42,6 @@ export default function Edit() {
         });
     };
 
-    console.log(period);
     return (
         <>
             <div className="py-5">

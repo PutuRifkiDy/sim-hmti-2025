@@ -323,7 +323,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                                 <p className='text-[#676767] text-[14px] dark:text-gray-400'>Foto Profile</p>
                                 <IconPreviewImageProfile />
                             </DialogTrigger>
-                            <DialogContent>
+                            <DialogContent className="max-w-xl">
                                 <DialogTitle>
                                     Foto Profile
                                 </DialogTitle>

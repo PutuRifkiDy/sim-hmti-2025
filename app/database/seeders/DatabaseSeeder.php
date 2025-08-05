@@ -21,7 +21,8 @@ class DatabaseSeeder extends Seeder
             MasterPeriodSeeder::class,
             MasterPositionSeeder::class,
             HimpunanSeeder::class,
-            MasterProgramKerjaSeeder::class
+            MasterProgramKerjaSeeder::class,
+            MasterFinancialSeeder::class
         ]);
     }
 }

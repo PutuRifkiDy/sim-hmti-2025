@@ -4,7 +4,7 @@ import { Button } from "@/Components/ui/button";
 import { Card, CardContent } from "@/Components/ui/card";
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/Components/ui/dialog";
 import DashboardLayout from "@/Layouts/DashboardLayout";
-import { DocumentArrowDownIcon, DocumentPlusIcon, EyeIcon, PencilSquareIcon, UserGroupIcon, XCircleIcon } from "@heroicons/react/24/solid";
+import { CurrencyDollarIcon, DocumentArrowDownIcon, DocumentPlusIcon, EyeIcon, PencilSquareIcon, UserGroupIcon, XCircleIcon } from "@heroicons/react/24/solid";
 import { Link, router, usePage } from "@inertiajs/react";
 import { FilterMatchMode } from "primereact/api";
 import { Column } from "primereact/column";
@@ -274,7 +274,19 @@ export default function Index() {
                 <div className="flex flex-row gap-2 items-center action_buttons">
                     <Button
                         variant="none"
-                        data-pr-tooltip="Lihat program kerja di periode ini"
+                        data-pr-tooltip="Kelola keuangan di periode ini"
+                        className="w-0"
+                    >
+                        <Link
+                            className="flex justify-center items-center border-2 rounded-md border-[#FFA800] p-1.5 hover:bg-[#FFA800]/40 transition-all duration-300 ease-in-out"
+                            type="button"
+                            href={route('master-financial.index', rowData.id)}>
+                            <CurrencyDollarIcon className="text-[#FFA800] w-5 h-5" />
+                        </Link>
+                    </Button>
+                    <Button
+                        variant="none"
+                        data-pr-tooltip="Kelola program kerja di periode ini"
                         className="w-0"
                     >
                         <Link
@@ -287,7 +299,7 @@ export default function Index() {
 
                     <Button
                         variant="none"
-                        data-pr-tooltip="Lihat fungsionaris di periode ini"
+                        data-pr-tooltip="Kelola fungsionaris di periode ini"
                         className="w-0"
                     >
                         <Link

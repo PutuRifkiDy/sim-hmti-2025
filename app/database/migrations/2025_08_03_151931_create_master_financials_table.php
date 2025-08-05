@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('master_financials', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title')->nullable();
             $table->string('month');
-            $table->unsignedInteger('total_income')->default(0);
+            $table->integer('total_income')->default(0);
             $table->foreignId('period_id')->constrained('master_periods')->cascadeOnDelete();
             $table->timestamps();
         });
