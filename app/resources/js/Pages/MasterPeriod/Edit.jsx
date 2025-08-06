@@ -87,7 +87,7 @@ export default function Edit() {
                                     className="mt-1 block w-full"
                                     value={data.start_date}
                                     name="start_date"
-                                    type="date"
+                                    type="datetime-local"
                                     onChange={(e) => setData('start_date', e.target.value)}
                                     required
                                     isFocused
@@ -102,7 +102,7 @@ export default function Edit() {
                                     className="mt-1 block w-full"
                                     value={data.end_date}
                                     name="end_date"
-                                    type="date"
+                                    type="datetime-local"
                                     onChange={(e) => setData('end_date', e.target.value)}
                                     required
                                     isFocused

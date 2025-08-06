@@ -22,6 +22,8 @@ export default function Index() {
     const total_fungsionaris = usePage().props.total_fungsionaris;
     const total_programkerja = usePage().props.total_programkerja;
 
+    console.log("Master periods", master_periods);
+
     const { props } = usePage();
 
     const flash_message = usePage().props.flash_message;

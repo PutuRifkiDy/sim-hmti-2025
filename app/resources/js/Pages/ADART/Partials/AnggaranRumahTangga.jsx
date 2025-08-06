@@ -1,5 +1,4 @@
 export default function AnggaranRumahTangga(anggaran_rumah_tangga) {
-    console.log(anggaran_rumah_tangga);
     return (
         <>
             <iframe

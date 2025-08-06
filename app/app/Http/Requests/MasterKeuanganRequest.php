@@ -1,7 +1,6 @@
 <?php
 namespace App\Http\Requests;
 
-use App\Models\MasterFinancial;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -28,8 +27,13 @@ class MasterKeuanganRequest extends FormRequest
                 'required',
                 'string',
                 'max:255',
-                Rule::unique(MasterFinancial::class, 'month')->ignore($this->route('id')),],
-            'total_income' => ['required', 'string', 'max:255'],
+                Rule::unique('master_financials', 'month')
+                    ->where(function ($query) {
+                        return $query->where('period_id', $this->period_id);
+                    })
+                    ->ignore($this->route('id')),
+            ],
+            'total_income' => ['required', 'numeric', 'max:2147483647'],
             'period_id'    => ['required'],
         ];
     }

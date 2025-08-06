@@ -21,11 +21,6 @@ class MasterPeriod extends Model
         'cover_path',
     ];
 
-    protected $casts = [
-        'start_date' => 'date',
-        'end_date'   => 'date',
-    ];
-
     public function himpunans()
     {
         return $this->hasMany(Himpunan::class);

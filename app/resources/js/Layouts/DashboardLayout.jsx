@@ -1,7 +1,7 @@
 import { Head, Link, usePage } from '@inertiajs/react';
 import { useState } from 'react';
 import Sidebar from './Partials/Sidebar';
-import { IconBerandaSideBar, IconOpenRekrutmen, IconProfileSideBar } from '@/Components/IconAdmin';
+import { IconBerandaSideBar, IconChart, IconOpenRekrutmen, IconProfileSideBar } from '@/Components/IconAdmin';
 import { Toaster } from '@/Components/ui/sonner';
 import { DocumentIcon, UserGroupIcon } from '@heroicons/react/24/outline';
 
@@ -26,6 +26,11 @@ export default function DashboardLayout({ children, title, header, description }
             icon: <DocumentIcon className='w-[22px] h-[22px]' />,
             text: "AD/ART",
             link: route('master-adart.index'),
+        },
+        {
+            icon: <IconChart className='w-[22px] h-[22px]' />,
+            text: "Grafik Keuangan",
+            link: route('master-grafik.index'),
         }
         // {
         //     icon: <IconProfileSideBar />,

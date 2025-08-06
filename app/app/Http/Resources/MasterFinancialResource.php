@@ -14,12 +14,11 @@ class MasterFinancialResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        $total_income = number_format($this->total_income);
         return [
             'id'           => $this->id,
             'title'        => $this->title,
             'month'        => $this->month,
-            'total_income' => $total_income,
+            'total_income' => $this->total_income,
             'period_id'    => $this->period_id,
             'period'       => MasterPeriodResource::make($this->period),
         ];

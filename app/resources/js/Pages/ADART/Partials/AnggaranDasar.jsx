@@ -1,5 +1,4 @@
 export default function AnggaranDasar(anggaran_dasar) {
-    console.log(anggaran_dasar);
     return (
         <>
             <iframe

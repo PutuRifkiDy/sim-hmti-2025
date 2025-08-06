@@ -8,11 +8,12 @@ import AgendaKhusus from "./Partials/AgendaKhusus";
 export default function Index() {
     const ad_art = usePage().props.ad_art;
     const [tabActive, setTabActive] = useState(0);
-    console.log("Index ADART", ad_art);
+
+    console.log(ad_art);
     return (
         <>
             <div className="py-5">
-                <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
+                <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between space-y-2">
                     <div className="flex flex-row gap-10">
                         <div className={`cursor-pointer ${tabActive == 0 ? "text-[#ECBB4E] border-b-[7px] rounded-b-md border-[#ECBB4E]" : "" }      `} onClick={() => setTabActive(0)}>
                             <p>Anggaran Dasar</p>

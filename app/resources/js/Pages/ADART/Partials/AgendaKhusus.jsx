@@ -1,5 +1,4 @@
 export default function AgendaKhusus(agenda_khusus) {
-    console.log(agenda_khusus);
     return (
         <>
             <iframe

@@ -398,4 +398,17 @@ export const IconOpenRekrutmen = () => {
     );
 }
 
+export const IconChart = () => {
+    return (
+        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.5 16.667V21.8753" stroke="currentColor" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M16.666 14.583V21.8747" stroke="currentColor" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M20.834 10.417V21.8753" stroke="currentColor" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M22.9173 3.125L13.9111 12.1312C13.8627 12.1798 13.8052 12.2182 13.7419 12.2445C13.6787 12.2707 13.6108 12.2843 13.5423 12.2843C13.4738 12.2843 13.406 12.2707 13.3427 12.2445C13.2794 12.2182 13.2219 12.1798 13.1736 12.1312L9.7444 8.70208C9.64673 8.60444 9.51428 8.54959 9.37617 8.54959C9.23806 8.54959 9.10561 8.60444 9.00794 8.70208L2.08398 15.625" stroke="currentColor" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M4.16602 18.75V21.875" stroke="currentColor" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M8.33398 14.583V21.8747" stroke="currentColor" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+    );
+}
+
 

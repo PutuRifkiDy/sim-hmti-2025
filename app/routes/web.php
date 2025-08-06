@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ADARTController;
 use App\Http\Controllers\MasterFinancialController;
+use App\Http\Controllers\MasterGrafikController;
 use App\Http\Controllers\MasterHimpunanController;
 use App\Http\Controllers\MasterOpenRekruitmen;
 use App\Http\Controllers\MasterPeriodController;
@@ -11,7 +12,6 @@ use App\Http\Controllers\MasterSieController;
 use App\Http\Controllers\MasterUserController;
 use App\Http\Controllers\OprecRegistController;
 use App\Http\Controllers\ProfileController;
-use App\Models\MasterFinancial;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -111,7 +111,12 @@ Route::controller(OprecRegistController::class)->group(function () {
 
 Route::controller(ADARTController::class)->group(function () {
     Route::get('/master-adart', 'index')->name('master-adart.index');
-});
+})->middleware('auth');
+
+Route::controller(MasterGrafikController::class)->group(function () {
+    Route::get('/master-grafik-keuangan', 'index')->name('master-grafik.index');
+    Route::get('/master-grafik-keuangan/show', 'show')->name('master-grafik.show');
+})->middleware('auth');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
