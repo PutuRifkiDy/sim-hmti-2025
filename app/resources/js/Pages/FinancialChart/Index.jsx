@@ -32,7 +32,7 @@ export default function Index() {
         labels: monthLabels,
         datasets: [
             {
-                label: `Keuangan HMTI periode aktif ${periodActive.title}`,
+                label: `Keuangan HMTI periode aktif ${periodActive.title} perbulan`,
                 data: financialData,
                 backgroundColor: '#ECBB4E',
                 borderColor: '#ECBB4E',
@@ -46,7 +46,7 @@ export default function Index() {
         labels: periodLabels,
         datasets: [
             {
-                label: `Keuangan seluruh periode HMTI`,
+                label: `Keuangan seluruh HMTI perperiode`,
                 data: financialDataAllPeriod,
                 backgroundColor: '#ECBB4E',
                 borderColor: '#ECBB4E',
@@ -56,11 +56,6 @@ export default function Index() {
         ]
     }
 
-    console.log("data bulan", monthLabels);
-    console.log("data finansial", financialData);
-    console.log("data period", data_periods);
-    console.log("ini periods label", periodLabels);
-    console.log("ini finansial data all period", financialDataAllPeriod);
     return (
         <>
             <div className="py-5">

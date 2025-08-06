@@ -36,7 +36,16 @@ class MasterGrafikController extends Controller
                 ->first();
         }
 
-        $financialActive = MasterFinancial::where('period_id', $periodActive->id)->get();
+        $monthOrder = [
+            'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+            'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember',
+        ];
+
+        $financialActive = MasterFinancial::where('period_id', $periodActive->id)
+            ->get()
+            ->sortBy(function ($item) use ($monthOrder) {
+                return array_search($item->month, $monthOrder);
+            });
 
         if (! $financialActive) {
             flashMessage('Tidak ada periode himpunan yang aktif', 'error');
