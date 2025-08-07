@@ -22,6 +22,7 @@ export default function Sidebar({ navigations, children, header, description }) 
     const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 768);
     const [openDropdown, setOpenDropdown] = useState(false);
     const auth = usePage().props.auth.user;
+
     const { url } = usePage();
 
     if (!auth) {
@@ -92,57 +93,76 @@ export default function Sidebar({ navigations, children, header, description }) 
                                     </li>
                                 );
                             })}
-                            <li
-                                className={`py-4 ${isSidebarOpen ? 'px-8' : 'items-center'} flex cursor-pointer flex-col justify-center`}
-                            >
-                                <DropdownMenu onOpenChange={(open) => setOpenDropdown(open)}>
-                                    <DropdownMenuTrigger asChild  >
-                                        <p className='flex flex-row items-center gap-5 text-[14px] font-semibold tracking-[0.3px]'>
-                                            <IconMasterData />
-                                            {isSidebarOpen && 'Master Data'}
-                                            {isSidebarOpen && <ChevronDownIcon className={`font-bold h-4 w-4 transition-transform transform  ${openDropdown ? 'rotate-180' : ''}`} />}
-                                        </p>
-                                    </DropdownMenuTrigger>
-                                    <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-3 py-3 outline-none dark:bg-[#040529]">
-                                        <Link
-                                            href={route('master-user.index')}
-                                            as='button'
-                                        >
-                                            <p className='flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200'>
-                                                Master User
+                            {auth.is_divisi_it == true || auth.is_ketua_kegiatan == true ? (
+                                <li
+                                    className={`py-4 ${isSidebarOpen ? 'px-8' : 'items-center'} flex cursor-pointer flex-col justify-center`}
+                                >
+                                    <DropdownMenu onOpenChange={(open) => setOpenDropdown(open)}>
+                                        <DropdownMenuTrigger asChild  >
+                                            <p className='flex flex-row items-center gap-5 text-[14px] font-semibold tracking-[0.3px]'>
+                                                <IconMasterData />
+                                                {isSidebarOpen && 'Master Data'}
+                                                {isSidebarOpen && <ChevronDownIcon className={`font-bold h-4 w-4 transition-transform transform  ${openDropdown ? 'rotate-180' : ''}`} />}
                                             </p>
-                                        </Link>
-                                        <Link
-                                            href={route('master-sie.index')}
-                                            as="button">
-                                            <p className='flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200'>
-                                                Master Sie
-                                            </p>
-                                        </Link>
-                                        <Link
-                                            href={route('master-period.index')}
-                                            as="button">
-                                            <p className='flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200'>
-                                                Master Periode
-                                            </p>
-                                        </Link>
-                                        <Link
-                                            href={route('master-position.index')}
-                                            as="button">
-                                            <p className='flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200'>
-                                                Master Jabatan
-                                            </p>
-                                        </Link>
-                                        <Link
-                                            href={route('master-open-rekruitmen.index')}
-                                            as="button">
-                                            <p className='flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200'>
-                                                Master Oprec
-                                            </p>
-                                        </Link>
-                                    </DropdownMenuContent>
-                                </DropdownMenu>
-                            </li>
+                                        </DropdownMenuTrigger>
+                                        <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-3 py-3 outline-none dark:bg-[#040529]">
+                                            {auth.is_divisi_it && (
+                                                <>
+                                                    <Link
+                                                        href={route('master-user.index')}
+                                                        as='button'
+                                                    >
+                                                        <p className='flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200'>
+                                                            Master User
+                                                        </p>
+                                                    </Link>
+                                                    <Link
+                                                        href={route('master-sie.index')}
+                                                        as="button">
+                                                        <p className='flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200'>
+                                                            Master Sie
+                                                        </p>
+                                                    </Link>
+                                                    <Link
+                                                        href={route('master-period.index')}
+                                                        as="button">
+                                                        <p className='flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200'>
+                                                            Master Periode
+                                                        </p>
+                                                    </Link>
+                                                    <Link
+                                                        href={route('master-position.index')}
+                                                        as="button">
+                                                        <p className='flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200'>
+                                                            Master Jabatan
+                                                        </p>
+                                                    </Link>
+                                                    <Link
+                                                        href={route('master-open-rekruitmen.index')}
+                                                        as="button">
+                                                        <p className='flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200'>
+                                                            Master Oprec
+                                                        </p>
+                                                    </Link>
+                                                </>
+                                            )}
+                                            {auth.is_ketua_kegiatan && (
+                                                <Link
+                                                    href={route('master-open-rekruitmen.index')}
+                                                    as="button">
+                                                    <p className='flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200'>
+                                                        Master Oprec
+                                                    </p>
+                                                </Link>
+                                            )}
+                                        </DropdownMenuContent>
+                                    </DropdownMenu>
+                                </li>
+                            ) : (
+                                <>
+                                
+                                </>
+                            )}
                             <li
                                 className={`py-4 ${isSidebarOpen ? 'px-8' : 'items-center'} flex cursor-pointer flex-col justify-center`}
                             >
@@ -252,7 +272,6 @@ export default function Sidebar({ navigations, children, header, description }) 
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
                                     <p className='cursor-pointer flex flex-row gap-4 justify-center items-center text-gray-800 dark:text-gray-200'>
-                                        {/* <img src={`${window.location.origin}/assets/images/landing/icon_people_sidebar.png`} className="md:w-[40px] w-[50px] h-auto md:h-auto" alt="" /> */}
                                         <Avatar>
                                             {auth.img_path ? (
                                                 <AvatarImage src={auth.img_path} alt={auth.name} className="object-cover w-full" />

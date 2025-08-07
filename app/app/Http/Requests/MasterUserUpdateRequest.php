@@ -44,6 +44,7 @@ class MasterUserUpdateRequest extends FormRequest
                 'mimes:jpg,jpeg,png',
                 'max:1048',
             ],
+            'role' => ['nullable', 'string', 'in:guest,divisi_it,ketua_kegiatan'],
         ];
     }
 }

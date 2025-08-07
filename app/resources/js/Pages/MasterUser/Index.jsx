@@ -42,6 +42,7 @@ export default function Index() {
                     address: master_user.address ?? '',
                     username: master_user.username ?? '',
                     img_path: master_user.img_path ?? '',
+                    role: master_user.role ?? '',
                 };
             })
         );
@@ -57,7 +58,7 @@ export default function Index() {
         birthday: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
         address: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
         username: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
-
+        role: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
     });
     const [globalFilterValue, setGlobalFilterValue] = useState('');
     const [loading, setLoading] = useState(true);
@@ -118,6 +119,7 @@ export default function Index() {
                 TanggalLahir: master_user.birthday ?? '',
                 Alamat: master_user.address ?? '',
                 Username: master_user.username ?? '',
+                Role: master_user.role ?? '',
             }));
             const worksheet = xlsx.utils.json_to_sheet(exportData);
             const workbook = { Sheets: { 'master_mahasiswa': worksheet }, SheetNames: ['master_mahasiswa'] };
@@ -200,6 +202,19 @@ export default function Index() {
                 </div>
             </>
         );
+    }
+
+    const roleTemplate = (rowData) => {
+        return (
+            rowData.role == 'divisi_it' ? (
+                <span>Divisi IT</span>
+            ) : rowData.role == "ketua_kegiatan" ? (
+                <span>Ketua Kegiatan</span>
+            ) : (
+                <span>Guest</span>
+            )
+        );
+
     }
     return (
         <>
@@ -287,6 +302,12 @@ export default function Index() {
                                             field="img_path"
                                             header="Poto Profil"
                                             body={profileImageTemplate}
+                                            className="min-w-[12rem]">
+                                        </Column>
+                                        <Column
+                                            field="role"
+                                            header="Role"
+                                            body={roleTemplate}
                                             className="min-w-[12rem]">
                                         </Column>
                                         <Column

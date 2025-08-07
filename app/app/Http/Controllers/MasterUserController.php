@@ -1,14 +1,14 @@
 <?php
 namespace App\Http\Controllers;
 
-use Carbon\Carbon;
-use App\Models\User;
-use Inertia\Response;
-use App\Traits\HasFile;
-use Illuminate\Http\RedirectResponse;
-use App\Http\Resources\UserSingleResource;
 use App\Http\Requests\CreateMahasiswaRequest;
 use App\Http\Requests\MasterUserUpdateRequest;
+use App\Http\Resources\UserSingleResource;
+use App\Models\User;
+use App\Traits\HasFile;
+use Carbon\Carbon;
+use Illuminate\Http\RedirectResponse;
+use Inertia\Response;
 
 class MasterUserController extends Controller
 {
@@ -68,7 +68,11 @@ class MasterUserController extends Controller
             flashMessage("Nim sudah terdaftar, silahkan input nomer pertama dan akhir yang lain", 'error');
             return back();
         } else {
-            User::insert($user);
+            // User::insert($user)->assignRole('guest');
+            foreach ($user as $data) {
+                $newUser = User::create($data);
+                $newUser->assignRole('guest');
+            }
         }
 
         flashMessage(count($user) . " mahasiswa berhasil ditambahkan", 'success');
@@ -98,6 +102,10 @@ class MasterUserController extends Controller
             'username'     => $request->username,
             'img_path'     => $request->hasFile('img_path') ? $this->upload_file($request, 'img_path', 'user/foto_profile') : $user->img_path,
         ]);
+
+        if ($request->filled('role')) {
+            $user->syncRoles([$request->role]);
+        }
 
         flashMessage('Mahasiswa ini berhasil diupdate', 'success');
 

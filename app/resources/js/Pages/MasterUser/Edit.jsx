@@ -3,6 +3,7 @@ import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
 import TextInput from "@/Components/TextInput";
 import { Button } from "@/Components/ui/button";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/Components/ui/select";
 import DashboardLayout from "@/Layouts/DashboardLayout";
 import { Transition } from "@headlessui/react";
 import { ArrowLeftIcon, CheckBadgeIcon } from "@heroicons/react/24/solid";
@@ -21,6 +22,7 @@ export default function Edit() {
         address: users.address ?? '',
         username: users.username ?? '',
         img_path: users.img_path ?? '',
+        role: users.role ?? '',
         _method: 'PUT',
     });
 
@@ -192,6 +194,7 @@ export default function Edit() {
 
                             </div>
 
+
                             <div>
                                 <InputLabel htmlFor="username" value="Username" />
 
@@ -224,6 +227,25 @@ export default function Edit() {
 
                                 {/* Input Image Incoming sajalah */}
 
+                            </div>
+
+                            <div className="flex flex-col gap-2">
+                                <InputLabel htmlFor="role" value="Role" className="text-[12px] text-[#676767] font-normal dark:text-white" />
+
+                                <Select
+                                    value={data.role}
+                                    onValueChange={(value) => setData("role", value)}
+                                >
+                                    <SelectTrigger>
+                                        <SelectValue placeholder="Pilih Role" />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        <SelectItem value="guest">Guest</SelectItem>
+                                        <SelectItem value="divisi_it">Divisi IT</SelectItem>
+                                        <SelectItem value="ketua_kegiatan">Ketua Kegiatan</SelectItem>
+                                    </SelectContent>
+                                </Select>
+                                {errors.role && <InputError message={errors.role} className="mt-2" />}
                             </div>
                         </div>
 

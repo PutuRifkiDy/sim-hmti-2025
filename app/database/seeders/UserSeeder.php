@@ -13,10 +13,6 @@ class UserSeeder extends Seeder
     {
         $data = [
             [
-                'nim'      => '2305551068',
-                'password' => bcrypt('2305551068'),
-            ],
-            [
                 'nim'      => '2305551065',
                 'password' => bcrypt('2305551065'),
             ],

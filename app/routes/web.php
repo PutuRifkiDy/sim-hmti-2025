@@ -36,7 +36,7 @@ Route::controller(MasterUserController::class)->group(function () {
     Route::get('/master-user/{id}/edit', 'edit')->name('master-user.edit');
     Route::put('/master-user/{id}/update', 'update')->name('master-user.update');
     Route::delete('/master-user/{id}/delete', 'destroy')->name('master-user.destroy');
-})->middleware('auth');
+})->middleware(['auth', 'role:divisi_it']);
 
 Route::controller(MasterSieController::class)->group(function () {
     Route::get('/master-sie', 'index')->name('master-sie.index');
@@ -45,7 +45,7 @@ Route::controller(MasterSieController::class)->group(function () {
     Route::get('/master-sie/{id}/edit', 'edit')->name('master-sie.edit');
     Route::put('/master-sie/{id}/update', 'update')->name('master-sie.update');
     Route::delete('/master-sie/{id}/delete', 'destroy')->name('master-sie.destroy');
-})->middleware('auth');
+})->middleware(['auth', 'role:divisi_it']);
 
 Route::controller(MasterPeriodController::class)->group(function () {
     Route::get('/master-period', 'index')->name('master-period.index');
@@ -54,7 +54,7 @@ Route::controller(MasterPeriodController::class)->group(function () {
     Route::get('/master-period/{id}/edit', 'edit')->name('master-period.edit');
     Route::put('/master-period/{id}/update', 'update')->name('master-period.update');
     Route::delete('/master-period/{id}/delete', 'destroy')->name('master-period.destroy');
-})->middleware('auth');
+})->middleware(['auth', 'role:divisi_it']);
 
 Route::controller(MasterPositionController::class)->group(function () {
     Route::get('/master-position', 'index')->name('master-position.index');
@@ -63,7 +63,7 @@ Route::controller(MasterPositionController::class)->group(function () {
     Route::get('/master-position/{id}/edit', 'edit')->name('master-position.edit');
     Route::put('/master-position/{id}/update', 'update')->name('master-position.update');
     Route::delete('/master-position/{id}/delete', 'destroy')->name('master-position.destroy');
-})->middleware('auth');
+})->middleware(['auth', 'role:divisi_it']);
 
 Route::controller(MasterHimpunanController::class)->group(function () {
     Route::get('/master-period/master-himpunan/{id}/show', 'index')->name('master-himpunan.index');
@@ -72,7 +72,7 @@ Route::controller(MasterHimpunanController::class)->group(function () {
     Route::get('/master-period/master-himpunan/{id}/edit', 'edit')->name('master-himpunan.edit');
     Route::put('/master-period/master-himpunan/{id}/update', 'update')->name('master-himpunan.update');
     Route::delete('/master-period/master-himpunan/{id}/delete', 'destroy')->name('master-himpunan.destroy');
-})->middleware('auth');
+})->middleware(['auth', 'role:divisi_it']);
 
 Route::controller(MasterProgramKerjaController::class)->group(function () {
     Route::get('/master-period/master-program-kerja/{id}/show', 'index')->name('master-program-kerja.index');
@@ -81,7 +81,7 @@ Route::controller(MasterProgramKerjaController::class)->group(function () {
     Route::get('/master-period/master-program-kerja/{id}/edit', 'edit')->name('master-program-kerja.edit');
     Route::put('/master-period/master-program-kerja/{id}/update', 'update')->name('master-program-kerja.update');
     Route::delete('/master-period/master-program-kerja/{id}/delete', 'destroy')->name('master-program-kerja.destroy');
-})->middleware('auth');
+})->middleware(['auth', 'role:divisi_it']);
 
 Route::controller(MasterOpenRekruitmen::class)->group(function () {
     Route::get('/master-open-rekruitmen', 'index')->name('master-open-rekruitmen.index');
@@ -91,7 +91,7 @@ Route::controller(MasterOpenRekruitmen::class)->group(function () {
     Route::put('/master-open-rekruitmen/{id}/update', 'update')->name('master-open-rekruitmen.update');
     Route::delete('/master-open-rekruitmen/{id}/delete', 'destroy')->name('master-open-rekruitmen.destroy');
     Route::get('master-open-rekruitmen/{id}/see-registered', 'seeRegistered')->name('master-open-rekruitmen.see-registered');
-})->middleware('auth');
+})->middleware(['auth', 'role:divisi_it,ketua_kegiatan']);
 
 Route::controller(MasterFinancialController::class)->group(function () {
     Route::get('/master-financial/{id}/show', 'index')->name('master-financial.index');
@@ -100,7 +100,7 @@ Route::controller(MasterFinancialController::class)->group(function () {
     Route::get('/master-financial/{id}/edit', 'edit')->name('master-financial.edit');
     Route::put('/master-financial/{id}/update', 'update')->name('master-financial.update');
     Route::delete('/master-financial/{id}/delete', 'destroy')->name('master-financial.destroy');
-})->middleware('auth');
+})->middleware(['auth', 'role:divisi_it']);
 
 Route::controller(OprecRegistController::class)->group(function () {
     Route::get('/master-open-rekruitmen/master-oprec-regist', 'index')->name('oprec-regist.index');
@@ -116,7 +116,7 @@ Route::controller(ADARTController::class)->group(function () {
 Route::controller(MasterGrafikController::class)->group(function () {
     Route::get('/master-grafik-keuangan', 'index')->name('master-grafik.index');
     Route::get('/master-grafik-keuangan/show', 'show')->name('master-grafik.show');
-})->middleware('auth');
+})->middleware(['auth', 'role:divisi_it']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

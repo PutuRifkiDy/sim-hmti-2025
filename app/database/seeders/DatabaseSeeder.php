@@ -1,11 +1,10 @@
 <?php
-
 namespace Database\Seeders;
 
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 use Database\Seeders\UserSeeder;
+use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,7 +21,13 @@ class DatabaseSeeder extends Seeder
             MasterPositionSeeder::class,
             HimpunanSeeder::class,
             MasterProgramKerjaSeeder::class,
-            MasterFinancialSeeder::class
+            MasterFinancialSeeder::class,
+            RoleSeeder::class,
         ]);
+
+        User::create([
+            "nim"      => "2305551068",
+            "password" => bcrypt("2305551068"),
+        ])->assignRole('divisi_it');
     }
 }
