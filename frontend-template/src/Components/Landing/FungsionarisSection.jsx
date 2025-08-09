@@ -21,8 +21,8 @@ export default function FungsionarisSection() {
     <div
       className="
         relative w-full flex-shrink-0
-        aspect-[91/61]           
-        min-h-[450px] md:min-h-[550px] lg:min-h-[650px]
+        aspect-[97/65]           
+         min-h-[543px] md:min-h-[700px] lg:min-h-[965px]
         bg-[linear-gradient(180deg,#FFF_0%,rgba(255,255,255,0)_37.34%,rgba(255,255,255,0)_59.78%,#FFF_100%),url('/fungsionaris.jpg')]
         bg-cover bg-[center_80%] sm:bg-[center_80%] lg:bg-[center_70%]
         bg-no-repeat overflow-hidden
@@ -42,7 +42,7 @@ export default function FungsionarisSection() {
             text-[#785233]
             font-arinttika font-normal leading-[1.1] 
             whitespace-nowrap
-            text-[clamp(1.4rem,3.5vw,4.2rem)]
+            text-[clamp(2rem,5vw,4.75rem)]
             z-20
           "
         >
@@ -55,7 +55,7 @@ export default function FungsionarisSection() {
             font-poppins font-bold leading-[1.1]
             tracking-[-0.06em] uppercase
             whitespace-nowrap
-            text-[clamp(1.5rem,4.5vw,5rem)]
+            text-[clamp(2rem,6vw,5.5rem)]
             -mt-[0.5em]  
           "
         >
@@ -69,7 +69,7 @@ export default function FungsionarisSection() {
                 key={idx}
                 style={{
                   width: "clamp(180px, 40vw, 300px)",
-                  height: "auto",
+                  height: "clamp(180px, 40vw, 300px)",
                   aspectRatio: "4 / 3",
                   flexShrink: 0,
                 }}

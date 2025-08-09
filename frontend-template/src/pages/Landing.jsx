@@ -5,15 +5,15 @@ import OpenRekruitmenSection from "../Components/Landing/OpenRekruitmenSection";
 import ProgramKerjaSection from "../Components/Landing/ProgramKerjaSection";
 
 export default function Landing() {
-    return (
-        <>
-            <div className="flex flex-col space-y-24">
-                <HomeSection />
-                <AboutSection />
-                <ProgramKerjaSection />
-                <FungsionarisSection />
-                <OpenRekruitmenSection />
-            </div>
-        </>
-    );
+  return (
+    <>
+      <div className="flex flex-col space-y-24">
+        <HomeSection />
+        <AboutSection />
+        <ProgramKerjaSection />
+        <FungsionarisSection />
+        <OpenRekruitmenSection />
+      </div>
+    </>
+  );
 }
