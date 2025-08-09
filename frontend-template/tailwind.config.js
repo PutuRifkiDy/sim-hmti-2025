@@ -6,6 +6,8 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Rubik", ...defaultTheme.fontFamily.sans],
+        arinttika: ["Arinttika Signature Demo", "cursive"],
+        poppins: ["Poppins", "sans-serif"],
       },
     },
   },
