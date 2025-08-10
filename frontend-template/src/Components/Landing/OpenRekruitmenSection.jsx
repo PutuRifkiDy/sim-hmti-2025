@@ -10,12 +10,12 @@ import 'swiper/css/pagination';
 export default function OpenRekruitmenSection() {
   return (
     <div className='w-full px-[32px] py-[16px] flex flex-col items-center'>
-        <div className="header-oprec w-[95%] mb-[32px] flex justify-between items-end">
-            <div className="inner-header-oprec flex flex-col">
-                <h1 className='text-[#ECC067] font-bold text-[30px]'>OPEN RECRUITMENT</h1>
-                <p>Ayo daftarkan dirimu dalam kegiatan-kegiatan HMTI, kami tunggu kontribusi kalian!</p>
+        <div className="header-oprec w-[95%] mb-[32px] flex justify-between md:items-end items-center flex-col md:flex-row">
+            <div className="inner-header-oprec flex flex-col items-center md:items-start">
+                <h1 className='text-[#ECC067] font-bold text-[30px] text-center md:text-start'>OPEN RECRUITMENT</h1>
+                <p className='text-center md:text-start'>Ayo daftarkan dirimu dalam kegiatan-kegiatan HMTI, kami tunggu kontribusi kalian!</p>
             </div>
-            <a href=""className='flex items-center h-fit'>
+            <a href=""className='flex items-center h-fit mt-[20px] md:mt-[0px]'>
                 See More
                 <img src="right-arrow.png" alt="right arrow" className='w-[20px] h-[20px] ml-[12px]' />
             </a>
@@ -29,22 +29,22 @@ export default function OpenRekruitmenSection() {
             grabCursor={true}
             loop={true}
             breakpoints={{
-                1440: {
-                slidesPerView: 4,
+                0: {
+                    slidesPerView: 1,
+                },
+                600: {
+                    slidesPerView: 2,
                 },
                 1024: {
-                slidesPerView: 3,
+                    slidesPerView: 3,
                 },
-                768: {
-                slidesPerView: 2,
-                },
-                0: {
-                slidesPerView: 1,
+                1440:{
+                    slidesPerView: 4,
                 },
             }}
             >
-                <SwiperSlide className="w-[20vw]">
-                    <div className="h-fit w-[20vw] flex flex-col items-center p-[10px] justify-center text-xl rounded-[20px] border-[1px] border-[#ECBB4E] border-solid ">
+                <SwiperSlide>
+                    <div className="h-fit w-[80vw] sm:w-[40vw] lg:w-[28vw] xl:w-[20vw] flex flex-col items-center p-[10px] justify-center text-xl rounded-[20px] border-[1px] border-[#ECBB4E] border-solid ">
                         <img src="Pamflet-OPREC-Vertical_11zon.jpg" alt="Pamflet" className='w-full h-fit rounded-[20px]' />
                         <div className="area-header-pamflet w-full flex justify-between items-end mt-[8px]">
                             <div className="header-pamflet flex flex-col">
@@ -58,8 +58,8 @@ export default function OpenRekruitmenSection() {
                         </div>
                     </div>
                 </SwiperSlide>
-                <SwiperSlide className="w-[20vw]">
-                    <div className="h-fit w-[20vw] flex flex-col items-center p-[10px] justify-center text-xl rounded-[20px] border-[1px] border-[#ECBB4E] border-solid ">
+                <SwiperSlide>
+                    <div className="h-fit w-[80vw] sm:w-[40vw] lg:w-[28vw] xl:w-[20vw] flex flex-col items-center p-[10px] justify-center text-xl rounded-[20px] border-[1px] border-[#ECBB4E] border-solid ">
                         <img src="PAMFLET-4X5-IT-ESEGA-2025.jpg" alt="Pamflet" className='w-full h-fit rounded-[20px]' />
                         <div className="area-header-pamflet w-full flex justify-between items-end mt-[8px]">
                             <div className="header-pamflet flex flex-col">
@@ -73,8 +73,8 @@ export default function OpenRekruitmenSection() {
                         </div>
                     </div>
                 </SwiperSlide>
-                <SwiperSlide className="w-[20vw]">
-                    <div className="h-fit w-[20vw] flex flex-col items-center p-[10px] justify-center text-xl rounded-[20px] border-[1px] border-[#ECBB4E] border-solid ">
+                <SwiperSlide>
+                    <div className="h-fit w-[80vw] sm:w-[40vw] lg:w-[28vw] xl:w-[20vw] flex flex-col items-center p-[10px] justify-center text-xl rounded-[20px] border-[1px] border-[#ECBB4E] border-solid ">
                         <img src="Pamflet-Oprec-Portrait.png" alt="Pamflet" className='w-full h-fit rounded-[20px]' />
                         <div className="area-header-pamflet w-full flex justify-between items-end mt-[8px]">
                             <div className="header-pamflet flex flex-col">
@@ -88,8 +88,8 @@ export default function OpenRekruitmenSection() {
                         </div>
                     </div>
                 </SwiperSlide>
-                <SwiperSlide className="w-[20vw]">
-                    <div className="h-fit w-[20vw] flex flex-col items-center p-[10px] justify-center text-xl rounded-[20px] border-[1px] border-[#ECBB4E] border-solid ">
+                <SwiperSlide>
+                    <div className="h-fit w-[80vw] sm:w-[40vw] lg:w-[28vw] xl:w-[20vw] flex flex-col items-center p-[10px] justify-center text-xl rounded-[20px] border-[1px] border-[#ECBB4E] border-solid ">
                         <img src="IMG_2699-_1_-(1).jpeg" alt="Pamflet" className='w-full h-fit rounded-[20px]' />
                         <div className="area-header-pamflet w-full flex justify-between items-end mt-[8px]">
                             <div className="header-pamflet flex flex-col">
@@ -103,8 +103,8 @@ export default function OpenRekruitmenSection() {
                         </div>
                     </div>
                 </SwiperSlide>
-                <SwiperSlide className="w-[20vw]">
-                    <div className="h-fit w-[20vw] flex flex-col items-center p-[10px] justify-center text-xl rounded-[20px] border-[1px] border-[#ECBB4E] border-solid ">
+                <SwiperSlide>
+                    <div className="h-fit w-[80vw] sm:w-[40vw] lg:w-[28vw] xl:w-[20vw] flex flex-col items-center p-[10px] justify-center text-xl rounded-[20px] border-[1px] border-[#ECBB4E] border-solid ">
                         <img src="Pamflet-OPREC-Vertical_11zon.jpg" alt="Pamflet" className='w-full h-fit rounded-[20px]' />
                         <div className="area-header-pamflet w-full flex justify-between items-end mt-[8px]">
                             <div className="header-pamflet flex flex-col">
