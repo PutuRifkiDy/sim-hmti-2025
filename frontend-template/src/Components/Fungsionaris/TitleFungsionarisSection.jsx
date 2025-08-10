@@ -1,6 +1,6 @@
-import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import { FreeMode } from "swiper/modules";
 
 export default function TitleFungsionarisSection() {
   const items = ["Harmoni", "Kolaborasi", "Revolusi", "Sinergi"];
@@ -34,32 +34,53 @@ export default function TitleFungsionarisSection() {
 
       <div className="w-full mt-8 overflow-x-hidden">
         <Swiper
-          slidesPerView={3}
+          modules={[FreeMode]}
+          freeMode={true}
           spaceBetween={20}
           centeredSlides={true}
           pagination={false}
           navigation={false}
           breakpoints={{
-            320: { slidesPerView: 1.1 },
-            640: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
+            360: {
+              slidesPerView: 1.2,
+              centeredSlides: true,
+              slidesOffsetBefore: 65,
+              allowTouchMove: true,
+            },
+            640: {
+              slidesPerView: 1.2,
+              centeredSlides: true,
+              slidesOffsetBefore: 40,
+              allowTouchMove: true,
+            },
+            1024: {
+              slidesPerView: 3,
+              centeredSlides: true,
+              allowTouchMove: true,
+            },
           }}
-          className="px-[5vw]"
+          className="px-0 sm:px-[5vw]"
         >
           {items.map((item) => (
             <SwiperSlide
               key={item}
               className="
-                !w-full 
-                sm:!w-[240px] 
-                md:!w-[280px]
-              "
+    !w-[clamp(140px,40vw,180px)]
+    sm:!w-[clamp(200px,30vw,240px)]
+    md:!w-[clamp(240px,25vw,280px)]
+  "
             >
               <div
-                className="flex justify-center items-center rounded-[10px] border border-[#ECC067] bg-[#ECC067]"
-                style={{ padding: "12px 48px 13px 47px" }}
+                className="
+      flex justify-center items-center 
+      rounded-[10px] border border-[#ECC067] bg-[#ECC067]
+      px-[clamp(12px,4vw,24px)] 
+      py-[clamp(8px,2vw,13px)]
+    "
               >
-                <p className="text-white font-semibold">Kabinet {item}</p>
+                <p className="text-white font-semibold text-[clamp(0.75rem,3vw,1.25rem)]">
+                  Kabinet {item}
+                </p>
               </div>
             </SwiperSlide>
           ))}
