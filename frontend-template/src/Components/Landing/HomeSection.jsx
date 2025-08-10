@@ -1,6 +1,6 @@
 export default function HomeSection() {
   return (
-    <div className="w-full bg-white min-h-screen">
+    <div className="w-full bg-white">
       <div className="flex flex-col md:flex-row items-center md:items-center h-full">
         <div className="md:w-1/2 w-full flex flex-col md:flex-row items-center md:items-start p-8 md:p-12 space-x-0 md:space-x-4">
           <div className="mb-4 md:mb-8 flex justify-center md:justify-start">
