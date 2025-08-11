@@ -4,7 +4,7 @@ import { FreeMode } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/free-mode";
 
-export default function TitleFungsionarisSection() {
+export default function DivisiSection() {
   const divisiList = [
     "DIVISI 1",
     "DIVISI 2",

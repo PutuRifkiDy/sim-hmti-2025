@@ -4,7 +4,7 @@ import { FreeMode } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/free-mode";
 
-export default function TitleFungsionarisSection() {
+export default function BidangSection() {
   const bidangList = [
     "KOMINFO",
     "ILMIAH",
