@@ -52,8 +52,8 @@ export default function BidangSection() {
 
   const ProfileCard = ({ foto, nama, jabatan }) => (
     <div className="flex flex-col items-center">
-      <div className="relative w-[160px] h-[160px] mt-14">
-        <div className="absolute inset-[12px] rounded-full overflow-hidden">
+      <div className="relative w-[69px] h-[69px] sm:w-[160px] sm:h-[160px] mt-6 sm:mt-14">
+        <div className="absolute inset-[5px] sm:inset-[12px] rounded-full overflow-hidden">
           <img src={foto} alt="Profil" className="w-full h-full object-cover" />
         </div>
         <svg
@@ -84,10 +84,10 @@ export default function BidangSection() {
           />
         </svg>
       </div>
-      <div className="mt-4 flex justify-center w-[159.791px] h-[21.79px] text-[#785233] font-[Poppins] text-[25.421px] font-black leading-none tracking-[-1.017px] whitespace-nowrap text-center">
+      <div className="mt-4 flex justify-center w-[159.791px] h-[21.79px] text-[#785233] font-[Poppins] font-black leading-none tracking-[-1.017px] whitespace-nowrap text-center text-[clamp(1rem,4vw,25px)]">
         {nama}
       </div>
-      <div className="mt-2 flex flex-col justify-center w-[159.791px] h-[21.79px] text-[#785233] text-center font-[Poppins] text-[14.526px] font-semibold leading-none tracking-[-0.581px]">
+      <div className="flex flex-col justify-center w-[159.791px] h-[21.79px] text-[#785233] text-center font-[Poppins] font-semibold leading-none tracking-[-0.581px] text-[clamp(0.75rem,3vw,14.5px)]">
         {jabatan}
       </div>
     </div>
@@ -167,8 +167,8 @@ export default function BidangSection() {
         </Swiper>
       </div>
       {/* Kabid */}
-      <div className="relative w-[160px] h-[160px] mt-14">
-        <div className="absolute inset-[12px] rounded-full overflow-hidden">
+      <div className="relative w-[69px] h-[69px] sm:w-[160px] sm:h-[160px] mt-6 sm:mt-14">
+        <div className="absolute inset-[5px] sm:inset-[12px] rounded-full overflow-hidden">
           <img
             src={kabid.foto}
             alt="Profil"
@@ -203,18 +203,34 @@ export default function BidangSection() {
           />
         </svg>
       </div>
-      <div className="mt-4 flex flex-col justify-center w-[159.791px] h-[21.79px] text-[#785233] text-center font-[Poppins] text-[25.421px] font-black leading-none tracking-[-1.017px]">
+
+      <div className="mt-4 flex flex-col justify-center w-[159.791px] h-[21.79px] text-[#785233] text-center font-[Poppins] font-black leading-none tracking-[-1.017px] whitespace-nowrap text-[clamp(1rem,4vw,25px)]">
         {kabid.nama}
       </div>
-      <div className="flex flex-col justify-center w-[159.791px] h-[21.79px] text-[#785233] text-center font-[Poppins] text-[14.526px] font-semibold leading-none tracking-[-0.581px]">
+      <div className="flex flex-col justify-center w-[159.791px] h-[21.79px] text-[#785233] text-center font-[Poppins] font-semibold leading-none tracking-[-0.581px] text-[clamp(0.75rem,3vw,14.5px)]">
         {kabid.jabatan}
       </div>
 
       {/* Kadiv */}
-      <div className="flex flex-wrap justify-center gap-16 mt-10 max-w-full">
-        {kadiv.map((item, i) => (
-          <ProfileCard key={i} {...item} />
-        ))}
+      {/* Mobile Kadiv Section */}
+      <div className="mt-10 w-full">
+        <div className="flex flex-col items-center gap-6 sm:hidden">
+          <div className="flex gap-6">
+            <ProfileCard {...kadiv[0]} />
+            <ProfileCard {...kadiv[1]} />
+          </div>
+          <div className="flex gap-6">
+            <ProfileCard {...kadiv[2]} />
+            <ProfileCard {...kadiv[3]} />
+          </div>
+          {kadiv[4] && <ProfileCard {...kadiv[4]} />}
+        </div>
+
+        <div className="hidden sm:flex flex-wrap justify-center gap-16 max-w-full">
+          {kadiv.map((item, i) => (
+            <ProfileCard key={i} {...item} />
+          ))}
+        </div>
       </div>
     </div>
   );
