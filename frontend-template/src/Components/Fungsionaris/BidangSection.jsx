@@ -16,6 +16,83 @@ export default function BidangSection() {
 
   const [activeIndex, setActiveIndex] = useState(null);
 
+  const kabid = {
+    nama: "Indri Anisa",
+    jabatan: "Kabid Kominfo",
+    foto: "/Indri.jpg",
+  };
+
+  const kadiv = [
+    {
+      nama: "Krishna",
+      jabatan: "Kadiv Humas Internal",
+      foto: "/Krisnha.jpg",
+    },
+    {
+      nama: "Devina",
+      jabatan: "Kadiv Humas Eksternal",
+      foto: "/Devina.jpg",
+    },
+    {
+      nama: "Candra",
+      jabatan: "Kadiv IT",
+      foto: "/Candra.jpg",
+    },
+    {
+      nama: "Ari",
+      jabatan: "Kadiv Pubdok",
+      foto: "/Ari.jpg",
+    },
+    {
+      nama: "Alexa",
+      jabatan: "Kadiv SKP",
+      foto: "/Alexa.jpg",
+    },
+  ];
+
+  const ProfileCard = ({ foto, nama, jabatan }) => (
+    <div className="flex flex-col items-center">
+      <div className="relative w-[160px] h-[160px] mt-14">
+        <div className="absolute inset-[12px] rounded-full overflow-hidden">
+          <img src={foto} alt="Profil" className="w-full h-full object-cover" />
+        </div>
+        <svg
+          className="absolute inset-0 pointer-events-none"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 188 188"
+          fill="none"
+        >
+          <path
+            d="M3 94a91 91 0 01182 0"
+            stroke="#7B4B27"
+            strokeWidth="6"
+            strokeLinecap="round"
+          />
+        </svg>
+        <svg
+          className="absolute inset-0 pointer-events-none"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 188 188"
+          fill="none"
+        >
+          <path
+            d="M3 94a91 91 0 00182 0"
+            stroke="#7B4B27"
+            strokeWidth="2"
+            strokeDasharray="6 6"
+            strokeLinecap="round"
+          />
+        </svg>
+      </div>
+      <div className="mt-4 flex justify-center w-[159.791px] h-[21.79px] text-[#785233] font-[Poppins] text-[25.421px] font-black leading-none tracking-[-1.017px] whitespace-nowrap text-center">
+        {nama}
+      </div>
+      <div className="mt-2 flex flex-col justify-center w-[159.791px] h-[21.79px] text-[#785233] text-center font-[Poppins] text-[14.526px] font-semibold leading-none tracking-[-0.581px]">
+        {jabatan}
+      </div>
+    </div>
+  );
+
   return (
     <div className="flex flex-col items-center text-center pt-[5%] sm:pt-[6%] md:pt-[7%] lg:pt-[8%] w-full max-w-[95%] mx-auto px-4">
       {/* Judul */}
@@ -88,6 +165,56 @@ export default function BidangSection() {
             </SwiperSlide>
           ))}
         </Swiper>
+      </div>
+      {/* Kabid */}
+      <div className="relative w-[160px] h-[160px] mt-14">
+        <div className="absolute inset-[12px] rounded-full overflow-hidden">
+          <img
+            src={kabid.foto}
+            alt="Profil"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <svg
+          className="absolute inset-0 pointer-events-none"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 188 188"
+          fill="none"
+        >
+          <path
+            d="M3 94a91 91 0 01182 0"
+            stroke="#7B4B27"
+            strokeWidth="6"
+            strokeLinecap="round"
+          />
+        </svg>
+        <svg
+          className="absolute inset-0 pointer-events-none"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 188 188"
+          fill="none"
+        >
+          <path
+            d="M3 94a91 91 0 00182 0"
+            stroke="#7B4B27"
+            strokeWidth="2"
+            strokeDasharray="6 6"
+            strokeLinecap="round"
+          />
+        </svg>
+      </div>
+      <div className="mt-4 flex flex-col justify-center w-[159.791px] h-[21.79px] text-[#785233] text-center font-[Poppins] text-[25.421px] font-black leading-none tracking-[-1.017px]">
+        {kabid.nama}
+      </div>
+      <div className="flex flex-col justify-center w-[159.791px] h-[21.79px] text-[#785233] text-center font-[Poppins] text-[14.526px] font-semibold leading-none tracking-[-0.581px]">
+        {kabid.jabatan}
+      </div>
+
+      {/* Kadiv */}
+      <div className="flex flex-wrap justify-center gap-16 mt-10 max-w-full">
+        {kadiv.map((item, i) => (
+          <ProfileCard key={i} {...item} />
+        ))}
       </div>
     </div>
   );

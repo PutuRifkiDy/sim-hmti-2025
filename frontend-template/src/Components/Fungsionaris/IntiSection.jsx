@@ -43,7 +43,7 @@ export default function IntiSection() {
 
   const ProfileCard = ({ foto, nama, jabatan }) => (
     <div className="flex flex-col items-center">
-      <div className="relative w-[188px] h-[188px] mt-14">
+      <div className="relative w-[160px] h-[160px] mt-14">
         <div className="absolute inset-[12px] rounded-full overflow-hidden">
           <img src={foto} alt="Profil" className="w-full h-full object-cover" />
         </div>
@@ -100,7 +100,7 @@ export default function IntiSection() {
       </h1>
 
       {/* Ketua */}
-      <div className="relative w-[188px] h-[188px] mt-14">
+      <div className="relative w-[160px] h-[160px] mt-14">
         <div className="absolute inset-[12px] rounded-full overflow-hidden">
           <img
             src={ketua.foto}
@@ -150,7 +150,7 @@ export default function IntiSection() {
         ))}
       </div>
 
-      {/* Sekre + Bendahara */}
+      {/* Sekre + bendahara */}
       <div className="flex justify-center gap-[130px] mt-10">
         {sekreBendaharaList.map((item, i) => (
           <ProfileCard key={i} {...item} />
