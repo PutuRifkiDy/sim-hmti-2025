@@ -73,7 +73,7 @@ export default function Edit() {
                             </p>
                         </header>
 
-                        <Button variant="blue" type="button" asChild>
+                        <Button variant="gold" type="button" asChild>
                             <Link as="button" href={route('master-himpunan.index', { id: himpunan.period_id })} className="flex flex-row items-center text-[14px] font-bold">
                                 <ArrowLeftIcon className="w-3 h-3 mr-2 font-bold" />
                                 Kembali
@@ -139,7 +139,7 @@ export default function Edit() {
                         {/* Submit */}
                         <Button
                             type="submit"
-                            variant="blue"
+                            variant="gold"
                             disabled={processing}
                         >
                             Simpan

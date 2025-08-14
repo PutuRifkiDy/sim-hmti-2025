@@ -87,7 +87,7 @@ export default function Index() {
                 <div className="flex items-center justify-content-end gap-2 export-buttons">
                     <IconField iconPosition="left">
                         <InputIcon className="pi pi-search" />
-                        <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Keyword Search" className="p-inputtext p-inputtext-sm" />
+                        <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Ketik kata kunci" className="p-inputtext p-inputtext-sm" />
                     </IconField>
                     <Button type="button" className="bg-[#0f114c] px-5 py-5 rounded-[500px]" variant="none" rounded onClick={() => exportCSV(false)} data-pr-tooltip="Export CSV">
                         <DocumentPlusIcon className="w-5 h-5 text-white" />
@@ -96,7 +96,7 @@ export default function Index() {
                         <DocumentArrowDownIcon className="w-5 h-5 text-white" />
                     </Button>
                 </div>
-                <Button variant="blue" type="button" asChild>
+                <Button variant="gold" type="button" asChild>
                     <Link as="button" href={route('master-user.create')} className="text-[14px] font-bold py-5">Tambah Mahasiswa</Link>
                 </Button>
             </div>
@@ -328,7 +328,7 @@ export default function Index() {
                                             </p>
 
                                             <div className="mt-10 flex justify-end flex-row gap-5">
-                                                <Button onClick={closeModal} variant="blue" type="button">Cancel</Button>
+                                                <Button onClick={closeModal} variant="gold" type="button">Cancel</Button>
                                                 <Button
                                                     variant="red"
                                                     onClick={() => {

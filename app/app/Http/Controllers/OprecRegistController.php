@@ -21,7 +21,10 @@ class OprecRegistController extends Controller
             return to_route('login');
         }
 
-        $oprecs = Oprec::with('oprec_sies')->get();
+        $oprecs = Oprec::with('oprec_sies')
+            ->where('start_date', '<=', now())
+            ->where('end_date', '>=', now())
+            ->get();
 
         return inertia(component: 'OprecRegist/Index', props: [
             'oprecs' => MasterOpenRekruitmenResource::collection($oprecs),

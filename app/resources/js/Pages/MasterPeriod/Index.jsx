@@ -148,7 +148,7 @@ export default function Index() {
                         <DocumentArrowDownIcon className="w-5 h-5 text-white" />
                     </Button>
                 </div>
-                <Button variant="blue" type="button" asChild>
+                <Button variant="gold" type="button" asChild>
                     <Link as="button" href={route('master-period.create')} className="text-[14px] font-bold py-5">Tambah Periode</Link>
                 </Button>
             </div>
@@ -455,7 +455,7 @@ export default function Index() {
                                             </p>
 
                                             <div className="mt-10 flex justify-end flex-row gap-5">
-                                                <Button onClick={closeModal} variant="blue" type="button">Cancel</Button>
+                                                <Button onClick={closeModal} variant="gold" type="button">Cancel</Button>
                                                 <Button
                                                     variant="red"
                                                     onClick={() => {

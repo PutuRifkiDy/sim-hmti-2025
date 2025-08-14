@@ -53,9 +53,9 @@ export default function Show() {
         <div className="py-5">
             <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
                 {user.already_filled == false && (
-                    <div className="flex gap-2 px-4 py-2 border-l-4 border-l-[#0F114C] dark:border-l-[#55b1d7] bg-[#0F114C]/20 dark:bg-[#55b1d7]/20 w-full items-center mb-5">
-                        <ClockIcon className="shrink-0 h-5 w-5 text-[#0F114C] dark:text-white" />
-                        <p className='text-[#0F114C] font-medium text-[12px] leading-[16px] dark:text-white'>
+                    <div className="flex gap-2 px-4 py-2 border-l-4 border-l-[#ECBB4E] dark:border-l-[#55b1d7] bg-[#ECBB4E]/20 dark:bg-[#55b1d7]/20 w-full items-center mb-5">
+                        <ClockIcon className="shrink-0 h-5 w-5 text-[#ECBB4E] dark:text-white" />
+                        <p className='text-[#ECBB4E] font-medium text-[12px] leading-[16px] dark:text-white'>
                             Lengkapi profil anda terlebih dahulu sebelum mendaftar kegiatan.
                         </p>
                     </div>
@@ -63,7 +63,7 @@ export default function Show() {
                 <div className='flex flex-row w-full'>
 
 
-                    <Button variant="blue" type="button" asChild>
+                    <Button variant="gold" type="button" asChild>
                         <Link as="button" href={route('oprec-regist.index')} className="flex flex-row items-center text-[14px] font-bold">
                             <ArrowLeftIcon className="w-3 h-3 mr-2 font-bold" />
                             Kembali
@@ -159,7 +159,7 @@ export default function Show() {
                     </div>
 
                     <div className="flex items-center gap-4">
-                        <Button type="submit" variant="blue" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#0F114C]">
+                        <Button type="submit" variant="gold" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#0F114C]">
                             Simpan
                             <CheckBadgeIcon className='w-6 h-6 text-white' />
                         </Button>

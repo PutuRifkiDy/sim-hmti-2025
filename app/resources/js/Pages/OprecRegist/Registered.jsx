@@ -22,7 +22,7 @@ export default function Registered() {
                         </p>
                     </div>
                     <div className='flex flex-row w-full'>
-                        <Button variant="blue" type="button" asChild>
+                        <Button variant="gold" type="button" asChild>
                             <Link as="button" href={route('oprec-regist.index')} className="flex flex-row items-center text-[14px] font-bold">
                                 <ArrowLeftIcon className="w-3 h-3 mr-2 font-bold" />
                                 Kembali

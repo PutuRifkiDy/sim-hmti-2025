@@ -53,7 +53,7 @@ export default function Create() {
                             </p>
                         </header>
 
-                        <Button variant="blue" type="button" asChild>
+                        <Button variant="gold" type="button" asChild>
                             <Link as="button" href={route('master-himpunan.index', { id: period.id })} className="flex flex-row items-center text-[14px] font-bold">
                                 <ArrowLeftIcon className="w-3 h-3 mr-2 font-bold" />
                                 Kembali
@@ -120,7 +120,7 @@ export default function Create() {
                         </div>
 
                         <div className="flex items-center gap-4">
-                            <Button type="submit" variant="blue" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#0F114C]">
+                            <Button type="submit" variant="gold" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#0F114C]">
                                 Simpan
                                 <CheckBadgeIcon className='w-6 h-6 text-white' />
                             </Button>

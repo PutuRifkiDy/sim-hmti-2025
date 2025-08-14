@@ -112,8 +112,8 @@ Route::controller(MasterFinancialController::class)->group(function () {
 Route::controller(OprecRegistController::class)->group(function () {
     Route::get('/master-oprec-regist', 'index')->name('oprec-regist.index');
     Route::get('/master-oprec-regist/show/{id}', 'show')->name('oprec-regist.show');
-    Route::post('/master-open-rekruitmen/master-oprec-regist/store', 'store')->name('oprec-regist.store');
-    Route::get('/master-open-rekruitmen/master-oprec-regist/{idOprec}/registered/{idUser}', 'registered')->name('oprec-regist.edit');
+    Route::post('/master-oprec-regist/store', 'store')->name('oprec-regist.store');
+    Route::get('/master-oprec-regist/{idOprec}/registered/{idUser}', 'registered')->name('oprec-regist.edit');
 })->middleware(['auth', 'role:guest|ketua_kegiatan|divisi_it']);
 
 Route::controller(ADARTController::class)->group(function () {

@@ -6,10 +6,10 @@ import DashboardLayout from '@/Layouts/DashboardLayout';
 import { toast } from 'sonner';
 
 export default function Edit({ mustVerifyEmail, status }) {
-    const flash_message = usePage().props.flash_message;
-    if(flash_message?.message) {
-        toast[flash_message.type || 'success'](flash_message.message);
-    }
+    // const flash_message = usePage().props.flash_message;
+    // if(flash_message?.message) {
+    //     toast[flash_message.type || 'success'](flash_message.message);
+    // }
 	return (
 
 			<div className="py-5">
