@@ -45,14 +45,14 @@ export default function Sidebar({ navigations, children, header, description }) 
                 >
                     <Link
                         href={route('welcome')}
-                        className="flex w-full flex-row items-center justify-center gap-1 border-b-[1px] border-slate-200 py-[1.16rem] text-[24px] font-bold text-[#0F114C] dark:border-slate-600 tracking-[0.03em] truncate"
+                        className="flex w-full flex-row items-center justify-center gap-1 border-b-[1px] border-slate-200 py-[1.16rem] text-[24px] font-bold text-[#785233] dark:border-slate-600 tracking-[0.03em] truncate"
                     >
                         {isSidebarOpen ? (
                             <div>
-                                HMTI-<span className="text-red-500">NG</span>
+                                HMTI-<span className="text-[#ECBB4E]">NG</span>
                             </div>
                         ) : (
-                            <span className="text-red-500">TI</span>
+                            <span className="text-[#ECBB4E]">TI</span>
                         )}
 
                     </Link>
@@ -77,10 +77,10 @@ export default function Sidebar({ navigations, children, header, description }) 
                                 return (
                                     <li
                                         key={i}
-                                        className={`py-4 ${isSidebarOpen ? 'relative rounded-[6px] px-8' : 'items-center'} flex flex-col justify-center ${isActive ? 'bg-[#0F114C] stroke-white text-white' : 'transition-all duration-200 ease-in-out hover:bg-[#0F114C]/20'}`}
+                                        className={`py-4 ${isSidebarOpen ? 'relative rounded-[6px] px-8' : 'items-center'} flex flex-col justify-center ${isActive ? 'bg-[#785233] stroke-white text-white' : 'transition-all duration-200 ease-in-out hover:bg-[#785233]/20'}`}
                                     >
                                         {isActive && isSidebarOpen && (
-                                            <div className="absolute left-0 top-0 h-full w-[8px] rounded-r-md bg-[#264A9D]"></div>
+                                            <div className="absolute left-0 top-0 h-full w-[8px] rounded-r-md bg-[#ECBB4E]"></div>
                                         )}
                                         <Link
                                             href={navigation.link}
@@ -160,7 +160,7 @@ export default function Sidebar({ navigations, children, header, description }) 
                                 </li>
                             ) : (
                                 <>
-                                
+
                                 </>
                             )}
                             <li
@@ -214,11 +214,11 @@ export default function Sidebar({ navigations, children, header, description }) 
                                 return (
                                     <li
                                         key={i}
-                                        className={`py-4 ${isSidebarOpen ? 'relative rounded-[6px] px-8' : 'items-center'} flex flex-col justify-center ${isActive ? 'bg-[#0F114C] stroke-white text-white' : 'transition-all duration-200 ease-in-out hover:bg-[#0F114C]/20'}`}
+                                        className={`py-4 ${isSidebarOpen ? 'relative rounded-[6px] px-8' : 'items-center'} flex flex-col justify-center ${isActive ? 'bg-[#785233] stroke-white text-white' : 'transition-all duration-200 ease-in-out hover:bg-[#785233]/20'}`}
                                     >
                                         {/* Garis warna di samping */}
                                         {isActive && isSidebarOpen && (
-                                            <div className="absolute left-0 top-0 h-full w-[8px] rounded-r-md bg-[#264A9D]"></div>
+                                            <div className="absolute left-0 top-0 h-full w-[8px] rounded-r-md bg-[#ECBB4E]"></div>
                                         )}
                                         <Link
                                             href={navigation.link}

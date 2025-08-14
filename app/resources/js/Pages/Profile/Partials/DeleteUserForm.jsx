@@ -85,7 +85,7 @@ export default function DeleteUserForm({ className = '' }) {
                     </div>
 
                     <div className="mt-6 flex justify-end">
-                        <Button type="button" variant="blue" onClick={closeModal}>Batal</Button>
+                        <Button type="button" variant="gold" onClick={closeModal}>Batal</Button>
 
                         <Button type="submit" variant="red" className="ms-3" disabled={processing}>
                             Hapus Akun

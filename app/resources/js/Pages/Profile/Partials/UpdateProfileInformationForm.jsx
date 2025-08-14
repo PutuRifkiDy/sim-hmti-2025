@@ -64,13 +64,13 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                     </p>
                 </header>
                 {updateProfileInformation == false && (
-                    <Button className='flex justify-center items-center gap-3 dark:bg-[#0F114C]' variant="blue" onClick={() => setUpdateProfileInformation(true)}>
+                    <Button className='flex justify-center items-center gap-3 dark:bg-[#ECBB4E]' variant="gold" onClick={() => setUpdateProfileInformation(true)}>
                         <IconEditForDashboard />
                         Edit
                     </Button>
                 )}
                 {updateProfileInformation == true && (
-                    <Button className='flex justify-center items-center gap-3 border-[#0F114C] border-2 text-[#0F114C] dark:border-[#0F114C] dark:text-white p-3' variant="none" onClick={() => setUpdateProfileInformation(false)}>
+                    <Button className='flex justify-center items-center gap-3 border-[#ECBB4E] border-2 text-[#ECBB4E] dark:border-[#ECBB4E] dark:text-white p-3' variant="none" onClick={() => setUpdateProfileInformation(false)}>
                         <CancelUpdateProfile />
                         Batal
                     </Button>
@@ -265,7 +265,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                     )}
 
                     <div className="flex items-center gap-4">
-                        <Button type="submit" variant="blue" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#0F114C]">
+                        <Button type="submit" variant="gold" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#ECBB4E]">
                             Simpan
                             <CheckBadgeIcon className='w-6 h-6 text-white' />
                         </Button>
