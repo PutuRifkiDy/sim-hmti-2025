@@ -77,18 +77,26 @@ export default function Sidebar({ navigations, children, header, description }) 
                                 return (
                                     <li
                                         key={i}
-                                        className={`py-4 ${isSidebarOpen ? 'relative rounded-[6px] px-8' : 'items-center'} flex flex-col justify-center ${isActive ? 'bg-[#785233] stroke-white text-white' : 'transition-all duration-200 ease-in-out hover:bg-[#785233]/20'}`}
+                                        className={`py-4 ${isSidebarOpen ? 'rounded-[6px] px-8' : 'items-center'} flex flex-col justify-center ${isActive ? 'text-[#ECBB4E] stroke-white' : ''}`}
                                     >
-                                        {isActive && isSidebarOpen && (
-                                            <div className="absolute left-0 top-0 h-full w-[8px] rounded-r-md bg-[#ECBB4E]"></div>
-                                        )}
                                         <Link
                                             href={navigation.link}
                                             as="button"
-                                            className={`flex flex-row items-center gap-5 text-[14px] font-semibold tracking-[0.3px]`}
+                                            className={`flex flex-row items-center gap-5 text-[14px] font-semibold tracking-[0.3px]  ${isActive ? 'text-[#ECBB4E] stroke-[#ECBB4E] fill-[#ECBB4E]' : ''}`}
                                             onClick={() => window.innerWidth < 768 && setIsSidebarOpen(false)}
                                         >
-                                            {navigation.icon} {isSidebarOpen && navigation.text}
+                                            {navigation.icon}
+                                            {isSidebarOpen && (
+                                                <div className='relative group'>
+                                                    {navigation.text}
+                                                    <span className={`absolute -bottom-2 left-0 w-full h-1 rounded-t-md bg-gradient-to-r from-[#ECBB4E]/90 to-[#ECBB4E]
+                            transform transition-all duration-300 ease-out
+                            ${isActive ? 'translate-x-0' : '-translate-x-[60vh]'}
+                            group-hover:translate-x-0 dark:from-[#55b1d7]/90 dark:to-[#55b1d7]`}>
+                                                    </span>
+                                                </div>
+                                            )
+                                            }
                                         </Link>
                                     </li>
                                 );
@@ -231,6 +239,76 @@ export default function Sidebar({ navigations, children, header, description }) 
                                     </li>
                                 );
                             })}
+                            {auth.is_divisi_it == true || auth.is_ketua_kegiatan == true ? (
+                                <li
+                                    className={`py-4 ${isSidebarOpen ? 'px-8' : 'items-center'} flex cursor-pointer flex-col justify-center`}
+                                >
+                                    <DropdownMenu onOpenChange={(open) => setOpenDropdown(open)}>
+                                        <DropdownMenuTrigger asChild  >
+                                            <p className='flex flex-row items-center gap-5 text-[14px] font-semibold tracking-[0.3px]'>
+                                                <IconMasterData />
+                                                {isSidebarOpen && 'Master Data'}
+                                                {isSidebarOpen && <ChevronDownIcon className={`font-bold h-4 w-4 transition-transform transform  ${openDropdown ? 'rotate-180' : ''}`} />}
+                                            </p>
+                                        </DropdownMenuTrigger>
+                                        <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-3 py-3 outline-none dark:bg-[#040529]">
+                                            {auth.is_divisi_it && (
+                                                <>
+                                                    <Link
+                                                        href={route('master-user.index')}
+                                                        as='button'
+                                                    >
+                                                        <p className='flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200'>
+                                                            Master User
+                                                        </p>
+                                                    </Link>
+                                                    <Link
+                                                        href={route('master-sie.index')}
+                                                        as="button">
+                                                        <p className='flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200'>
+                                                            Master Sie
+                                                        </p>
+                                                    </Link>
+                                                    <Link
+                                                        href={route('master-period.index')}
+                                                        as="button">
+                                                        <p className='flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200'>
+                                                            Master Periode
+                                                        </p>
+                                                    </Link>
+                                                    <Link
+                                                        href={route('master-position.index')}
+                                                        as="button">
+                                                        <p className='flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200'>
+                                                            Master Jabatan
+                                                        </p>
+                                                    </Link>
+                                                    <Link
+                                                        href={route('master-open-rekruitmen.index')}
+                                                        as="button">
+                                                        <p className='flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200'>
+                                                            Master Oprec
+                                                        </p>
+                                                    </Link>
+                                                </>
+                                            )}
+                                            {auth.is_ketua_kegiatan && (
+                                                <Link
+                                                    href={route('master-open-rekruitmen.index')}
+                                                    as="button">
+                                                    <p className='flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200'>
+                                                        Master Oprec
+                                                    </p>
+                                                </Link>
+                                            )}
+                                        </DropdownMenuContent>
+                                    </DropdownMenu>
+                                </li>
+                            ) : (
+                                <>
+
+                                </>
+                            )}
                             <li className={`py-4 ${isSidebarOpen ? 'px-8' : 'items-center'} flex cursor-pointer flex-col justify-center`}>
                                 <Link
                                     href={route('logout')}

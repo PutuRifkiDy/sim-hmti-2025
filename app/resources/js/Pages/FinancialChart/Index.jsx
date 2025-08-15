@@ -64,7 +64,7 @@ export default function Index() {
                         value={selectedPeriodId}
                         onValueChange={onHandleChange}
                     >
-                        <SelectTrigger className="md:w-[180px] w-full">
+                        <SelectTrigger className="md:w-[250px] w-full">
                             <SelectValue placeholder="Pilih Periode" />
                         </SelectTrigger>
                         <SelectContent>

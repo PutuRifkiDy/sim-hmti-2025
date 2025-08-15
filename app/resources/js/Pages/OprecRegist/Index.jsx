@@ -33,14 +33,14 @@ export default function Index() {
 
     return (
         <>
-            <div className="grid md:grid-cols-3 grid-cols-1 gap-5 mt-10">
+            <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 mt-10">
                 {oprecs?.map((oprec, index) => (
                     <Link href={route('oprec-regist.show', oprec.id)} key={index} className="">
-                        <div className={`border-2 border-[#ECBB4E] rounded-[20px] p-4  min-w-full bg-white ${isOprecActive(oprec.start_date, oprec.end_date) == false ? 'opacity-50' : ''}`}>
-                            <div className="overflow-hidden rounded-[10px] h-96 w-auto flex items-center">
-                                <img src={oprec.poster_path} className="object-center object-cover w-full h-auto transform hover:scale-105 transition-all duration-300 ease-in-out" alt="" />
+                        <div className={`border-2 border-[#ECBB4E] rounded-[20px] p-4 h-fit w-full sm:w-full lg:w-full xl:w-full bg-white ${isOprecActive(oprec.start_date, oprec.end_date) == false ? 'opacity-50' : ''}`}>
+                            <div className="overflow-hidden rounded-[10px] h-fit w-full sm:w-full lg:w-full xl:w-full flex items-center">
+                                <img src={oprec.poster_path} className=" h-fit w-full sm:w-full lg:w-full xl:w-full transform hover:scale-105 transition-all duration-300 ease-in-out" alt="" />
                             </div>
-                            <div className="flex md:flex-row flex-col justify-between items-center mt-3">
+                            <div className="flex md:flex-row flex-col gap-2 justify-between items-center mt-3">
                                 <div className="flex flex-col">
                                     <p className="text-[#1F1F1F] font-semibold text-[20px] leading-[110%]">
                                         {oprec.oprec_name}
