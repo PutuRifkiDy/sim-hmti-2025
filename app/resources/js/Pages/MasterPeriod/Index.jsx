@@ -1,4 +1,4 @@
-import { IconPreviewImageProfile } from "@/Components/IconAdmin";
+import { IconMasterFungsionaris, IconMasterPeriode, IconMasterProgramKerja, IconPreviewImageProfile } from "@/Components/IconAdmin";
 import Modal from "@/Components/Modal";
 import { Button } from "@/Components/ui/button";
 import { Card, CardContent } from "@/Components/ui/card";
@@ -350,21 +350,27 @@ export default function Index() {
                                 <p className="font-medium text-[16px] light:text-[#202224]/70  tracking-[0.03em]">Jumlah Periode</p>
                                 <p className=" font-bold text-[28px] tracking-[1px]">{total_period}</p>
                             </div>
-                            <img src="/assets/icon/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
+                            <div className="rounded-2xl flex items-center bg-[#ecbb4e]/20 p-3">
+                                <IconMasterPeriode width={60} height={60} />
+                            </div>
                         </div>
                         <div className="flex flex-row gap-10 rounded-[14px] p-5 bg-white  shadow">
                             <div className="flex flex-col gap-1">
                                 <p className="font-medium text-[16px] light:text-[#202224]/70  tracking-[0.03em]">Jumlah Fungsionaris</p>
                                 <p className=" font-bold text-[28px] tracking-[1px]">{total_fungsionaris}</p>
                             </div>
-                            <img src="/assets/icon/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
+                            <div className="rounded-2xl flex items-center bg-[#ecbb4e]/20 p-3">
+                                <IconMasterFungsionaris width={60} height={60} />
+                            </div>
                         </div>
                         <div className="flex flex-row gap-10 rounded-[14px] p-5 bg-white  shadow">
                             <div className="flex flex-col gap-1">
                                 <p className="font-medium text-[16px] light:text-[#202224]/70  tracking-[0.03em]">Jumlah Program Kerja</p>
                                 <p className=" font-bold text-[28px] tracking-[1px]">{total_programkerja}</p>
                             </div>
-                            <img src="/assets/icon/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
+                            <div className="rounded-2xl flex items-center bg-[#ecbb4e]/20 p-3">
+                                <IconMasterProgramKerja width={60} height={60} />
+                            </div>
                         </div>
                     </div>
                     <Card className="dark:bg-[#040529] dark:border dark:border-white rounded-xl">

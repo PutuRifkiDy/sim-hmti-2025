@@ -16,6 +16,7 @@ import { Button } from "@/Components/ui/button";
 import { DocumentArrowDownIcon, DocumentCheckIcon, DocumentPlusIcon, PencilSquareIcon, PlusIcon, XCircleIcon } from "@heroicons/react/24/solid";
 import { toast } from "sonner";
 import Modal from "@/Components/Modal";
+import { IconMasterJabatan } from "@/Components/IconAdmin";
 
 export default function Index() {
 
@@ -186,7 +187,9 @@ export default function Index() {
                                 <p className="font-medium text-[16px] light:text-[#202224]/70  tracking-[0.03em]">Jumlah Jabatan</p>
                                 <p className=" font-bold text-[28px] tracking-[1px]">{total_position}</p>
                             </div>
-                            <img src="/assets/icon/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" />
+                            <div className="rounded-2xl flex items-center bg-[#ecbb4e]/20 p-3">
+                                <IconMasterJabatan width={60} height={60} />
+                            </div>
                         </div>
                     </div>
                     <Card className="dark:bg-[#040529] dark:border dark:border-white rounded-xl">
