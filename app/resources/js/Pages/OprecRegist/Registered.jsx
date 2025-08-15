@@ -14,20 +14,29 @@ export default function Registered() {
     return (
         <>
             <div className="py-5">
+                <div className="flex gap-2 px-4 py-2 border-l-4 border-l-[#00D238] dark:border-l-[#55b1d7] bg-[#00D238]/20 dark:bg-[#55b1d7]/20 w-full items-center mb-5">
+                    <CheckBadgeIcon className="shrink-0 h-6 w-6 text-[#00D238] dark:text-white" />
+                    <p className='text-[#00D238] font-medium text-[14px] leading-[16px] dark:text-white'>
+                        Anda telah terdaftar pada kegiatan ini. Silahkan tunggu undangan dari panitia untuk mengikuti kegiatan ini.
+                    </p>
+                </div>
+                <div className='flex flex-row w-full mb-5'>
+                    <Button variant="gold" type="button" asChild className="shadow-[0_0_15px_#ECBB4E]">
+                        <Link as="button" href={route('oprec-regist.index')} className="flex flex-row items-center text-[14px] font-bold">
+                            <ArrowLeftIcon className="w-3 h-3 mr-2 font-bold" />
+                            Kembali
+                        </Link>
+                    </Button>
+                </div>
                 <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
-                    <div className="flex gap-2 px-4 py-2 border-l-4 border-l-[#00D238] dark:border-l-[#55b1d7] bg-[#00D238]/20 dark:bg-[#55b1d7]/20 w-full items-center mb-5">
-                        <CheckBadgeIcon className="shrink-0 h-6 w-6 text-[#00D238] dark:text-white" />
-                        <p className='text-[#00D238] font-medium text-[14px] leading-[16px] dark:text-white'>
-                            Anda telah terdaftar pada kegiatan ini. Silahkan tunggu undangan dari panitia untuk mengikuti kegiatan ini.
+
+                    <div className="flex flex-col gap-2 leading-[110%] mb-5">
+                        <p className="text-[30px] font-bold text-[#000000] dark:text-white">
+                            {oprec_regist?.oprec.oprec_name}
                         </p>
-                    </div>
-                    <div className='flex flex-row w-full'>
-                        <Button variant="gold" type="button" asChild>
-                            <Link as="button" href={route('oprec-regist.index')} className="flex flex-row items-center text-[14px] font-bold">
-                                <ArrowLeftIcon className="w-3 h-3 mr-2 font-bold" />
-                                Kembali
-                            </Link>
-                        </Button>
+                        <p className="text-[15px] leading-[110%] text-[#7F7F7F]">
+                            Informasi open recruitmen
+                        </p>
                     </div>
 
                     <div className="flex md:flex-row flex-col w-[100%] gap-10">
@@ -44,7 +53,7 @@ export default function Registered() {
                             </h2>
 
                             <p className="mt-1 text-sm text-gray-600">
-                                Silahkan tunggu undangan dari panitia untuk mengikuti kegiatan ini
+                                Silahkan tunggu undangan dari panitia untuk mengikuti kegiatan ini ✅
                             </p>
                         </header>
                     </div>
@@ -70,6 +79,10 @@ export default function Registered() {
                     <div>
                         <InputLabel htmlFor="reason_join" value="Alasan Bergabung" className='text-[12px] text-[#676767] font-normal dark:text-gray-400' />
                         <div dangerouslySetInnerHTML={{ __html: cleanReasonJoin }} className="w-[60%]" />
+                    </div>
+                    <div>
+                        <InputLabel htmlFor="postmsg" value="Pesan" className='text-[12px] text-[#676767] font-normal dark:text-gray-400' />
+                        <p>{oprec_regist.oprec.postmsg ? oprec_regist.oprec.postmsg : '-'}</p>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
+import TextArea from "@/Components/TextArea";
 import TextInput from "@/Components/TextInput";
 import { Button } from "@/Components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/Components/ui/select";
@@ -8,7 +9,6 @@ import { Transition } from "@headlessui/react";
 import { ArrowLeftIcon, CheckBadgeIcon, ClockIcon } from "@heroicons/react/24/solid";
 import { Link, useForm, usePage } from "@inertiajs/react";
 import DOMPurify from 'dompurify';
-import { Editor } from "primereact/editor";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
@@ -51,24 +51,31 @@ export default function Show() {
 
     return (
         <div className="py-5">
+            {user.already_filled == false && (
+                <div className="flex gap-2 px-4 py-2 border-l-4 border-l-[#ECBB4E] dark:border-l-[#55b1d7] bg-[#ECBB4E]/20 dark:bg-[#55b1d7]/20 w-full items-center mb-5">
+                    <ClockIcon className="shrink-0 h-5 w-5 text-[#ECBB4E] dark:text-white" />
+                    <p className='text-[#ECBB4E] font-medium text-[12px] leading-[16px] dark:text-white'>
+                        Lengkapi profil anda terlebih dahulu sebelum mendaftar kegiatan.
+                    </p>
+                </div>
+            )}
+            <div className='flex flex-row w-full mb-5'>
+                <Button variant="gold" type="button" className="shadow-[0_0_15px_#ECBB4E]" asChild>
+                    <Link as="button" href={route('oprec-regist.index')} className="flex flex-row items-center text-[14px] font-bold">
+                        <ArrowLeftIcon className="w-3 h-3 mr-2 font-bold" />
+                        Kembali
+                    </Link>
+                </Button>
+            </div>
             <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
-                {user.already_filled == false && (
-                    <div className="flex gap-2 px-4 py-2 border-l-4 border-l-[#ECBB4E] dark:border-l-[#55b1d7] bg-[#ECBB4E]/20 dark:bg-[#55b1d7]/20 w-full items-center mb-5">
-                        <ClockIcon className="shrink-0 h-5 w-5 text-[#ECBB4E] dark:text-white" />
-                        <p className='text-[#ECBB4E] font-medium text-[12px] leading-[16px] dark:text-white'>
-                            Lengkapi profil anda terlebih dahulu sebelum mendaftar kegiatan.
-                        </p>
-                    </div>
-                )}
-                <div className='flex flex-row w-full'>
 
-
-                    <Button variant="gold" type="button" asChild>
-                        <Link as="button" href={route('oprec-regist.index')} className="flex flex-row items-center text-[14px] font-bold">
-                            <ArrowLeftIcon className="w-3 h-3 mr-2 font-bold" />
-                            Kembali
-                        </Link>
-                    </Button>
+                <div className="flex flex-col gap-2 leading-[110%] mb-5">
+                    <p className="text-[30px] font-bold text-[#000000] dark:text-white">
+                        {oprec?.oprec_name}
+                    </p>
+                    <p className="text-[15px] leading-[110%] text-[#7F7F7F]">
+                        Informasi open recruitmen
+                    </p>
                 </div>
 
                 <div className="flex md:flex-row flex-col w-[100%] gap-10">
@@ -107,10 +114,10 @@ export default function Show() {
                     <div className='mb-5 grid grid-cols-1 gap-5'>
                         <div>
                             <InputLabel htmlFor="reason_join" value="Alasan Bergabung" className='' />
-                            <Editor
+                            <TextArea
                                 value={data.reason_join}
                                 autoComplete="reason_join"
-                                onTextChange={(e) => setData('reason_join', e.htmlValue)}
+                                onChange={(e) => setData('reason_join', e.target.value)}
                                 name="reason_join"
                                 style={{ height: '200px' }}
                                 placeholder="Masukkan Deskripsi"
@@ -122,10 +129,10 @@ export default function Show() {
                         </div>
                         <div>
                             <InputLabel htmlFor="experience" value="Pengalaman" className='' />
-                            <Editor
+                            <TextArea
                                 value={data.experience}
                                 autoComplete="experience"
-                                onTextChange={(e) => setData('experience', e.htmlValue)}
+                                onChange={(e) => setData('experience', e.target.value)}
                                 name="experience"
                                 style={{ height: '200px' }}
                                 placeholder="Masukkan Pengalaman"
@@ -159,7 +166,12 @@ export default function Show() {
                     </div>
 
                     <div className="flex items-center gap-4">
-                        <Button type="submit" variant="gold" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#0F114C]">
+                        <Button
+                            type="submit"
+                            variant="gold"
+                            disabled={processing}
+                            className="flex flex-row gap-2 justify-center items-center dark:bg-[#0F114C] shadow-[0_0_15px_#ECBB4E]"
+                        >
                             Simpan
                             <CheckBadgeIcon className='w-6 h-6 text-white' />
                         </Button>

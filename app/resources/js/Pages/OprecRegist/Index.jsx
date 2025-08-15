@@ -14,6 +14,7 @@ export default function Index() {
     }, [flash_message]);
     const oprecs = usePage().props.oprecs;
     const dateNow = usePage().props.date_now;
+    console.log("ini adalah dateNow", dateNow);
     console.log("ini adalah oprecs", oprecs);
 
     const templateDateTime = (date) => {
@@ -41,7 +42,7 @@ export default function Index() {
                             </div>
                             <div className="flex md:flex-row flex-col justify-between items-center mt-3">
                                 <div className="flex flex-col">
-                                    <p className="text-[#1F1F1F] font-semibold text-[24px] leading-[110%]">
+                                    <p className="text-[#1F1F1F] font-semibold text-[20px] leading-[110%]">
                                         {oprec.oprec_name}
                                     </p>
                                     <p className="text-[13px] leading-[110%] text-[#1F1F1F]">
@@ -63,4 +64,10 @@ export default function Index() {
     );
 }
 
-Index.layout = (page) => <DashboardLayout children={page} title={"Open Rekruitmen"} header={"Open Rekruitmen"} description={"Daftar kegiatan di page ini"} />;
+Index.layout = (page) =>
+    <DashboardLayout
+        children={page}
+        title={"Open Recruitmen"}
+        header={"Open Recruitmen"}
+        description={"Daftar kegiatan himpunan di page ini"}
+    />;

@@ -26,7 +26,7 @@ class OprecRegistController extends Controller
             ->orderBy("created_at", "desc")
             ->get();
 
-        $date_now = Carbon::now();
+        $date_now = Carbon::now()->format('Y-m-d H:i:s');
 
         return inertia(component: 'OprecRegist/Index', props: [
             'oprecs'   => MasterOpenRekruitmenResource::collection($oprecs),

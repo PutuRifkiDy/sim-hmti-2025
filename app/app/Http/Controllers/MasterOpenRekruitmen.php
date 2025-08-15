@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Oprec;
+use Carbon\Carbon;
 use Inertia\Response;
 use App\Traits\HasFile;
 use App\Models\OprecSie;
@@ -25,7 +26,8 @@ class MasterOpenRekruitmen extends Controller
             return to_route('login');
         }
 
-        $oprecs = Oprec::get();
+        $oprecs = Oprec::orderBy("created_at", "desc")->get();
+        $date_now = Carbon::now()->format('Y-m-d H:i:s');
         $total_oprec = $oprecs->count();
 
         $total_registered = [];
@@ -39,6 +41,7 @@ class MasterOpenRekruitmen extends Controller
             'oprecs' => MasterOpenRekruitmenResource::collection($oprecs),
             'total_oprec' => $total_oprec,
             'total_registered' => $total_registered,
+            'date_now' => $date_now,
         ]);
     }
 

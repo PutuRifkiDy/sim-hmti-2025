@@ -22,6 +22,7 @@ export default function Index() {
     const oprecs = usePage().props.oprecs;
     const total_oprec = usePage().props.total_oprec;
     const total_registered = usePage().props.total_registered;
+    const date_now = usePage().props.date_now;
 
     const flash_message = usePage().props.flash_message;
     useEffect(() => {
@@ -195,19 +196,13 @@ export default function Index() {
     const imgOprecTemplate = (rowData) => {
         return (
             <>
-                <Dialog>
-                    <DialogTrigger className='flex flex-row gap-3 justify-center items-center d font-normal'>
-                        Buka
-                        <IconPreviewImageProfile />
-                    </DialogTrigger>
-                    <DialogContent className="dark:bg-[#0F114C]">
-                        <DialogTitle>
-                            Gambar Oprec
-                        </DialogTitle>
-                        <img src={rowData?.poster_path ? `${rowData.poster_path}` : 'assets/icon/default_image_profile.png'} className="h-64 w-auto" alt="" />
-                        <a href={rowData?.poster_path ? `${rowData.poster_path}` : 'assets/icon/default_image_profile.png'} className="text-center" target="_blank" rel="noopener noreferrer">Buka di tab baru</a>
-                    </DialogContent>
-                </Dialog>
+                <div className="overflow-hidden">
+                    <img
+                        src={rowData?.poster_path ? `${rowData.poster_path}` : 'assets/icon/default_image_profile.png'}
+                        className="h-64 w-auto transform hover:scale-105 transition-all duration-300 ease-in-out"
+                        alt=""
+                    />
+                </div>
             </>
         );
     }
@@ -223,12 +218,28 @@ export default function Index() {
 
     const totalPendaftarTemplate = (rowData) => {
         const totalRegistered = total_registered[rowData.id] || 0;
-        return (
-            <div className="flex flex-row items-center gap-2">
-                <UserIcon className="w-5 h-5 text-gray-500 dark:text-white" />
-                <p>{totalRegistered} Pendaftar</p>
-            </div>
-        );
+        console.log("Ini adalah row Data :", rowData);
+        if (date_now >= rowData.start_date && date_now <= rowData.end_date) {
+            return (
+                <div className="flex flex-col items-center gap-1">
+                    <div className="flex flex-row items-center gap-2">
+                        <UserIcon className="w-5 h-5 text-gray-500 dark:text-white" />
+                        <p>{totalRegistered} Pendaftar</p>
+                    </div>
+                    <p className="text-[#00D238]">Berlangsung</p>
+                </div>
+            );
+        } else {
+            return (
+                <div className="flex flex-col items-center gap-1">
+                    <div className="flex flex-row items-center gap-2">
+                        <UserIcon className="w-5 h-5 text-gray-500 dark:text-white" />
+                        <p>{totalRegistered} Pendaftar</p>
+                    </div>
+                    <p className="text-[#E82323]">Selesai</p>
+                </div>
+            );
+        }
     }
 
 
@@ -271,6 +282,12 @@ export default function Index() {
                                             className="min-w-[5rem]">
                                         </Column>
                                         <Column
+                                            field="poster_path"
+                                            header="Poster Oprec"
+                                            body={imgOprecTemplate}
+                                            className="min-w-[18rem]">
+                                        </Column>
+                                        <Column
                                             field="oprec_name"
                                             header="Nama Oprec"
                                             body={(rowData) => rowData.oprec_name ?? '-'}
@@ -298,12 +315,6 @@ export default function Index() {
                                             field="end_date"
                                             header="Pesan Oprec"
                                             body={(rowData) => rowData.postmsg ?? '-'}
-                                            className="min-w-[12rem]">
-                                        </Column>
-                                        <Column
-                                            field="poster_path"
-                                            header="Poster Oprec"
-                                            body={imgOprecTemplate}
                                             className="min-w-[12rem]">
                                         </Column>
                                         <Column
