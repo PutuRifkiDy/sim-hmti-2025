@@ -105,3 +105,9 @@ input::placeholder {
     box-shadow: none;
     border-color: #ccc;
 }
+
+/* style dropdown in open rekruitmen */
+.p-autocomplete-dropdown {
+    background-color: #ECBB4E;
+    border: none;
+}

@@ -88,7 +88,7 @@ export default function Create() {
                             </p>
                         </header>
 
-                        <Button variant="gold" type="button" asChild>
+                        <Button variant="gold" type="button" asChild className="shadow-[0_0_15px_#ECBB4E]">
                             <Link as="button" href={route('master-open-rekruitmen.index')} className="flex flex-row items-center text-[14px] font-bold">
                                 <ArrowLeftIcon className="w-3 h-3 mr-2 font-bold" />
                                 Kembali
@@ -231,7 +231,7 @@ export default function Create() {
                         </div>
 
                         <div className="flex items-center gap-4">
-                            <Button type="submit" variant="gold" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#0F114C]">
+                            <Button type="submit" variant="gold" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#0F114C] shadow-[0_0_15px_#ECBB4E]">
                                 Simpan
                                 <CheckBadgeIcon className='w-6 h-6 text-white' />
                             </Button>

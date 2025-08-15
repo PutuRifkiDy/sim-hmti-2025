@@ -40,7 +40,7 @@ export default function Edit() {
                             </p>
                         </header>
 
-                        <Button variant="gold" type="button" asChild>
+                        <Button variant="gold" type="button" asChild className="shadow-[0_0_15px_#ECBB4E]">
                             <Link as="button" href={route('master-sie.index')} className="flex flex-row items-center text-[14px] font-bold">
                                 <ArrowLeftIcon className="w-3 h-3 mr-2 font-bold" />
                                 Kembali
@@ -48,7 +48,7 @@ export default function Edit() {
                         </Button>
                     </div>
                     <form onSubmit={onHandleSubmit} className="mt-6 space-y-6">
-                        <div className='grid md:grid-cols-2 grid-cols-1 gap-5'>
+                        <div className='grid grid-cols-1 gap-5'>
                             <div>
                                 <InputLabel htmlFor="sie_name" value="Nama Sie" />
 
@@ -70,7 +70,7 @@ export default function Edit() {
                         </div>
 
                         <div className="flex items-center gap-4">
-                            <Button type="submit" variant="gold" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#0F114C]">
+                            <Button type="submit" variant="gold" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#0F114C] shadow-[0_0_15px_#ECBB4E]">
                                 Simpan
                                 <CheckBadgeIcon className='w-6 h-6 text-white' />
                             </Button>

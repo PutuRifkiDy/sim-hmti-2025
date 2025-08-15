@@ -5,6 +5,7 @@ import { Button } from "@/Components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/Components/ui/select";
 import DashboardLayout from "@/Layouts/DashboardLayout";
 import { Transition } from "@headlessui/react";
+import { CheckBadgeIcon } from "@heroicons/react/24/solid";
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 import { Link, useForm, usePage } from "@inertiajs/react";
 import { AutoComplete } from "primereact/autocomplete";
@@ -73,14 +74,13 @@ export default function Edit() {
                             </p>
                         </header>
 
-                        <Button variant="gold" type="button" asChild>
+                        <Button variant="gold" type="button" asChild className="shadow-[0_0_15px_#ECBB4E]">
                             <Link as="button" href={route('master-himpunan.index', { id: himpunan.period_id })} className="flex flex-row items-center text-[14px] font-bold">
                                 <ArrowLeftIcon className="w-3 h-3 mr-2 font-bold" />
                                 Kembali
                             </Link>
                         </Button>
                     </div>
-                    <h2 className="text-xl font-semibold">Edit Master Himpunan</h2>
                     <form onSubmit={onHandleSubmit} className="space-y-4">
                         <div>
                             <InputLabel htmlFor="user_id" value="Penjabat" />
@@ -141,8 +141,10 @@ export default function Edit() {
                             type="submit"
                             variant="gold"
                             disabled={processing}
+                            className="shadow-[0_0_15px_#ECBB4E]"
                         >
                             Simpan
+                            <CheckBadgeIcon className='w-6 h-6 text-white' />
                         </Button>
                         <Transition
                             show={recentlySuccessful}

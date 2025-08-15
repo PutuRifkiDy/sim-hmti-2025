@@ -46,10 +46,10 @@ export default function Create() {
                 <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
                     <div className='flex flex-row justify-between w-full'>
                         <header>
-                            <h2 className="text-lg font-medium text-gray-900">Tambah Fungsionaris</h2>
+                            <h2 className="text-lg font-medium text-gray-900">Tambah Program Kerja</h2>
 
                             <p className="mt-1 text-sm text-gray-600">
-                                Masukkan name fungsionaris dan jabatan untuk membuat fungsionaris
+                                Masukkan judul, deskripsi, dan gambar program kerja
                             </p>
                         </header>
 
@@ -62,7 +62,7 @@ export default function Create() {
                     </div>
                     <div className='mt-2 mb-10 grid md:grid-cols-3 grid-cols-1 gap-5'>
                         <div>
-                            <InputLabel htmlFor="title" value="period" className='text-[12px] text-[#676767] font-normal dark:text-gray-400' />
+                            <InputLabel htmlFor="title" value="Periode" className='text-[12px] text-[#676767] font-normal dark:text-gray-400' />
                             <p>{period.title ? period.title : '-'}</p>
                         </div>
                         <div>
@@ -77,7 +77,7 @@ export default function Create() {
 
                     <form onSubmit={onHandleSubmit} className="space-y-6">
                         <div>
-                            <InputLabel htmlFor="title" value="Judul Program Kerja" />
+                            <InputLabel htmlFor="title" value="Judul" />
                             <TextInput
                                 id="title"
                                 className="mt-1 block w-full"
@@ -93,7 +93,7 @@ export default function Create() {
                             />
                         </div>
                         <div>
-                            <InputLabel htmlFor="description" value="Judul Program Kerja" />
+                            <InputLabel htmlFor="description" value="Deskripsi" />
                             <TextInput
                                 id="description"
                                 className="mt-1 block w-full"

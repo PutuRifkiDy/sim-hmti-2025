@@ -16,6 +16,7 @@ import { Tooltip } from "primereact/tooltip";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import DOMPurify from 'dompurify';
+import { PlusIcon } from "@heroicons/react/24/solid";
 
 export default function Index() {
     const { props } = usePage();
@@ -132,7 +133,7 @@ export default function Index() {
                 <div className="flex items-center justify-content-end gap-2 export-buttons">
                     <IconField iconPosition="left">
                         <InputIcon className="pi pi-search" />
-                        <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Keyword Search" className="p-inputtext p-inputtext-sm" />
+                        <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Ketik kata kunci" className="p-inputtext p-inputtext-sm" />
                     </IconField>
                     {/* <Button type="button" className="bg-[#0f114c] px-5 py-5 rounded-[500px]" variant="none" rounded onClick={() => exportCSV(false)} data-pr-tooltip="Export CSV">
                         <DocumentPlusIcon className="w-5 h-5 text-white" />
@@ -141,14 +142,15 @@ export default function Index() {
                         <DocumentArrowDownIcon className="w-5 h-5 text-white" />
                     </Button>
                 </div>
-                <Button variant="gold" type="button" asChild>
-                    <Link as="button" href={route('master-open-rekruitmen.create')} className="text-[14px] font-bold py-5">Tambah Oprec</Link>
+                <Button variant="gold" type="button" asChild className="shadow-[0_0_15px_#ECBB4E]">
+                    <Link as="button" href={route('master-open-rekruitmen.create')} className="text-[14px] font-bold py-5">
+                        <PlusIcon className="w-5 h-5 text-white" />
+                        Tambah Oprec
+                    </Link>
                 </Button>
             </div>
         );
     };
-
-    const rowNumberTemplate = (rowData, column) => column.rowIndex + 1;
 
     const actionTemplate = (rowData) => {
         return (
@@ -196,7 +198,7 @@ export default function Index() {
     const imgOprecTemplate = (rowData) => {
         return (
             <>
-                <div className="overflow-hidden">
+                <div className="overflow-hidden rounded-lg max-w-fit">
                     <img
                         src={rowData?.poster_path ? `${rowData.poster_path}` : 'assets/icon/default_image_profile.png'}
                         className="h-64 w-auto transform hover:scale-105 transition-all duration-300 ease-in-out"
@@ -276,20 +278,14 @@ export default function Index() {
                                         paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
                                         currentPageReportTemplate="showing {first} to {last} of {totalRecords} results">
                                         <Column
-                                            field="number"
-                                            header="No"
-                                            body={rowNumberTemplate}
-                                            className="min-w-[5rem]">
-                                        </Column>
-                                        <Column
                                             field="poster_path"
-                                            header="Poster Oprec"
+                                            header="Poster"
                                             body={imgOprecTemplate}
                                             className="min-w-[18rem]">
                                         </Column>
                                         <Column
                                             field="oprec_name"
-                                            header="Nama Oprec"
+                                            header="Nama"
                                             body={(rowData) => rowData.oprec_name ?? '-'}
                                             className="min-w-[12rem]">
                                         </Column>
@@ -313,7 +309,7 @@ export default function Index() {
                                         </Column>
                                         <Column
                                             field="end_date"
-                                            header="Pesan Oprec"
+                                            header="Pesan"
                                             body={(rowData) => rowData.postmsg ?? '-'}
                                             className="min-w-[12rem]">
                                         </Column>
@@ -370,4 +366,4 @@ export default function Index() {
     );
 }
 
-Index.layout = (page) => <DashboardLayout children={page} title={"Master Open Rekruitmen"} header={"Master Open Rekruitmen"} description={"Kelola master open rekruitmen di page ini"} />;
+Index.layout = (page) => <DashboardLayout children={page} title={"Master Open Rekruitmen"} header={"Master Open Recruitmen"} description={"Kelola master open recruitmen di page ini"} />;

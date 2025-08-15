@@ -4,7 +4,7 @@ import { Button } from "@/Components/ui/button";
 import { Card, CardContent } from "@/Components/ui/card";
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/Components/ui/dialog";
 import DashboardLayout from "@/Layouts/DashboardLayout";
-import { CurrencyDollarIcon, DocumentArrowDownIcon, DocumentPlusIcon, EyeIcon, PencilSquareIcon, UserGroupIcon, XCircleIcon } from "@heroicons/react/24/solid";
+import { CurrencyDollarIcon, DocumentArrowDownIcon, DocumentPlusIcon, EyeIcon, PencilSquareIcon, PlusIcon, UserGroupIcon, XCircleIcon } from "@heroicons/react/24/solid";
 import { Link, router, usePage } from "@inertiajs/react";
 import { FilterMatchMode } from "primereact/api";
 import { Column } from "primereact/column";
@@ -139,7 +139,7 @@ export default function Index() {
                 <div className="flex items-center justify-content-end gap-2 export-buttons">
                     <IconField iconPosition="left">
                         <InputIcon className="pi pi-search" />
-                        <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Keyword Search" className="p-inputtext p-inputtext-sm" />
+                        <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Ketik kata kunci" className="p-inputtext p-inputtext-sm" />
                     </IconField>
                     <Button type="button" className="bg-[#0f114c] px-5 py-5 rounded-[500px]" variant="none" rounded onClick={() => exportCSV(false)} data-pr-tooltip="Export CSV">
                         <DocumentPlusIcon className="w-5 h-5 text-white" />
@@ -148,8 +148,11 @@ export default function Index() {
                         <DocumentArrowDownIcon className="w-5 h-5 text-white" />
                     </Button>
                 </div>
-                <Button variant="gold" type="button" asChild>
-                    <Link as="button" href={route('master-period.create')} className="text-[14px] font-bold py-5">Tambah Periode</Link>
+                <Button variant="gold" type="button" asChild className="shadow-[0_0_15px_#ECBB4E]">
+                    <Link as="button" href={route('master-period.create')} className="text-[14px] font-bold py-5">
+                        <PlusIcon className="w-5 h-5 text-white" />
+                        Tambah Periode
+                    </Link>
                 </Button>
             </div>
         );
