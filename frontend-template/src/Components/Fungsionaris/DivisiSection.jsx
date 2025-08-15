@@ -52,7 +52,7 @@ export default function DivisiSection() {
   const ProfileCard = ({ foto, nama, jabatan }) => (
     <div className="flex flex-col items-center">
       <div className="relative w-[69px] h-[69px] sm:w-[160px] sm:h-[160px] mt-6 sm:mt-14">
-        <div className="absolute inset-[12px] rounded-full overflow-hidden">
+        <div className="absolute inset-[12px] rounded-full">
           <img src={foto} alt="Profil" className="w-full h-full object-cover" />
         </div>
         <svg
@@ -151,10 +151,9 @@ export default function DivisiSection() {
                   font-semibold
                   transition duration-200
                   mx-auto
-                  ${
-                    activeIndex === index
-                      ? "bg-[#ecc067] text-white border border-[#ecc067] shadow-[0_0_10px_#ecc067]"
-                      : "bg-white text-[#ecc067] border border-[#ecc067] shadow-[0_0_6px_#ecc067] hover:bg-[#ecc067] hover:text-white hover:shadow-[0_0_10px_#ecc067]"
+                  ${activeIndex === index
+                    ? "bg-[#ecc067] text-white border border-[#ecc067] shadow-[0_0_10px_#ecc067]"
+                    : "bg-white text-[#ecc067] border border-[#ecc067] shadow-[0_0_6px_#ecc067] hover:bg-[#ecc067] hover:text-white hover:shadow-[0_0_10px_#ecc067]"
                   }
                 `}
                 style={{ flexShrink: 0 }}
@@ -167,7 +166,7 @@ export default function DivisiSection() {
       </div>
       {/* Kadiv */}
       <div className="relative w-[69px] h-[69px] sm:w-[160px] sm:h-[160px] mt-6 sm:mt-14">
-        <div className="absolute inset-[5px] sm:inset-[12px] rounded-full overflow-hidden">
+        <div className="absolute inset-[5px] sm:inset-[12px] rounded-full">
           <img
             src={kadiv.foto}
             alt="Profil"

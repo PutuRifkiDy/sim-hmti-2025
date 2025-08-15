@@ -32,7 +32,7 @@ export default function TitleFungsionarisSection() {
         FUNGSIONARIS
       </h1>
 
-      <div className="w-full mt-8 overflow-x-hidden">
+      <div className="w-full mt-8">
         <Swiper
           modules={[FreeMode]}
           freeMode={true}

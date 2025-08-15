@@ -38,8 +38,18 @@ class ProfileController extends Controller
         // }
 
         // $request->user()->save();
+        // dd($request->all());
+
+        // $user_login = auth()->user();
 
         $user = $request->user();
+
+
+        // cek kalo ga bisa update nim kalo udah ada
+        if ($user->nim != $request->nim) {
+            flashMessage('NIM tidak bisa diubah', 'error');
+            return Redirect::route('profile.edit');
+        }
 
         $user->fill($request->validated());
 

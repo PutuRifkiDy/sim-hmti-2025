@@ -43,15 +43,15 @@ class ProfileUpdateRequest extends FormRequest
     public function attributes()
     {
         return [
-            'name'           => 'Nama',
-            'email'          => 'Email',
-            'nim'            => 'NIM',
-            'line_id'        => 'Line ID',
-            'phone_number'   => 'Nomor Telepon',
-            'birthday'       => 'Tanggal Lahir',
-            'address'        => 'Alamat',
-            'username'       => 'Username',
-            'img_path'       => 'Foto',
+            'name'         => 'Nama',
+            'email'        => 'Email',
+            'nim'          => 'NIM',
+            'line_id'      => 'Line ID',
+            'phone_number' => 'Nomor Telepon',
+            'birthday'     => 'Tanggal Lahir',
+            'address'      => 'Alamat',
+            'username'     => 'Username',
+            'img_path'     => 'Foto',
         ];
     }
 
@@ -59,15 +59,19 @@ class ProfileUpdateRequest extends FormRequest
     public function messages()
     {
         return [
-            'name'           => 'Nama harus diisi.',
-            'email'          => 'Email harus diisi.',
-            'nim'            => 'NIM harus diisi.',
-            'line_id'        => 'Line ID harus diisi.',
-            'phone_number'   => 'Nomor Telepon harus diisi.',
-            'birthday'       => 'Tanggal Lahir harus diisi.',
-            'address'        => 'Alamat harus diisi.',
-            'username'       => 'Username harus diisi.',
-            'img_path'       => 'Foto harus diisi.',
+            'name'            => 'Nama harus diisi.',
+            'email'           => 'Email harus diisi.',
+            'email.unique'    => 'Email sudah terdaftar',
+            'nim'             => 'NIM harus diisi.',
+            'nim.max'         => 'NIM maksimal 10 karakter.',
+            'nim.unique'      => 'NIM sudah terdaftar.',
+            'line_id'         => 'Line ID harus diisi.',
+            'phone_number'    => 'Nomor Telepon harus diisi.',
+            'birthday'        => 'Tanggal Lahir harus diisi.',
+            'address'         => 'Alamat harus diisi.',
+            'username'        => 'Username harus diisi.',
+            'username.unique' => 'Username sudah terdaftar.',
+            'img_path'        => 'Foto harus diisi.',
         ];
     }
 }

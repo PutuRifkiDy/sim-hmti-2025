@@ -91,6 +91,12 @@ class MasterUserController extends Controller
     public function update(MasterUserUpdateRequest $request, $id): RedirectResponse
     {
         $user = User::find($id);
+
+        if ($user->nim != $request->nim) {
+            flashMessage("NIM tidak bisa diubah", 'error');
+            return back();
+        }
+        
         $user->update([
             'name'         => $request->name,
             'email'        => $request->email,

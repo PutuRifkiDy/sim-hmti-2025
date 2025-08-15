@@ -14,6 +14,8 @@ import { toast } from 'sonner';
 
 export default function UpdateProfileInformation({ mustVerifyEmail, status, className = '' }) {
     const user = usePage().props.auth.user;
+
+    console.log("ini adalah data user", user);
     const [updateProfileInformation, setUpdateProfileInformation] = useState(false);
 
     const { data, setData, post, errors, processing, recentlySuccessful } = useForm({
@@ -64,7 +66,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                     </p>
                 </header>
                 {updateProfileInformation == false && (
-                    <Button className='flex justify-center items-center gap-3 dark:bg-[#ECBB4E]' variant="gold" onClick={() => setUpdateProfileInformation(true)}>
+                    <Button className='flex justify-center items-center gap-3 dark:bg-[#ECBB4E] shadow-[0_0_15px_#ECBB4E]' variant="gold" onClick={() => setUpdateProfileInformation(true)}>
                         <IconEditForDashboard />
                         Edit
                     </Button>
@@ -265,7 +267,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                     )}
 
                     <div className="flex items-center gap-4">
-                        <Button type="submit" variant="gold" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#ECBB4E]">
+                        <Button type="submit" variant="gold" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#ECBB4E] shadow-[0_0_15px_#ECBB4E]">
                             Simpan
                             <CheckBadgeIcon className='w-6 h-6 text-white' />
                         </Button>
@@ -316,6 +318,12 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                     <div>
                         <InputLabel htmlFor="username" value="Username" className='text-[12px] text-[#676767] font-normal dark:text-gray-400' />
                         <p>{data.username ? data.username : '-'}</p>
+                    </div>
+                    <div>
+                        <InputLabel htmlFor="role" value="Role" className='text-[12px] text-[#676767] font-normal dark:text-gray-400' />
+                        <div className='bg-[#ECBB4E] px-2 py-1 rounded-[20px] max-w-fit'>
+                            <p className='text-white text-[12px]'>{user.role == "divisi_it" ? "Divisi IT" : user.role == "ketua_kegiatan" ? "Ketua Kegiatan" : user.role == "guest" ? "Mahasiswa" : '-'}</p>
+                        </div>
                     </div>
                     <div>
                         <Dialog>

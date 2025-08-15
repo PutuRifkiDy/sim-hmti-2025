@@ -74,9 +74,9 @@ export default function UpdatePasswordForm({ className = '' }) {
             </header>
 
             <div className="mt-6 flex md:flex-row flex-col-reverse justify-between">
-                <div className='w-full flex flex-col justify-end'>
+                {/* <div className='w-full flex flex-col justify-end'>
                     <DeleteUserForm />
-                </div>
+                </div> */}
 
                 <form onSubmit={updatePassword} className='w-full'>
 
@@ -166,7 +166,7 @@ export default function UpdatePasswordForm({ className = '' }) {
 
                         </div>
                         <div className="flex items-center gap-4">
-                            <Button variant="gold" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#0F114C]">
+                            <Button variant="gold" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#0F114C] shadow-[0_0_15px_#ECBB4E]">
                                 Simpan
                                 <CheckBadgeIcon className='w-6 h-6 text-white' />
                             </Button>

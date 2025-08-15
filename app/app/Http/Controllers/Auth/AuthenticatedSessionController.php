@@ -35,7 +35,7 @@ class AuthenticatedSessionController extends Controller
 
         flashMessage("Selamat datang $request->nim", 'success');
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        return redirect()->intended(route('profile.edit', absolute: false));
     }
 
     /**

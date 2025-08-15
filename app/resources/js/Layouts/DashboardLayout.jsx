@@ -10,11 +10,11 @@ export default function DashboardLayout({ children, title, header, description }
     const route_sidebar = [
         ...(auth.is_divisi_it ? [
             // semua dia bisa akses
-            {
-                icon: <IconBerandaSideBar />,
-                text: "Beranda",
-                link: route("dashboard"),
-            },
+            // {
+            //     icon: <IconBerandaSideBar />,
+            //     text: "Beranda",
+            //     link: route("dashboard"),
+            // },
             {
                 icon: <IconProfileSideBar />,
                 text: "Profil",
@@ -22,7 +22,7 @@ export default function DashboardLayout({ children, title, header, description }
             },
             {
                 icon: <IconOpenRekrutmen />,
-                text: "Open Rekruitmen",
+                text: "Open Recruitmen",
                 link: route('oprec-regist.index'),
             },
             {
@@ -36,11 +36,11 @@ export default function DashboardLayout({ children, title, header, description }
                 link: route('master-grafik.index'),
             }
         ] : auth.is_ketua_kegiatan ? [
-            {
-                icon: <IconBerandaSideBar />,
-                text: "Beranda",
-                link: route("dashboard"),
-            },
+            // {
+            //     icon: <IconBerandaSideBar />,
+            //     text: "Beranda",
+            //     link: route("dashboard"),
+            // },
             {
                 icon: <IconProfileSideBar />,
                 text: "Profil",
@@ -48,7 +48,7 @@ export default function DashboardLayout({ children, title, header, description }
             },
             {
                 icon: <IconOpenRekrutmen />,
-                text: "Open Rekruitmen",
+                text: "Open Recruitmen",
                 link: route('oprec-regist.index'),
             },
             {
@@ -57,11 +57,11 @@ export default function DashboardLayout({ children, title, header, description }
                 link: route('master-adart.index'),
             },
         ] : [
-            {
-                icon: <IconBerandaSideBar />,
-                text: "Beranda",
-                link: route("dashboard"),
-            },
+            // {
+            //     icon: <IconBerandaSideBar />,
+            //     text: "Beranda",
+            //     link: route("dashboard"),
+            // },
             {
                 icon: <IconProfileSideBar />,
                 text: "Profil",

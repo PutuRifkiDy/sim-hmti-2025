@@ -1,16 +1,17 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Models\Oprec;
-use Inertia\Response;
-use App\Models\OprecSie;
-use App\Models\OprecRegist;
-use Illuminate\Http\RedirectResponse;
-use App\Http\Resources\OprecSieResource;
 use App\Http\Requests\OprecRegistRequest;
-use App\Http\Resources\OprecRegisResource;
-use App\Http\Resources\UserSingleResource;
 use App\Http\Resources\MasterOpenRekruitmenResource;
+use App\Http\Resources\OprecRegisResource;
+use App\Http\Resources\OprecSieResource;
+use App\Http\Resources\UserSingleResource;
+use App\Models\Oprec;
+use App\Models\OprecRegist;
+use App\Models\OprecSie;
+use Carbon\Carbon;
+use Illuminate\Http\RedirectResponse;
+use Inertia\Response;
 
 class OprecRegistController extends Controller
 {
@@ -22,12 +23,14 @@ class OprecRegistController extends Controller
         }
 
         $oprecs = Oprec::with('oprec_sies')
-            ->where('start_date', '<=', now())
-            ->where('end_date', '>=', now())
+            ->orderBy("created_at", "desc")
             ->get();
 
+        $date_now = Carbon::now();
+
         return inertia(component: 'OprecRegist/Index', props: [
-            'oprecs' => MasterOpenRekruitmenResource::collection($oprecs),
+            'oprecs'   => MasterOpenRekruitmenResource::collection($oprecs),
+            'date_now' => $date_now,
         ]);
     }
 
@@ -46,8 +49,19 @@ class OprecRegistController extends Controller
             return to_route('oprec-regist.edit', ['idOprec' => $id, 'idUser' => $user->id]);
         }
 
+        $oprec_is_active = Oprec::where("id", '=', $id)
+            ->where('start_date', '<=', now())
+            ->where('end_date', '>=', now())
+            ->exists();
+
+        if ($oprec_is_active == false) {
+            flashMessage("Oprec ini sudah tidak aktif lagi", 'error');
+            return back();
+        }
+
         $oprec = Oprec::find($id);
-        $sies  = OprecSie::with('master_sie')
+
+        $sies = OprecSie::with('master_sie')
             ->where('oprec_id', $id)
             ->get();
 
@@ -68,6 +82,16 @@ class OprecRegistController extends Controller
 
         if ($user->already_filled == false) {
             flashMessage('Silahkan lengkapi kembali profil anda sebelum mendaftar', 'error');
+            return back();
+        }
+
+        $oprec_is_active = Oprec::where("id", '=', $request->oprec_id)
+            ->where('start_date', '<=', now())
+            ->where('end_date', '>=', now())
+            ->exists();
+
+        if ($oprec_is_active == false) {
+            flashMessage("Oprec ini sudah tidak aktif lagi", 'error');
             return back();
         }
 

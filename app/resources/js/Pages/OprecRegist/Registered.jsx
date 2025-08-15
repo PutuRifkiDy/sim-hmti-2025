@@ -15,7 +15,7 @@ export default function Registered() {
         <>
             <div className="py-5">
                 <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
-                    <div className="flex gap-2 px-4 py-4 border-l-4 border-l-[#00D238] dark:border-l-[#55b1d7] bg-[#00D238]/20 dark:bg-[#55b1d7]/20 w-full items-center mb-5">
+                    <div className="flex gap-2 px-4 py-2 border-l-4 border-l-[#00D238] dark:border-l-[#55b1d7] bg-[#00D238]/20 dark:bg-[#55b1d7]/20 w-full items-center mb-5">
                         <CheckBadgeIcon className="shrink-0 h-6 w-6 text-[#00D238] dark:text-white" />
                         <p className='text-[#00D238] font-medium text-[14px] leading-[16px] dark:text-white'>
                             Anda telah terdaftar pada kegiatan ini. Silahkan tunggu undangan dari panitia untuk mengikuti kegiatan ini.

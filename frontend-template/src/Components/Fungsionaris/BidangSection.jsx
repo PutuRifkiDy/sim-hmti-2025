@@ -101,7 +101,6 @@ export default function BidangSection() {
           text-[#ecc067]
           font-poppins font-black leading-[1.1]
           tracking-[-0.06em] uppercase
-          whitespace-nowrap
           text-[clamp(2rem,6vw,5.5rem)]
           -mt-[0.5em]
         "
@@ -155,7 +154,7 @@ export default function BidangSection() {
                   ${
                     activeIndex === index
                       ? "bg-[#ecc067] text-white border border-[#ecc067] shadow-[0_0_10px_#ecc067]"
-                      : "bg-white text-[#ecc067] border border-[#ecc067] shadow-[0_0_6px_#ecc067] hover:bg-[#ecc067] hover:text-white hover:shadow-[0_0_10px_#ecc067]"
+                      : "text-[#ecc067] border border-[#ecc067] shadow-[0_0_6px_#ecc067] hover:bg-[#ecc067] hover:text-white hover:shadow-[0_0_10px_#ecc067]"
                   }
                 `}
                 style={{ flexShrink: 0 }}

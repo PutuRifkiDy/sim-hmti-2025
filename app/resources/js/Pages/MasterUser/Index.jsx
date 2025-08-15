@@ -207,11 +207,11 @@ export default function Index() {
     const roleTemplate = (rowData) => {
         return (
             rowData.role == 'divisi_it' ? (
-                <span>Divisi IT</span>
+                <span>Admin</span>
             ) : rowData.role == "ketua_kegiatan" ? (
                 <span>Ketua Kegiatan</span>
             ) : (
-                <span>Guest</span>
+                <span>Mahasiswa</span>
             )
         );
 

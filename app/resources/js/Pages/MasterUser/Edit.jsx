@@ -8,9 +8,16 @@ import DashboardLayout from "@/Layouts/DashboardLayout";
 import { Transition } from "@headlessui/react";
 import { ArrowLeftIcon, CheckBadgeIcon } from "@heroicons/react/24/solid";
 import { Link, useForm, usePage } from "@inertiajs/react";
+import { useEffect } from "react";
 import { toast } from "sonner";
 
 export default function Edit() {
+    const flash_message = usePage().props.flash_message;
+    useEffect(() => {
+        if (flash_message?.message) {
+            toast[flash_message.type || 'success'](flash_message.message);
+        }
+    }, [flash_message]);
     const users = usePage().props.users;
     const { data, setData, processing, post, reset, errors, recentlySuccessful } = useForm({
         name: users.name ?? '',
@@ -240,8 +247,8 @@ export default function Edit() {
                                         <SelectValue placeholder="Pilih Role" />
                                     </SelectTrigger>
                                     <SelectContent>
-                                        <SelectItem value="guest">Guest</SelectItem>
-                                        <SelectItem value="divisi_it">Divisi IT</SelectItem>
+                                        <SelectItem value="guest">Mahasiswa</SelectItem>
+                                        <SelectItem value="divisi_it">Admin</SelectItem>
                                         <SelectItem value="ketua_kegiatan">Ketua Kegiatan</SelectItem>
                                     </SelectContent>
                                 </Select>
