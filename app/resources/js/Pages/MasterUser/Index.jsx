@@ -230,10 +230,8 @@ export default function Index() {
                                 <p className="font-medium text-[16px] light:text-[#202224]/70  tracking-[0.03em]">Jumlah Pengguna</p>
                                 <p className=" font-bold text-[28px] tracking-[1px]">{total_user}</p>
                             </div>
-                            {/* <img src="/assets/icon/icon-jumlah-pengguna.png" className="w-[60px] h-[60px]" alt="" /> */}
-                            {/* <UserIcon className="w-[60px] h-[60px]" /> */}
                             <div className="rounded-2xl flex items-center bg-[#ecbb4e]/20 p-3">
-                                <IconMasterUser width={60} height={60}/>
+                                <IconMasterUser width={60} height={60} />
                             </div>
                         </div>
                     </div>
