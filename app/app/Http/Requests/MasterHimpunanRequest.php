@@ -1,7 +1,6 @@
 <?php
 namespace App\Http\Requests;
 
-use App\Models\MasterPosition;
 use Illuminate\Foundation\Http\FormRequest;
 
 class MasterHimpunanRequest extends FormRequest
@@ -21,15 +20,28 @@ class MasterHimpunanRequest extends FormRequest
      */
     public function rules(): array
     {
-        // anggota bisa lebih dari 1, kecuali jabatan selain anggota
-        // position selain anggota hanya bisa 1 orang yang menjabat
-        // 1 user 1 jabatan
         return [
             'user_id'           => ['required', 'array'],
             'user_id.*'         => ['exists:users,id'],
             'position_id'       => ['required', 'exists:master_positions,id'],
             'img_himpunan_path' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1048'],
             // 'periode_id'  => ['required'],
+        ];
+    }
+
+    public function attributes(): array
+    {
+        return [
+            'img_himpunan_path' => 'Gambar',
+            'position_id'       => 'Posisi',
+            'user_id'           => 'User',
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'img_himpunan_path' => 'Gambar wajib diisi, format jpg, jpeg, png, maksimal 1MB.',
         ];
     }
 }

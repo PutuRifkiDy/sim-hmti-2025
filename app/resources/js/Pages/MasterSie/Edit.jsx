@@ -1,3 +1,4 @@
+import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
 import TextInput from "@/Components/TextInput";
 import { Button } from "@/Components/ui/button";
@@ -59,9 +60,8 @@ export default function Edit() {
                                     type="text"
                                     value={data.sie_name}
                                     onChange={onHandleChange}
-                                    required
                                     isFocused
-                                    placeholder="Masukkan sie_name anda"
+                                    placeholder="Masukan nama sie"
                                     autoComplete="sie_name"
                                     onErrors={errors.sie_name && <InputError message={errors.sie_name} className='mt-2' />}
                                 />

@@ -70,7 +70,6 @@ export default function Create() {
                                     name="title"
                                     type="text"
                                     onChange={(e) => setData('title', e.target.value)}
-                                    required
                                     isFocused
                                     placeholder="Contoh: Kabinet Harmoni Bangga"
                                     autoComplete="title"
@@ -86,7 +85,6 @@ export default function Create() {
                                     name="start_date"
                                     type="datetime-local"
                                     onChange={(e) => setData('start_date', e.target.value)}
-                                    required
                                     isFocused
                                     placeholder="Contoh: Keamanan Alam Semesta"
                                     autoComplete="start_date"
@@ -102,7 +100,6 @@ export default function Create() {
                                     name="end_date"
                                     type="datetime-local"
                                     onChange={(e) => setData('end_date', e.target.value)}
-                                    required
                                     isFocused
                                     placeholder="Contoh: Keamanan Alam Semesta"
                                     autoComplete="end_date"

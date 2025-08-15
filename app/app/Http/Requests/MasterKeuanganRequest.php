@@ -37,4 +37,29 @@ class MasterKeuanganRequest extends FormRequest
             'period_id'    => ['required'],
         ];
     }
+
+    public function attributes(): array
+    {
+        return [
+            'title'        => 'Judul',
+            'month'        => 'Bulan',
+            'total_income' => 'Pendapatan',
+            'period_id'    => 'Periode',
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'title.string'          => 'Judul harus berupa string',
+            'title.max'             => 'Judul maksimal 255 karakter',
+            'month.string'          => 'Bulan harus berupa string',
+            'month.required'        => 'Bulan harus diisi',
+            'month.max'             => 'Bulan maksimal 255 karakter',
+            'total_income.required' => 'Pendapatan harus diisi',
+            'total_income.numeric'  => 'Pendapatan harus berupa angka',
+            'total_income.max'      => 'Pendapatan maksimal 2147483647',
+            'period_id.required'    => 'Periode harus diisi',
+        ];
+    }
 }

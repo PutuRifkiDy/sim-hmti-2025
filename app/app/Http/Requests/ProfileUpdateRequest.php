@@ -32,9 +32,9 @@ class ProfileUpdateRequest extends FormRequest
             'address'        => ['required', 'string', 'max:255'],
             'username'       => ['required', 'string', 'max:255', Rule::unique(User::class, 'username')->ignore($user->id)],
             'img_path'       => [
-                Rule::requiredIf(! $user->img_path),
                 'mimes:jpg,jpeg,png',
                 'max:1048',
+                Rule::requiredIf(! $user->img_path),
             ],
             'already_filled' => ['nullable', 'boolean'],
         ];
@@ -55,23 +55,35 @@ class ProfileUpdateRequest extends FormRequest
         ];
     }
 
-    // ubah kalimat validasi
     public function messages()
     {
         return [
-            'name'            => 'Nama harus diisi.',
-            'email'           => 'Email harus diisi.',
-            'email.unique'    => 'Email sudah terdaftar',
-            'nim'             => 'NIM harus diisi.',
-            'nim.max'         => 'NIM maksimal 10 karakter.',
-            'nim.unique'      => 'NIM sudah terdaftar.',
-            'line_id'         => 'Line ID harus diisi.',
-            'phone_number'    => 'Nomor Telepon harus diisi.',
-            'birthday'        => 'Tanggal Lahir harus diisi.',
-            'address'         => 'Alamat harus diisi.',
-            'username'        => 'Username harus diisi.',
-            'username.unique' => 'Username sudah terdaftar.',
-            'img_path'        => 'Foto harus diisi.',
+            'name'                  => 'Nama harus diisi.',
+            'email.required'        => 'Email harus diisi.',
+            'email.unique'          => 'Email sudah terdaftar',
+            'email.email'           => 'Email tidak valid.',
+            'email.max'             => 'Email maksimal 255 karakter.',
+            'email.lowercase'       => 'Email harus berupa huruf kecil.',
+            'email.string'          => 'Email harus berupa string.',
+            'nim.required'          => 'NIM harus diisi.',
+            'nim.max'               => 'NIM maksimal 10 karakter.',
+            'nim.unique'            => 'NIM sudah terdaftar.',
+            'line_id.required'      => 'Line ID harus diisi.',
+            'line_id.max'           => 'Line ID maksimal 255 karakter.',
+            'line_id.string'        => 'Line ID harus berupa string.',
+            'phone_number.required' => 'Nomor Telepon harus diisi.',
+            'phone_number.max'      => 'Nomor Telepon maksimal 15 karakter.',
+            'phone_number.string'   => 'Nomor Telepon harus berupa string.',
+            'birthday.required'     => 'Tanggal Lahir harus diisi.',
+            'birthday.date'         => 'Tanggal Lahir harus berupa tanggal.',
+            'address.required'      => 'Alamat harus diisi.',
+            'address.string'        => 'Alamat harus berupa string.',
+            'address.max'           => 'Alamat maksimal 255 karakter.',
+            'username.required'     => 'Username harus diisi.',
+            'username.unique'       => 'Username sudah terdaftar.',
+            'username.max'          => 'Username maksimal 255 karakter.',
+            'username.string'       => 'Username harus berupa string.',
+            'img_path'              => 'Foto wajib diisi, format jpg, jpeg, png, maksimal 1MB.',
         ];
     }
 }

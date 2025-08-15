@@ -155,7 +155,7 @@ export default function Index() {
                         className="w-0"
                     >
                         <Link
-                            className="flex justify-center items-center border-2 rounded-md border-[#dfe44d] p-1.5 hover:bg-[#4DE45C]/20 transition-all duration-300 ease-in-out"
+                            className="flex justify-center items-center border-2 rounded-md border-[#dfe44d] p-1.5 hover:bg-[#dfe44d]/20 transition-all duration-300 ease-in-out"
                             type="button"
                             href={route('master-program-kerja.edit', rowData.id)}>
                             <PencilSquareIcon className="text-[#dfe44d] w-5 h-5" />

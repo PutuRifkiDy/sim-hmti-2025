@@ -22,10 +22,36 @@ class OprecRegistRequest extends FormRequest
     {
         return [
             'reason_join' => ['required', 'string', 'max:255'],
-            'experience'  => ['nullable', 'string', 'max:255'],
+            'experience'  => ['required', 'string', 'max:255'],
             'sie_id'      => ['required'],
             'oprec_id'    => ['required'],
             'user_id'     => ['required'],
+        ];
+    }
+
+    public function attributes(): array
+    {
+        return [
+            'reason_join' => 'Alasan bergabung',
+            'experience'  => 'Pengalaman',
+            'sie_id'      => 'Himpunan',
+            'oprec_id'    => 'Oprec',
+            'user_id'     => 'User',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'reason_join.required' => 'Alasan bergabung harus diisi.',
+            'reason_join.string'   => 'Alasan bergabung harus berupa string.',
+            'reason_join.max'      => 'Alasan bergabung maksimal 255 karakter.',
+            'experience.required'  => 'Pengalaman harus diisi.',
+            'experience.string'    => 'Pengalaman harus berupa string.',
+            'experience.max'       => 'Pengalaman maksimal 255 karakter.',
+            'sie_id.required'      => 'Sie harus diisi.',
+            'oprec_id.required'    => 'Oprec harus diisi.',
+            'user_id.required'     => 'User harus diisi.',
         ];
     }
 }

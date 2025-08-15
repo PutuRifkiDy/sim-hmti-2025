@@ -39,4 +39,36 @@ class MasterOpenRekruitmenRequest extends FormRequest
             ]);
         }
     }
+
+    public function attributes(): array
+    {
+        return [
+            'sie_id'      => 'Sie',
+            'oprec_name'  => 'Nama Oprec',
+            'description' => 'Deskripsi',
+            'start_date'  => 'Tanggal mulai',
+            'end_date'    => 'Tanggal selesai',
+            'poster_path' => 'Poster',
+            'postmsg'     => 'Pesan',
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'sie_id.required'      => 'Sie harus diisi.',
+            'sie_id.array'         => 'Sie harus berupa array.',
+            'oprec_name.required'  => 'Nama Oprec harus diisi.',
+            'oprec_name.max'       => 'Nama Oprec maksimal 255 karakter.',
+            'description.required' => 'Deskripsi harus diisi.',
+            'description.max'      => 'Deskripsi maksimal 60000 karakter.',
+            'start_date.required'  => 'Tanggal mulai harus diisi.',
+            'start_date.date'      => 'Tanggal mulai harus berupa tanggal.',
+            'end_date.required'    => 'Tanggal selesai harus diisi.',
+            'end_date.date'        => 'Tanggal selesai harus berupa tanggal.',
+            'poster_path'          => 'Poster maksimal 1048 karakter, format jpg, jpeg, png.',
+            'postmsg.required'     => 'Pesan harus diisi.',
+            'postmsg.max'          => 'Pesan maksimal 255 karakter.',
+        ];
+    }
 }

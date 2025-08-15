@@ -85,7 +85,6 @@ export default function Create() {
                                 name="title"
                                 type="text"
                                 onChange={(e) => setData('title', e.target.value)}
-                                required
                                 isFocused
                                 autoComplete="title"
                                 placeholder="contoh: Build IT 2025"
@@ -101,7 +100,6 @@ export default function Create() {
                                 name="description"
                                 type="text"
                                 onChange={(e) => setData('description', e.target.value)}
-                                required
                                 placeholder="contoh: Build IT 2025 merupakan program kerja"
                                 autoComplete="description"
                                 onErrors={errors.description && <InputError message={errors.description} className="mt-2" />}

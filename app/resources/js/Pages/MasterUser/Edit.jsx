@@ -84,7 +84,7 @@ export default function Edit() {
                                     type="text"
                                     value={data.nim}
                                     onChange={onHandleChange}
-                                    required
+                                    // required
                                     isFocused
                                     placeholder="Masukkan nim anda"
                                     autoComplete="nim"
@@ -103,7 +103,7 @@ export default function Edit() {
                                     type="text"
                                     value={data.name}
                                     onChange={onHandleChange}
-                                    required
+                                    // required
                                     placeholder="Masukkan nama anda"
                                     autoComplete="name"
                                     onErrors={errors.name && <InputError message={errors.name} className='mt-2' />}
@@ -121,7 +121,7 @@ export default function Edit() {
                                     name="email"
                                     value={data.email}
                                     onChange={onHandleChange}
-                                    required
+                                    // required
                                     placeholder="Masukkan email anda"
                                     autoComplete="email"
                                     onErrors={errors.email && <InputError message={errors.email} className='mt-2' />}
@@ -139,7 +139,7 @@ export default function Edit() {
                                     name="line_id"
                                     value={data.line_id}
                                     onChange={onHandleChange}
-                                    required
+                                    // required
                                     placeholder="Masukkan id line anda"
                                     autoComplete="id_line"
                                     onErrors={errors.line_id && <InputError message={errors.line_id} className='mt-2' />}
@@ -157,7 +157,7 @@ export default function Edit() {
                                     type="text"
                                     value={data.phone_number}
                                     onChange={onHandleChange}
-                                    required
+                                    // required
                                     placeholder="Masukkan nomor telepon anda"
                                     autoComplete="phone_number"
                                     onErrors={errors.phone_number && <InputError message={errors.phone_number} className='mt-2' />}
@@ -175,7 +175,7 @@ export default function Edit() {
                                     type="date"
                                     value={data.birthday}
                                     onChange={onHandleChange}
-                                    required
+                                    // required
                                     placeholder="Masukkan tanggal lahir anda"
                                     autoComplete="birthday"
                                     onErrors={errors.birthday && <InputError message={errors.birthday} className='mt-2' />}
@@ -193,7 +193,7 @@ export default function Edit() {
                                     type="text"
                                     value={data.address}
                                     onChange={onHandleChange}
-                                    required
+                                    // required
                                     placeholder="Masukkan alamat anda"
                                     autoComplete="address"
                                     onErrors={errors.address && <InputError message={errors.address} className='mt-2' />}
@@ -212,7 +212,7 @@ export default function Edit() {
                                     type="text"
                                     value={data.username}
                                     onChange={onHandleChange}
-                                    required
+                                    // required
                                     placeholder="Masukkan username anda"
                                     autoComplete="username"
                                     onErrors={errors.username && <InputError message={errors.username} className='mt-2' />}

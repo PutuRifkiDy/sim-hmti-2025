@@ -40,7 +40,6 @@ export default function UpdatePasswordForm({ className = '' }) {
         e.preventDefault();
 
         put(route('password.update'), {
-            preserveScroll: true,
             onSuccess: (success) => {
                 const flash = flashMessage(success);
                 if (flash) toast[flash.type](flash.message);

@@ -27,4 +27,21 @@ class CreateMasterUserRequest extends FormRequest
             'password' => ['required', 'string'],
         ];
     }
+
+    public function attributes(): array
+    {
+        return [
+            'nim'      => 'NIM',
+            'password' => 'Password',
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'nim.required'      => 'NIM harus diisi.',
+            'nim.max'           => 'NIM harus terdiri dari 10 karakter.',
+            'password.required' => 'Password harus diisi.',
+        ];
+    }
 }

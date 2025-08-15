@@ -117,19 +117,6 @@ export default function Create() {
                         <div className="">
                             <InputLabel htmlFor="description" value="Deskripsi" />
 
-                            {/* <TextInput
-                                id="description"
-                                type="text"
-                                name="description"
-                                value={data.description}
-                                onChange={(e) => setData('description', e.target.value)}
-                                className="mt-1 block w-full"
-                                autoComplete="description"
-                                isFocused
-                                required
-                                placeholder="Masukkan Description"
-                                onErrors={errors.description && <InputError message={errors.description} className="mt-2 text-red-600" />}
-                            /> */}
                             <Editor
                                 value={data.description}
                                 autoComplete="description"
@@ -155,7 +142,6 @@ export default function Create() {
                                     className="mt-1 block w-full"
                                     autoComplete="oprec_name"
                                     isFocused
-                                    required
                                     placeholder="Masukkan Nama Oprec"
                                     onErrors={errors.oprec_name && <InputError message={errors.oprec_name} className="mt-2 text-red-600" />}
                                 />
@@ -174,7 +160,6 @@ export default function Create() {
                                     className="mt-1 block w-full"
                                     autoComplete="postmsg"
                                     isFocused
-                                    required
                                     placeholder="Masukkan Nama Oprec"
                                     onErrors={errors.postmsg && <InputError message={errors.postmsg} className="mt-2 text-red-600" />}
                                 />
@@ -192,7 +177,6 @@ export default function Create() {
                                     className="mt-1 block w-full"
                                     autoComplete="start_date"
                                     isFocused
-                                    required
                                     placeholder="Masukkan Tanggal Mulai"
                                     onErrors={errors.start_date && <InputError message={errors.start_date} className="mt-2 text-red-600" />}
                                 />
@@ -211,7 +195,6 @@ export default function Create() {
                                     className="mt-1 block w-full"
                                     autoComplete="end_date"
                                     isFocused
-                                    required
                                     placeholder="Masukkan Tanggal Selesai"
                                     onErrors={errors.end_date && <InputError message={errors.end_date} className="mt-2 text-red-600" />}
                                 />

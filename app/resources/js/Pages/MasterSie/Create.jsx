@@ -59,7 +59,6 @@ export default function Create() {
                                 name="sie_name"
                                 type="text"
                                 onChange={(e) => setData('sie_name', e.target.value)}
-                                required
                                 isFocused
                                 placeholder="Contoh: Keamanan Alam Semesta"
                                 autoComplete="sie_name"

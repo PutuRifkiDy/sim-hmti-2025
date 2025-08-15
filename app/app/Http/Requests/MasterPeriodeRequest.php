@@ -31,4 +31,39 @@ class MasterPeriodeRequest extends FormRequest
             'cover_path'            => ['nullable', 'mimes:jpg,jpeg,png', 'max:1048'],
         ];
     }
+
+    public function attributes(): array
+    {
+        return [
+            'title'                 => 'Periode',
+            'start_date'            => 'Tanggal mulai',
+            'end_date'              => 'Tanggal selesai',
+            'anggaran_dasar'        => 'Anggaran dasar',
+            'anggaran_rumah_tangga' => 'Anggaran rumah tangga',
+            'agenda_khusus'         => 'Agenda khusus',
+            'youtube_link'          => 'Link youtube',
+            'cover_path'            => 'Cover',
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'title.required'            => 'Periode harus diisi.',
+            'title.max'                 => 'Periode maksimal 255 karakter.',
+            'start_date.required'       => 'Tanggal mulai harus diisi.',
+            'end_date.required'         => 'Tanggal selesai harus diisi.',
+            'start_date.date'           => 'Tanggal mulai harus berupa tanggal.',
+            'end_date.date'             => 'Tanggal selesai harus berupa tanggal.',
+            'anggaran_dasar.url'        => 'Link Anggaran Dasar harus berupa URL.',
+            'anggaran_dasar.max'        => 'Link Anggaran Dasar maksimal 255 karakter.',
+            'anggaran_rumah_tangga.url' => 'Link Anggaran Rumah Tangga harus berupa URL.',
+            'anggaran_rumah_tangga.max' => 'Link Anggaran Rumah Tangga maksimal 255 karakter.',
+            'agenda_khusus.url'         => 'Link Agenda Khusus harus berupa URL.',
+            'agenda_khusus.max'         => 'Link Agenda Khusus maksimal 255 karakter.',
+            'youtube_link.url'          => 'Link Youtube harus berupa URL.',
+            'youtube_link.max'          => 'Link Youtube maksimal 255 karakter.',
+            'cover_path.mimes'          => 'Cover maximal 1MB dan harus berupa jpg, jpeg, png.',
+        ];
+    }
 }

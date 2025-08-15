@@ -25,4 +25,21 @@ class MasterPositionRequest extends FormRequest
             'parent_id' => ['nullable'],
         ];
     }
+
+    public function attributes(): array
+    {
+        return [
+            'title'     => 'Jabatan',
+            'parent_id' => 'Jabatan induk',
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'title.required' => 'Jabatan harus diisi.',
+            'title.max'      => 'Jabatan maksimal 255 karakter.',
+            'title.string'   => 'Jabatan harus berupa string.',
+        ];
+    }
 }

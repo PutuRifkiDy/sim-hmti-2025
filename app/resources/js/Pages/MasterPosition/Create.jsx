@@ -63,7 +63,6 @@ export default function Create() {
                                 name="title"
                                 type="text"
                                 onChange={(e) => setData('title', e.target.value)}
-                                required
                                 isFocused
                                 placeholder="Contoh: Orang Himpunan"
                                 autoComplete="title"

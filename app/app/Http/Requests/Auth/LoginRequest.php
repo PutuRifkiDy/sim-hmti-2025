@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Requests\Auth;
 
 use Illuminate\Auth\Events\Lockout;
@@ -27,7 +26,7 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nim' => ['required', 'string', 'max:10', 'min:10'],
+            'nim'      => ['required', 'string', 'max:10', 'min:10'],
             'password' => ['required', 'string'],
         ];
     }
@@ -80,20 +79,20 @@ class LoginRequest extends FormRequest
      */
     public function throttleKey(): string
     {
-        return Str::transliterate(Str::lower($this->input('email')).'|'.$this->ip());
+        return Str::transliterate(Str::lower($this->input('email')) . '|' . $this->ip());
     }
 
     // ubah pesan validasi
     public function messages()
     {
         return [
-            'nim.required' => 'NIM harus diisi.',
+            'nim.required'      => 'NIM harus diisi.',
             'password.required' => 'Password harus diisi.',
-            'nim.exists' => 'NIM tidak ditemukan.',
-            'password.exists' => 'Password tidak ditemukan.',
-            'nim.min' => 'NIM harus terdiri dari 10 karakter.',
-            'nim.max' => 'NIM harus terdiri dari 10 karakter.',
-            'auth.failed' => 'Credentials tidak cocok dengan data kami.',
+            'nim.exists'        => 'NIM tidak ditemukan.',
+            'password.exists'   => 'Password tidak ditemukan.',
+            'nim.min'           => 'NIM harus terdiri dari 10 karakter.',
+            'nim.max'           => 'NIM harus terdiri dari 10 karakter.',
+            'auth.failed'       => 'Credentials tidak cocok dengan data kami.',
         ];
     }
 }
