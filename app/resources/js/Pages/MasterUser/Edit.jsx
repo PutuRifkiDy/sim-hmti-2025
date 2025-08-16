@@ -55,10 +55,10 @@ export default function Edit() {
     return (
         <>
             <div className="py-5">
-                <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
+                <div className="bg-white dark:bg-[#1F1F1F] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
                     <div className='flex flex-row justify-between w-full'>
                         <header>
-                            <h2 className="text-lg font-medium text-gray-900">Update Mahasiswa</h2>
+                            <h2 className="text-lg font-medium text-gray-900 dark:text-white">Update Mahasiswa</h2>
 
                             <p className="mt-1 text-sm text-gray-600">
                                 Update data mahasiswa di bawah ini
@@ -79,7 +79,7 @@ export default function Edit() {
 
                                 <TextInput
                                     id="nim"
-                                    className="mt-1 block w-full"
+                                    className="mt-1 block w-full dark:bg-[#1F1F1F]"
                                     name="nim"
                                     type="text"
                                     value={data.nim}
@@ -98,7 +98,7 @@ export default function Edit() {
 
                                 <TextInput
                                     id="name"
-                                    className="mt-1 block w-full"
+                                    className="mt-1 block w-full dark:bg-[#1F1F1F]"
                                     name="name"
                                     type="text"
                                     value={data.name}
@@ -117,7 +117,7 @@ export default function Edit() {
                                 <TextInput
                                     id="email"
                                     type="email"
-                                    className="mt-1 block w-full"
+                                    className="mt-1 block w-full dark:bg-[#1F1F1F]"
                                     name="email"
                                     value={data.email}
                                     onChange={onHandleChange}
@@ -134,7 +134,7 @@ export default function Edit() {
 
                                 <TextInput
                                     id="line_id"
-                                    className="mt-1 block w-full"
+                                    className="mt-1 block w-full dark:bg-[#1F1F1F]"
                                     type="text"
                                     name="line_id"
                                     value={data.line_id}
@@ -152,7 +152,7 @@ export default function Edit() {
 
                                 <TextInput
                                     id="phone_number"
-                                    className="mt-1 block w-full"
+                                    className="mt-1 block w-full dark:bg-[#1F1F1F]"
                                     name="phone_number"
                                     type="text"
                                     value={data.phone_number}
@@ -170,7 +170,7 @@ export default function Edit() {
 
                                 <TextInput
                                     id="birthday"
-                                    className="mt-1 block w-full"
+                                    className="mt-1 block w-full dark:bg-[#1F1F1F]"
                                     name="birthday"
                                     type="date"
                                     value={data.birthday}
@@ -188,7 +188,7 @@ export default function Edit() {
 
                                 <TextInput
                                     id="address"
-                                    className="mt-1 block w-full"
+                                    className="mt-1 block w-full dark:bg-[#1F1F1F]"
                                     name="address"
                                     type="text"
                                     value={data.address}
@@ -207,7 +207,7 @@ export default function Edit() {
 
                                 <TextInput
                                     id="username"
-                                    className="mt-1 block w-full"
+                                    className="mt-1 block w-full dark:bg-[#1F1F1F]"
                                     name="username"
                                     type="text"
                                     value={data.username}
@@ -246,7 +246,7 @@ export default function Edit() {
                                     <SelectTrigger>
                                         <SelectValue placeholder="Pilih Role" />
                                     </SelectTrigger>
-                                    <SelectContent>
+                                    <SelectContent className="dark:bg-[#101010]">
                                         <SelectItem value="guest">Mahasiswa</SelectItem>
                                         <SelectItem value="divisi_it">Admin</SelectItem>
                                         <SelectItem value="ketua_kegiatan">Ketua Kegiatan</SelectItem>
@@ -257,7 +257,7 @@ export default function Edit() {
                         </div>
 
                         <div className="flex items-center gap-4">
-                            <Button type="submit" variant="gold" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#0F114C] shadow-[0_0_15px_#ECBB4E]">
+                            <Button type="submit" variant="gold" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#ECBB4E] shadow-[0_0_15px_#ECBB4E]">
                                 Simpan
                                 <CheckBadgeIcon className='w-6 h-6 text-white' />
                             </Button>

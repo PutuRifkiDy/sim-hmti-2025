@@ -64,10 +64,10 @@ export default function Edit() {
     return (
         <>
             <div className="py-5">
-                <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
+                <div className="bg-white dark:bg-[#1F1F1F] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
                     <div className='flex flex-row justify-between w-full'>
                         <header>
-                            <h2 className="text-lg font-medium text-gray-900">Edit Fungsionaris</h2>
+                            <h2 className="text-lg font-medium text-gray-900 dark:text-white">Edit Fungsionaris</h2>
 
                             <p className="mt-1 text-sm text-gray-600">
                                 Lakukan perubahan pada nama, jabatan, dan gambar fungsionaris

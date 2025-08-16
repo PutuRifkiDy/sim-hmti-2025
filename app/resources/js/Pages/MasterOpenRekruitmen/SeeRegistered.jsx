@@ -206,7 +206,7 @@ export default function SeeRegistered() {
     return (
         <>
             <div className="py-5">
-                <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
+                <div className="bg-white dark:bg-[#1F1F1F] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
                     {/* <div className="flex flex-col md:flex-row justify-between gap-2 mt-5">
                         <div className="flex flex-row gap-10 rounded-[14px] p-5 bg-white  shadow">
                             <div className="flex flex-col gap-1">
@@ -218,7 +218,7 @@ export default function SeeRegistered() {
                     </div> */}
                     <div className='flex flex-row justify-between w-full'>
                         <header>
-                            <h2 className="text-lg font-medium text-gray-900">
+                            <h2 className="text-lg font-medium text-gray-900 dark:text-white">
                                 Daftar pendaftar di kegiatan {oprec.oprec_name}
                             </h2>
 
@@ -228,7 +228,7 @@ export default function SeeRegistered() {
                         </header>
 
                         <Button variant="gold" type="button" asChild>
-                            <Link as="button" href={route('master-open-rekruitmen.index')} className="flex flex-row items-center text-[14px] font-bold">
+                            <Link as="button" href={route('master-open-rekruitmen.index')} className="flex flex-row items-center text-[14px] font-bold shadow-[0_0_15px_#ECBB4E]">
                                 <ArrowLeftIcon className="w-3 h-3 mr-2 font-bold" />
                                 Kembali
                             </Link>
@@ -249,7 +249,7 @@ export default function SeeRegistered() {
                         </div>
                     </div>
 
-                    <Card className="dark:bg-[#040529] dark:border dark:border-white rounded-xl">
+                    <Card className="dark:bg-[#101010] dark:border dark:border-white rounded-xl">
                         <CardContent className="overflow-hidden">
                             <div className="my-8">
                                 <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-5 lg:-mx-8">
@@ -267,7 +267,24 @@ export default function SeeRegistered() {
                                         rowsPerPageOptions={[5, 10, 25, 50]}
                                         tableStyle={{ minWidth: '50rem' }}
                                         paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
-                                        currentPageReportTemplate="showing {first} to {last} of {totalRecords} results">
+                                        currentPageReportTemplate="showing {first} to {last} of {totalRecords} results"
+                                        pt={{
+                                            table: { className: 'rounded-[20px] overflow-hidden' },
+                                            column: { headerCell: { className: 'dark:bg-[#101010] dark:text-white' } },
+                                            paginatorDropdown: {
+                                                root: {
+                                                    className: 'dark:bg-[#101010] dark:text-gray-300 dark:border-none'
+                                                },
+                                                panel: {
+                                                    className: 'dark:bg-[#101010] dark:text-gray-300'
+                                                },
+                                                item: {
+                                                    className: 'dark:hover:bg-gray-700 dark:hover:text-white'
+                                                }
+                                            }
+                                        }}
+                                        rowClassName={() => 'hover:bg-gray-100 dark:bg-[#101010] dark:hover:bg-[#1F1F1F] transition-colors duration-200 dark:text-gray-400'}
+                                    >
                                         <Column
                                             field="number"
                                             header="No"

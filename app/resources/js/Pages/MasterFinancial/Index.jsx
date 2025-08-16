@@ -127,7 +127,7 @@ export default function Index() {
                         <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Ketik kata kunci" className="p-inputtext p-inputtext-lg" />
                     </IconField>
                     <div className="flex flex-row gap-2">
-                        <Button type="button" className="bg-[#0f114c] px-5 py-5 rounded-[500px]" variant="none" rounded onClick={() => exportCSV(false)} data-pr-tooltip="Export CSV">
+                        <Button type="button" className="bg-[#785233] px-5 py-5 rounded-[500px]" variant="none" rounded onClick={() => exportCSV(false)} data-pr-tooltip="Export CSV">
                             <DocumentPlusIcon className="w-5 h-5 text-white" />
                         </Button>
                         <Button type="button" variant="none" className="bg-yellow-500 px-5 py-5 rounded-[500px]" severity="success" rounded onClick={exportExcel} data-pr-tooltip="Export XLS">
@@ -180,10 +180,10 @@ export default function Index() {
     return (
         <>
             <div className="py-5">
-                <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
+                <div className="bg-white dark:bg-[#1F1F1F] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
                     <div className='flex flex-row justify-between w-full'>
                         <header>
-                            <h2 className="text-lg font-medium text-gray-900">
+                            <h2 className="text-lg font-medium text-gray-900 dark:text-white">
                                 Daftar keuangan di Periode {period.title}
                             </h2>
 
@@ -214,7 +214,7 @@ export default function Index() {
                         </div>
                     </div>
 
-                    <Card className="dark:bg-[#040529] dark:border dark:border-white rounded-xl">
+                    <Card className="dark:bg-[#101010] dark:border dark:border-white rounded-xl">
                         <CardContent className="overflow-hidden">
                             <div className="my-8">
                                 <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-5 lg:-mx-8">
@@ -232,7 +232,24 @@ export default function Index() {
                                         rowsPerPageOptions={[5, 10, 25, 50]}
                                         tableStyle={{ minWidth: '50rem' }}
                                         paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
-                                        currentPageReportTemplate="showing {first} to {last} of {totalRecords} results">
+                                        currentPageReportTemplate="showing {first} to {last} of {totalRecords} results"
+                                        pt={{
+                                            table: { className: 'rounded-[20px] overflow-hidden' },
+                                            column: { headerCell: { className: 'dark:bg-[#101010] dark:text-white' } },
+                                            paginatorDropdown: {
+                                                root: {
+                                                    className: 'dark:bg-[#101010] dark:text-gray-300 dark:border-none'
+                                                },
+                                                panel: {
+                                                    className: 'dark:bg-[#101010] dark:text-gray-300'
+                                                },
+                                                item: {
+                                                    className: 'dark:hover:bg-gray-700 dark:hover:text-white'
+                                                }
+                                            }
+                                        }}
+                                        rowClassName={() => 'hover:bg-gray-100 dark:bg-[#101010] dark:hover:bg-[#1F1F1F] transition-colors duration-200 dark:text-gray-400'}
+                                    >
                                         <Column
                                             field="number"
                                             header="No"
@@ -265,7 +282,7 @@ export default function Index() {
                                         </Column>
                                     </DataTable>
                                     <Modal show={modalOpen} onClose={closeModal} maxWidth="md" >
-                                        <div className="p-5">
+                                        <div className="p-5 dark:bg-[#101010]">
                                             <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
                                                 Apakah anda yakin menghapus data ini
                                             </h2>

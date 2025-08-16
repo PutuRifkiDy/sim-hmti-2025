@@ -78,10 +78,10 @@ export default function Create() {
     return (
         <>
             <div className="py-5">
-                <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
+                <div className="bg-white dark:bg-[#1F1F1F] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
                     <div className='flex flex-row justify-between w-full'>
                         <header>
-                            <h2 className="text-lg font-medium text-gray-900">Tambah Open Rekruitmen</h2>
+                            <h2 className="text-lg font-medium text-gray-900 dark:text-white">Tambah Open Rekruitmen</h2>
 
                             <p className="mt-1 text-sm text-gray-600">
                                 Masukkan nama oprec, deskripsi, dan tanggal mulai, tanggal selesai, dan poster untuk membuat oprec
@@ -139,7 +139,7 @@ export default function Create() {
                                     name="oprec_name"
                                     value={data.oprec_name}
                                     onChange={(e) => setData('oprec_name', e.target.value)}
-                                    className="mt-1 block w-full"
+                                    className="mt-1 block w-full dark:bg-[#1F1F1F]"
                                     autoComplete="oprec_name"
                                     isFocused
                                     placeholder="Masukkan Nama Oprec"
@@ -157,7 +157,7 @@ export default function Create() {
                                     name="postmsg"
                                     value={data.postmsg}
                                     onChange={(e) => setData('postmsg', e.target.value)}
-                                    className="mt-1 block w-full"
+                                    className="mt-1 block w-full dark:bg-[#1F1F1F]"
                                     autoComplete="postmsg"
                                     isFocused
                                     placeholder="Masukkan Nama Oprec"
@@ -174,7 +174,7 @@ export default function Create() {
                                     name="start_date"
                                     value={data.start_date}
                                     onChange={(e) => setData('start_date', e.target.value)}
-                                    className="mt-1 block w-full"
+                                    className="mt-1 block w-full dark:bg-[#1F1F1F]"
                                     autoComplete="start_date"
                                     isFocused
                                     placeholder="Masukkan Tanggal Mulai"
@@ -192,7 +192,7 @@ export default function Create() {
                                     name="end_date"
                                     value={data.end_date}
                                     onChange={(e) => setData('end_date', e.target.value)}
-                                    className="mt-1 block w-full"
+                                    className="mt-1 block w-full dark:bg-[#1F1F1F]"
                                     autoComplete="end_date"
                                     isFocused
                                     placeholder="Masukkan Tanggal Selesai"
@@ -214,7 +214,7 @@ export default function Create() {
                         </div>
 
                         <div className="flex items-center gap-4">
-                            <Button type="submit" variant="gold" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#0F114C] shadow-[0_0_15px_#ECBB4E]">
+                            <Button type="submit" variant="gold" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#ECBB4E] shadow-[0_0_15px_#ECBB4E]">
                                 Simpan
                                 <CheckBadgeIcon className='w-6 h-6 text-white' />
                             </Button>

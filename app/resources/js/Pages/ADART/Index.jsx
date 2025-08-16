@@ -13,7 +13,7 @@ export default function Index() {
     return (
         <>
             <div className="py-5">
-                <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between space-y-2">
+                <div className="bg-white dark:bg-[#1F1F1F] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between space-y-2">
                     <div className="flex md:flex-row flex-cl gap-10">
                         <div className={`cursor-pointer relative ${tabActive == 0 ? "text-[#ECBB4E] " : ""}      `} onClick={() => setTabActive(0)}>
                             <p className="md:text-start text-center">Anggaran Dasar</p>

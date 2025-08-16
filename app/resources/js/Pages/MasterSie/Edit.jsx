@@ -31,10 +31,10 @@ export default function Edit() {
 
         <>
             <div className="py-5">
-                <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
+                <div className="bg-white dark:bg-[#1F1F1F] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
                     <div className='flex flex-row justify-between w-full'>
                         <header>
-                            <h2 className="text-lg font-medium text-gray-900">Update Sie</h2>
+                            <h2 className="text-lg font-medium text-gray-900 dark:text-white">Update Sie</h2>
 
                             <p className="mt-1 text-sm text-gray-600">
                                 Update data sie di bawah ini
@@ -55,7 +55,7 @@ export default function Edit() {
 
                                 <TextInput
                                     id="sie_name"
-                                    className="mt-1 block w-full"
+                                    className="mt-1 block w-full dark:bg-[#1F1F1F]"
                                     name="sie_name"
                                     type="text"
                                     value={data.sie_name}
@@ -70,7 +70,7 @@ export default function Edit() {
                         </div>
 
                         <div className="flex items-center gap-4">
-                            <Button type="submit" variant="gold" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#0F114C] shadow-[0_0_15px_#ECBB4E]">
+                            <Button type="submit" variant="gold" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#ECBB4E] shadow-[0_0_15px_#ECBB4E]">
                                 Simpan
                                 <CheckBadgeIcon className='w-6 h-6 text-white' />
                             </Button>

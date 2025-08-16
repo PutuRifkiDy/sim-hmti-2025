@@ -375,17 +375,17 @@ export const CancelUpdateProfile = () => {
 export const IconMasterData = () => {
     return (
         <svg width="22" height="22" viewBox="0 0 25 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4.16797 6.4502C4.16797 8.17624 7.89922 9.5752 12.5013 9.5752C17.1034 9.5752 20.8346 8.17624 20.8346 6.4502C20.8346 4.72415 17.1034 3.3252 12.5013 3.3252C7.89922 3.3252 4.16797 4.72415 4.16797 6.4502Z" stroke="#071108" strokeWidth="2.08333" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M4.16797 6.4502V12.7002C4.16797 14.4262 7.89922 15.8252 12.5013 15.8252C12.7201 15.8252 12.9388 15.8221 13.1534 15.8148" stroke="#071108" strokeWidth="2.08333" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M20.832 12.1794V6.4502" stroke="#071108" strokeWidth="2.08333" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M4.16797 12.7002V18.9502C4.16797 20.6762 7.89922 22.0752 12.5013 22.0752" stroke="#071108" strokeWidth="2.08333" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M17.7109 19.9915C17.7109 20.5441 17.9304 21.074 18.3211 21.4647C18.7118 21.8554 19.2417 22.0749 19.7943 22.0749C20.3468 22.0749 20.8767 21.8554 21.2674 21.4647C21.6581 21.074 21.8776 20.5441 21.8776 19.9915C21.8776 19.439 21.6581 18.9091 21.2674 18.5184C20.8767 18.1277 20.3468 17.9082 19.7943 17.9082C19.2417 17.9082 18.7118 18.1277 18.3211 18.5184C17.9304 18.9091 17.7109 19.439 17.7109 19.9915Z" stroke="#071108" strokeWidth="2.08333" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M19.793 16.3457V17.9082" stroke="#071108" strokeWidth="2.08333" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M19.793 22.0752V23.6377" stroke="#071108" strokeWidth="2.08333" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M22.9508 18.1689L21.5977 18.9502" stroke="#071108" strokeWidth="2.08333" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M17.9909 21.0332L16.6367 21.8145" stroke="#071108" strokeWidth="2.08333" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M16.6367 18.1689L17.9909 18.9502" stroke="#071108" strokeWidth="2.08333" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M21.5977 21.0332L22.9518 21.8145" stroke="#071108" strokeWidth="2.08333" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M4.16797 6.4502C4.16797 8.17624 7.89922 9.5752 12.5013 9.5752C17.1034 9.5752 20.8346 8.17624 20.8346 6.4502C20.8346 4.72415 17.1034 3.3252 12.5013 3.3252C7.89922 3.3252 4.16797 4.72415 4.16797 6.4502Z" stroke="currentColor" strokeWidth="2.08333" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M4.16797 6.4502V12.7002C4.16797 14.4262 7.89922 15.8252 12.5013 15.8252C12.7201 15.8252 12.9388 15.8221 13.1534 15.8148" stroke="currentColor" strokeWidth="2.08333" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M20.832 12.1794V6.4502" stroke="currentColor" strokeWidth="2.08333" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M4.16797 12.7002V18.9502C4.16797 20.6762 7.89922 22.0752 12.5013 22.0752" stroke="currentColor" strokeWidth="2.08333" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M17.7109 19.9915C17.7109 20.5441 17.9304 21.074 18.3211 21.4647C18.7118 21.8554 19.2417 22.0749 19.7943 22.0749C20.3468 22.0749 20.8767 21.8554 21.2674 21.4647C21.6581 21.074 21.8776 20.5441 21.8776 19.9915C21.8776 19.439 21.6581 18.9091 21.2674 18.5184C20.8767 18.1277 20.3468 17.9082 19.7943 17.9082C19.2417 17.9082 18.7118 18.1277 18.3211 18.5184C17.9304 18.9091 17.7109 19.439 17.7109 19.9915Z" stroke="currentColor" strokeWidth="2.08333" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M19.793 16.3457V17.9082" stroke="currentColor" strokeWidth="2.08333" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M19.793 22.0752V23.6377" stroke="currentColor" strokeWidth="2.08333" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M22.9508 18.1689L21.5977 18.9502" stroke="currentColor" strokeWidth="2.08333" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M17.9909 21.0332L16.6367 21.8145" stroke="currentColor" strokeWidth="2.08333" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M16.6367 18.1689L17.9909 18.9502" stroke="currentColor" strokeWidth="2.08333" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M21.5977 21.0332L22.9518 21.8145" stroke="currentColor" strokeWidth="2.08333" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
     );
 }

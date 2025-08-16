@@ -43,10 +43,10 @@ export default function Create() {
     return (
         <>
             <div className="py-5">
-                <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
+                <div className="bg-white dark:bg-[#1F1F1F] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
                     <div className='flex flex-row justify-between w-full'>
                         <header>
-                            <h2 className="text-lg font-medium text-gray-900">Tambah Program Kerja</h2>
+                            <h2 className="text-lg font-medium text-gray-900 dark:text-white">Tambah Program Kerja</h2>
 
                             <p className="mt-1 text-sm text-gray-600">
                                 Masukkan judul, deskripsi, dan gambar program kerja
@@ -54,7 +54,7 @@ export default function Create() {
                         </header>
 
                         <Button variant="gold" type="button" asChild>
-                            <Link as="button" href={route('master-himpunan.index', { id: period.id })} className="flex flex-row items-center text-[14px] font-bold">
+                            <Link as="button" href={route('master-himpunan.index', { id: period.id })} className="flex flex-row items-center text-[14px] font-bold dark:bg-[#ECBB4E] shadow-[0_0_15px_#ECBB4E]">
                                 <ArrowLeftIcon className="w-3 h-3 mr-2 font-bold" />
                                 Kembali
                             </Link>
@@ -80,7 +80,7 @@ export default function Create() {
                             <InputLabel htmlFor="title" value="Judul" />
                             <TextInput
                                 id="title"
-                                className="mt-1 block w-full"
+                                className="mt-1 block w-full dark:bg-[#1F1F1F] "
                                 value={data.title}
                                 name="title"
                                 type="text"
@@ -95,7 +95,7 @@ export default function Create() {
                             <InputLabel htmlFor="description" value="Deskripsi" />
                             <TextInput
                                 id="description"
-                                className="mt-1 block w-full"
+                                className="mt-1 block w-full dark:bg-[#1F1F1F] "
                                 value={data.description}
                                 name="description"
                                 type="text"
@@ -118,7 +118,7 @@ export default function Create() {
                         </div>
 
                         <div className="flex items-center gap-4">
-                            <Button type="submit" variant="gold" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#0F114C]">
+                            <Button type="submit" variant="gold" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#ECBB4E] shadow-[0_0_15px_#ECBB4E]">
                                 Simpan
                                 <CheckBadgeIcon className='w-6 h-6 text-white' />
                             </Button>

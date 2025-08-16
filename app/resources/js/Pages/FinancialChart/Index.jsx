@@ -59,7 +59,7 @@ export default function Index() {
     return (
         <>
             <div className="py-5">
-                <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 ">
+                <div className="bg-white dark:bg-[#1F1F1F] p-4 shadow rounded-lg sm:p-8 ">
                     <Select
                         value={selectedPeriodId}
                         onValueChange={onHandleChange}

@@ -32,7 +32,7 @@ export function ImageUpload({ imagePath, onChangeImage, errorMessage }) {
 
     return (
         <div className="space-y-2">
-            <Input type="file" accept="image/*" onChange={handleChange} className="dark:bg-[#040529] h-10" />
+            <Input type="file" accept="image/*" onChange={handleChange} className="dark:bg-[#1F1F1F] h-10" />
             {errorMessage && <InputError message={errorMessage} className="mt-2 text-red-600" />}
             <img
                 src={getImageSrc()}

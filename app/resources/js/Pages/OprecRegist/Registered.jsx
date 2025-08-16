@@ -28,7 +28,7 @@ export default function Registered() {
                         </Link>
                     </Button>
                 </div>
-                <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
+                <div className="bg-white dark:bg-[#1F1F1F] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
 
                     <div className="flex flex-col gap-2 leading-[110%] mb-5">
                         <p className="text-[30px] font-bold text-[#000000] dark:text-white">
@@ -48,7 +48,7 @@ export default function Registered() {
 
                     <div className='flex flex-row justify-between w-full mt-10'>
                         <header>
-                            <h2 className="text-lg font-medium text-gray-900">
+                            <h2 className="text-lg font-medium text-gray-900 dark:text-white">
                                 Anda telah terdaftar pada kegiatan ini
                             </h2>
 

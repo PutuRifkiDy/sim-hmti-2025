@@ -66,7 +66,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
         <section className={className}>
             <div className='flex flex-row justify-between w-full'>
                 <header>
-                    <h2 className="text-lg font-medium text-gray-900">Informasi Pengguna</h2>
+                    <h2 className="text-lg font-medium text-gray-900 dark:text-white">Informasi Pengguna</h2>
 
                     <p className="mt-1 text-sm text-gray-600">
                         Update informasi pengguna dan alamat email akun Anda.
@@ -94,7 +94,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
 
                             <TextInput
                                 id="nim"
-                                className="mt-1 block w-full"
+                                className="mt-1 block w-full dark:bg-[#1F1F1F]"
                                 name="nim"
                                 type="text"
                                 value={data.nim}
@@ -113,7 +113,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
 
                             <TextInput
                                 id="name"
-                                className="mt-1 block w-full"
+                                className="mt-1 block w-full dark:bg-[#1F1F1F]"
                                 name="name"
                                 type="text"
                                 value={data.name}
@@ -132,7 +132,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                             <TextInput
                                 id="email"
                                 type="email"
-                                className="mt-1 block w-full"
+                                className="mt-1 block w-full dark:bg-[#1F1F1F]"
                                 name="email"
                                 value={data.email}
                                 onChange={onHandleChange}
@@ -149,7 +149,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
 
                             <TextInput
                                 id="line_id"
-                                className="mt-1 block w-full"
+                                className="mt-1 block w-full dark:bg-[#1F1F1F]"
                                 type="text"
                                 name="line_id"
                                 value={data.line_id}
@@ -167,7 +167,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
 
                             <TextInput
                                 id="phone_number"
-                                className="mt-1 block w-full"
+                                className="mt-1 block w-full dark:bg-[#1F1F1F]"
                                 name="phone_number"
                                 type="text"
                                 value={data.phone_number}
@@ -185,7 +185,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
 
                             <TextInput
                                 id="birthday"
-                                className="mt-1 block w-full"
+                                className="mt-1 block w-full dark:bg-[#1F1F1F]"
                                 name="birthday"
                                 type="date"
                                 value={data.birthday}
@@ -203,7 +203,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
 
                             <TextInput
                                 id="address"
-                                className="mt-1 block w-full"
+                                className="mt-1 block w-full dark:bg-[#1F1F1F]"
                                 name="address"
                                 type="text"
                                 value={data.address}
@@ -221,7 +221,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
 
                             <TextInput
                                 id="username"
-                                className="mt-1 block w-full"
+                                className="mt-1 block w-full dark:bg-[#1F1F1F]"
                                 name="username"
                                 type="text"
                                 value={data.username}
@@ -338,7 +338,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                                 <p className='text-[#676767] text-[14px] dark:text-gray-400'>Foto Profile</p>
                                 <IconPreviewImageProfile />
                             </DialogTrigger>
-                            <DialogContent className="max-w-xl">
+                            <DialogContent className="max-w-xl dark:bg-[#1F1F1F]">
                                 <DialogTitle>
                                     Foto Profile
                                 </DialogTitle>

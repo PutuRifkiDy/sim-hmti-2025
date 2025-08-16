@@ -67,7 +67,7 @@ export default function Show() {
                     </Link>
                 </Button>
             </div>
-            <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
+            <div className="bg-white dark:bg-[#1F1F1F] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
 
                 <div className="flex flex-col gap-2 leading-[110%] mb-5">
                     <p className="text-[30px] font-bold text-[#000000] dark:text-white">
@@ -87,7 +87,7 @@ export default function Show() {
 
                 <div className='flex flex-row justify-between w-full mt-10'>
                     <header>
-                        <h2 className="text-lg font-medium text-gray-900">Pendaftaran Open Rekruitmen</h2>
+                        <h2 className="text-lg font-medium text-gray-900 dark:text-white">Pendaftaran Open Rekruitmen</h2>
 
                         <p className="mt-1 text-sm text-gray-600">
                             Lengkapi form pendaftaran di bawah ini untuk mengikuti kegiatan tersebut.
@@ -170,7 +170,7 @@ export default function Show() {
                             type="submit"
                             variant="gold"
                             disabled={processing}
-                            className="flex flex-row gap-2 justify-center items-center dark:bg-[#0F114C] shadow-[0_0_15px_#ECBB4E]"
+                            className="flex flex-row gap-2 justify-center items-center dark:bg-[#ECBB4E] shadow-[0_0_15px_#ECBB4E]"
                         >
                             Simpan
                             <CheckBadgeIcon className='w-6 h-6 text-white' />

@@ -31,10 +31,10 @@ export default function Create() {
     return (
         <>
             <div className="py-5">
-                <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
+                <div className="bg-white dark:bg-[#1F1F1F] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
                     <div className='flex flex-row justify-between w-full'>
                         <header>
-                            <h2 className="text-lg font-medium text-gray-900">Tambah Pengguna</h2>
+                            <h2 className="text-lg font-medium text-gray-900 dark:text-white">Tambah Pengguna</h2>
 
                             <p className="mt-1 text-sm text-gray-600">
                                 Masukkan angkatan, nomer pertama, dan nomer terakhir untuk membuat pengguna.
@@ -53,7 +53,7 @@ export default function Create() {
                             <InputLabel htmlFor="angkatan" value="Angkatan" />
                             <TextInput
                                 id="angkatan"
-                                className="mt-1 block w-full"
+                                className="mt-1 block w-full dark:bg-[#1F1F1F] dark:only-of-type:bg-[#1F1F1F] [appearance:textfield]"
                                 value={data.angkatan}
                                 name="angkatan"
                                 type="number"
@@ -69,7 +69,7 @@ export default function Create() {
                             <InputLabel htmlFor="start" value="Nomer Pertama" />
                             <TextInput
                                 id="start"
-                                className="mt-1 block w-full"
+                                className="mt-1 block w-full dark:bg-[#1F1F1F] dark:only-of-type:bg-[#1F1F1F] [appearance:textfield]"
                                 value={data.start}
                                 name="start"
                                 type="number"
@@ -86,7 +86,7 @@ export default function Create() {
                             <InputLabel htmlFor="end" value="Nomer Terakhir" />
                             <TextInput
                                 id="end"
-                                className="mt-1 block w-full"
+                                className="mt-1 block w-full dark:bg-[#1F1F1F] dark:only-of-type:bg-[#1F1F1F] [appearance:textfield]"
                                 value={data.end}
                                 name="end"
                                 type="number"
@@ -100,7 +100,7 @@ export default function Create() {
                         </div>
 
                         <div className="flex items-center gap-4">
-                            <Button type="submit" variant="gold" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#0F114C] shadow-[0_0_15px_#ECBB4E]">
+                            <Button type="submit" variant="gold" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#ECBB4E] shadow-[0_0_15px_#ECBB4E]">
                                 Simpan
                                 <CheckBadgeIcon className='w-6 h-6 text-white' />
                             </Button>

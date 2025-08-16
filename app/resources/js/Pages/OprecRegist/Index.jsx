@@ -36,16 +36,16 @@ export default function Index() {
             <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 mt-10">
                 {oprecs?.map((oprec, index) => (
                     <Link href={route('oprec-regist.show', oprec.id)} key={index} className="">
-                        <div className={`flex flex-col justify-between border-2 border-[#ECBB4E] rounded-[20px] p-4 h-full w-full sm:w-full lg:w-full xl:w-full bg-white ${isOprecActive(oprec.start_date, oprec.end_date) == false ? 'opacity-50' : ''}`}>
+                        <div className={`flex flex-col justify-between border-2 border-[#ECBB4E] rounded-[20px] p-4 h-full w-full sm:w-full lg:w-full xl:w-full bg-white dark:bg-[#1F1F1F] ${isOprecActive(oprec.start_date, oprec.end_date) == false ? 'opacity-50' : ''}`}>
                             <div className="overflow-hidden rounded-[10px] h-full w-full sm:w-full lg:w-full xl:w-full flex items-center">
                                 <img src={oprec.poster_path} className=" h-full w-full sm:w-full lg:w-full xl:w-full transform hover:scale-105 transition-all duration-300 ease-in-out" alt="" />
                             </div>
                             <div className="flex md:flex-row flex-col gap-2 justify-between items-center mt-3">
                                 <div className="flex flex-col">
-                                    <p className="text-[#1F1F1F] font-semibold text-[20px] leading-[110%] line-clamp-1">
+                                    <p className="text-[#1F1F1F] dark:text-white font-semibold text-[20px] leading-[110%] line-clamp-1">
                                         {oprec.oprec_name}
                                     </p>
-                                    <p className="text-[13px] leading-[110%] text-[#1F1F1F]">
+                                    <p className="text-[13px] leading-[110%] text-[#1F1F1F] dark:text-white">
                                         <span>{templateDateTime(oprec.start_date)}</span> {" - "}<span>{templateDateTime(oprec.end_date)}</span>
                                     </p>
                                 </div>

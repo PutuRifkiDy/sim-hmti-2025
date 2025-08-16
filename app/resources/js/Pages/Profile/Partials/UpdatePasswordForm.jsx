@@ -89,7 +89,7 @@ export default function UpdatePasswordForm({ className = '' }) {
                                 value={data.current_password}
                                 onChange={(e) => setData('current_password', e.target.value)}
                                 type={viewPassword == true ? "text" : "password"}
-                                className="mt-1 block w-full"
+                                className="mt-1 block w-full dark:bg-[#1F1F1F]"
                                 isFocused
                                 autoComplete="current-password"
                                 onErrors={errors.current_password && <InputError message={errors.current_password} className='mt-2' />}
@@ -117,7 +117,7 @@ export default function UpdatePasswordForm({ className = '' }) {
                                 value={data.password}
                                 onChange={(e) => setData('password', e.target.value)}
                                 type={viewPassword2 == true ? "text" : "password"}
-                                className="mt-1 block w-full"
+                                className="mt-1 block w-full dark:bg-[#1F1F1F]"
                                 isFocused
                                 autoComplete="new-password"
                                 onErrors={errors.password && <InputError message={errors.password} className='mt-2' />}
@@ -145,7 +145,7 @@ export default function UpdatePasswordForm({ className = '' }) {
                                 value={data.password_confirmation}
                                 onChange={(e) => setData('password_confirmation', e.target.value)}
                                 type={viewPassword3 == true ? "text" : "password"}
-                                className="mt-1 block w-full"
+                                className="mt-1 block w-full dark:bg-[#1F1F1F]"
                                 isFocused
                                 autoComplete="new-password"
                                 onErrors={errors.password_confirmation && <InputError message={errors.password_confirmation} className='mt-2' />}
@@ -165,7 +165,7 @@ export default function UpdatePasswordForm({ className = '' }) {
 
                         </div>
                         <div className="flex items-center gap-4">
-                            <Button variant="gold" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#0F114C] shadow-[0_0_15px_#ECBB4E]">
+                            <Button variant="gold" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#ECBB4E] shadow-[0_0_15px_#ECBB4E]">
                                 Simpan
                                 <CheckBadgeIcon className='w-6 h-6 text-white' />
                             </Button>

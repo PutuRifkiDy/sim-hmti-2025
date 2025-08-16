@@ -42,10 +42,10 @@ export default function Edit() {
     return (
         <>
             <div className="py-5">
-                <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
+                <div className="bg-white dark:bg-[#1F1F1F] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
                     <div className='flex flex-row justify-between w-full'>
                         <header>
-                            <h2 className="text-lg font-medium text-gray-900">Update Keuangan</h2>
+                            <h2 className="text-lg font-medium text-gray-900 dark:text-white">Update Keuangan</h2>
 
                             <p className="mt-1 text-sm text-gray-600">
                                 Masukkan judul, bulan, dan total pendapatan
@@ -70,7 +70,7 @@ export default function Edit() {
                                 id="title"
                                 name="title"
                                 value={data.title}
-                                className="mt-1 block w-full"
+                                className="mt-1 block w-full dark:bg-[#1F1F1F] "
                                 autoComplete="title"
                                 placeholder="Masukkan judul keuangan (boleh kosong)"
                                 onChange={(e) => setData('title', e.target.value)}
@@ -111,7 +111,7 @@ export default function Edit() {
                                 name="total_income"
                                 value={data.total_income}
                                 type="number"
-                                className="mt-1 block w-full"
+                                className="mt-1 block w-full dark:bg-[#1F1F1F] dark:only-of-type:bg-[#1F1F1F] [appearance:textfield]"
                                 autoComplete="total_income"
                                 placeholder="Contoh 1000000"
                                 onChange={(e) => setData('total_income', e.target.value)}
@@ -120,7 +120,7 @@ export default function Edit() {
                         </div>
 
                         <div className="flex items-center gap-4">
-                            <Button type="submit" variant="gold" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#0F114C] shadow-[0_0_15px_#ECBB4E]">
+                            <Button type="submit" variant="gold" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#ECBB4E] shadow-[0_0_15px_#ECBB4E]">
                                 Simpan
                                 <CheckBadgeIcon className='w-6 h-6 text-white' />
                             </Button>

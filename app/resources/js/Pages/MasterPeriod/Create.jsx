@@ -42,10 +42,10 @@ export default function Create() {
     return (
         <>
             <div className="py-5">
-                <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
+                <div className="bg-white dark:bg-[#1F1F1F] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
                     <div className='flex flex-row justify-between w-full'>
                         <header>
-                            <h2 className="text-lg font-medium text-gray-900">Tambah Periode</h2>
+                            <h2 className="text-lg font-medium text-gray-900 dark:text-white">Tambah Periode</h2>
 
                             <p className="mt-1 text-sm text-gray-600">
                                 Masukkan name periode, tanggal mulai dan tanggal selesai untuk membuat periode
@@ -65,7 +65,7 @@ export default function Create() {
                                 <InputLabel htmlFor="title" value="Nama Periode" />
                                 <TextInput
                                     id="title"
-                                    className="mt-1 block w-full"
+                                    className="mt-1 block w-full dark:bg-[#1F1F1F]"
                                     value={data.title}
                                     name="title"
                                     type="text"
@@ -80,7 +80,7 @@ export default function Create() {
                                 <InputLabel htmlFor="start_date" value="Tanggal Mulai Periode" />
                                 <TextInput
                                     id="start_date"
-                                    className="mt-1 block w-full"
+                                    className="mt-1 block w-full dark:bg-[#1F1F1F]"
                                     value={data.start_date}
                                     name="start_date"
                                     type="datetime-local"
@@ -95,7 +95,7 @@ export default function Create() {
                                 <InputLabel htmlFor="end_date" value="Tanggal Selesai Periode" />
                                 <TextInput
                                     id="end_date"
-                                    className="mt-1 block w-full"
+                                    className="mt-1 block w-full dark:bg-[#1F1F1F]"
                                     value={data.end_date}
                                     name="end_date"
                                     type="datetime-local"
@@ -110,7 +110,7 @@ export default function Create() {
                                 <InputLabel htmlFor="anggaran_dasar" value="Anggaran Dasar " />
                                 <TextInput
                                     id="anggaran_dasar"
-                                    className="mt-1 block w-full"
+                                    className="mt-1 block w-full dark:bg-[#1F1F1F]"
                                     value={data.anggaran_dasar}
                                     name="anggaran_dasar"
                                     type="text"
@@ -125,7 +125,7 @@ export default function Create() {
                                 <InputLabel htmlFor="anggaran_rumah_tangga" value="Anggaran Rumah Tangga" />
                                 <TextInput
                                     id="anggaran_rumah_tangga"
-                                    className="mt-1 block w-full"
+                                    className="mt-1 block w-full dark:bg-[#1F1F1F]"
                                     value={data.anggaran_rumah_tangga}
                                     name="anggaran_rumah_tangga"
                                     type="text"
@@ -140,7 +140,7 @@ export default function Create() {
                                 <InputLabel htmlFor="agenda_khusus" value="Anggaran Khusus" />
                                 <TextInput
                                     id="agenda_khusus"
-                                    className="mt-1 block w-full"
+                                    className="mt-1 block w-full dark:bg-[#1F1F1F]"
                                     value={data.agenda_khusus}
                                     name="agenda_khusus"
                                     type="text"
@@ -155,7 +155,7 @@ export default function Create() {
                                 <InputLabel htmlFor="youtube_link" value="Link Youtube" />
                                 <TextInput
                                     id="youtube_link"
-                                    className="mt-1 block w-full"
+                                    className="mt-1 block w-full dark:bg-[#1F1F1F]"
                                     value={data.youtube_link}
                                     name="youtube_link"
                                     type="text"
@@ -167,7 +167,6 @@ export default function Create() {
                                 />
                             </div>
                         </div>
-
                         <ImageUpload
                             imagePath={data.cover_path}
                             onChangeImage={(file, previewUrl) => {
@@ -178,8 +177,9 @@ export default function Create() {
                         />
 
 
+
                         <div className="flex items-center gap-4">
-                            <Button type="submit" variant="gold" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#0F114C] shadow-[0_0_15px_#ECBB4E]">
+                            <Button type="submit" variant="gold" disabled={processing} className="flex flex-row gap-2 justify-center items-center dark:bg-[#ECBB4E] shadow-[0_0_15px_#ECBB4E]">
                                 Simpan
                                 <CheckBadgeIcon className='w-6 h-6 text-white' />
                             </Button>

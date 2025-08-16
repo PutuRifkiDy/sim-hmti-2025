@@ -46,7 +46,7 @@ export default function Sidebar({ navigations, children, header, description }) 
             <div className="flex flex-col justify-between md:flex-row">
                 {/* Sidebar */}
                 <aside
-                    className={`hidden flex-col items-center justify-start gap-6 overflow-hidden border-r-[1px] border-r-slate-200 transition-all duration-200 ease-in-out dark:border-r-slate-600 md:flex py-3 ${isSidebarOpen ? 'w-16 md:w-[300px]' : 'w-0 md:w-24'} fixed min-h-screen`}
+                    className={`hidden flex-col items-center justify-start gap-6 overflow-hidden border-r-[1px] border-r-slate-200 transition-all duration-200 ease-in-out dark:border-r-slate-600 md:flex py-3 dark:bg-[#1F1F1F] ${isSidebarOpen ? 'w-16 md:w-[300px]' : 'w-0 md:w-24'} fixed min-h-screen`}
                 >
                     <Link
                         href={route('welcome')}
@@ -97,7 +97,7 @@ export default function Sidebar({ navigations, children, header, description }) 
                                                     <span className={`absolute -bottom-2 left-0 w-full h-1 rounded-t-md bg-gradient-to-r from-[#ECBB4E]/90 to-[#ECBB4E]
                             transform transition-all duration-300 ease-out
                             ${isActive ? 'translate-x-0' : '-translate-x-[60vh]'}
-                            group-hover:translate-x-0 dark:from-[#55b1d7]/90 dark:to-[#55b1d7]`}>
+                            group-hover:translate-x-0 dark:from-[#ECBB4E]/90 dark:to-[#ECBB4E]`}>
                                                     </span>
                                                 </div>
                                             )
@@ -118,7 +118,7 @@ export default function Sidebar({ navigations, children, header, description }) 
                                                 {isSidebarOpen && <ChevronDownIcon className={`font-bold h-4 w-4 transition-transform transform  ${openDropdown ? 'rotate-180' : ''}`} />}
                                             </p>
                                         </DropdownMenuTrigger>
-                                        <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-3 py-3 outline-none dark:bg-[#040529]">
+                                        <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-3 py-3 outline-none dark:bg-[#1F1F1F]">
                                             {auth.is_divisi_it && (
                                                 <>
                                                     <DropdownMenuItem asChild className="cursor-pointer">
@@ -219,7 +219,7 @@ export default function Sidebar({ navigations, children, header, description }) 
                     ></div>
                 )}
                 <aside
-                    className={`fixed left-0 top-0 z-50 h-full w-full transform bg-white dark:bg-[#040529] transition-transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:hidden`}
+                    className={`fixed left-0 top-0 z-50 h-full w-full transform bg-white dark:bg-[#1F1F1F] transition-transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:hidden`}
                 >
                     <div className="flex items-center justify-between border-b p-5">
                         <span className="text-xl font-bold text-[#785233]">
@@ -262,7 +262,7 @@ export default function Sidebar({ navigations, children, header, description }) 
                                                         <span className={`absolute -bottom-2 left-0 w-full h-1 rounded-t-md bg-gradient-to-r from-[#ECBB4E]/90 to-[#ECBB4E]
                             transform transition-all duration-300 ease-out
                             ${isActive ? 'translate-x-0' : '-translate-x-[60vh]'}
-                            group-hover:translate-x-0 dark:from-[#55b1d7]/90 dark:to-[#55b1d7]`}>
+                            group-hover:translate-x-0 dark:from-[#ECBB4E]/90 dark:to-[#ECBB4E]`}>
                                                         </span>
                                                     </div>
                                                 )}
@@ -282,7 +282,7 @@ export default function Sidebar({ navigations, children, header, description }) 
                                                 {isSidebarOpen && <ChevronDownIcon className={`font-bold h-4 w-4 transition-transform transform  ${openDropdown ? 'rotate-180' : ''}`} />}
                                             </p>
                                         </DropdownMenuTrigger>
-                                        <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-3 py-3 outline-none dark:bg-[#040529]">
+                                        <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-3 py-3 outline-none dark:bg-[#1F1F1F]">
                                             {auth.is_divisi_it && (
                                                 <>
                                                     <DropdownMenuItem asChild className="cursor-pointer">
@@ -410,7 +410,7 @@ export default function Sidebar({ navigations, children, header, description }) 
                                         <IconDropdown />
                                     </p>
                                 </DropdownMenuTrigger>
-                                <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-4 py-3 outline-none md:mr-12 mr-0 dark:bg-[#040529]" >
+                                <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-4 py-3 outline-none md:mr-12 mr-0 dark:bg-[#1F1F1F]" >
                                     <Link
                                         href={route('welcome')}
                                         className="flex flex-row items-center gap-2"
@@ -433,7 +433,7 @@ export default function Sidebar({ navigations, children, header, description }) 
                         </div>
                     </header>
 
-                    <div className="flex min-h-screen flex-col gap-1 bg-[#E6EFF5] px-4 py-2 dark:bg-[#0e0f32] md:px-10 md:py-5 md:mt-0 pt-10">
+                    <div className="flex min-h-screen flex-col gap-1 bg-[#E6EFF5] px-4 py-2 dark:bg-[#101010] md:px-10 md:py-5 md:mt-0 pt-10">
                         <p className='text-3xl font-semibold leading-tight text-gray-800 dark:text-white'>
                             {header}
                         </p>

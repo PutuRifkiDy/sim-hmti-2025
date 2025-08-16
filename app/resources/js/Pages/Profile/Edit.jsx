@@ -19,7 +19,7 @@ export default function Edit({ mustVerifyEmail, status }) {
                             <p className='text-[#ECBB4E] text-[14px]'>Harap isi data diri anda terlebih dahulu</p>
                         </div>
                     )}
-					<div className="bg-white dark:bg-[#040529] p-4 sm:p-8 shadow rounded-lg">
+					<div className="bg-white dark:bg-[#1F1F1F] p-4 sm:p-8 shadow rounded-lg">
 						<UpdateProfileInformationForm
 							mustVerifyEmail={mustVerifyEmail}
 							status={status}
@@ -27,7 +27,7 @@ export default function Edit({ mustVerifyEmail, status }) {
 						/>
 					</div>
 
-					<div className="bg-white dark:bg-[#040529] p-4 sm:p-8 shadow rounded-lg">
+					<div className="bg-white dark:bg-[#1F1F1F] p-4 sm:p-8 shadow rounded-lg">
 						<UpdatePasswordForm className="w-full" />
 					</div>
 
