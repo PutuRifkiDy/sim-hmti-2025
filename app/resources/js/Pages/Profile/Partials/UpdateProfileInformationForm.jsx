@@ -15,7 +15,6 @@ import { toast } from 'sonner';
 export default function UpdateProfileInformation({ mustVerifyEmail, status, className = '' }) {
     const user = usePage().props.auth.user;
 
-    console.log("ini adalah data user", user);
     const [updateProfileInformation, setUpdateProfileInformation] = useState(false);
 
     const { data, setData, post, errors, processing, recentlySuccessful } = useForm({
@@ -54,6 +53,14 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
     const onHandleChange = (e) => {
         setData(e.target.name, e.target.value);
     };
+
+    const dateFormat = (birthday) => {
+        const date = new Date(birthday);
+        const month = date.toLocaleString('default', { month: 'long' });
+        const day = date.getDate();
+        const year = date.getFullYear();
+        return `${day} ${month} ${year}`;
+    }
 
     return (
         <section className={className}>
@@ -309,7 +316,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                     </div>
                     <div>
                         <InputLabel htmlFor="birthday" value="Tanggal Lahir" className='text-[12px] text-[#676767] font-normal dark:text-gray-400' />
-                        <p>{data.birthday ? data.birthday : '-'}</p>
+                        <p>{data.birthday ? dateFormat(data.birthday) : '-'}</p>
                     </div>
                     <div>
                         <InputLabel htmlFor="address" value="Alamat" className='text-[12px] text-[#676767] font-normal dark:text-gray-400' />

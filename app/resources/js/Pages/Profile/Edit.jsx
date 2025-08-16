@@ -8,10 +8,7 @@ import { ExclamationCircleIcon } from '@heroicons/react/24/solid';
 
 export default function Edit({ mustVerifyEmail, status }) {
     const user = usePage().props.auth.user;
-    // const flash_message = usePage().props.flash_message;
-    // if(flash_message?.message) {
-    //     toast[flash_message.type || 'success'](flash_message.message);
-    // }
+
 	return (
 
 			<div className="py-5">
@@ -22,7 +19,7 @@ export default function Edit({ mustVerifyEmail, status }) {
                             <p className='text-[#ECBB4E] text-[14px]'>Harap isi data diri anda terlebih dahulu</p>
                         </div>
                     )}
-					<div className="bg-white dark:bg-[#040529] p-4 shadow sm:rounded-lg sm:p-8">
+					<div className="bg-white dark:bg-[#040529] p-4 sm:p-8 shadow rounded-lg">
 						<UpdateProfileInformationForm
 							mustVerifyEmail={mustVerifyEmail}
 							status={status}
@@ -30,7 +27,7 @@ export default function Edit({ mustVerifyEmail, status }) {
 						/>
 					</div>
 
-					<div className="bg-white dark:bg-[#040529] p-4 shadow sm:rounded-lg sm:p-8">
+					<div className="bg-white dark:bg-[#040529] p-4 sm:p-8 shadow rounded-lg">
 						<UpdatePasswordForm className="w-full" />
 					</div>
 

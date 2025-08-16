@@ -118,18 +118,20 @@ export default function Index() {
 
     const renderHeader = () => {
         return (
-            <div className="flex md:flex-row justify-between flex-col">
-                <div className="flex items-center justify-content-end gap-2 export-buttons">
+            <div className="flex md:flex-row justify-between flex-col gap-2">
+                <div className="flex md:flex-row flex-col-reverse items-center justify-content-end gap-2 export-buttons">
                     <IconField iconPosition="left">
                         <InputIcon className="pi pi-search" />
-                        <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Ketik kata kunci" className="p-inputtext p-inputtext-sm" />
+                        <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Ketik kata kunci" className="p-inputtext p-inputtext-lg" />
                     </IconField>
-                    <Button type="button" className="bg-[#785233] px-5 py-5 rounded-[500px]" variant="none" rounded onClick={() => exportCSV(false)} data-pr-tooltip="Export CSV">
-                        <DocumentPlusIcon className="w-5 h-5 text-white" />
-                    </Button>
-                    <Button type="button" variant="none" className="bg-yellow-500 px-5 py-5 rounded-[500px]" severity="success" rounded onClick={exportExcel} data-pr-tooltip="Export XLS">
-                        <DocumentArrowDownIcon className="w-5 h-5 text-white" />
-                    </Button>
+                    <div className="flex flex-row gap-2">
+                        <Button type="button" className="bg-[#785233] px-5 py-5 rounded-[500px]" variant="none" rounded onClick={() => exportCSV(false)} data-pr-tooltip="Export CSV">
+                            <DocumentPlusIcon className="w-5 h-5 text-white" />
+                        </Button>
+                        <Button type="button" variant="none" className="bg-yellow-500 px-5 py-5 rounded-[500px]" severity="success" rounded onClick={exportExcel} data-pr-tooltip="Export XLS">
+                            <DocumentArrowDownIcon className="w-5 h-5 text-white" />
+                        </Button>
+                    </div>
                 </div>
                 <Button variant="gold" type="button" asChild className="shadow-[0_0_15px_#ECBB4E]">
                     <Link as="button" href={route('master-sie.create')} className="text-[14px] font-bold py-5">
@@ -174,14 +176,14 @@ export default function Index() {
         <>
             <div className="py-5">
                 <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between">
-                    <div className="flex flex-col md:flex-row justify-between gap-2 mt-5">
-                        <div className="flex flex-row gap-10 rounded-[14px] p-5 bg-white  shadow-[0px_0px_2px_#7F7F7F]">
-                            <div className="flex flex-col gap-1">
+                    <div className="flex flex-col md:flex-row justify-between gap-2 mt-5 ">
+                        <div className="flex flex-row gap-10 rounded-[14px] p-5 bg-white border-2 border-[#ecbb4e]/20">
+                            <div className="rounded-2xl flex justify-center items-center bg-[#ecbb4e]/20 h-16 w-16">
+                                <IconMasterSie width={30} height={30} />
+                            </div>
+                            <div className="flex flex-col">
                                 <p className="font-medium text-[16px] light:text-[#202224]/70  tracking-[0.03em]">Jumlah Sie</p>
                                 <p className=" font-bold text-[28px] tracking-[1px]">{total_sie}</p>
-                            </div>
-                            <div className="rounded-2xl flex items-center bg-[#ecbb4e]/20 p-3">
-                                <IconMasterSie width={60} height={60} />
                             </div>
                         </div>
 
@@ -221,7 +223,7 @@ export default function Index() {
                                             field="action"
                                             header="Aksi"
                                             body={actionTemplate}
-                                            className="min-w-[12rem]">
+                                            className="min-w-[8rem]">
                                         </Column>
                                     </DataTable>
                                     <Modal show={modalOpen} onClose={closeModal} maxWidth="md" >

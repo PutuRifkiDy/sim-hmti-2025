@@ -119,18 +119,20 @@ export default function Index() {
 
     const renderHeader = () => {
         return (
-            <div className="flex md:flex-row justify-between flex-col">
-                <div className="flex items-center justify-content-end gap-2 export-buttons">
+            <div className="flex md:flex-row justify-between flex-col gap-2">
+                <div className="flex md:flex-row flex-col-reverse items-center justify-content-end gap-2 export-buttons">
                     <IconField iconPosition="left">
                         <InputIcon className="pi pi-search" />
-                        <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Ketik kata kunci" className="p-inputtext p-inputtext-sm" />
+                        <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Ketik kata kunci" className="p-inputtext p-inputtext-lg" />
                     </IconField>
-                    <Button type="button" className="bg-[#0f114c] px-5 py-5 rounded-[500px]" variant="none" rounded onClick={() => exportCSV(false)} data-pr-tooltip="Export CSV">
-                        <DocumentPlusIcon className="w-5 h-5 text-white" />
-                    </Button>
-                    <Button type="button" variant="none" className="bg-yellow-500 px-5 py-5 rounded-[500px]" severity="success" rounded onClick={exportExcel} data-pr-tooltip="Export XLS">
-                        <DocumentArrowDownIcon className="w-5 h-5 text-white" />
-                    </Button>
+                    <div className="flex flex-row gap-2">
+                        <Button type="button" className="bg-[#785233] px-5 py-5 rounded-[500px]" variant="none" rounded onClick={() => exportCSV(false)} data-pr-tooltip="Export CSV">
+                            <DocumentPlusIcon className="w-5 h-5 text-white" />
+                        </Button>
+                        <Button type="button" variant="none" className="bg-yellow-500 px-5 py-5 rounded-[500px]" severity="success" rounded onClick={exportExcel} data-pr-tooltip="Export XLS">
+                            <DocumentArrowDownIcon className="w-5 h-5 text-white" />
+                        </Button>
+                    </div>
                 </div>
                 <Button variant="gold" type="button" asChild className="shadow-[0_0_15px_#ECBB4E]">
                     <Link as="button" href={route('master-program-kerja.create', { id: period.id })} className="text-[14px] font-bold py-5">
@@ -215,7 +217,7 @@ export default function Index() {
                             </Link>
                         </Button>
                     </div>
-                    <div className='mt-2 mb-10 grid md:grid-cols-3 grid-cols-1 gap-5'>
+                    <div className='mt-2 mb-5 grid md:grid-cols-3 grid-cols-1 gap-5'>
                         <div>
                             <InputLabel htmlFor="title" value="Periode" className='text-[12px] text-[#676767] font-normal dark:text-gray-400' />
                             <p>{period.title ? period.title : '-'}</p>

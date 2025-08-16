@@ -14,20 +14,20 @@ export default function Index() {
         <>
             <div className="py-5">
                 <div className="bg-white dark:bg-[#040529] p-4 shadow rounded-lg sm:p-8 flex flex-col gap-5 justify-between space-y-2">
-                    <div className="flex flex-row gap-10">
+                    <div className="flex md:flex-row flex-cl gap-10">
                         <div className={`cursor-pointer relative ${tabActive == 0 ? "text-[#ECBB4E] " : ""}      `} onClick={() => setTabActive(0)}>
-                            <p>Anggaran Dasar</p>
+                            <p className="md:text-start text-center">Anggaran Dasar</p>
                             {tabActive == 0 &&
                                 <span className="absolute h-1.5 w-full rounded-top-md  rounded-t-md bg-[#ECBB4E]"></span>
                             }
                         </div>
                         <div className={`cursor-pointer relative ${tabActive == 1 ? "text-[#ECBB4E] " : ""}      `} onClick={() => setTabActive(1)}>
-                            <p>Anggaran Rumah Tangga</p>
+                            <p className="md:text-start text-center">Anggaran Rumah Tangga</p>
                             {tabActive == 1 &&
                                 <span className="absolute h-1.5 w-full rounded-top-md  rounded-t-md bg-[#ECBB4E]"></span>
                             }                        </div>
                         <div className={`cursor-pointer relative ${tabActive == 2 ? "text-[#ECBB4E] " : ""}      `} onClick={() => setTabActive(2)}>
-                            <p>Agenda Khusus</p>
+                            <p className="md:text-start text-center">Agenda Khusus</p>
                             {tabActive == 2 &&
                                 <span className="absolute h-1.5 w-full rounded-top-md  rounded-t-md bg-[#ECBB4E]"></span>
                             }

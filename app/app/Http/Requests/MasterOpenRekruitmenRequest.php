@@ -26,7 +26,7 @@ class MasterOpenRekruitmenRequest extends FormRequest
             'description' => ['required', 'max:60000'],
             'start_date'  => ['required', 'date'],
             'end_date'    => ['required', 'date'],
-            'poster_path' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1048'],
+            'poster_path' => ['nullable', 'mimes:jpg,jpeg,png', 'max:5048'],
             'postmsg'     => ['required', 'max:255'],
         ];
     }

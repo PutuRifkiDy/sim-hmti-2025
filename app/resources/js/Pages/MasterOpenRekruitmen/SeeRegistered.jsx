@@ -234,7 +234,7 @@ export default function SeeRegistered() {
                             </Link>
                         </Button>
                     </div>
-                    <div className='mt-2 mb-10 grid md:grid-cols-3 grid-cols-1 gap-5'>
+                    <div className='mt-2 mb-5 grid md:grid-cols-3 grid-cols-1 gap-5'>
                         <div>
                             <InputLabel htmlFor="oprec_name" value="Nama Kegiatan" className='text-[12px] text-[#676767] font-normal dark:text-gray-400' />
                             <p>{oprec.oprec_name ? oprec.oprec_name : '-'}</p>
