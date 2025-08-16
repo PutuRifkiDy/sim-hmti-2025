@@ -404,7 +404,7 @@ export default function Sidebar({ navigations, children, header, description }) 
                                         <div className='flex flex-col items-start'>
                                             {auth.name ?? auth.nim}
                                             <div className='flex flex-row gap-1 items-center'>
-                                                <p className='text-gray-500'>{auth.nim}</p>
+                                                <p className='text-gray-500'>{auth?.role == "ketua_kegiatan" ? "Ketua Kegiatan"  : auth?.role == "divisi_it" ? "Divisi IT" : "Mahasiswa" }</p>
                                             </div>
                                         </div>
                                         <IconDropdown />
