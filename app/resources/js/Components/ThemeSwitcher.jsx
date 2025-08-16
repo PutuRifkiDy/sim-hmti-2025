@@ -33,7 +33,7 @@ export function ThemeSwitcher() {
                 {theme === 'dark' ? (
                     <SunIcon className="w-7 h-7 text-yellow-400" />
                 ) : (
-                    <MoonIcon className="w-7 h-7 text-[#0F114C]" />
+                    <MoonIcon className="w-7 h-7 text-[#000000]" />
                 )}
             </div>
         </Button>
