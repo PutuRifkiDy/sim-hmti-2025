@@ -39,9 +39,9 @@
 		"psr-4": {
 			"Tests\\": "tests/"
 		},
-        "files": [
-            "app/Helpers/FlashMessageHelper.php"
-        ]
+		"files": [
+			"app/Helpers/FlashMessageHelper.php"
+		]
 	},
 	"scripts": {
 		"post-autoload-dump": [

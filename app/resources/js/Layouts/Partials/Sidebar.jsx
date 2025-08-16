@@ -1,449 +1,418 @@
-import { Link, usePage } from '@inertiajs/react';
-import { useEffect, useState } from 'react';
-import DarkMode from '../../Components/DarkMode';
-import {
-    IconDropdown,
-    IconHome,
-    IconLogout,
-    IconLogoutSideBar,
-    IconMasterData,
-    IconSideBar,
-    IconSilangResponsiveWeb,
-} from '../../Components/IconAdmin';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/Components/ui/dropdown-menu';
-import { ArrowRightStartOnRectangleIcon, Squares2X2Icon, SunIcon, UserCircleIcon, Bars3BottomRightIcon, XMarkIcon, ChevronDownIcon, CircleStackIcon } from '@heroicons/react/24/solid';
-import { UserIcon } from '@heroicons/react/24/outline';
-import { User } from 'lucide-react';
 import { ThemeSwitcher } from '@/Components/ThemeSwitcher';
 import { Avatar, AvatarFallback, AvatarImage } from '@/Components/ui/avatar';
-
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuTrigger,
+} from '@/Components/ui/dropdown-menu';
+import {
+	ArrowRightStartOnRectangleIcon,
+	Bars3BottomRightIcon,
+	ChevronDownIcon,
+	Squares2X2Icon,
+} from '@heroicons/react/24/solid';
+import { Link, usePage } from '@inertiajs/react';
+import { useEffect, useState } from 'react';
+import { IconDropdown, IconLogoutSideBar, IconMasterData, IconSideBar } from '../../Components/IconAdmin';
 
 export default function Sidebar({ navigations, children, header, description }) {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 768);
-    const [openDropdown, setOpenDropdown] = useState(false);
-    const auth = usePage().props.auth.user;
+	const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 768);
+	const [openDropdown, setOpenDropdown] = useState(false);
+	const auth = usePage().props.auth.user;
 
-    const { url } = usePage();
+	const { url } = usePage();
 
-    if (!auth) {
-        window.location.href = route('login');
-    }
+	if (!auth) {
+		window.location.href = route('login');
+	}
 
-    const currentRoute = route().current();
+	const currentRoute = route().current();
 
-    useEffect(() => {
-        if (window.innerWidth < 768) {
-            setIsSidebarOpen(false);
-        }
-    }, [currentRoute]);
+	useEffect(() => {
+		if (window.innerWidth < 768) {
+			setIsSidebarOpen(false);
+		}
+	}, [currentRoute]);
 
-    useEffect(() => {
-        setOpenDropdown(false);
-    }, [url]);
+	useEffect(() => {
+		setOpenDropdown(false);
+	}, [url]);
 
-    return (
-        <>
-            <div className="flex flex-col justify-between md:flex-row">
-                {/* Sidebar */}
-                <aside
-                    className={`hidden flex-col items-center justify-start gap-6 overflow-hidden border-r-[1px] border-r-slate-200 transition-all duration-200 ease-in-out dark:border-r-slate-600 md:flex py-3 dark:bg-[#1F1F1F] ${isSidebarOpen ? 'w-16 md:w-[300px]' : 'w-0 md:w-24'} fixed min-h-screen`}
-                >
-                    <Link
-                        href={route('welcome')}
-                        className="flex w-full flex-row items-center justify-center gap-1 border-b-[1px] border-slate-200 py-[1.16rem] text-[24px] font-bold text-[#785233] dark:border-slate-600 tracking-[0.03em] truncate"
-                    >
-                        {isSidebarOpen ? (
-                            <div>
-                                HMTI-<span className="text-[#ECBB4E]">NG</span>
-                            </div>
-                        ) : (
-                            <span className="text-[#ECBB4E]">TI</span>
-                        )}
+	return (
+		<>
+			<div className="flex flex-col justify-between md:flex-row">
+				{/* Sidebar */}
+				<aside
+					className={`hidden flex-col items-center justify-start gap-6 overflow-hidden border-r-[1px] border-r-slate-200 py-3 transition-all duration-200 ease-in-out dark:border-r-slate-600 dark:bg-[#1F1F1F] md:flex ${isSidebarOpen ? 'w-16 md:w-[300px]' : 'w-0 md:w-24'} fixed min-h-screen`}
+				>
+					<Link
+						href={route('welcome')}
+						className="flex w-full flex-row items-center justify-center gap-1 truncate border-b-[1px] border-slate-200 py-[1.16rem] text-[24px] font-bold tracking-[0.03em] text-[#785233] dark:border-slate-600"
+					>
+						{isSidebarOpen ? (
+							<div>
+								HMTI-<span className="text-[#ECBB4E]">NG</span>
+							</div>
+						) : (
+							<span className="text-[#ECBB4E]">TI</span>
+						)}
+					</Link>
+					<img
+						src={`${window.location.origin}/assets/icon/logo_hmti.png`}
+						alt="Profile"
+						className={`${isSidebarOpen ? 'h-auto w-[80px] pb-5 pt-5' : 'h-[50px] w-[50px]'}`}
+					/>
+					<nav className={`mt-1 w-full ${isSidebarOpen ? 'px-5' : ' '} text-center`}>
+						<ul className="font-bold">
+							{navigations.map((navigation, i) => {
+								const routePath = window.location.pathname;
+								const routeName = navigation.link.startsWith('http')
+									? new URL(navigation.link).pathname
+									: navigation.link;
 
-                    </Link>
-                    <img
-                        src={`${window.location.origin}/assets/icon/logo_hmti.png`}
-                        alt="Profile"
-                        className={`${isSidebarOpen ? 'h-auto w-[80px] pt-5 pb-5' : 'h-[50px] w-[50px]'}`}
-                    />
-                    <nav className={`mt-1 w-full ${isSidebarOpen ? 'px-5' : ' '} text-center`}>
-                        <ul className="font-bold">
-                            {navigations.map((navigation, i) => {
-                                const routePath = window.location.pathname;
-                                const routeName = navigation.link.startsWith("http")
-                                    ? new URL(navigation.link).pathname
-                                    : navigation.link;
+								const normalizedRouteName = routeName.replace(/\/$/, '');
+								const isActive =
+									normalizedRouteName === '/dashboard'
+										? routePath === normalizedRouteName
+										: routePath.startsWith(normalizedRouteName);
+								return (
+									<li
+										key={i}
+										className={`py-4 ${isSidebarOpen ? 'rounded-[6px] px-8' : 'items-center'} flex flex-col justify-center ${isActive ? 'stroke-white text-[#ECBB4E]' : ''}`}
+									>
+										<Link
+											href={navigation.link}
+											as="button"
+											className={`flex flex-row items-center gap-5 text-[14px] font-semibold tracking-[0.3px] ${isActive ? 'fill-[#ECBB4E] stroke-[#ECBB4E] text-[#ECBB4E]' : ''}`}
+											onClick={() => window.innerWidth < 768 && setIsSidebarOpen(false)}
+										>
+											{navigation.icon}
+											{isSidebarOpen && (
+												<div className="group relative">
+													{navigation.text}
+													<span
+														className={`absolute -bottom-2 left-0 h-1 w-full transform rounded-t-md bg-gradient-to-r from-[#ECBB4E]/90 to-[#ECBB4E] transition-all duration-300 ease-out ${isActive ? 'translate-x-0' : '-translate-x-[60vh]'} group-hover:translate-x-0 dark:from-[#ECBB4E]/90 dark:to-[#ECBB4E]`}
+													></span>
+												</div>
+											)}
+										</Link>
+									</li>
+								);
+							})}
+							{auth.is_divisi_it == true || auth.is_ketua_kegiatan == true ? (
+								<li
+									className={`py-4 ${isSidebarOpen ? 'px-8' : 'items-center'} flex cursor-pointer flex-col justify-center`}
+								>
+									<DropdownMenu onOpenChange={(open) => setOpenDropdown(open)}>
+										<DropdownMenuTrigger asChild>
+											<p className="flex flex-row items-center gap-5 text-[14px] font-semibold tracking-[0.3px]">
+												<IconMasterData />
+												{isSidebarOpen && 'Master Data'}
+												{isSidebarOpen && (
+													<ChevronDownIcon
+														className={`h-4 w-4 transform font-bold transition-transform ${openDropdown ? 'rotate-180' : ''}`}
+													/>
+												)}
+											</p>
+										</DropdownMenuTrigger>
+										<DropdownMenuContent className="flex w-56 flex-col justify-start gap-3 px-4 py-3 outline-none dark:bg-[#1F1F1F]">
+											{auth.is_divisi_it && (
+												<>
+													<DropdownMenuItem asChild className="cursor-pointer">
+														<Link href={route('master-user.index')} as="button">
+															<p className="flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200">
+																Master User
+															</p>
+														</Link>
+													</DropdownMenuItem>
+													<DropdownMenuItem asChild className="cursor-pointer">
+														<Link href={route('master-sie.index')} as="button">
+															<p className="flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200">
+																Master Sie
+															</p>
+														</Link>
+													</DropdownMenuItem>
+													<DropdownMenuItem asChild className="cursor-pointer">
+														<Link href={route('master-period.index')} as="button">
+															<p className="flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200">
+																Master Periode
+															</p>
+														</Link>
+													</DropdownMenuItem>
+													<DropdownMenuItem asChild className="cursor-pointer">
+														<Link href={route('master-position.index')} as="button">
+															<p className="flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200">
+																Master Jabatan
+															</p>
+														</Link>
+													</DropdownMenuItem>
+													<DropdownMenuItem asChild className="cursor-pointer">
+														<Link href={route('master-open-rekruitmen.index')} as="button">
+															<p className="flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200">
+																Master Oprec
+															</p>
+														</Link>
+													</DropdownMenuItem>
+												</>
+											)}
+											{auth.is_ketua_kegiatan && (
+												<DropdownMenuItem asChild className="cursor-pointer">
+													<Link href={route('master-open-rekruitmen.index')} as="button">
+														<p className="flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200">
+															Master Oprec
+														</p>
+													</Link>
+												</DropdownMenuItem>
+											)}
+										</DropdownMenuContent>
+									</DropdownMenu>
+								</li>
+							) : (
+								<></>
+							)}
+							<li
+								className={`py-4 ${isSidebarOpen ? 'px-8' : 'items-center'} flex cursor-pointer flex-col justify-center`}
+							>
+								<Link
+									href={route('logout')}
+									as="button"
+									method="post"
+									className="flex flex-row items-center gap-5 text-[14px] font-semibold tracking-[0.3px] text-[#FF0000]"
+								>
+									<IconLogoutSideBar />
+									{isSidebarOpen && 'Logout'}
+								</Link>
+							</li>
+						</ul>
+					</nav>
+				</aside>
 
-                                const normalizedRouteName = routeName.replace(/\/$/, '');
-                                const isActive =
-                                    normalizedRouteName === '/dashboard'
-                                        ? routePath === normalizedRouteName
-                                        : routePath.startsWith(normalizedRouteName);
-                                return (
-                                    <li
-                                        key={i}
-                                        className={`py-4 ${isSidebarOpen ? 'rounded-[6px] px-8' : 'items-center'} flex flex-col justify-center ${isActive ? 'text-[#ECBB4E] stroke-white' : ''}`}
-                                    >
-                                        <Link
-                                            href={navigation.link}
-                                            as="button"
-                                            className={`flex flex-row items-center gap-5 text-[14px] font-semibold tracking-[0.3px]  ${isActive ? 'text-[#ECBB4E] stroke-[#ECBB4E] fill-[#ECBB4E]' : ''}`}
-                                            onClick={() => window.innerWidth < 768 && setIsSidebarOpen(false)}
-                                        >
-                                            {navigation.icon}
-                                            {isSidebarOpen && (
-                                                <div className='relative group'>
-                                                    {navigation.text}
-                                                    <span className={`absolute -bottom-2 left-0 w-full h-1 rounded-t-md bg-gradient-to-r from-[#ECBB4E]/90 to-[#ECBB4E]
-                            transform transition-all duration-300 ease-out
-                            ${isActive ? 'translate-x-0' : '-translate-x-[60vh]'}
-                            group-hover:translate-x-0 dark:from-[#ECBB4E]/90 dark:to-[#ECBB4E]`}>
-                                                    </span>
-                                                </div>
-                                            )
-                                            }
-                                        </Link>
-                                    </li>
-                                );
-                            })}
-                            {auth.is_divisi_it == true || auth.is_ketua_kegiatan == true ? (
-                                <li
-                                    className={`py-4 ${isSidebarOpen ? 'px-8' : 'items-center'} flex cursor-pointer flex-col justify-center`}
-                                >
-                                    <DropdownMenu onOpenChange={(open) => setOpenDropdown(open)}>
-                                        <DropdownMenuTrigger asChild  >
-                                            <p className='flex flex-row items-center gap-5 text-[14px] font-semibold tracking-[0.3px]'>
-                                                <IconMasterData />
-                                                {isSidebarOpen && 'Master Data'}
-                                                {isSidebarOpen && <ChevronDownIcon className={`font-bold h-4 w-4 transition-transform transform  ${openDropdown ? 'rotate-180' : ''}`} />}
-                                            </p>
-                                        </DropdownMenuTrigger>
-                                        <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-3 py-3 outline-none dark:bg-[#1F1F1F]">
-                                            {auth.is_divisi_it && (
-                                                <>
-                                                    <DropdownMenuItem asChild className="cursor-pointer">
-                                                        <Link
-                                                            href={route('master-user.index')}
-                                                            as='button'
-                                                        >
-                                                            <p
-                                                                className='flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200'>
-                                                                Master User
-                                                            </p>
-                                                        </Link>
-                                                    </DropdownMenuItem>
-                                                    <DropdownMenuItem asChild className="cursor-pointer">
-                                                        <Link
-                                                            href={route('master-sie.index')}
-                                                            as="button">
-                                                            <p
-                                                                className='flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200'>
-                                                                Master Sie
-                                                            </p>
-                                                        </Link>
-                                                    </DropdownMenuItem>
-                                                    <DropdownMenuItem asChild className="cursor-pointer">
-                                                        <Link
-                                                            href={route('master-period.index')}
-                                                            as="button">
-                                                            <p
-                                                                className='flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200'>
-                                                                Master Periode
-                                                            </p>
-                                                        </Link>
-                                                    </DropdownMenuItem>
-                                                    <DropdownMenuItem asChild className="cursor-pointer">
-                                                        <Link
-                                                            href={route('master-position.index')}
-                                                            as="button">
-                                                            <p
-                                                                className='flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200'>
-                                                                Master Jabatan
-                                                            </p>
-                                                        </Link>
-                                                    </DropdownMenuItem>
-                                                    <DropdownMenuItem asChild className="cursor-pointer">
-                                                        <Link
-                                                            href={route('master-open-rekruitmen.index')}
-                                                            as="button">
-                                                            <p
-                                                                className='flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200'>
-                                                                Master Oprec
-                                                            </p>
-                                                        </Link>
-                                                    </DropdownMenuItem>
-                                                </>
-                                            )}
-                                            {auth.is_ketua_kegiatan && (
-                                                <DropdownMenuItem asChild className="cursor-pointer">
-                                                    <Link
-                                                        href={route('master-open-rekruitmen.index')}
-                                                        as="button">
-                                                        <p
-                                                            className='flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200'
-                                                        >
-                                                            Master Oprec
-                                                        </p>
-                                                    </Link>
-                                                </DropdownMenuItem>
-                                            )}
-                                        </DropdownMenuContent>
-                                    </DropdownMenu>
-                                </li>
-                            ) : (
-                                <>
+				{isSidebarOpen && window.innerWidth < 768 && (
+					<div
+						className="fixed inset-0 z-50 bg-black bg-opacity-50 md:hidden"
+						onClick={() => setIsSidebarOpen(false)}
+					></div>
+				)}
+				<aside
+					className={`fixed left-0 top-0 z-50 h-full w-full transform bg-white transition-transform dark:bg-[#1F1F1F] ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:hidden`}
+				>
+					<div className="flex items-center justify-between border-b p-5">
+						<span className="text-xl font-bold text-[#785233]">
+							HMTI-<span className="text-[#ECBB4E]">NG</span>
+						</span>
+						<button onClick={() => setIsSidebarOpen(false)} className="">
+							<Bars3BottomRightIcon className="h-6 w-6 text-gray-600" />
+						</button>
+					</div>
+					<nav className="mt-5 text-center">
+						<ul className="font-bold">
+							{navigations.map((navigation, i) => {
+								const routePath = window.location.pathname;
+								const routeName = navigation.link.startsWith('http')
+									? new URL(navigation.link).pathname
+									: navigation.link;
 
-                                </>
-                            )}
-                            <li
-                                className={`py-4 ${isSidebarOpen ? 'px-8' : 'items-center'} flex cursor-pointer flex-col justify-center`}
-                            >
-                                <Link
-                                    href={route('logout')}
-                                    as="button"
-                                    method="post"
-                                    className="flex flex-row items-center gap-5 text-[14px] font-semibold tracking-[0.3px] text-[#FF0000]"
-                                >
-                                    <IconLogoutSideBar />
-                                    {isSidebarOpen && 'Logout'}
-                                </Link>
-                            </li>
-                        </ul>
-                    </nav>
-                </aside>
+								const normalizedRouteName = routeName.replace(/\/$/, '');
+								const isActive =
+									normalizedRouteName === '/dashboard'
+										? routePath === normalizedRouteName
+										: routePath.startsWith(normalizedRouteName);
 
-                {isSidebarOpen && window.innerWidth < 768 && (
-                    <div
-                        className="fixed inset-0 z-50 bg-black bg-opacity-50 md:hidden"
-                        onClick={() => setIsSidebarOpen(false)}
-                    ></div>
-                )}
-                <aside
-                    className={`fixed left-0 top-0 z-50 h-full w-full transform bg-white dark:bg-[#1F1F1F] transition-transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:hidden`}
-                >
-                    <div className="flex items-center justify-between border-b p-5">
-                        <span className="text-xl font-bold text-[#785233]">
-                            HMTI-<span className="text-[#ECBB4E]">NG</span>
-                        </span>
-                        <button onClick={() => setIsSidebarOpen(false)} className="">
-                            <Bars3BottomRightIcon className="h-6 w-6 text-gray-600" />
-                        </button>
-                    </div>
-                    <nav className="mt-5 text-center">
-                        <ul className="font-bold">
-                            {navigations.map((navigation, i) => {
-                                const routePath = window.location.pathname;
-                                const routeName = navigation.link.startsWith("http")
-                                    ? new URL(navigation.link).pathname
-                                    : navigation.link;
+								return (
+									<li
+										key={i}
+										className={`py-4 ${isSidebarOpen ? 'relative rounded-[6px] px-8' : 'items-center'} flex flex-col justify-center ${isActive ? 'stroke-white text-[#ECBB4E]' : ''}`}
+									>
+										<Link
+											href={navigation.link}
+											as="button"
+											className={`flex flex-row items-center gap-5 text-[14px] font-semibold tracking-[0.3px]`}
+											onClick={() => setIsSidebarOpen(false)}
+										>
+											{navigation.icon}
+											{isSidebarOpen && (
+												<div className="group relative">
+													{navigation.text}
+													<span
+														className={`absolute -bottom-2 left-0 h-1 w-full transform rounded-t-md bg-gradient-to-r from-[#ECBB4E]/90 to-[#ECBB4E] transition-all duration-300 ease-out ${isActive ? 'translate-x-0' : '-translate-x-[60vh]'} group-hover:translate-x-0 dark:from-[#ECBB4E]/90 dark:to-[#ECBB4E]`}
+													></span>
+												</div>
+											)}
+										</Link>
+									</li>
+								);
+							})}
+							{auth.is_divisi_it == true || auth.is_ketua_kegiatan == true ? (
+								<li
+									className={`py-4 ${isSidebarOpen ? 'px-8' : 'items-center'} flex cursor-pointer flex-col justify-center`}
+								>
+									<DropdownMenu onOpenChange={(open) => setOpenDropdown(open)}>
+										<DropdownMenuTrigger asChild>
+											<p className="flex flex-row items-center gap-5 text-[14px] font-semibold tracking-[0.3px]">
+												<IconMasterData />
+												{isSidebarOpen && 'Master Data'}
+												{isSidebarOpen && (
+													<ChevronDownIcon
+														className={`h-4 w-4 transform font-bold transition-transform ${openDropdown ? 'rotate-180' : ''}`}
+													/>
+												)}
+											</p>
+										</DropdownMenuTrigger>
+										<DropdownMenuContent className="flex w-56 flex-col justify-start gap-3 px-4 py-3 outline-none dark:bg-[#1F1F1F]">
+											{auth.is_divisi_it && (
+												<>
+													<DropdownMenuItem asChild className="cursor-pointer">
+														<Link href={route('master-user.index')} as="button">
+															<p className="flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200">
+																Master User
+															</p>
+														</Link>
+													</DropdownMenuItem>
+													<DropdownMenuItem asChild className="cursor-pointer">
+														<Link href={route('master-sie.index')} as="button">
+															<p className="flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200">
+																Master Sie
+															</p>
+														</Link>
+													</DropdownMenuItem>
+													<DropdownMenuItem asChild className="cursor-pointer">
+														<Link href={route('master-period.index')} as="button">
+															<p className="flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200">
+																Master Periode
+															</p>
+														</Link>
+													</DropdownMenuItem>
+													<DropdownMenuItem asChild className="cursor-pointer">
+														<Link href={route('master-position.index')} as="button">
+															<p className="flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200">
+																Master Jabatan
+															</p>
+														</Link>
+													</DropdownMenuItem>
+													<DropdownMenuItem asChild className="cursor-pointer">
+														<Link href={route('master-open-rekruitmen.index')} as="button">
+															<p className="flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200">
+																Master Oprec
+															</p>
+														</Link>
+													</DropdownMenuItem>
+												</>
+											)}
+											{auth.is_ketua_kegiatan && (
+												<DropdownMenuItem asChild className="cursor-pointer">
+													<Link href={route('master-open-rekruitmen.index')} as="button">
+														<p className="flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200">
+															Master Oprec
+														</p>
+													</Link>
+												</DropdownMenuItem>
+											)}
+										</DropdownMenuContent>
+									</DropdownMenu>
+								</li>
+							) : (
+								<></>
+							)}
+							<li
+								className={`py-4 ${isSidebarOpen ? 'px-8' : 'items-center'} flex cursor-pointer flex-col justify-center`}
+							>
+								<Link
+									href={route('logout')}
+									as="button"
+									method="post"
+									className="light:text-[#404040] flex flex-row items-center justify-start gap-5 text-[14px] font-medium tracking-[0.11em] text-[#FF0000]"
+								>
+									<IconLogoutSideBar />
+									Logout
+								</Link>
+							</li>
+						</ul>
+					</nav>
+				</aside>
 
-                                const normalizedRouteName = routeName.replace(/\/$/, '');
-                                const isActive =
-                                    normalizedRouteName === '/dashboard'
-                                        ? routePath === normalizedRouteName
-                                        : routePath.startsWith(normalizedRouteName);
+				{/* Main Content */}
+				<div
+					className={`flex-1 ${isSidebarOpen ? 'ml-0 md:ml-[300px] lg:w-[75%] xl:w-[80%] 2xl:w-[85%]' : 'ml-0 md:ml-24 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]'} overflow-x-auto transition-all`}
+				>
+					<header className="flex w-full items-center justify-center border-b-[1px] border-b-slate-200 px-0 py-[1.14rem] dark:border-b-slate-600 md:justify-between md:px-5">
+						{/* Untuk Tampilan Laptop */}
+						<button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="hidden text-xl md:block">
+							{!isSidebarOpen ? (
+								<Bars3BottomRightIcon className="h-6 w-6 text-[#000000] dark:text-white" />
+							) : (
+								<IconSideBar />
+							)}
+						</button>
 
-                                return (
-                                    <li
-                                        key={i}
-                                        className={`py-4 ${isSidebarOpen ? 'relative rounded-[6px] px-8' : 'items-center'} flex flex-col justify-center ${isActive ? 'text-[#ECBB4E] stroke-white' : ''}`}
-                                    >
-                                        <Link
-                                            href={navigation.link}
-                                            as="button"
-                                            className={`flex flex-row items-center gap-5 text-[14px] font-semibold tracking-[0.3px]`}
-                                            onClick={() => setIsSidebarOpen(false)}
-                                        >
-                                            {navigation.icon}
-                                            {isSidebarOpen &&
-                                                (
-                                                    <div className='relative group'>
-                                                        {navigation.text}
-                                                        <span className={`absolute -bottom-2 left-0 w-full h-1 rounded-t-md bg-gradient-to-r from-[#ECBB4E]/90 to-[#ECBB4E]
-                            transform transition-all duration-300 ease-out
-                            ${isActive ? 'translate-x-0' : '-translate-x-[60vh]'}
-                            group-hover:translate-x-0 dark:from-[#ECBB4E]/90 dark:to-[#ECBB4E]`}>
-                                                        </span>
-                                                    </div>
-                                                )}
-                                        </Link>
-                                    </li>
-                                );
-                            })}
-                            {auth.is_divisi_it == true || auth.is_ketua_kegiatan == true ? (
-                                <li
-                                    className={`py-4 ${isSidebarOpen ? 'px-8' : 'items-center'} flex cursor-pointer flex-col justify-center`}
-                                >
-                                    <DropdownMenu onOpenChange={(open) => setOpenDropdown(open)}>
-                                        <DropdownMenuTrigger asChild  >
-                                            <p className='flex flex-row items-center gap-5 text-[14px] font-semibold tracking-[0.3px]'>
-                                                <IconMasterData />
-                                                {isSidebarOpen && 'Master Data'}
-                                                {isSidebarOpen && <ChevronDownIcon className={`font-bold h-4 w-4 transition-transform transform  ${openDropdown ? 'rotate-180' : ''}`} />}
-                                            </p>
-                                        </DropdownMenuTrigger>
-                                        <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-3 py-3 outline-none dark:bg-[#1F1F1F]">
-                                            {auth.is_divisi_it && (
-                                                <>
-                                                    <DropdownMenuItem asChild className="cursor-pointer">
-                                                        <Link
-                                                            href={route('master-user.index')}
-                                                            as='button'
-                                                        >
-                                                            <p className='flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200'>
-                                                                Master User
-                                                            </p>
-                                                        </Link>
-                                                    </DropdownMenuItem>
-                                                    <DropdownMenuItem asChild className="cursor-pointer">
-                                                        <Link
-                                                            href={route('master-sie.index')}
-                                                            as="button">
-                                                            <p className='flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200'>
-                                                                Master Sie
-                                                            </p>
-                                                        </Link>
-                                                    </DropdownMenuItem>
-                                                    <DropdownMenuItem asChild className="cursor-pointer">
-                                                        <Link
-                                                            href={route('master-period.index')}
-                                                            as="button">
-                                                            <p className='flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200'>
-                                                                Master Periode
-                                                            </p>
-                                                        </Link>
-                                                    </DropdownMenuItem>
-                                                    <DropdownMenuItem asChild className="cursor-pointer">
-                                                        <Link
-                                                            href={route('master-position.index')}
-                                                            as="button">
-                                                            <p className='flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200'>
-                                                                Master Jabatan
-                                                            </p>
-                                                        </Link>
-                                                    </DropdownMenuItem>
-                                                    <DropdownMenuItem asChild className="cursor-pointer">
-                                                        <Link
-                                                            href={route('master-open-rekruitmen.index')}
-                                                            as="button">
-                                                            <p className='flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200'>
-                                                                Master Oprec
-                                                            </p>
-                                                        </Link>
-                                                    </DropdownMenuItem>
-                                                </>
-                                            )}
-                                            {auth.is_ketua_kegiatan && (
-                                                <DropdownMenuItem asChild className="cursor-pointer">
+						<div className="flex flex-col items-center justify-center gap-5 md:flex-row">
+							{/* Untuk Tampilan Responsive */}
+							<div className="flex w-screen flex-row justify-between px-5 md:hidden md:w-full md:px-0">
+								<button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="text-xl">
+									<IconSideBar />
+								</button>
+								<ThemeSwitcher />
+							</div>
 
-                                                    <Link
-                                                        href={route('master-open-rekruitmen.index')}
-                                                        as="button">
-                                                        <p className='flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200'>
-                                                            Master Oprec
-                                                        </p>
-                                                    </Link>
-                                                </DropdownMenuItem>
-                                            )}
-                                        </DropdownMenuContent>
-                                    </DropdownMenu>
-                                </li>
-                            ) : (
-                                <>
+							<div className="divider flex h-[2px] w-auto bg-slate-200 dark:bg-slate-600 md:hidden md:w-full"></div>
+							<div className="hidden md:block">
+								<ThemeSwitcher />
+							</div>
+							<DropdownMenu>
+								<DropdownMenuTrigger asChild>
+									<p className="flex cursor-pointer flex-row items-center justify-center gap-4 text-gray-800 dark:text-gray-200">
+										<Avatar>
+											{auth.img_path ? (
+												<AvatarImage
+													src={auth.img_path}
+													alt={auth.name}
+													className="w-full object-cover"
+												/>
+											) : (
+												<AvatarFallback>{auth.nim.substring(0, 2)}</AvatarFallback>
+											)}
+										</Avatar>
+										<div className="flex flex-col items-start">
+											{auth.name ?? auth.nim}
+											<div className="flex flex-row items-center gap-1">
+												<p className="text-gray-500">
+													{auth?.role == 'ketua_kegiatan'
+														? 'Ketua Kegiatan'
+														: auth?.role == 'divisi_it'
+															? 'Divisi IT'
+															: 'Mahasiswa'}
+												</p>
+											</div>
+										</div>
+										<IconDropdown />
+									</p>
+								</DropdownMenuTrigger>
+								<DropdownMenuContent className="mr-0 flex w-56 flex-col justify-start gap-4 px-4 py-3 outline-none dark:bg-[#1F1F1F] md:mr-12">
+									<Link href={route('welcome')} className="flex flex-row items-center gap-2">
+										<Squares2X2Icon className="h-6 w-6 text-gray-500" />
+										Home
+									</Link>
+									<Link
+										href={route('logout')}
+										className="flex flex-row items-center gap-2 text-red-500"
+										type="button"
+										method="post"
+									>
+										<ArrowRightStartOnRectangleIcon className="h-6 w-6 text-red-500" />
+										Logout
+									</Link>
+								</DropdownMenuContent>
+							</DropdownMenu>
+						</div>
+					</header>
 
-                                </>
-                            )}
-                            <li className={`py-4 ${isSidebarOpen ? 'px-8' : 'items-center'} flex cursor-pointer flex-col justify-center`}>
-                                <Link
-                                    href={route('logout')}
-                                    as="button"
-                                    method="post"
-                                    className="light:text-[#404040] flex flex-row items-center justify-start gap-5 text-[14px] font-medium tracking-[0.11em] text-[#FF0000]"
-                                >
-                                    <IconLogoutSideBar />
-                                    Logout
-                                </Link>
-                            </li>
-                        </ul>
-                    </nav>
-                </aside>
-
-                {/* Main Content */}
-                <div
-                    className={`flex-1 ${isSidebarOpen ? 'ml-0 md:ml-[300px] lg:w-[75%] xl:w-[80%] 2xl:w-[85%]' : 'ml-0 md:ml-24 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]'} overflow-x-auto transition-all`}
-                >
-                    <header className="flex w-full items-center justify-center border-b-[1px] border-b-slate-200 px-0 py-[1.14rem] dark:border-b-slate-600 md:justify-between md:px-5">
-                        {/* Untuk Tampilan Laptop */}
-                        <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="hidden text-xl md:block">
-                            {!isSidebarOpen ? <Bars3BottomRightIcon className="w-6 h-6 text-[#000000] dark:text-white" /> : <IconSideBar />}
-                        </button>
-
-                        <div className="flex flex-col items-center justify-center gap-5 md:flex-row">
-                            {/* Untuk Tampilan Responsive */}
-                            <div className="flex w-screen flex-row justify-between px-5 md:hidden md:w-full md:px-0">
-                                <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="text-xl">
-                                    <IconSideBar />
-                                </button>
-                                <ThemeSwitcher />
-                            </div>
-
-                            <div className="divider flex h-[2px] w-auto bg-slate-200 dark:bg-slate-600 md:hidden md:w-full"></div>
-                            <div className='hidden md:block'>
-                                <ThemeSwitcher />
-                            </div>
-                            <DropdownMenu>
-                                <DropdownMenuTrigger asChild>
-                                    <p className='cursor-pointer flex flex-row gap-4 justify-center items-center text-gray-800 dark:text-gray-200'>
-                                        <Avatar>
-                                            {auth.img_path ? (
-                                                <AvatarImage src={auth.img_path} alt={auth.name} className="object-cover w-full" />
-                                            ) : (
-                                                <AvatarFallback>{auth.nim.substring(0, 2)}</AvatarFallback>
-                                            )}
-                                        </Avatar>
-                                        <div className='flex flex-col items-start'>
-                                            {auth.name ?? auth.nim}
-                                            <div className='flex flex-row gap-1 items-center'>
-                                                <p className='text-gray-500'>{auth?.role == "ketua_kegiatan" ? "Ketua Kegiatan"  : auth?.role == "divisi_it" ? "Divisi IT" : "Mahasiswa" }</p>
-                                            </div>
-                                        </div>
-                                        <IconDropdown />
-                                    </p>
-                                </DropdownMenuTrigger>
-                                <DropdownMenuContent className="w-56 flex flex-col justify-start px-4 gap-4 py-3 outline-none md:mr-12 mr-0 dark:bg-[#1F1F1F]" >
-                                    <Link
-                                        href={route('welcome')}
-                                        className="flex flex-row items-center gap-2"
-                                    >
-                                        <Squares2X2Icon className="h-6 w-6 text-gray-500" />
-                                        Home
-                                    </Link>
-                                    <Link
-                                        href={route('logout')}
-                                        className="text-red-500 flex flex-row items-center gap-2"
-                                        type='button'
-                                        method='post'
-                                    >
-                                        <ArrowRightStartOnRectangleIcon className="h-6 w-6 text-red-500" />
-                                        Logout
-                                    </Link>
-                                </DropdownMenuContent>
-                            </DropdownMenu>
-
-                        </div>
-                    </header>
-
-                    <div className="flex min-h-screen flex-col gap-1 bg-[#E6EFF5] px-4 py-2 dark:bg-[#101010] md:px-10 md:py-5 md:mt-0 pt-10">
-                        <p className='text-3xl font-semibold leading-tight text-gray-800 dark:text-white'>
-                            {header}
-                        </p>
-                        <p className='text-[17px] text-gray-500 dark:text-white'>
-                            {description}
-                        </p>
-                        {children}
-                    </div>
-                </div>
-            </div>
-        </>
-    );
+					<div className="flex min-h-screen flex-col gap-1 bg-[#E6EFF5] px-4 py-2 pt-10 dark:bg-[#101010] md:mt-0 md:px-10 md:py-5">
+						<p className="text-3xl font-semibold leading-tight text-gray-800 dark:text-white">{header}</p>
+						<p className="text-[17px] text-gray-500 dark:text-white">{description}</p>
+						{children}
+					</div>
+				</div>
+			</div>
+		</>
+	);
 }

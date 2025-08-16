@@ -5,115 +5,110 @@ import TextInput from '@/Components/TextInput';
 import { Button } from '@/Components/ui/button';
 import { Card, CardContent, CardHeader } from '@/Components/ui/card';
 import GuestLayout from '@/Layouts/GuestLayout';
-import { flashMessage } from '@/lib/utils';
-import { Head, Link, useForm, usePage } from '@inertiajs/react';
+import { Link, useForm } from '@inertiajs/react';
 import { useEffect } from 'react';
-import { toast } from 'sonner';
 
 export default function Login({ status, canResetPassword }) {
-    const { data, setData, post, processing, errors, reset } = useForm({
-        nim: '',
-        password: '',
-        remember: false,
-    });
+	const { data, setData, post, processing, errors, reset } = useForm({
+		nim: '',
+		password: '',
+		remember: false,
+	});
 
-    useEffect(() => {
-        return () => {
-            reset('password');
-        };
-    }, []);
+	useEffect(() => {
+		return () => {
+			reset('password');
+		};
+	}, []);
 
-    const submit = (e) => {
-        e.preventDefault();
+	const submit = (e) => {
+		e.preventDefault();
 
-        post(route('login'));
-    };
+		post(route('login'));
+	};
 
-    return (
-
-        <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-            <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-                <Card>
-                    <CardHeader className="flex flex-col items-center justify-center">
-                        <Link href="/" className="text-4xl font-black leading-relaxed tracking-tighter">
-                            HMTI-<span className="text-red-500">NG</span>
-                        </Link>
-                        <h2 className="text-left text-lg font-medium leading-relaxed tracking-tight text-muted-foreground">
-                            Sign in to your account
-                        </h2>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="mt-6 mb-6 sm:mx-auto sm:w-full sm:max-w-sm">
-                            {status && <div className="mb-4 text-sm font-medium text-green-600">{status}</div>}
-                            <form className="space-y-6" onSubmit={submit}>
-                                {/* form */}
-                                <div>
-                                    <InputLabel htmlFor="nim" value="NIM" />
-                                    <TextInput
-                                        id="nim"
-                                        type="nim"
-                                        name="nim"
-                                        value={data.nim}
-                                        className="mt-1 block w-full"
-                                        autoComplete="nim"
-                                        isFocused={true}
-                                        onChange={(e) => setData('nim', e.target.value)}
-                                        onErrors={
-                                            errors.nim && <InputError message={errors.nim} className="mt-2" />
-                                        }
-                                    />
-                                </div>
-                                <div>
-                                    {canResetPassword && (
-                                        <div className="mt-3 text-end text-sm">
-                                            <Link
-                                                href={route('password.request')}
-                                                className="font-regular duration-400 text-[#4880FF] underline transition-all ease-in-out hover:text-[#4880FF]/80 hover:no-underline"
-                                            >
-                                                Forgot your password?
-                                            </Link>
-                                        </div>
-                                    )}
-                                    <div>
-                                        <InputLabel htmlFor="password" value="Password" />
-                                        <TextInput
-                                            id="password"
-                                            type="password"
-                                            name="password"
-                                            value={data.password}
-                                            className="mt-1 block w-full"
-                                            autoComplete="password"
-                                            onChange={(e) => setData('password', e.target.value)}
-                                            onErrors={
-                                                errors.password && (
-                                                    <InputError message={errors.password} className="mt-2" />
-                                                )
-                                            }
-                                        />
-                                    </div>
-                                </div>
-                                <div className="mt-4 block">
-                                    <label htmlFor="" className="flex items-center">
-                                        <Checkbox
-                                            name="remember"
-                                            checked={data.remember}
-                                            onChange={(e) => setData('remember', e.target.checked)}
-                                        />
-                                        <span className="ms-2 text-sm text-muted-foreground">Remember me</span>
-                                    </label>
-                                </div>
-                                <div>
-                                    <Button type="submit" variant="blue" className="w-full" disabled={processing}>
-                                        Sign in
-                                    </Button>
-                                </div>
-                            </form>
-                        </div>
-                    </CardContent>
-                </Card>
-            </div>
-        </div>
-    );
+	return (
+		<div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+			<div className="sm:mx-auto sm:w-full sm:max-w-sm">
+				<Card>
+					<CardHeader className="flex flex-col items-center justify-center">
+						<Link href="/" className="text-4xl font-black leading-relaxed tracking-tighter">
+							HMTI-<span className="text-red-500">NG</span>
+						</Link>
+						<h2 className="text-left text-lg font-medium leading-relaxed tracking-tight text-muted-foreground">
+							Sign in to your account
+						</h2>
+					</CardHeader>
+					<CardContent>
+						<div className="mb-6 mt-6 sm:mx-auto sm:w-full sm:max-w-sm">
+							{status && <div className="mb-4 text-sm font-medium text-green-600">{status}</div>}
+							<form className="space-y-6" onSubmit={submit}>
+								{/* form */}
+								<div>
+									<InputLabel htmlFor="nim" value="NIM" />
+									<TextInput
+										id="nim"
+										type="nim"
+										name="nim"
+										value={data.nim}
+										className="mt-1 block w-full"
+										autoComplete="nim"
+										isFocused={true}
+										onChange={(e) => setData('nim', e.target.value)}
+										onErrors={errors.nim && <InputError message={errors.nim} className="mt-2" />}
+									/>
+								</div>
+								<div>
+									{canResetPassword && (
+										<div className="mt-3 text-end text-sm">
+											<Link
+												href={route('password.request')}
+												className="font-regular duration-400 text-[#4880FF] underline transition-all ease-in-out hover:text-[#4880FF]/80 hover:no-underline"
+											>
+												Forgot your password?
+											</Link>
+										</div>
+									)}
+									<div>
+										<InputLabel htmlFor="password" value="Password" />
+										<TextInput
+											id="password"
+											type="password"
+											name="password"
+											value={data.password}
+											className="mt-1 block w-full"
+											autoComplete="password"
+											onChange={(e) => setData('password', e.target.value)}
+											onErrors={
+												errors.password && (
+													<InputError message={errors.password} className="mt-2" />
+												)
+											}
+										/>
+									</div>
+								</div>
+								<div className="mt-4 block">
+									<label htmlFor="" className="flex items-center">
+										<Checkbox
+											name="remember"
+											checked={data.remember}
+											onChange={(e) => setData('remember', e.target.checked)}
+										/>
+										<span className="ms-2 text-sm text-muted-foreground">Remember me</span>
+									</label>
+								</div>
+								<div>
+									<Button type="submit" variant="blue" className="w-full" disabled={processing}>
+										Sign in
+									</Button>
+								</div>
+							</form>
+						</div>
+					</CardContent>
+				</Card>
+			</div>
+		</div>
+	);
 }
 
 Login.layout = (page) => <GuestLayout children={page} title="Log in" />;
