@@ -121,7 +121,7 @@ export default function Sidebar({ navigations, children, header, description }) 
 												<>
 													<DropdownMenuItem asChild className="cursor-pointer">
 														<Link href={route('master-user.index')} as="button">
-															<p className="flex flex-row items-center gap-2 text-gray-800 dark:text-gray-200">
+															<p className="flex flex-row items-center gap-1 text-gray-800 dark:text-gray-200">
 																Master User
 															</p>
 														</Link>
@@ -259,7 +259,7 @@ export default function Sidebar({ navigations, children, header, description }) 
 												)}
 											</p>
 										</DropdownMenuTrigger>
-										<DropdownMenuContent className="flex w-56 flex-col justify-start gap-3 px-4 py-3 outline-none dark:bg-[#1F1F1F]">
+										<DropdownMenuContent className="flex w-56 flex-col justify-start gap-1 px-4 py-3 outline-none dark:bg-[#1F1F1F]">
 											{auth.is_divisi_it && (
 												<>
 													<DropdownMenuItem asChild className="cursor-pointer">

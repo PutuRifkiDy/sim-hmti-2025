@@ -255,6 +255,19 @@ export default function Index() {
 		}
 	};
 
+    const dateFormat = (date_parameter) => {
+        if (!date_parameter) return '-';
+
+        const date = new Date(date_parameter);
+        return date.toLocaleString('id-ID', {
+            year: 'numeric',
+            month: 'long',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+        });
+    }
+
 	return (
 		<>
 			<div className="py-5">
@@ -338,13 +351,13 @@ export default function Index() {
 										<Column
 											field="start_date"
 											header="Tanggal Mulai"
-											body={(rowData) => rowData.start_date ?? '-'}
+											body={(rowData) => dateFormat(rowData.start_date)}
 											className="min-w-[12rem]"
 										></Column>
 										<Column
 											field="end_date"
 											header="Tanggal Selesai"
-											body={(rowData) => rowData.end_date ?? '-'}
+											body={(rowData) => dateFormat(rowData.end_date)}
 											className="min-w-[12rem]"
 										></Column>
 										<Column
@@ -369,7 +382,7 @@ export default function Index() {
 									<Modal show={modalOpen} onClose={closeModal} maxWidth="md">
 										<div className="p-5 dark:bg-[#101010]">
 											<h2 className="text-lg font-semibold text-gray-900 dark:text-white">
-												Apakah anda yakin menghapus fungsionaris ini
+												Apakah anda yakin menghapus open recruitmen ini
 											</h2>
 
 											<p className="mt-1 text-sm text-gray-600 dark:text-white">

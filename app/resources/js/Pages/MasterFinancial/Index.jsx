@@ -183,7 +183,7 @@ export default function Index() {
 				<div className="action_buttons flex flex-row items-center gap-2">
 					<Button variant="none" data-pr-tooltip="Edit data" className="w-0">
 						<Link
-							className="flex items-center justify-center rounded-md border-2 border-[#dfe44d] p-1.5 transition-all duration-300 ease-in-out hover:bg-[#4DE45C]/20"
+							className="flex items-center justify-center rounded-md border-2 border-[#dfe44d] p-1.5 transition-all duration-300 ease-in-out hover:bg-[#dfe44d]/20"
 							type="button"
 							href={route('master-financial.edit', rowData.id)}
 						>
@@ -203,6 +203,19 @@ export default function Index() {
 			</>
 		);
 	};
+
+    const dateFormat = (date_parameter) => {
+        if (!date_parameter) return '-';
+
+        const date = new Date(date_parameter);
+        return date.toLocaleString('id-ID', {
+            year: 'numeric',
+            month: 'long',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+        });
+    }
 
 	return (
 		<>
@@ -243,7 +256,7 @@ export default function Index() {
 								value="Tanggal Mulai"
 								className="text-[12px] font-normal text-[#676767] dark:text-gray-400"
 							/>
-							<p>{period.start_date ? period.start_date : '-'}</p>
+							<p>{dateFormat(period.start_date)}</p>
 						</div>
 						<div>
 							<InputLabel
@@ -251,7 +264,7 @@ export default function Index() {
 								value="Tanggal Selesai"
 								className="text-[12px] font-normal text-[#676767] dark:text-gray-400"
 							/>
-							<p>{period.end_date ? period.end_date : '-'}</p>
+							<p>{dateFormat(period.end_date)}</p>
 						</div>
 					</div>
 
