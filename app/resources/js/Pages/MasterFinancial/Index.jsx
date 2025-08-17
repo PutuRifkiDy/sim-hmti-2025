@@ -217,6 +217,16 @@ export default function Index() {
         });
     }
 
+    const moneyFormat = (number_parameter) => {
+        if (!number_parameter) return '-';
+
+        const number = new Intl.NumberFormat('id-ID', {
+            style: 'currency',
+            currency: 'IDR',
+        });
+        return number.format(number_parameter);
+    }
+
 	return (
 		<>
 			<div className="py-5">
@@ -234,9 +244,9 @@ export default function Index() {
 							<Link
 								as="button"
 								href={route('master-period.index')}
-								className="flex flex-row items-center text-[14px] font-bold"
+								className="group flex flex-row items-center text-[14px] font-bold gap-1"
 							>
-								<ArrowLeftIcon className="mr-2 h-3 w-3 font-bold" />
+								<ArrowLeftIcon className="transform transition-transform duration-300 group-hover:-translate-x-1 h-3 w-3 font-bold" />
 								Kembali
 							</Link>
 						</Button>
@@ -328,7 +338,7 @@ export default function Index() {
 										<Column
 											field="total_income"
 											header="Total"
-											body={(rowData) => rowData.total_income ?? '-'}
+											body={(rowData) => (moneyFormat(rowData.total_income))}
 											className="min-w-[12rem]"
 										></Column>
 										<Column

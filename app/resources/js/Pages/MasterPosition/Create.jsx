@@ -46,9 +46,9 @@ export default function Create() {
 							<Link
 								as="button"
 								href={route('master-position.index')}
-								className="flex flex-row items-center text-[14px] font-bold"
+								className="group flex flex-row items-center text-[14px] font-bold gap-1"
 							>
-								<ArrowLeftIcon className="mr-2 h-3 w-3 font-bold" />
+								<ArrowLeftIcon className="h-3 w-3 font-bold transform transition-transform duration-300 group-hover:-translate-x-1" />
 								Kembali
 							</Link>
 						</Button>

@@ -248,9 +248,9 @@ export default function SeeRegistered() {
                             <Link
                                 as="button"
                                 href={route('master-open-rekruitmen.index')}
-                                className="flex flex-row items-center text-[14px] font-bold shadow-[0_0_15px_#ECBB4E]"
+                                className="group flex flex-row items-center text-[14px] font-bold shadow-[0_0_15px_#ECBB4E] gap-1"
                             >
-                                <ArrowLeftIcon className="mr-2 h-3 w-3 font-bold" />
+                                <ArrowLeftIcon className="transform transition-transform duration-300 group-hover:-translate-x-1 h-3 w-3 font-bold" />
                                 Kembali
                             </Link>
                         </Button>
