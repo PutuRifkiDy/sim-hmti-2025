@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
     {
 
         $this->call([
+            RoleSeeder::class,
             UserSeeder::class,
             MasterSieSeeder::class,
             MasterPeriodSeeder::class,
@@ -22,7 +23,6 @@ class DatabaseSeeder extends Seeder
             HimpunanSeeder::class,
             MasterProgramKerjaSeeder::class,
             MasterFinancialSeeder::class,
-            RoleSeeder::class,
         ]);
 
         User::create([
