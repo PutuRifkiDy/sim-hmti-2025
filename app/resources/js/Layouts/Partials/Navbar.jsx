@@ -120,25 +120,25 @@ export default function NavBar({ auth }) {
 								</Avatar>
 							</DropdownMenuTrigger>
 							<DropdownMenuContent className="mr-12 flex w-56 flex-col justify-start gap-0 border-2 border-gray-300 outline-none dark:bg-[#101010]">
-								<DropdownMenuItem className="flex flex-row items-center gap-3 p-2">
+								<DropdownMenuItem className="flex flex-row items-center gap-3 p-2 cursor-pointer">
 									<UsersIcon className="h-10 w-10 shrink-0 text-gray-500" />
 									<div className="flex flex-col gap-1">
-										<p className="text-[14px] leading-[110%] text-[#7F7F7F]">{auth.name}</p>
-										<p className="text-[12px] leading-[110%] text-[#ACACAC]">{auth.nim}</p>
+										<p className="text-[14px] leading-[110%] text-[#000000] dark:text-white">{auth.name}</p>
+										<p className="text-[12px] leading-[110%] text-[#1F1F1F]/80 dark:text-gray-400">{auth.nim}</p>
 									</div>
 								</DropdownMenuItem>
 								<div className="h-[1px] w-full bg-gray-300"></div>
-								<DropdownMenuItem className="p-2">
+								<DropdownMenuItem className="p-2 cursor-pointer" asChild>
 									<Link href={route('profile.edit')} className="flex flex-row items-center gap-2">
 										<Squares2X2Icon className="h-6 w-6 text-gray-500" />
 										Dashboard
 									</Link>
 								</DropdownMenuItem>
 								<div className="h-[1px] w-full bg-gray-300"></div>
-								<DropdownMenuItem className="p-2">
+								<DropdownMenuItem className="p-2 cursor-pointer " asChild>
 									<Link
 										href={route('logout')}
-										className="flex flex-row items-center gap-2 text-red-500"
+										className="flex flex-row items-center gap-2 text-red-500 "
 										type="button"
 										method="post"
 									>

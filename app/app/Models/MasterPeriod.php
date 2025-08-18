@@ -23,12 +23,12 @@ class MasterPeriod extends Model
 
     public function himpunans()
     {
-        return $this->hasMany(Himpunan::class);
+        return $this->hasMany(Himpunan::class, 'period_id');
     }
 
     public function program_kerjas()
     {
-        return $this->hasMany(MasterProgramKerja::class);
+        return $this->hasMany(MasterProgramKerja::class, 'period_id');
     }
 
     public function financials()

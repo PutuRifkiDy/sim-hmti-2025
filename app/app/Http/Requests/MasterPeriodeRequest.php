@@ -28,7 +28,7 @@ class MasterPeriodeRequest extends FormRequest
             'anggaran_rumah_tangga' => ['nullable', 'string', 'max:255', 'url'],
             'agenda_khusus'         => ['nullable', 'string', 'max:255', 'url'],
             'youtube_link'          => ['nullable', 'string', 'max:255', 'url'],
-            'cover_path'            => ['nullable', 'mimes:jpg,jpeg,png', 'max:1048'],
+            'cover_path'            => ['nullable', 'mimes:jpg,jpeg,png', 'max:5048'],
         ];
     }
 

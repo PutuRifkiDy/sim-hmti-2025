@@ -5,25 +5,25 @@ import { Link } from '@inertiajs/react';
 export default function Footer({ ...props }) {
 	return (
 		<>
-			<div className="hidden md:block">
+			<div className="hidden md:block z-50">
 				<div className="relative w-full">
 					<img
 						src="/assets/icon/hiasan_left_footer.png"
 						alt="Ornament Left"
-						className="absolute -top-48 left-0 h-[192px] w-[193px]"
+						className="absolute -top-48 left-0 h-[192px] w-[193px] z-20"
 					/>
 					<img
 						src="/assets/icon/hiasan_center_footer.png"
 						alt="Ornament Left"
-						className="absolute -top-24 left-1/2 h-[134px] w-[762px] -translate-x-1/2"
+						className="absolute -top-24 left-1/2 h-[134px] w-[762px] -translate-x-1/2 z-20"
 					/>
 					<img
 						src="/assets/icon/hiasan_right_footer.png"
 						alt="Ornament Left"
-						className="absolute -top-48 right-0 h-[192px] w-[193px]"
+						className="absolute -top-48 right-0 h-[192px] w-[193px] z-20"
 					/>
 				</div>
-				<footer className="bg-[#071108]">
+				<footer className="bg-[#071108] z-30">
 					<div className="mb-10 flex w-full flex-row justify-between px-12 py-12">
 						<div className="flex flex-col gap-5">
 							<div>
@@ -90,7 +90,7 @@ export default function Footer({ ...props }) {
 							</Link>
 						</div>
 
-						<div className="flex flex-col gap-10">
+						<div className="flex flex-col gap-10 ">
 							<div className="flex flex-col gap-5">
 								<h1 className="text-[18px] font-semibold text-white">Terkait</h1>
 								<p className="w-full text-[14px] leading-[140%] text-white md:w-[280px]">

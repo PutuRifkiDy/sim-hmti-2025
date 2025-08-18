@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ADARTController;
+use App\Http\Controllers\FrontController;
 use App\Http\Controllers\MasterFinancialController;
 use App\Http\Controllers\MasterGrafikController;
 use App\Http\Controllers\MasterHimpunanController;
@@ -24,6 +25,10 @@ Route::get('/', function () {
         'phpVersion'     => PHP_VERSION,
     ]);
 })->name('welcome');
+
+Route::controller(FrontController::class)->group(function () {
+    Route::get('/', 'welcome')->name('welcome');
+});
 
 // Route::get('/dashboard', function () {
 //     return Inertia::render('Dashboard');

@@ -62,10 +62,10 @@ export default function Index() {
 								>
 									<Link
 										href={route('oprec-regist.show', oprec.id)}
-										className="flex flex-row items-center gap-1 px-2 text-[14px] font-bold text-white"
+										className="flex flex-row items-center gap-1 px-2 text-[14px] font-bold text-white group"
 									>
 										Join
-										<ArrowRightIcon className="inline-block h-4 w-4" />
+										<ArrowRightIcon className="inline-block h-4 w-4 transition-transform transform duration-300 group-hover:translate-x-1" />
 									</Link>
 								</Button>
 							</div>
