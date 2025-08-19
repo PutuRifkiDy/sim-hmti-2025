@@ -1,4 +1,23 @@
+import { useEffect } from "react";
+import * as AOS from 'aos';
+import 'aos/dist/aos.css';
+
 export default function AboutSection({ youtube_link }) {
+    useEffect(() => {
+        AOS.init({
+            duration: 800,
+            once: false,
+            easing: 'ease-out-cubic',
+            offset: 100,
+            delay: 0,
+            mirror: false,
+            anchorPlacement: 'top-bottom',
+        });
+
+        setTimeout(() => {
+            AOS.refreshHard();
+        }, 500);
+    }, []);
     return (
         <>
             <div
@@ -9,16 +28,24 @@ export default function AboutSection({ youtube_link }) {
                         <div className="text-left flex flex-col items-center md:items-start">
                             <div className="relative">
                                 <span
+                                    data-aos="fade-up"
+                                    data-aos-duration="600"
                                     className="block text-5xl md:text-7xl lg:text-7xl font-normal text-[#785233] leading-none"
                                     style={{ fontFamily: "Arrintika Signature, cursive" }}
                                 >
                                     About
                                 </span>
-                                <h1 className="uppercase text-5xl md:text-7xl lg:text-7xl font-bold text-[#ECC067] leading-none -mt-2 md:-mt-4 font-poppins">
+                                <h1
+                                    data-aos="fade-up"
+                                    data-aos-duration="1200"
+                                    className="uppercase text-5xl md:text-7xl lg:text-7xl font-bold text-[#ECC067] leading-none -mt-2 md:-mt-4 font-poppins">
                                     HMTI
                                 </h1>
                             </div>
-                            <p className="mt-4 md:mt-6 text-black md:text-2xl text-base leading-relaxed font-poppins text-justify dark:text-white">
+                            <p
+                                data-aos="fade-up"
+                                data-aos-duration="1500"
+                                className="mt-4 md:mt-6 text-black md:text-2xl text-base leading-relaxed font-poppins text-justify dark:text-white">
                                 Himpunan Mahasiswa Teknologi Informasi atau biasa disebut HMTI
                                 merupakan organisasi kemahasiswaan di lingkungan Program Studi
                                 Teknologi Informasi, Fakultas Teknik, Universitas Udayana. <br />{" "} <br />
@@ -35,6 +62,8 @@ export default function AboutSection({ youtube_link }) {
                                 src={youtube_link}
                                 className="w-full h-auto aspect-video rounded-lg"
                                 allowFullScreen
+                                data-aos="zoom-in"
+                                data-aos-duration="1500"
                             ></iframe>
                         </div>
                     </div>

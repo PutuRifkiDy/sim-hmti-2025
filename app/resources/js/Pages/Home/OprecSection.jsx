@@ -9,9 +9,25 @@ import 'swiper/css/pagination';
 import { ArrowRightIcon } from '@heroicons/react/24/solid';
 import { Link } from '@inertiajs/react';
 import { Button } from '@/Components/ui/button';
+import { useEffect } from "react";
+import * as AOS from 'aos';
+import 'aos/dist/aos.css';
 export default function OprecSection({ oprecs, dateNow }) {
-    console.log("ini adalah oprec", oprecs);
+    useEffect(() => {
+        AOS.init({
+            duration: 800,
+            once: false,
+            easing: 'ease-out-cubic',
+            offset: 100,
+            delay: 0,
+            mirror: false,
+            anchorPlacement: 'top-bottom',
+        });
 
+        setTimeout(() => {
+            AOS.refreshHard();
+        }, 500);
+    }, []);
     const templateDateTime = (date) => {
         const options = { year: 'numeric', month: 'short', day: '2-digit' };
         const formatDate = new Date(date).toLocaleDateString('id-ID', options);
@@ -30,10 +46,19 @@ export default function OprecSection({ oprecs, dateNow }) {
             <div className='w-full px-[32px] py-[16px] flex flex-col items-center pb-36 bg-white dark:bg-[#1f1f1f] z-10'>
                 <div className="header-oprec w-[95%] mb-[32px] flex justify-between md:items-end items-center flex-col md:flex-row">
                     <div className="inner-header-oprec flex flex-col items-center md:items-start">
-                        <h1 className='text-[#ECC067] font-bold text-[30px] text-center md:text-start'>OPEN RECRUITMEN</h1>
-                        <p className='text-center md:text-start'>Ayo daftarkan dirimu dalam kegiatan-kegiatan HMTI, kami tunggu kontribusi kalian!</p>
+                        <h1
+                            data-aos="fade-up"
+                            data-aos-duration="600"
+                            className='text-[#ECC067] font-bold text-[30px] text-center md:text-start'>OPEN RECRUITMEN</h1>
+                        <p
+                            data-aos="fade-up"
+                            data-aos-duration="1200"
+                            className='text-center md:text-start'>Ayo daftarkan dirimu dalam kegiatan-kegiatan HMTI, kami tunggu kontribusi kalian!</p>
                     </div>
-                    <Link href={route('oprec-regist.index')} className='flex items-center h-fit mt-[20px] md:mt-[0px] group'>
+                    <Link
+                        data-aos="fade-up"
+                        data-aos-duration="1200"
+                        href={route('oprec-regist.index')} className='flex items-center h-fit mt-[20px] md:mt-[0px] group'>
                         Lihat Semua
                         <ArrowRightIcon className='w-[20px] h-[20px] ml-[12px] transform transition-transform duration-300 group-hover:translate-x-1' />
                     </Link>
@@ -62,7 +87,10 @@ export default function OprecSection({ oprecs, dateNow }) {
                         className='h-full'
                     >
                         {oprecs.map((oprec, index) => (
-                            <SwiperSlide key={index}>
+                            <SwiperSlide key={index}
+                                data-aos="fade-up"
+                                data-aos-duration="600"
+                            >
                                 <Link
                                     href={route('oprec-regist.show', oprec.id)}
                                 >

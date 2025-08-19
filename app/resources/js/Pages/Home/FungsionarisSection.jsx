@@ -3,9 +3,25 @@ import "swiper/css";
 import { Button } from "@/Components/ui/button";
 import { Link } from "@inertiajs/react";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
+import { useEffect } from "react";
+import * as AOS from 'aos';
+import 'aos/dist/aos.css';
 export default function FungsionarisSection({ cover_path, fungsionaris }) {
+    useEffect(() => {
+        AOS.init({
+            duration: 800,
+            once: false,
+            easing: 'ease-out-cubic',
+            offset: 100,
+            delay: 0,
+            mirror: false,
+            anchorPlacement: 'top-bottom',
+        });
 
-    console.log('ini adalah fungsionaris', fungsionaris);
+        setTimeout(() => {
+            AOS.refreshHard();
+        }, 500);
+    }, []);
     return (
         <div
             className={`relative w-full flex-shrink-0 aspect-[97/65]
@@ -37,6 +53,8 @@ export default function FungsionarisSection({ cover_path, fungsionaris }) {
             text-[clamp(2rem,5vw,4.75rem)]
             z-20
           "
+                    data-aos="fade-up"
+                    data-aos-duration="600"
                 >
                     Susunan
                 </h2>
@@ -50,6 +68,8 @@ export default function FungsionarisSection({ cover_path, fungsionaris }) {
             text-[clamp(2rem,6vw,5.5rem)]
             -mt-[0.5em]
           "
+                    data-aos="fade-up"
+                    data-aos-duration="1200"
                 >
                     FUNGSIONARIS
                 </h1>
@@ -93,7 +113,13 @@ export default function FungsionarisSection({ cover_path, fungsionaris }) {
                     </Swiper>
                 </div>
 
-                <Button variant="gold" type="button" asChild className="shadow-[0_0_15px_#ECBB4E] px-16 py-5 animate-bounce transition-all duration-1000 ease-in-out md:mt-28 mt-12">
+                <Button
+                    data-aos="zoom-in"
+                    data-aos-duration="600"
+                    variant="gold"
+                    type="button"
+                    asChild
+                    className="shadow-[0_0_15px_#ECBB4E] px-16 py-5 animate-bounce transition-all duration-1000 ease-in-out md:mt-28 mt-12">
                     <Link
                         className="group"
                     >

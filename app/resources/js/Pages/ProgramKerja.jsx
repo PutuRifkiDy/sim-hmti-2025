@@ -4,13 +4,30 @@ import { router, usePage } from "@inertiajs/react";
 import ProgramKerjaSection from "./ProgramKerja/ProgramKerjasection";
 import { useState } from "react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/Components/ui/select";
+import { useEffect } from "react";
+import * as AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export default function ProgramKerja() {
     const data_periods = usePage().props.data_periods;
     const program_kerja_active = usePage().props.program_kerja_active;
     const periodActive = usePage().props.periodActive;
 
-    console.log('ini adalah periodActive', periodActive);
+    useEffect(() => {
+        AOS.init({
+            duration: 800,
+            once: false,
+            easing: 'ease-out-cubic',
+            offset: 100,
+            delay: 0,
+            mirror: false,
+            anchorPlacement: 'top-bottom',
+        });
+
+        setTimeout(() => {
+            AOS.refreshHard();
+        }, 500);
+    }, []);
 
     const [selectedPeriodId, setSelectedPeriodId] = useState(periodActive.id);
 
@@ -31,10 +48,10 @@ export default function ProgramKerja() {
 
     return (
         <>
-            <div className="md:py-24 py-5 px-12">
+            <div className="md:py-24 py-5 md:px-12 px-5">
                 <TitleProgramKerjaSection />
-                <Select value={selectedPeriodId} onValueChange={onHandleChange}>
-                    <SelectTrigger className="w-full md:w-[250px]">
+                <Select value={selectedPeriodId} onValueChange={onHandleChange} >
+                    <SelectTrigger className="w-full md:w-[250px]" data-aos="fade-up" data-aos-duration="600">
                         <SelectValue placeholder="Pilih Periode" />
                     </SelectTrigger>
                     <SelectContent>

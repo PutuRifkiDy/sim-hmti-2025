@@ -2,6 +2,8 @@ import { Button } from "@/Components/ui/button";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import { Link } from "@inertiajs/react";
 import { useEffect, useState } from "react";
+import * as AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const fontStyles = `
   @font-face {
@@ -23,7 +25,21 @@ export default function ProgramKerjaSection({ program_kerja }) {
         setHoveredCard(null);
     };
 
+    useEffect(() => {
+        AOS.init({
+            duration: 800,
+            once: false,
+            easing: 'ease-out-cubic',
+            offset: 100,
+            delay: 0,
+            mirror: false,
+            anchorPlacement: 'top-bottom',
+        });
 
+        setTimeout(() => {
+            AOS.refreshHard();
+        }, 500);
+    }, []);
 
     return (
         <>
@@ -40,20 +56,30 @@ export default function ProgramKerjaSection({ program_kerja }) {
                         <div className="relative inline-block">
                             <span
                                 className="relative block text-5xl sm:text-8xl font-normal text-[#785233] z-10"
+                                data-aos="fade-up"
+                                data-aos-duration="600"
                                 style={{ fontFamily: 'Arrintika Signature, cursive' }}>
                                 Program
                             </span>
-                            <h1 className="pb-0 text-5xl sm:text-8xl font-bold text-[#ECC067] mt-[-1.5rem] sm:mt-[-3rem]">
+                            <h1
+                                data-aos="fade-up"
+                                data-aos-duration="1200"
+                                className="pb-0 text-5xl sm:text-8xl font-bold text-[#ECC067] mt-[-1.5rem] sm:mt-[-3rem]">
                                 KERJA
                             </h1>
                         </div>
-                        <p className="mt-1 text-black dark:text-white">Daftar Program Kerja dalam naungan Himpunan Mahasiswa Teknologi Informasi</p>
+                        <p
+                            data-aos="fade-up"
+                            data-aos-duration="1500"
+                            className="mt-1 text-black dark:text-white">Daftar Program Kerja dalam naungan Himpunan Mahasiswa Teknologi Informasi</p>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 w-full">
                         {program_kerja.map((kerja, index) => (
                             <div
                                 className={`relative aspect-[414/233] rounded-lg overflow-hidden cursor-pointer shadow-md w-full max-w-[414px] mx-auto border-2 border-[#E4B45C] group hover:-translate-y-2 transition-all duration-500 ease-in-out`}
+                                data-aos="fade-up"
+                                data-aos-duration={(index + 1) * 300}
                                 onMouseEnter={() => handleMouseEnter(kerja)}
                                 onMouseLeave={handleMouseLeave}
                                 key={index}
@@ -95,7 +121,12 @@ export default function ProgramKerjaSection({ program_kerja }) {
                     </div>
 
                     <div className="md:mt-32 mt-10 text-center">
-                        <Button variant="gold" type="button" asChild className="shadow-[0_0_15px_#ECBB4E] px-16 py-5 animate-bounce transition-all duration-1000 ease-in-out">
+                        <Button
+                            data-aos="fade-up"
+                            data-aos-duration="600"
+                            variant="gold"
+                            type="button" asChild
+                            className="shadow-[0_0_15px_#ECBB4E] px-16 py-5 animate-bounce transition-all duration-1000 ease-in-out">
                             <Link
                                 className="group"
                                 href={route('program-kerja')}

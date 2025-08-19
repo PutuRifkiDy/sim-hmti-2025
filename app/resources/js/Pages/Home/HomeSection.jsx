@@ -1,4 +1,23 @@
-export default function HomeSection({title}) {
+import { useEffect } from "react";
+import * as AOS from 'aos';
+import 'aos/dist/aos.css';
+
+export default function HomeSection({ title }) {
+    useEffect(() => {
+        AOS.init({
+            duration: 800,
+            once: false,
+            easing: 'ease-out-cubic',
+            offset: 100,
+            delay: 0,
+            mirror: false,
+            anchorPlacement: 'top-bottom',
+        });
+
+        setTimeout(() => {
+            AOS.refreshHard();
+        }, 500);
+    }, []);
     return (
         <>
             <div className="w-full bg-white dark:bg-[#1e1e1e]">
@@ -9,6 +28,8 @@ export default function HomeSection({title}) {
                                 src="/assets/icon/logo_hmti.png"
                                 alt="Logo HMTI"
                                 className="w-32 lg:w-56 h-auto"
+                                data-aos="zoom-in"
+                                data-aos-duration="800"
                             />
                         </div>
 
@@ -17,14 +38,22 @@ export default function HomeSection({title}) {
                                 <span
                                     className="block text-5xl lg:text-7xl font-normal text-[#785233] leading-none"
                                     style={{ fontFamily: "Arrintika Signature, cursive" }}
+                                    data-aos="fade-up"
+                                    data-aos-duration="400"
                                 >
                                     Kabinet
                                 </span>
-                                <h1 className="uppercase text-5xl lg:text-7xl tracking-tighter font-extrabold text-[#ECC067] leading-none -mt-2 lg:-mt-4 font-poppins">
+                                <h1
+                                    data-aos="fade-up"
+                                    data-aos-duration="600"
+                                    className="uppercase text-5xl lg:text-7xl tracking-tighter font-extrabold text-[#ECC067] leading-none -mt-2 lg:-mt-4 font-poppins">
                                     {title}
                                 </h1>
                             </div>
-                            <p className="text-[#785233] text-[10px] lg:text-base leading-relaxed font-semibold md:w-[392px] w-full">
+                            <p
+                                data-aos="fade-up"
+                                data-aos-duration="800"
+                                className="text-[#785233] text-[10px] lg:text-base leading-relaxed font-semibold md:w-[392px] w-full">
                                 Himpunan Mahasiswa Teknologi Informasi <br />
                                 Universitas Udayana
                             </p>
