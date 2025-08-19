@@ -72,11 +72,12 @@ export default function NavBar({ auth }) {
                     </Link>
 
                     <Link
-                        className={`group relative overflow-hidden transition-all duration-300 hover:text-[#ECBB4E] dark:hover:text-[#ECBB4E] ${route().current('merchandise.front.show') ? 'text-[#ECBB4E] dark:text-[#ECBB4E]' : ''}`}
+                        href={route('fungsionaris')}
+                        className={`group relative overflow-hidden transition-all duration-300 hover:text-[#ECBB4E] dark:hover:text-[#ECBB4E] ${route().current('fungsionaris') ? 'text-[#ECBB4E] dark:text-[#ECBB4E]' : ''}`}
                     >
                         Struktur Organisasi
                         <span
-                            className={`absolute bottom-0 left-0 h-0.5 w-full origin-left transform bg-gradient-to-r from-[#ECBB4E]/90 to-[#ECBB4E] transition-all duration-300 ease-out ${route().current('merchandise.front.show') ? 'translate-x-0' : '-translate-x-full'} group-hover:translate-x-0 dark:from-[#ECBB4E]/90 dark:to-[#ECBB4E]`}
+                            className={`absolute bottom-0 left-0 h-0.5 w-full origin-left transform bg-gradient-to-r from-[#ECBB4E]/90 to-[#ECBB4E] transition-all duration-300 ease-out ${route().current('fungsionaris') ? 'translate-x-0' : '-translate-x-full'} group-hover:translate-x-0 dark:from-[#ECBB4E]/90 dark:to-[#ECBB4E]`}
                         ></span>
                     </Link>
 
@@ -180,12 +181,12 @@ export default function NavBar({ auth }) {
                             <Link href={route('welcome')}>Home</Link>
 
                             <Link
-                            // href={route('merchandise.front.show')}
+                                href={route('fungsionaris')}
                             >
                                 Struktur Organisasi
                             </Link>
                             <Link
-                            // href={route('merchandise.front.show')}
+                                href={route('program-kerja')}
                             >
                                 Program Kerja
                             </Link>

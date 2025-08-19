@@ -16,6 +16,12 @@ class MasterPosition extends Model
 
     public function himpunans()
     {
-        return $this->hasMany(Himpunan::class);
+        return $this->hasMany(Himpunan::class, 'position_id');
+    }
+
+    public function children()
+    {
+        return $this->hasMany(MasterPosition::class, 'parent_id')
+            ->with('children', 'himpunans.user');
     }
 }

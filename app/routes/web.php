@@ -21,6 +21,7 @@ Route::controller(FrontController::class)->group(function () {
     Route::get('/', 'welcome')->name('welcome');
     Route::get('/program-kerja', 'programKerja')->name('program-kerja');
     Route::get('/struktur-organisasi', 'strukturOrganisasi')->name('struktur-organisasi');
+    Route::get('/fungsionaris', 'fungsionaris')->name('fungsionaris');
 });
 
 Route::controller(MasterUserController::class)->group(function () {

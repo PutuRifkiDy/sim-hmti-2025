@@ -17,7 +17,7 @@ const TitleProgramKerjaSection = () => {
         </span>
       </div>
       <p
-        className="text-[10px] md:text-sm text-gray-800"
+        className="text-[10px] md:text-sm text-gray-800 dark:text-white"
         style={{ fontFamily: 'Rubik' }}
       >
         Daftar Program Kerja dalam naungan

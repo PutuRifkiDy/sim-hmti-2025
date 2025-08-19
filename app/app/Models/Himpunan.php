@@ -24,7 +24,7 @@ class Himpunan extends Model
 
     public function position()
     {
-        return $this->belongsTo(MasterPosition::class);
+        return $this->belongsTo(MasterPosition::class, 'position_id', 'id');
     }
 
     public function period()

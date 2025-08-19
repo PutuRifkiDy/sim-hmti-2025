@@ -13,18 +13,13 @@ export default function FungsionarisSection({ cover_path, fungsionaris }) {
               bg-cover bg-[center_80%] sm:bg-[center_80%]
               lg:bg-[center_70%] bg-no-repeat overflow-hidden`}
             style={{
-                backgroundImage: `
-      linear-gradient(
-        180deg,
-        #FFF 0%,
-        rgba(255, 255, 255, 0) 37.34%,
-        rgba(255, 255, 255, 0) 59.78%,
-        #FFF 100%
-      ),
-      url(${cover_path})
-    `
+                backgroundImage: `url(${cover_path})`
             }}
         >
+            <div className="absolute inset-0 bg-gradient-to-b from-white/100 via-white/0 to-white/100 dark:hidden" />
+
+            {/* overlay gradient dark */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#1F1F1F]/100 via-[#1F1F1F]/0 to-[#1F1F1F]/100 hidden dark:block" />
             <div
                 className="
           absolute top-0 left-1/2 -translate-x-1/2
@@ -102,7 +97,7 @@ export default function FungsionarisSection({ cover_path, fungsionaris }) {
                     <Link
                         className="group"
                     >
-                        See All Fungsionaris
+                        Lihat Semua Fungsionaris
                         <ArrowRightIcon className="w-5 h-5 transform transition-transform duration-300 group-hover:translate-x-2" />
                     </Link>
                 </Button>

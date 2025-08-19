@@ -29,7 +29,7 @@ export default function ProgramKerjaSection({ program_kerja }) {
         <>
             <style>{fontStyles}</style>
 
-            <section className="relative bg-white w-full flex items-center justify-center py-16 px-4 sm:px-8">
+            <section className="relative bg-white w-full flex items-center justify-center py-16 px-4 sm:px-8 dark:bg-[#1f1f1f]">
 
                 <img src="/assets/icon/hiasan_left_footer.png" alt="Ornament" className="absolute top-0 left-0 h-24 sm:h-32 md:h-48 z-10 transform rotate-90" />
                 <img src="/assets/icon/hiasan_right_footer.png" alt="Ornament" className="absolute top-0 right-0 h-24 sm:h-32 md:h-48 z-10 transform -rotate-90" />
@@ -47,7 +47,7 @@ export default function ProgramKerjaSection({ program_kerja }) {
                                 KERJA
                             </h1>
                         </div>
-                        <p className="mt-1 text-black">Daftar Program Kerja dalam naungan Himpunan Mahasiswa Teknologi Informasi</p>
+                        <p className="mt-1 text-black dark:text-white">Daftar Program Kerja dalam naungan Himpunan Mahasiswa Teknologi Informasi</p>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 w-full">
@@ -98,8 +98,9 @@ export default function ProgramKerjaSection({ program_kerja }) {
                         <Button variant="gold" type="button" asChild className="shadow-[0_0_15px_#ECBB4E] px-16 py-5 animate-bounce transition-all duration-1000 ease-in-out">
                             <Link
                                 className="group"
+                                href={route('program-kerja')}
                             >
-                                See All Proker
+                                Lihat Semua Program Kerja
                                 <ArrowRightIcon className="w-5 h-5 transform transition-transform duration-300 group-hover:translate-x-2" />
                             </Link>
                         </Button>
