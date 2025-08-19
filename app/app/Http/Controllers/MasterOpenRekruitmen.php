@@ -77,7 +77,7 @@ class MasterOpenRekruitmen extends Controller
             $oprecsie->save();
         }
 
-        flashMessage('Open Rekruitmen berhasil ditambahkan', 'success');
+        flashMessage('Open Recruitmen berhasil ditambahkan', 'success');
         return to_route('master-open-rekruitmen.index');
     }
 
@@ -123,7 +123,7 @@ class MasterOpenRekruitmen extends Controller
             ]);
         }
 
-        flashMessage('Open Rekruitmen berhasil diupdate', 'success');
+        flashMessage('Open Recruitmen berhasil diupdate', 'success');
         return to_route('master-open-rekruitmen.index');
     }
 
@@ -131,7 +131,7 @@ class MasterOpenRekruitmen extends Controller
     {
         $oprec = Oprec::find($id);
         $oprec->delete();
-        flashMessage('Open Rekruitmen berhasil dihapus', 'success');
+        flashMessage('Open Recruitmen berhasil dihapus', 'success');
         return to_route('master-open-rekruitmen.index');
     }
 

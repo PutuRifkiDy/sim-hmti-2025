@@ -55,7 +55,7 @@ class OprecRegistController extends Controller
             ->exists();
 
         if ($oprec_is_active == false) {
-            flashMessage("Oprec ini sudah tidak aktif lagi", 'error');
+            flashMessage("Open Recruitmen ini sudah tidak aktif lagi", 'error');
             return back();
         }
 
@@ -91,7 +91,7 @@ class OprecRegistController extends Controller
             ->exists();
 
         if ($oprec_is_active == false) {
-            flashMessage("Oprec ini sudah tidak aktif lagi", 'error');
+            flashMessage("Open Recruitmen ini sudah tidak aktif lagi", 'error');
             return back();
         }
 

@@ -30,7 +30,7 @@ export default function OprecSection({ oprecs, dateNow }) {
             <div className='w-full px-[32px] py-[16px] flex flex-col items-center pb-36 bg-white dark:bg-[#1f1f1f] z-10'>
                 <div className="header-oprec w-[95%] mb-[32px] flex justify-between md:items-end items-center flex-col md:flex-row">
                     <div className="inner-header-oprec flex flex-col items-center md:items-start">
-                        <h1 className='text-[#ECC067] font-bold text-[30px] text-center md:text-start'>OPEN RECRUITMENT</h1>
+                        <h1 className='text-[#ECC067] font-bold text-[30px] text-center md:text-start'>OPEN RECRUITMEN</h1>
                         <p className='text-center md:text-start'>Ayo daftarkan dirimu dalam kegiatan-kegiatan HMTI, kami tunggu kontribusi kalian!</p>
                     </div>
                     <Link href={route('oprec-regist.index')} className='flex items-center h-fit mt-[20px] md:mt-[0px] group'>

@@ -92,7 +92,6 @@ export default function UpdatePasswordForm({ className = '' }) {
 								onChange={(e) => setData('current_password', e.target.value)}
 								type={viewPassword == true ? 'text' : 'password'}
 								className="mt-1 block w-full dark:bg-[#1F1F1F]"
-								isFocused
 								autoComplete="current-password"
 								onErrors={
 									errors.current_password && (
@@ -127,7 +126,6 @@ export default function UpdatePasswordForm({ className = '' }) {
 								onChange={(e) => setData('password', e.target.value)}
 								type={viewPassword2 == true ? 'text' : 'password'}
 								className="mt-1 block w-full dark:bg-[#1F1F1F]"
-								isFocused
 								autoComplete="new-password"
 								onErrors={errors.password && <InputError message={errors.password} className="mt-2" />}
 							/>
@@ -158,7 +156,6 @@ export default function UpdatePasswordForm({ className = '' }) {
 								onChange={(e) => setData('password_confirmation', e.target.value)}
 								type={viewPassword3 == true ? 'text' : 'password'}
 								className="mt-1 block w-full dark:bg-[#1F1F1F]"
-								isFocused
 								autoComplete="new-password"
 								onErrors={
 									errors.password_confirmation && (

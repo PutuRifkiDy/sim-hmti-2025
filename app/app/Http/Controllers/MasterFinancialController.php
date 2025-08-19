@@ -160,7 +160,7 @@ class MasterFinancialController extends Controller
             'period_id'    => $request->period_id,
         ]);
 
-        flashMessage('Financial berhasil ditambahkan', 'success');
+        flashMessage("Keuangan bulan $request->month berhasil ditambahkan", 'success');
         return to_route('master-financial.index', ['id' => $master_financial->period_id]);
     }
 
@@ -241,7 +241,7 @@ class MasterFinancialController extends Controller
             'period_id'    => $request->period_id,
         ]);
 
-        flashMessage('Financial berhasil diupdate', 'success');
+        flashMessage("Keuangan bulan $request->month berhasil diupdate", 'success');
         return to_route('master-financial.index', ['id' => $financial->period_id]);
     }
 

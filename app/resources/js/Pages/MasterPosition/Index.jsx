@@ -123,7 +123,7 @@ export default function Index() {
 	const renderHeader = () => {
 		return (
 			<div className="flex flex-col justify-between gap-2 md:flex-row">
-				<div className="justify-content-end export-buttons flex flex-col-reverse items-center gap-2 md:flex-row">
+				<div className="justify-content-end flex flex-col-reverse items-center gap-2 md:flex-row">
 					<IconField iconPosition="left">
 						<InputIcon className="pi pi-search" />
 						<InputText
@@ -133,7 +133,7 @@ export default function Index() {
 							className="p-inputtext p-inputtext-lg"
 						/>
 					</IconField>
-					<div className="flex flex-row gap-2">
+					<div className="flex flex-row gap-2 export-buttons">
 						<Button
 							type="button"
 							className="rounded-[500px] bg-[#785233] px-5 py-5"
@@ -257,7 +257,7 @@ export default function Index() {
 										></Column>
 										<Column
 											field="title"
-											header="Nama Sie"
+											header="Nama Jabatan"
 											body={(rowData) => (rowData.title ? rowData.title : '-')}
 											className="min-w-[12rem]"
 										></Column>

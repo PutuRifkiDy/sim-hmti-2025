@@ -116,7 +116,7 @@ class MasterHimpunanController extends Controller
     {
         $himpunan = Himpunan::find($id);
         $himpunan->delete();
-        flashMessage('Himpunan berhasil dihapus', 'success');
+        flashMessage('Fungsionaris berhasil dihapus', 'success');
         return to_route('master-himpunan.index', ['id' => $himpunan->period_id]);
     }
 }
