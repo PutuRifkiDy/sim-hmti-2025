@@ -3,7 +3,7 @@ import TextInput from '@/Components/TextInput';
 import { Button } from '@/Components/ui/button';
 import { Card, CardContent, CardHeader } from '@/Components/ui/card';
 import GuestLayout from '@/Layouts/GuestLayout';
-import { Link, useForm } from '@inertiajs/react';
+import { useForm } from '@inertiajs/react';
 
 export default function ForgotPassword({ status }) {
 	const { data, setData, post, processing, errors } = useForm({
@@ -18,15 +18,15 @@ export default function ForgotPassword({ status }) {
 
 	return (
 		<>
-			<div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-				<div className="sm:mx-auto sm:w-full sm:max-w-sm">
-					<Card>
+			<div className="flex min-h-full flex-1 flex-col justify-center items-center px-6 py-24 lg:px-8">
+				<div className="flex w-full flex-row md:w-[900px]">
+					<Card className="w-full rounded-l-lg rounded-r-none dark:bg-[#1f1f1f]">
 						<CardHeader className="flex flex-col items-center justify-center">
-							<Link href="/" className="text-4xl font-black leading-relaxed tracking-tighter">
+							{/* <Link href="/" className="text-4xl font-black leading-relaxed tracking-tighter">
 								HMTI-<span className="text-red-500">NG</span>
-							</Link>
+							</Link> */}
 							<h2 className="text-left text-lg font-medium leading-relaxed tracking-tight text-muted-foreground">
-								Sign in to your account
+								Reset Password
 							</h2>
 						</CardHeader>
 						<CardContent>
@@ -38,7 +38,7 @@ export default function ForgotPassword({ status }) {
 
 								{status && <div className="mb-4 text-sm font-medium text-green-600">{status}</div>}
 
-								<form onSubmit={submit}>
+								<form onSubmit={submit} className='mt-16'>
 									<TextInput
 										id="email"
 										type="email"
@@ -52,7 +52,11 @@ export default function ForgotPassword({ status }) {
 									<InputError message={errors.email} className="mt-2" />
 
 									<div className="mt-4 flex items-center justify-end">
-										<Button className="ms-4" variant="blue" disabled={processing}>
+										<Button
+											className="w-full bg-black dark:bg-[#ACACAC]"
+											variant=""
+											disabled={processing}
+										>
 											Email Password Reset Link
 										</Button>
 									</div>
@@ -60,6 +64,9 @@ export default function ForgotPassword({ status }) {
 							</div>
 						</CardContent>
 					</Card>
+					<div className="hidden w-full items-center justify-center rounded-r-lg bg-[#000000] dark:bg-[#ACACAC] md:flex">
+						<img src="/assets/icon/logo_hmti.png" target="_blank" className="h-[224px] w-[224px]" />
+					</div>
 				</div>
 			</div>
 		</>
