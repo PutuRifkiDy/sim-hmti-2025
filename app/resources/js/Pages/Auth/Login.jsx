@@ -39,8 +39,8 @@ export default function Login({ status, canResetPassword }) {
             <div className="flex w-full flex-row md:w-[900px]">
                 <Card className="w-full rounded-l-lg rounded-r-none dark:bg-[#1f1f1f]">
                     <CardHeader className="flex flex-col items-center justify-center">
-                        <p className="text-4xl font-black leading-relaxed tracking-tighter">
-                            HMTI-<span className="text-red-500">NG</span>
+                        <p className="text-4xl font-black leading-relaxed tracking-tighter text-[#785233]">
+                            HMTI-<span className="text-[#ECC067]">NG</span>
                         </p>
 
                         <h2 className="text-center text-lg font-medium leading-relaxed tracking-tight text-muted-foreground">
