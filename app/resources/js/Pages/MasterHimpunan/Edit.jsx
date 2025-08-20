@@ -157,7 +157,7 @@ export default function Edit() {
                             >
                                 <SelectTrigger>
                                     <SelectValue className="bg-white dark:bg-[#040529]">
-                                        {positions.find((position) => String(position.id) === String(data.position_id))
+                                        {positions.find((position) => String(position.id) == String(data.position_id))
                                             ?.title || 'Pilih Jabatan'}
                                     </SelectValue>
                                 </SelectTrigger>
