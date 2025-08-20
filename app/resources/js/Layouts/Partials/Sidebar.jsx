@@ -379,7 +379,7 @@ export default function Sidebar({ navigations, children, header, description }) 
 													{auth?.role == 'ketua_kegiatan'
 														? 'Ketua Kegiatan'
 														: auth?.role == 'divisi_it'
-															? 'Divisi IT'
+															? 'Admin'
 															: 'Mahasiswa'}
 												</p>
 											</div>

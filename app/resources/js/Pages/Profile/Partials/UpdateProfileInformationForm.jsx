@@ -375,7 +375,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
 						<div className="max-w-fit rounded-[20px] bg-[#ECBB4E] px-2 py-1">
 							<p className="text-[12px] text-white">
 								{user.role == 'divisi_it'
-									? 'Divisi IT'
+									? 'Admin'
 									: user.role == 'ketua_kegiatan'
 										? 'Ketua Kegiatan'
 										: user.role == 'guest'

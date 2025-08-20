@@ -81,4 +81,4 @@ export default function Fungsionaris({ periods = [], periodActive, view }) {
         </div>
     );
 }
-Fungsionaris.layout = (page) => <GuestLayout children={page} title="Fungsionaris" />;
+Fungsionaris.layout = (page) => <GuestLayout children={page} title="Struktur Organisasi" />;

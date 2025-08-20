@@ -32,4 +32,4 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
     );
 }
 
-Welcome.layout = (page) => <GuestLayout children={page} title="Welcome" />;
+Welcome.layout = (page) => <GuestLayout children={page} title="Selamat Datang" />;

@@ -79,7 +79,7 @@ export default function Edit() {
 									onChange={(e) => setData('title', e.target.value)}
 									required
 									isFocused
-									placeholder="Contoh: Kabinet Harmoni Bangga"
+									placeholder="Contoh: Harmoni Bangga"
 									autoComplete="title"
 									onErrors={errors.title && <InputError message={errors.title} className="mt-2" />}
 								/>
@@ -160,7 +160,7 @@ export default function Edit() {
 								/>
 							</div>
 							<div>
-								<InputLabel htmlFor="agenda_khusus" value="Anggaran Khusus" />
+								<InputLabel htmlFor="agenda_khusus" value="Agenda Khusus" />
 								<TextInput
 									id="agenda_khusus"
 									className="mt-1 block w-full dark:bg-[#1F1F1F]"

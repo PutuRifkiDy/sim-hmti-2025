@@ -21,7 +21,7 @@ export default function AboutSection({ youtube_link }) {
     return (
         <>
             <div
-                className="bg-[url('/assets/images/bg-about.png')] opacity-80 dark:bg-[url('/assets/images/bg-about-dark.png')] bg-cover bg-fixed w-full h-full relative flex-shrink-0 bg-no-repeat"
+                className="bg-[url('/assets/images/bg-about.png')] bg-opacity-80 dark:bg-[url('/assets/images/bg-about-dark.png')] bg-cover bg-fixed w-full h-full relative flex-shrink-0 bg-no-repeat"
             >
                 <div className="flex flex-col md:flex-row items-center md:items-center h-full justify-between py-24">
                     <div className="md:w-1/2 w-full flex flex-col md:flex-row items-center md:items-start p-5 md:p-12 space-x-0 md:space-x-4">
@@ -50,7 +50,7 @@ export default function AboutSection({ youtube_link }) {
                                 merupakan organisasi kemahasiswaan di lingkungan Program Studi
                                 Teknologi Informasi, Fakultas Teknik, Universitas Udayana. <br />{" "} <br />
                                 HMTI berfungsi sebagai sarana untuk menampung dan
-                                menyalurkanaspirasi mahasiswa Teknologi Informasi, dan juga
+                                menyalurkan aspirasi mahasiswa Teknologi Informasi, dan juga
                                 sebagai wadah mahasiswa untuk melatih diri dalam berorganisasi dan
                                 memimpin.
                             </p>

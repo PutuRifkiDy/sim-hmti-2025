@@ -119,7 +119,7 @@ Route::controller(MasterGrafikController::class)->group(function () {
     Route::get('/dashboard/admin/master-grafik-keuangan/show', 'show')->name('master-grafik.show');
 })->middleware(['auth', 'role:divisi_it']);
 
-Route::middleware(['auth', 'role:guest|ketua_kegiatan|divisi_it'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
