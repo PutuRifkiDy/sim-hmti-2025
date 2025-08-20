@@ -50,7 +50,7 @@ export default function NavBar({ auth }) {
 
     return (
         <>
-            <nav className="fixed left-0 top-0 z-50 hidden w-full flex-row justify-between border-b-[1px] bg-white px-12 py-5 shadow dark:bg-[#1F1F1F] md:flex">
+            <nav className="fixed left-0 top-0 z-40 hidden w-full flex-row justify-between border-b-[1px] bg-white px-12 py-5 shadow dark:bg-[#1F1F1F] md:flex">
                 <div>
                     <Link href={route('welcome')}>
                         <img
@@ -149,7 +149,7 @@ export default function NavBar({ auth }) {
                 </div>
             </nav>
 
-            <nav className="fixed left-0 top-0 z-50 flex w-full flex-col justify-between border-b-[1px] bg-white py-5 shadow dark:bg-[#1F1F1F] md:hidden">
+            <nav className="fixed left-0 top-0 z-40 flex w-full flex-col justify-between border-b-[1px] bg-white py-5 shadow dark:bg-[#1F1F1F] md:hidden">
                 <div className="flex flex-row justify-between">
                     <div className="flex flex-row items-center gap-5">
                         <Bars3BottomLeftIcon

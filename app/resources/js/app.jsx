@@ -8,15 +8,43 @@ import 'primereact/resources/primereact.min.css';
 import 'primereact/resources/themes/lara-light-indigo/theme.css';
 import { createRoot, hydrateRoot } from 'react-dom/client';
 import { ThemeProvider } from './Components/ThemeProvider';
+import { useEffect, useState } from 'react';
+import Loading from './Components/Loading';
+import { Inertia } from '@inertiajs/inertia';
 
 const appName = import.meta.env.VITE_APP_NAME || 'HMTI-2025';
 
+// const AppWrapper = ({ App, props }) => {
+// 	return (
+// 		<ThemeProvider defaultTheme="light" storageKey="current-theme">
+// 			<App {...props} />
+// 		</ThemeProvider>
+// 	);
+// };
+
 const AppWrapper = ({ App, props }) => {
-	return (
-		<ThemeProvider defaultTheme="light" storageKey="current-theme">
-			<App {...props} />
-		</ThemeProvider>
-	);
+    const [isLoading, setIsLoading] = useState(false);
+
+    useEffect(() => {
+        const start = () => setIsLoading(true);
+        const finish = () => setIsLoading(false);
+
+        Inertia.on('start', start);
+        Inertia.on('finish', finish);
+
+        return () => {
+            Inertia.off('start', start);
+            Inertia.off('finish', finish);
+        };
+    }, []);
+
+    return (
+        <ThemeProvider defaultTheme="light" storageKey="current-theme">
+            {/* <DisableInspect /> */}
+            {isLoading && <Loading />}
+            <App {...props} />
+        </ThemeProvider>
+    );
 };
 
 createInertiaApp({
