@@ -3,12 +3,20 @@ import laravel from 'laravel-vite-plugin';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-	plugins: [
-		laravel({
-			input: 'resources/js/app.jsx',
-			ssr: 'resources/js/ssr.jsx',
-			refresh: true,
-		}),
-		react(),
-	],
+    plugins: [
+        laravel({
+            input: 'resources/js/app.jsx',
+            ssr: 'resources/js/ssr.jsx',
+            refresh: true,
+        }),
+        react(),
+    ],
+    // resolve: {
+    //     alias: {
+    //         'primereact/utils': 'primereact/utils/utils.cjs.js',
+    //     },
+    // },
+    ssr: {
+        noExternal: ['primereact', 'primeicons'], 
+    },
 });

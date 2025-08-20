@@ -31,6 +31,13 @@ body {
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Arrintika Signature';
+    src: url('/fonts/Arinttika Signature.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 
 @layer base {

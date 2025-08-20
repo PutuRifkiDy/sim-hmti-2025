@@ -88,8 +88,6 @@ export default function OprecSection({ oprecs, dateNow }) {
                     >
                         {oprecs.map((oprec, index) => (
                             <SwiperSlide key={index}
-                                data-aos="fade-up"
-                                data-aos-duration="600"
                             >
                                 <Link
                                     href={route('oprec-regist.show', oprec.id)}

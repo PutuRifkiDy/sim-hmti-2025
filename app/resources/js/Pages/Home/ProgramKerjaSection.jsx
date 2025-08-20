@@ -5,14 +5,6 @@ import { useEffect, useState } from "react";
 import * as AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const fontStyles = `
-  @font-face {
-    font-family: 'Arrintika Signature';
-    src: url('/fonts/Arinttika Signature.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-`;
 export default function ProgramKerjaSection({ program_kerja }) {
 
     const [hoveredCard, setHoveredCard] = useState(null);
@@ -43,7 +35,6 @@ export default function ProgramKerjaSection({ program_kerja }) {
 
     return (
         <>
-            <style>{fontStyles}</style>
 
             <section className="relative bg-white w-full flex items-center justify-center py-16 px-4 sm:px-8 dark:bg-[#1f1f1f]">
 
@@ -74,12 +65,10 @@ export default function ProgramKerjaSection({ program_kerja }) {
                             className="mt-1 text-black dark:text-white">Daftar Program Kerja dalam naungan Himpunan Mahasiswa Teknologi Informasi</p>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 w-full">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 w-full" data-aos="fade-up" data-aos-duration="600">
                         {program_kerja.map((kerja, index) => (
                             <div
                                 className={`relative aspect-[414/233] rounded-lg overflow-hidden cursor-pointer shadow-md w-full max-w-[414px] mx-auto border-2 border-[#E4B45C] group hover:-translate-y-2 transition-all duration-500 ease-in-out`}
-                                data-aos="fade-up"
-                                data-aos-duration={(index + 1) * 300}
                                 onMouseEnter={() => handleMouseEnter(kerja)}
                                 onMouseLeave={handleMouseLeave}
                                 key={index}
