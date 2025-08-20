@@ -14,8 +14,6 @@ export default function Index() {
 	}, [flash_message]);
 	const oprecs = usePage().props.oprecs;
 	const dateNow = usePage().props.date_now;
-	console.log('ini adalah dateNow', dateNow);
-	console.log('ini adalah oprecs', oprecs);
 
 	const templateDateTime = (date) => {
 		const options = { year: 'numeric', month: 'short', day: '2-digit' };

@@ -60,6 +60,11 @@ class FrontController extends Controller
 
     public function programKerja(): Response | RedirectResponse
     {
+        $periodActive = MasterPeriod::with('program_kerjas')
+            ->where('start_date', '<=', Carbon::now())
+            ->where('end_date', '>=', Carbon::now())
+            ->first();
+
         $data_periods = MasterPeriod::get();
 
         $requestPeriodInFrontend = request('period_id');
@@ -71,9 +76,15 @@ class FrontController extends Controller
                 flashMessage('Tidak ada periode himpunan yang ditemukan', 'error');
                 return back();
             }
+        } else if (! $periodActive) {
+            $periodActive = MasterPeriod::with('program_kerjas')
+                ->where('end_date', '<', Carbon::now())
+                ->orderBy('end_date', 'desc')
+                ->first();
         } else {
-            $periodActive = MasterPeriod::where('start_date', '<=', now())
-                ->where('end_date', '>=', now())
+            $periodActive = MasterPeriod::with('program_kerjas')
+                ->where('start_date', '<=', Carbon::now())
+                ->where('end_date', '>=', Carbon::now())
                 ->first();
         }
 

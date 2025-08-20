@@ -9,7 +9,6 @@ export default function Index() {
 	const ad_art = usePage().props.ad_art;
 	const [tabActive, setTabActive] = useState(0);
 
-	console.log(ad_art);
 	return (
 		<>
 			<div className="py-5">

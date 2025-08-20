@@ -21,7 +21,7 @@ export default function AboutSection({ youtube_link }) {
     return (
         <>
             <div
-                className="bg-[url('/assets/images/bg-about.jpg')] dark:bg-[url('/assets/images/bg-about-dark.png')] bg-cover bg-fixed w-full h-full relative flex-shrink-0 bg-no-repeat"
+                className="bg-[url('/assets/images/bg-about.png')] opacity-80 dark:bg-[url('/assets/images/bg-about-dark.png')] bg-cover bg-fixed w-full h-full relative flex-shrink-0 bg-no-repeat"
             >
                 <div className="flex flex-col md:flex-row items-center md:items-center h-full justify-between py-24">
                     <div className="md:w-1/2 w-full flex flex-col md:flex-row items-center md:items-start p-5 md:p-12 space-x-0 md:space-x-4">
@@ -37,14 +37,14 @@ export default function AboutSection({ youtube_link }) {
                                 </span>
                                 <h1
                                     data-aos="fade-up"
-                                    data-aos-duration="1200"
-                                    className="uppercase text-5xl md:text-7xl lg:text-7xl font-bold text-[#ECC067] leading-none -mt-2 md:-mt-4 font-poppins">
+                                    data-aos-duration="1000"
+                                    className="uppercase text-5xl md:text-7xl tracking-tighter lg:text-7xl font-black text-[#ECC067] leading-none -mt-2 md:-mt-4 font-poppins">
                                     HMTI
                                 </h1>
                             </div>
                             <p
                                 data-aos="fade-up"
-                                data-aos-duration="1500"
+                                data-aos-duration="1400"
                                 className="mt-4 md:mt-6 text-black md:text-2xl text-base leading-relaxed font-poppins text-justify dark:text-white">
                                 Himpunan Mahasiswa Teknologi Informasi atau biasa disebut HMTI
                                 merupakan organisasi kemahasiswaan di lingkungan Program Studi

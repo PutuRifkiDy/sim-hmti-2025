@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\MasterPeriodResource;
 use App\Models\MasterFinancial;
 use App\Models\MasterPeriod;
+use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Inertia\Response;
 
@@ -16,6 +17,11 @@ class MasterGrafikController extends Controller
         if (! $user) {
             return to_route('login');
         }
+
+        $periodActive = MasterPeriod::with('program_kerjas')
+            ->where('start_date', '<=', Carbon::now())
+            ->where('end_date', '>=', Carbon::now())
+            ->first();
 
         //////////////////////////////////
         // untuk grafik periode aktif
@@ -30,9 +36,15 @@ class MasterGrafikController extends Controller
                 flashMessage('Tidak ada periode himpunan yang ditemukan', 'error');
                 return back();
             }
+        } else if (! $periodActive) {
+            $periodActive = MasterPeriod::with('program_kerjas')
+                ->where('end_date', '<', Carbon::now())
+                ->orderBy('end_date', 'desc')
+                ->first();
         } else {
-            $periodActive = MasterPeriod::where('start_date', '<=', now())
-                ->where('end_date', '>=', now())
+            $periodActive = MasterPeriod::with('program_kerjas')
+                ->where('start_date', '<=', Carbon::now())
+                ->where('end_date', '>=', Carbon::now())
                 ->first();
         }
 

@@ -22,7 +22,7 @@ export function ImageUpload({ imagePath, onChangeImage, errorMessage }) {
 
 		const fullPath = imagePath?.startsWith('http') ? imagePath : `${window.location.origin}/${imagePath}`;
 
-		if (imagePath && fullPath !== `${window.location.origin}/storage/`) return fullPath;
+		if (imagePath && fullPath != `${window.location.origin}/storage/`) return fullPath;
 
 		return `${window.location.origin}/assets/icon/default_image_profile.png`;
 	};
@@ -34,7 +34,7 @@ export function ImageUpload({ imagePath, onChangeImage, errorMessage }) {
 			<img
 				src={getImageSrc()}
 				alt="Preview"
-				className="group relative h-auto w-full rounded-lg border object-cover md:h-auto md:w-60"
+				className="group relative h-auto w-full rounded-lg object-cover md:h-auto md:w-60"
 			/>
 		</div>
 	);

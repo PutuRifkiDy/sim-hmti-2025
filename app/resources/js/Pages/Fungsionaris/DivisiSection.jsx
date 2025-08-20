@@ -83,7 +83,6 @@ export default function DivisiSection({ groups = [] }) {
                     {labels.map((label, idx) => (
                         <SwiperSlide key={`divisi-${idx}`} className="flex justify-center !w-auto">
                             <Button
-                                data-aos="fade-up" data-aos-duration={(idx + 1) * 200}
                                 variant="gold"
                                 type="button"
                                 onClick={() => setActive(idx)}

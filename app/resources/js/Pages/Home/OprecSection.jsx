@@ -43,13 +43,13 @@ export default function OprecSection({ oprecs, dateNow }) {
     };
     return (
         <>
-            <div className='w-full px-[32px] py-[16px] flex flex-col items-center pb-36 bg-white dark:bg-[#1f1f1f] z-10'>
+            <div className='w-full md:px-6 px-5 py-[16px] flex flex-col items-center pb-36 bg-white dark:bg-[#1f1f1f] z-10'>
                 <div className="header-oprec w-[95%] mb-[32px] flex justify-between md:items-end items-center flex-col md:flex-row">
                     <div className="inner-header-oprec flex flex-col items-center md:items-start">
                         <h1
                             data-aos="fade-up"
                             data-aos-duration="600"
-                            className='text-[#ECC067] font-bold text-[30px] text-center md:text-start'>OPEN RECRUITMEN</h1>
+                            className='text-[#ECC067] font-black font-poppins text-[30px] text-center md:text-start'>OPEN RECRUITMEN</h1>
                         <p
                             data-aos="fade-up"
                             data-aos-duration="1200"
@@ -85,6 +85,8 @@ export default function OprecSection({ oprecs, dateNow }) {
                             },
                         }}
                         className='h-full'
+                        data-aos="fade-up"
+                        data-aos-duration="1200"
                     >
                         {oprecs.map((oprec, index) => (
                             <SwiperSlide key={index}

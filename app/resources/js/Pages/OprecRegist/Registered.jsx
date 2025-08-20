@@ -10,7 +10,6 @@ export default function Registered() {
 	const cleanDescription = DOMPurify.sanitize(oprec_regist.oprec.description);
 	const cleanReasonJoin = DOMPurify.sanitize(oprec_regist.reason_join);
 	const cleanExperience = DOMPurify.sanitize(oprec_regist.experience);
-	console.log('Oprec Regist:', oprec_regist);
 	return (
 		<>
 			<div className="py-5">

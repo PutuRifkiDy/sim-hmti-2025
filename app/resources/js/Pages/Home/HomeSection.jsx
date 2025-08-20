@@ -39,20 +39,20 @@ export default function HomeSection({ title }) {
                                     className="block text-5xl lg:text-7xl font-normal text-[#785233] leading-none"
                                     style={{ fontFamily: "Arrintika Signature, cursive" }}
                                     data-aos="fade-up"
-                                    data-aos-duration="400"
+                                    data-aos-duration="600"
                                 >
                                     Kabinet
                                 </span>
                                 <h1
                                     data-aos="fade-up"
-                                    data-aos-duration="600"
+                                    data-aos-duration="1000"
                                     className="uppercase text-5xl lg:text-7xl tracking-tighter font-extrabold text-[#ECC067] leading-none -mt-2 lg:-mt-4 font-poppins">
                                     {title}
                                 </h1>
                             </div>
                             <p
                                 data-aos="fade-up"
-                                data-aos-duration="800"
+                                data-aos-duration="1400"
                                 className="text-[#785233] text-[10px] lg:text-base leading-relaxed font-semibold md:w-[392px] w-full">
                                 Himpunan Mahasiswa Teknologi Informasi <br />
                                 Universitas Udayana

@@ -11,6 +11,7 @@ import {
     ArrowRightStartOnRectangleIcon,
     Bars3BottomLeftIcon,
     Squares2X2Icon,
+    UserIcon,
     UsersIcon,
     XMarkIcon,
 } from '@heroicons/react/24/solid';
@@ -105,30 +106,30 @@ export default function NavBar({ auth }) {
                                         <AvatarImage
                                             src={auth.img_path}
                                             alt={auth.name}
-                                            className="w-full object-cover"
+                                            className="object-cover"
                                         />
                                     ) : (
                                         <AvatarFallback>{auth.nim.substring(0, 2)}</AvatarFallback>
                                     )}
                                 </Avatar>
                             </DropdownMenuTrigger>
-                            <DropdownMenuContent className="mr-12 flex w-56 flex-col justify-start gap-0 border-2 border-gray-300 outline-none dark:bg-[#101010]">
-                                <DropdownMenuItem className="flex flex-row items-center gap-3 p-2 cursor-pointer">
-                                    <UsersIcon className="h-10 w-10 shrink-0 text-gray-500" />
+                            <DropdownMenuContent className="mr-12 flex w-64 flex-col justify-start gap-0 border-2 border-gray-300 outline-none dark:bg-[#101010]">
+                                <div className="flex flex-row items-center gap-3 p-2 cursor-pointer">
+                                    <UserIcon className="h-6 w-6 text-gray-500" />
                                     <div className="flex flex-col gap-1">
                                         <p className="text-[14px] leading-[110%] text-[#000000] dark:text-white">{auth.name}</p>
                                         <p className="text-[12px] leading-[110%] text-[#1F1F1F]/80 dark:text-gray-400">{auth.nim}</p>
                                     </div>
-                                </DropdownMenuItem>
+                                </div>
                                 <div className="h-[1px] w-full bg-gray-300"></div>
-                                <DropdownMenuItem className="p-2 cursor-pointer" asChild>
+                                <div className="p-2 cursor-pointer" asChild>
                                     <Link href={route('profile.edit')} className="flex flex-row items-center gap-2">
                                         <Squares2X2Icon className="h-6 w-6 text-gray-500" />
                                         Dashboard
                                     </Link>
-                                </DropdownMenuItem>
+                                </div>
                                 <div className="h-[1px] w-full bg-gray-300"></div>
-                                <DropdownMenuItem className="p-2 cursor-pointer " asChild>
+                                <div className="p-2 cursor-pointer " asChild>
                                     <Link
                                         href={route('logout')}
                                         className="flex flex-row items-center gap-2 text-red-500 "
@@ -138,7 +139,7 @@ export default function NavBar({ auth }) {
                                         <ArrowRightStartOnRectangleIcon className="h-6 w-6 text-red-500" />
                                         Logout
                                     </Link>
-                                </DropdownMenuItem>
+                                </div>
                             </DropdownMenuContent>
                         </DropdownMenu>
                     ) : (

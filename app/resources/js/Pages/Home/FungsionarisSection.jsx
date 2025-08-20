@@ -62,11 +62,11 @@ export default function FungsionarisSection({ cover_path, fungsionaris }) {
                 <h1
                     className="
             text-[#ecc067]
-            font-poppins font-bold leading-[1.1]
-            tracking-[-0.06em] uppercase
+            font-poppins font-black leading-[1.1]
+            uppercase
             whitespace-nowrap
             text-[clamp(2rem,6vw,5.5rem)]
-            -mt-[0.5em]
+            -mt-[0.5em] tracking-tighter
           "
                     data-aos="fade-up"
                     data-aos-duration="1200"
@@ -74,7 +74,11 @@ export default function FungsionarisSection({ cover_path, fungsionaris }) {
                     FUNGSIONARIS
                 </h1>
 
-                <div className="mt-[clamp(1.5rem,4vw,3rem)] w-full">
+                <div
+                    className="mt-[clamp(1.5rem,4vw,3rem)] w-full px-2"
+                    data-aos="fade-up"
+                    data-aos-duration="800"
+                >
                     <Swiper
                         spaceBetween={16}
                         slidesPerView={"auto"}

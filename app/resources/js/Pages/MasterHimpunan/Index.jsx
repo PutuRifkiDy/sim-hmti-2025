@@ -153,7 +153,6 @@ export default function Index() {
                         variant="none"
                         className="rounded-[500px] bg-yellow-500 px-5 py-5"
                         severity="success"
-                        rounded
                         onClick={exportExcel}
                         data-pr-tooltip="Export XLS"
                     >

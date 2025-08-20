@@ -22,7 +22,7 @@ export default function ForgotPassword({ status }) {
                 <div className="flex w-full flex-row md:w-[900px]">
                     <Card className="w-full rounded-l-lg rounded-r-none dark:bg-[#1f1f1f]">
                         <CardHeader className="flex flex-col items-center justify-center">
-                            <p className="text-4xl font-black leading-relaxed tracking-tighter text-[#785233]">
+                            <p className="text-4xl font-black leading-relaxed tracking-tighter font-poppins text-[#785233]">
                                 HMTI-<span className="text-[#ECC067]">NG</span>
                             </p>
                         </CardHeader>
@@ -45,9 +45,10 @@ export default function ForgotPassword({ status }) {
                                         className="mt-1 block w-full dark:bg-[#1f1f1f]"
                                         isFocused={true}
                                         onChange={(e) => setData('email', e.target.value)}
+                                        onErrors={errors.email && <InputError message={errors.email} className="mt-2" />}
                                     />
 
-                                    <InputError message={errors.email} className="mt-2" />
+
 
                                     <div className="mt-4 flex items-center justify-end">
                                         <Button

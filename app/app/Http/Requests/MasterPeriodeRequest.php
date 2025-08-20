@@ -28,7 +28,7 @@ class MasterPeriodeRequest extends FormRequest
             'anggaran_rumah_tangga' => ['nullable', 'string', 'max:255', 'url'],
             'agenda_khusus'         => ['nullable', 'string', 'max:255', 'url'],
             'youtube_link'          => ['nullable', 'string', 'max:255', 'url'],
-            'cover_path'            => ['nullable', 'mimes:jpg,jpeg,png', 'max:4048'],
+            'cover_path'            => ['nullable', 'mimes:jpg,jpeg,png,svg', 'max:4048'],
         ];
     }
 
@@ -63,7 +63,7 @@ class MasterPeriodeRequest extends FormRequest
             'agenda_khusus.max'         => 'Link Agenda Khusus maksimal 255 karakter.',
             'youtube_link.url'          => 'Link Youtube harus berupa URL.',
             'youtube_link.max'          => 'Link Youtube maksimal 255 karakter.',
-            'cover_path.mimes'          => 'Cover maximal 1MB dan harus berupa jpg, jpeg, png.',
+            'cover_path'                => 'Cover maximal 4048MB dan harus berupa jpg, jpeg, png.',
         ];
     }
 }

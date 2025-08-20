@@ -1,12 +1,10 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Http\Resources\MasterPeriodResource;
 use App\Models\MasterPeriod;
 use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Inertia\Response;
 
 class ADARTController extends Controller
@@ -19,9 +17,22 @@ class ADARTController extends Controller
             return to_route('login');
         }
 
-        $ad_art = MasterPeriod::where('start_date', '<=', Carbon::now())
+        $ad_art = MasterPeriod::with('program_kerjas')
+            ->where('start_date', '<=', Carbon::now())
             ->where('end_date', '>=', Carbon::now())
             ->first();
+
+        if (! $ad_art) {
+            $ad_art = MasterPeriod::with('program_kerjas')
+                ->where('end_date', '<', Carbon::now())
+                ->orderBy('end_date', 'desc')
+                ->first();
+        } else {
+            $ad_art = MasterPeriod::with('program_kerjas')
+                ->where('start_date', '<=', Carbon::now())
+                ->where('end_date', '>=', Carbon::now())
+                ->first();
+        }
 
         if (! $ad_art) {
             flashMessage('Tidak ada periode yang aktif', 'error');

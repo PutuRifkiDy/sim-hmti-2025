@@ -141,7 +141,6 @@ export default function Index() {
                             type="button"
                             className="rounded-[500px] bg-[#785233] px-5 py-5"
                             variant="none"
-                            rounded
                             onClick={() => exportCSV(false)}
                             data-pr-tooltip="Export CSV"
                         >
@@ -152,7 +151,6 @@ export default function Index() {
                             variant="none"
                             className="rounded-[500px] bg-yellow-500 px-5 py-5"
                             severity="success"
-                            rounded
                             onClick={exportExcel}
                             data-pr-tooltip="Export XLS"
                         >

@@ -78,9 +78,8 @@ export default function BidangSection({
                     className="flex justify-center lg:ml-[-10px]"
                 >
                     {buttons.map((label, idx) => (
-                        <SwiperSlide key={`bidang-${idx}`} className="flex justify-center !w-auto">
+                        <SwiperSlide key={`bidang-${idx}`} className="flex justify-center items-center !w-auto">
                             <Button
-                                data-aos="fade-up" data-aos-duration={(idx + 1) * 200}
                                 variant="gold"
                                 type="button"
                                 onClick={() => onChange(idx)}

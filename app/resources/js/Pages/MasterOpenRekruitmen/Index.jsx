@@ -151,7 +151,6 @@ export default function Index() {
 						variant="none"
 						className="rounded-[500px] bg-yellow-500 px-5 py-5"
 						severity="success"
-						rounded
 						onClick={exportExcel}
 						data-pr-tooltip="Export XLS"
 					>
@@ -231,7 +230,6 @@ export default function Index() {
 
 	const totalPendaftarTemplate = (rowData) => {
 		const totalRegistered = total_registered[rowData.id] || 0;
-		console.log('Ini adalah row Data :', rowData);
 		if (date_now >= rowData.start_date && date_now <= rowData.end_date) {
 			return (
 				<div className="flex flex-col items-center gap-1">

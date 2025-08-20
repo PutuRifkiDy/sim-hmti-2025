@@ -54,18 +54,18 @@ export default function ProgramKerjaSection({ program_kerja }) {
                             </span>
                             <h1
                                 data-aos="fade-up"
-                                data-aos-duration="1200"
-                                className="pb-0 text-5xl sm:text-8xl font-bold text-[#ECC067] mt-[-1.5rem] sm:mt-[-3rem]">
+                                data-aos-duration="1000"
+                                className="pb-0 text-5xl tracking-tighter sm:text-8xl font-black font-poppins text-[#ECC067] mt-[-1.5rem] sm:mt-[-3rem]">
                                 KERJA
                             </h1>
                         </div>
                         <p
                             data-aos="fade-up"
-                            data-aos-duration="1500"
+                            data-aos-duration="1400"
                             className="mt-1 text-black dark:text-white">Daftar Program Kerja dalam naungan Himpunan Mahasiswa Teknologi Informasi</p>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 w-full" data-aos="fade-up" data-aos-duration="600">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 w-full" data-aos="fade-up" data-aos-duration="1800">
                         {program_kerja.map((kerja, index) => (
                             <div
                                 className={`relative aspect-[414/233] rounded-lg overflow-hidden cursor-pointer shadow-md w-full max-w-[414px] mx-auto border-2 border-[#E4B45C] group hover:-translate-y-2 transition-all duration-500 ease-in-out`}

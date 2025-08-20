@@ -38,7 +38,7 @@ export default function TitleFungsionarisSection() {
             <h1
                 className="
           text-[#ecc067]
-          font-poppins font-bold leading-[1.1]
+          font-poppins font-extrabold leading-[1.1]
           tracking-[-0.06em] uppercase
           whitespace-nowrap
           text-[clamp(2rem,6vw,5.5rem)]
