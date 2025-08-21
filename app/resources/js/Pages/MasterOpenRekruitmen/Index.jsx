@@ -225,7 +225,7 @@ export default function Index() {
 	const descriptionTemplate = (rowData) => {
 		const cleanDescription = DOMPurify.sanitize(rowData.description);
 
-		return <div dangerouslySetInnerHTML={{ __html: cleanDescription }} className="line-clamp-3 w-full" />;
+		return <div dangerouslySetInnerHTML={{ __html: cleanDescription }} className="line-clamp-5 w-full" />;
 	};
 
 	const totalPendaftarTemplate = (rowData) => {

@@ -99,16 +99,16 @@ export default function OprecSection({ oprecs, dateNow }) {
                                     >
                                         <div className="flex h-full w-full items-center overflow-hidden rounded-[10px] sm:w-full lg:w-full xl:w-full">
                                             <img
-                                                src={oprec.poster_path}
+                                                src={oprec?.poster_path}
                                                 className="h-full w-full transform transition-all duration-300 ease-in-out hover:scale-105 sm:w-full lg:w-full xl:w-full"
                                                 alt=""
                                             />
                                         </div>
                                         <div className="area-header-pamflet w-full flex justify-between items-end mt-[8px]">
                                             <div className="header-pamflet flex flex-col">
-                                                <h1 className='text-[20px] font-semibold h-fit leading-[100%] my-[8px]'>{oprec.oprec_name}</h1>
+                                                <h1 className='text-[20px] font-semibold h-fit leading-[100%] my-[8px]'>{oprec?.oprec_name}</h1>
                                                 <p className='text-[12px] leading-[100%] mb-[8px]'>
-                                                    {templateDateTime(oprec.start_date)} - {templateDateTime(oprec.end_date)}
+                                                    {templateDateTime(oprec?.start_date)} - {templateDateTime(oprec?.end_date)}
                                                 </p>
                                             </div>
                                             <Button variant="gold" type="button" asChild className="shadow-[0_0_15px_#ECBB4E]">

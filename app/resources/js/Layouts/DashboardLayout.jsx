@@ -1,5 +1,4 @@
 import { IconChart, IconOpenRekrutmen, IconProfileSideBar } from '@/Components/IconAdmin';
-import { Toaster } from '@/Components/ui/sonner';
 import { DocumentIcon } from '@heroicons/react/24/outline';
 import { Head, usePage } from '@inertiajs/react';
 import Sidebar from './Partials/Sidebar';
@@ -86,7 +85,6 @@ export default function DashboardLayout({ children, title, header, description }
 	return (
 		<>
 			<Head title={title} />
-			<Toaster position="top-center" richColors />
 			<Sidebar navigations={route_sidebar} header={header} description={description}>
 				{children}
 			</Sidebar>

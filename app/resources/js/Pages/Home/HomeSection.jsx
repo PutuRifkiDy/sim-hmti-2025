@@ -74,10 +74,15 @@ export default function HomeSection({ title }) {
                                 className="w-full h-full object-cover object-center hidden lg:hidden dark:block"
                             />
 
-                            <img
+                            {/* <img
                                 src="/assets/images/gedungHMTIMobile.png"
                                 alt="HMTI Udayana"
                                 className="w-full h-full object-cover object-center lg:hidden flex dark:hidden"
+                            /> */}
+                            <img
+                                src="/assets/images/gedungHMTIMobile.png"
+                                alt="HMTI Udayana"
+                                className="w-full h-full object-cover object-center lg:hidden block dark:hidden"
                             />
                         </div>
                     </div>

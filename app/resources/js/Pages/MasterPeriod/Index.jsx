@@ -197,7 +197,7 @@ export default function Index() {
                         Buka
                         <IconPreviewImageProfile />
                     </DialogTrigger>
-                    <DialogContent className="h-[80%] max-w-3xl dark:bg-[#0F114C]">
+                    <DialogContent className="h-[80%] max-w-3xl dark:bg-[#1F1F1F]">
                         <DialogTitle>Anggaran Dasar</DialogTitle>
                         <div className="overflow-hidden">
                             <iframe
@@ -224,7 +224,7 @@ export default function Index() {
                         Buka
                         <IconPreviewImageProfile />
                     </DialogTrigger>
-                    <DialogContent className="h-[80%] max-w-3xl dark:bg-[#0F114C]">
+                    <DialogContent className="h-[80%] max-w-3xl dark:bg-[#1F1F1F]">
                         <DialogTitle>Anggaran Rumah Tangga</DialogTitle>
                         <div className="overflow-hidden">
                             <iframe
@@ -251,7 +251,7 @@ export default function Index() {
                         Buka
                         <IconPreviewImageProfile />
                     </DialogTrigger>
-                    <DialogContent className="h-[80%] max-w-3xl dark:bg-[#0F114C]">
+                    <DialogContent className="h-[80%] max-w-3xl dark:bg-[#1F1F1F]">
                         <DialogTitle>Agenda Khusus</DialogTitle>
                         <div className="overflow-hidden">
                             <iframe
@@ -278,7 +278,7 @@ export default function Index() {
                         Buka
                         <IconPreviewImageProfile />
                     </DialogTrigger>
-                    <DialogContent className="h-[80%] max-w-3xl dark:bg-[#0F114C]">
+                    <DialogContent className="h-[80%] max-w-3xl dark:bg-[#1F1F1F]">
                         <DialogTitle>Video Himpunan</DialogTitle>
                         <div className="overflow-hidden">
                             <iframe
@@ -308,7 +308,7 @@ export default function Index() {
                         Buka
                         <IconPreviewImageProfile />
                     </DialogTrigger>
-                    <DialogContent className="max-w-xl dark:bg-[#0F114C]">
+                    <DialogContent className="max-w-xl dark:bg-[#1F1F1F]">
                         <DialogTitle>Gambar Cover</DialogTitle>
                         <img
                             src={

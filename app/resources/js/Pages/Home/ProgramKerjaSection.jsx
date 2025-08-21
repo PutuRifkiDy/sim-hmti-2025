@@ -38,9 +38,14 @@ export default function ProgramKerjaSection({ program_kerja }) {
 
             <section className="relative bg-white w-full flex items-center justify-center py-16 px-4 sm:px-8 dark:bg-[#1f1f1f]">
 
-                <img src="/assets/icon/hiasan_left_footer.png" alt="Ornament" className="absolute top-0 left-0 h-24 sm:h-32 md:h-48 z-10 transform rotate-90" />
-                <img src="/assets/icon/hiasan_right_footer.png" alt="Ornament" className="absolute top-0 right-0 h-24 sm:h-32 md:h-48 z-10 transform -rotate-90" />
-
+                {/* <img src="/assets/icon/hiasan_left_footer.png" alt="Ornament" className="absolute top-0 left-0 h-24 sm:h-32 md:h-48 z-10 transform rotate-90" />
+                <img src="/assets/icon/hiasan_right_footer.png" alt="Ornament" className="absolute top-0 right-0 h-24 sm:h-32 md:h-48 z-10 transform -rotate-90" /> */}
+                <img src="/assets/icon/hiasan_left_footer.png"
+                    alt="Ornament"
+                    className="absolute top-0 left-0 h-24 sm:h-32 md:h-48 z-10 rotate-90 pointer-events-none select-none" />
+                <img src="/assets/icon/hiasan_right_footer.png"
+                    alt="Ornament"
+                    className="absolute top-0 right-0 h-24 sm:h-32 md:h-48 z-10 -rotate-90 pointer-events-none select-none" />
                 <div className="w-full max-w-5xl mx-auto flex flex-col items-center z-20">
 
                     <div className="text-center mb-10">
@@ -66,7 +71,7 @@ export default function ProgramKerjaSection({ program_kerja }) {
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 w-full" data-aos="fade-up" data-aos-duration="1800">
-                        {program_kerja.map((kerja, index) => (
+                        {program_kerja?.map((kerja, index) => (
                             <div
                                 className={`relative aspect-[414/233] rounded-lg overflow-hidden cursor-pointer shadow-md w-full max-w-[414px] mx-auto border-2 border-[#E4B45C] group hover:-translate-y-2 transition-all duration-500 ease-in-out`}
                                 onMouseEnter={() => handleMouseEnter(kerja)}
@@ -82,7 +87,7 @@ export default function ProgramKerjaSection({ program_kerja }) {
                                         }`}
                                 >
                                     <h3 className="text-white text-base sm:text-lg md:text-xl font-bold text-center w-full tracking-wide">
-                                        {kerja.title}
+                                        {kerja?.title}
                                     </h3>
                                 </div>
                                 <div
@@ -90,10 +95,10 @@ export default function ProgramKerjaSection({ program_kerja }) {
                                         }`}
                                 >
                                     <h3 className="text-white text-base sm:text-lg md:text-xl font-bold mb-2">
-                                        {kerja.title}
+                                        {kerja?.title}
                                     </h3>
                                     <p className="text-white text-xs sm:text-sm md:text-base leading-relaxed">
-                                        {kerja.description}
+                                        {kerja?.description}
                                     </p>
                                 </div>
                             </div>

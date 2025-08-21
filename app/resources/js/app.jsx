@@ -1,3 +1,4 @@
+import 'sonner/dist/styles.css'
 import '../css/app.css';
 import './bootstrap';
 
@@ -11,6 +12,7 @@ import { ThemeProvider } from './Components/ThemeProvider';
 import { useEffect, useState } from 'react';
 import Loading from './Components/Loading';
 import { Inertia } from '@inertiajs/inertia';
+import { Toaster } from './Components/ui/sonner';
 
 const appName = import.meta.env.VITE_APP_NAME || 'HMTI-2025';
 
@@ -43,24 +45,28 @@ const AppWrapper = ({ App, props }) => {
             {/* <DisableInspect /> */}
             {isLoading && <Loading />}
             <App {...props} />
+            <Toaster
+                richColors
+                position="top-center"
+            />
         </ThemeProvider>
     );
 };
 
 createInertiaApp({
-	title: (title) => `${title} - ${appName}`,
-	resolve: (name) => resolvePageComponent(`./Pages/${name}.jsx`, import.meta.glob('./Pages/**/*.jsx')),
-	setup({ el, App, props }) {
-		const Root = <AppWrapper App={App} props={props} />;
+    title: (title) => `${title} - ${appName}`,
+    resolve: (name) => resolvePageComponent(`./Pages/${name}.jsx`, import.meta.glob('./Pages/**/*.jsx')),
+    setup({ el, App, props }) {
+        const Root = <AppWrapper App={App} props={props} />;
 
-		if (import.meta.env.DEV) {
-			createRoot(el).render(Root);
-			return;
-		}
+        if (import.meta.env.DEV) {
+            createRoot(el).render(Root);
+            return;
+        }
 
-		hydrateRoot(el, Root);
-	},
-	progress: {
-		color: '#4B5563',
-	},
+        hydrateRoot(el, Root);
+    },
+    progress: {
+        color: '#4B5563',
+    },
 });

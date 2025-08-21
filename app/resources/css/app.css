@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
 @layer tailwind-base, tailwind-components;
 
 @layer tailwind-base {
@@ -37,7 +38,6 @@ body {
     font-weight: normal;
     font-style: normal;
 }
-
 
 
 @layer base {
@@ -210,3 +210,20 @@ input::placeholder {
     color: #ffffff !important;
     border: 1px solid gray;
 }
+
+/* @layer components {
+    [data-sonner-toast][data-type="success"] {
+        background: hsl(var(--primary)) !important;
+        color: hsl(var(--primary-foreground)) !important;
+    }
+
+    [data-sonner-toast][data-type="error"] {
+        background: hsl(var(--destructive)) !important;
+        color: hsl(var(--destructive-foreground)) !important;
+    }
+
+    [data-sonner-toast][data-type="info"] {
+        background: hsl(var(--primary)) !important;
+        color: hsl(var(--primary-foreground)) !important;
+    }
+} */

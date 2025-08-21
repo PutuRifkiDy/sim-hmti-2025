@@ -43,11 +43,11 @@ export default function Index() {
 						</div>
 					</div>
 
-					{tabActive == 0 && <AnggaranDasar anggaran_dasar={ad_art.anggaran_dasar} />}
+					{tabActive == 0 && <AnggaranDasar anggaran_dasar={ad_art?.anggaran_dasar} />}
 
-					{tabActive == 1 && <AnggaranRumahTangga anggaran_rumah_tangga={ad_art.anggaran_rumah_tangga} />}
+					{tabActive == 1 && <AnggaranRumahTangga anggaran_rumah_tangga={ad_art?.anggaran_rumah_tangga} />}
 
-					{tabActive == 2 && <AgendaKhusus agenda_khusus={ad_art.agenda_khusus} />}
+					{tabActive == 2 && <AgendaKhusus agenda_khusus={ad_art?.agenda_khusus} />}
 				</div>
 			</div>
 		</>

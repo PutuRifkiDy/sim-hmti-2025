@@ -29,7 +29,7 @@ export default function ProgramKerja() {
         }, 500);
     }, []);
 
-    const [selectedPeriodId, setSelectedPeriodId] = useState(periodActive.id);
+    const [selectedPeriodId, setSelectedPeriodId] = useState(periodActive?.id);
 
     const onHandleChange = (value) => {
         setSelectedPeriodId(value);
@@ -63,8 +63,8 @@ export default function ProgramKerja() {
                     </SelectContent>
                 </Select>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 mt-5">
-                    {program_kerja_active.map((program, index) => (
-                        <ProgramKerjaSection key={index} title={program.title} img_path={program.img_path} description={program.description} />
+                    {program_kerja_active?.map((program, index) => (
+                        <ProgramKerjaSection key={index} title={program?.title} img_path={program?.img_path} description={program?.description} />
                     ))}
                 </div>
             </div>

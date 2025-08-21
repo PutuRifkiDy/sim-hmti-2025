@@ -56,7 +56,7 @@ export default function AboutSection({ youtube_link }) {
                             </p>
                         </div>
                     </div>
-                    <div className="px-5 md:w-1/2 mx-6 md:mx-0 w-full relative flex justify-center">
+                    <div className="px-5 md:w-1/2 w-full md:mx-0 relative flex justify-center">
                         <div className="w-full max-w-[500px] h-auto relative overflow-hidden flex justify-center items-center">
                             <iframe
                                 src={youtube_link}

@@ -17,6 +17,6 @@ export default defineConfig({
     //     },
     // },
     ssr: {
-        noExternal: ['primereact', 'primeicons'], 
+        noExternal: ['primereact'],
     },
 });

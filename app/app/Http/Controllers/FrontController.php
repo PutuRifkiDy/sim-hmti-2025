@@ -36,11 +36,17 @@ class FrontController extends Controller
                 ->first();
         }
 
-        $program_kerja = $periode_active->program_kerjas()
-            ->get()
-            ->take(4);
 
-        $fungsionaris = $periode_active->himpunans()->get();
+        if ($periode_active) {
+            $program_kerja = $periode_active->program_kerjas()
+                ->limit(5)
+                ->get();
+
+            $fungsionaris = $periode_active->himpunans()->get();
+        } else {
+            $program_kerja = collect();
+            $fungsionaris  = collect();
+        }
 
         $oprecs = Oprec::with('oprec_sies')
             ->orderBy("created_at", "desc")
@@ -50,7 +56,7 @@ class FrontController extends Controller
         $date_now = Carbon::now()->format('Y-m-d H:i:s');
 
         return inertia(component: 'Welcome', props: [
-            'periode_active' => fn() => new MasterPeriodResource($periode_active),
+            'periode_active' => fn() => $periode_active ? new MasterPeriodResource($periode_active) : null,
             'program_kerja'  => MasterProgramKerjaResource::collection($program_kerja),
             'fungsionaris'   => HimpunanMemberResource::collection($fungsionaris),
             'oprecs'         => MasterOpenRekruitmenResource::collection($oprecs),
@@ -88,12 +94,16 @@ class FrontController extends Controller
                 ->first();
         }
 
-        $program_kerja_active = MasterProgramKerja::where('period_id', $periodActive->id)
-            ->get();
+        if ($periodActive) {
+            $program_kerja_active = MasterProgramKerja::where('period_id', $periodActive->id)
+                ->get();
+        } else {
+            $program_kerja_active = collect();
+        }
 
         return inertia(component: 'ProgramKerja', props: [
             'data_periods'         => MasterPeriodResource::collection($data_periods),
-            'periodActive'         => new MasterPeriodResource($periodActive),
+            'periodActive'         => fn()         => $periodActive ? new MasterPeriodResource($periodActive) : null,
             'program_kerja_active' => MasterProgramKerjaResource::collection($program_kerja_active),
         ]);
     }

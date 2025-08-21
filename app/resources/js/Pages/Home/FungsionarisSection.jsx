@@ -125,6 +125,7 @@ export default function FungsionarisSection({ cover_path, fungsionaris }) {
                     asChild
                     className="shadow-[0_0_15px_#ECBB4E] px-16 py-5 animate-bounce transition-all duration-1000 ease-in-out md:mt-28 mt-12">
                     <Link
+                        href={route('fungsionaris')}
                         className="group"
                     >
                         Lihat Semua Fungsionaris

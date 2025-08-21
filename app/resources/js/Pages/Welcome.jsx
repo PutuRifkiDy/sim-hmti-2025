@@ -15,19 +15,16 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
     const fungsionaris = usePage().props.fungsionaris;
     const oprecs = usePage().props.oprecs;
     const date_now = usePage().props.date_now;
-    // useEffect(() => {
-    //     if (flash_message?.message) {
-    //         toast[flash_message.type || 'success'](flash_message.message);
-    //     }
-    // }, [flash_message]);
 
     return (
         <>
-            <HomeSection title={periode_active.title} />
-            <AboutSection youtube_link={periode_active.youtube_link} />
-            <ProgramKerjaSection program_kerja={program_kerja} />
-            <FungsionarisSection cover_path={periode_active.cover_path} fungsionaris={fungsionaris} />
-            <OprecSection oprecs={oprecs} dateNow={date_now} />
+            <div className='overflow-x-clip'>
+                <HomeSection title={periode_active?.title} />
+                <AboutSection youtube_link={periode_active?.youtube_link} />
+                <ProgramKerjaSection program_kerja={program_kerja} />
+                <FungsionarisSection cover_path={periode_active?.cover_path} fungsionaris={fungsionaris} />
+                <OprecSection oprecs={oprecs} dateNow={date_now} />
+            </div>
         </>
     );
 }
