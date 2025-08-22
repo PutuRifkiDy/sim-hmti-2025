@@ -51,7 +51,7 @@ export default function Fungsionaris({ periods = [], periodActive, view }) {
                             : "text-[#ecc067] border-[#ecc067] hover:bg-[#ecc067] hover:text-white"
                             }`}
                     >
-                        {p.title}
+                        Kabinet {p.title}
                     </button>
                 ))}
             </div>
