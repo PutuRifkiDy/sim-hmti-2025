@@ -21,7 +21,7 @@ class MasterPeriodeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'                 => ['required', 'string', 'max:255'],
+            'title'                 => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z\s]+$/'],
             'start_date'            => ['required', 'date'],
             'end_date'              => ['required', 'date'],
             'anggaran_dasar'        => ['nullable', 'string', 'max:255', 'url'],
@@ -51,6 +51,7 @@ class MasterPeriodeRequest extends FormRequest
         return [
             'title.required'            => 'Periode harus diisi.',
             'title.max'                 => 'Periode maksimal 255 karakter.',
+            'title.regex'               => 'Periode harus berupa huruf.',
             'start_date.required'       => 'Tanggal mulai harus diisi.',
             'end_date.required'         => 'Tanggal selesai harus diisi.',
             'start_date.date'           => 'Tanggal mulai harus berupa tanggal.',

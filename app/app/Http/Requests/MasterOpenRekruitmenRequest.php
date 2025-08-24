@@ -22,7 +22,7 @@ class MasterOpenRekruitmenRequest extends FormRequest
     {
         return [
             'sie_id'      => ['required', 'array'],
-            'oprec_name'  => ['required', 'max:255'],
+            'oprec_name'  => ['required', 'max:255', 'regex:/^[a-zA-Z0-9\s]+$/'],
             'description' => ['required', 'max:60000'],
             'start_date'  => ['required', 'date'],
             'end_date'    => ['required', 'date'],
@@ -60,6 +60,7 @@ class MasterOpenRekruitmenRequest extends FormRequest
             'sie_id.array'         => 'Sie harus berupa array.',
             'oprec_name.required'  => 'Nama Oprec harus diisi.',
             'oprec_name.max'       => 'Nama Oprec maksimal 255 karakter.',
+            'oprec_name.regex'     => 'Nama Oprec harus berupa huruf.',
             'description.required' => 'Deskripsi harus diisi.',
             'description.max'      => 'Deskripsi maksimal 60000 karakter.',
             'start_date.required'  => 'Tanggal mulai harus diisi.',

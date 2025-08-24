@@ -21,7 +21,7 @@ class MasterPositionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'     => ['required', 'string', 'max:255'],
+            'title'     => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z0-9\s]+$/'],
             'parent_id' => ['nullable'],
         ];
     }
@@ -40,6 +40,7 @@ class MasterPositionRequest extends FormRequest
             'title.required' => 'Jabatan harus diisi.',
             'title.max'      => 'Jabatan maksimal 255 karakter.',
             'title.string'   => 'Jabatan harus berupa string.',
+            'title.regex' => 'Jabatan tidak boleh menggunakan symbol.',
         ];
     }
 }

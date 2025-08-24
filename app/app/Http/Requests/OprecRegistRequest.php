@@ -21,8 +21,8 @@ class OprecRegistRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'reason_join' => ['required', 'string', 'max:255'],
-            'experience'  => ['required', 'string', 'max:255'],
+            'reason_join' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z\s]+$/'],
+            'experience'  => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z\s]+$/'],
             'sie_id'      => ['required'],
             'oprec_id'    => ['required'],
             'user_id'     => ['required'],
@@ -46,9 +46,11 @@ class OprecRegistRequest extends FormRequest
             'reason_join.required' => 'Alasan bergabung harus diisi.',
             'reason_join.string'   => 'Alasan bergabung harus berupa string.',
             'reason_join.max'      => 'Alasan bergabung maksimal 255 karakter.',
+            'reason_join.regex'    => 'Alasan bergabung harus berupa huruf.',
             'experience.required'  => 'Pengalaman harus diisi.',
             'experience.string'    => 'Pengalaman harus berupa string.',
             'experience.max'       => 'Pengalaman maksimal 255 karakter.',
+            'experience.regex'     => 'Pengalaman harus berupa huruf.',
             'sie_id.required'      => 'Sie harus diisi.',
             'oprec_id.required'    => 'Oprec harus diisi.',
             'user_id.required'     => 'User harus diisi.',

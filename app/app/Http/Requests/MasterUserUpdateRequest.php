@@ -24,7 +24,7 @@ class MasterUserUpdateRequest extends FormRequest
     {
         $user = User::findOrFail($this->route('id'));
         return [
-            'name'         => ['required', 'string', 'max:255'],
+            'name'         => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z\s]+$/'],
             'email'        => [
                 'required',
                 'string',
@@ -33,9 +33,9 @@ class MasterUserUpdateRequest extends FormRequest
                 'max:255',
                 Rule::unique(User::class)->ignore($this->route('id')),
             ],
-            'nim'          => ['required', 'string', 'max:10', Rule::unique(User::class, 'nim')->ignore($this->route('id'))],
+            'nim'          => ['required', 'string', 'max:10', Rule::unique(User::class, 'nim')->ignore($this->route('id')), 'alpha_num'],
             'line_id'      => ['required', 'string', 'max:255'],
-            'phone_number' => ['required', 'string', 'max:15'],
+            'phone_number' => ['required', 'string', 'max:15', 'alpha_num'],
             'birthday'     => ['required', 'date'],
             'address'      => ['required', 'string', 'max:255'],
             'username'     => ['required', 'string', 'max:255', Rule::unique(User::class, 'username')->ignore($this->route('id'))],
@@ -68,6 +68,7 @@ class MasterUserUpdateRequest extends FormRequest
     {
         return [
             'name'                  => 'Nama harus diisi.',
+            'name.regex' => 'Nama harus berupa huruf saja.',
             'email.required'        => 'Email harus diisi.',
             'email.unique'          => 'Email sudah terdaftar',
             'email.email'           => 'Email tidak valid.',
@@ -76,6 +77,7 @@ class MasterUserUpdateRequest extends FormRequest
             'email.string'          => 'Email harus berupa string.',
             'nim.required'          => 'NIM harus diisi.',
             'nim.max'               => 'NIM maksimal 10 karakter.',
+            'nim.alpha_num'         => 'NIM berupa angka dan tidak ada spasi',
             'nim.unique'            => 'NIM sudah terdaftar.',
             'line_id.required'      => 'Line ID harus diisi.',
             'line_id.max'           => 'Line ID maksimal 255 karakter.',
@@ -83,6 +85,7 @@ class MasterUserUpdateRequest extends FormRequest
             'phone_number.required' => 'Nomor Telepon harus diisi.',
             'phone_number.max'      => 'Nomor Telepon maksimal 15 karakter.',
             'phone_number.string'   => 'Nomor Telepon harus berupa string.',
+            'phone_number.alpha_num' => 'Nomor Telepon tidak valid.',
             'birthday.required'     => 'Tanggal Lahir harus diisi.',
             'birthday.date'         => 'Tanggal Lahir harus berupa tanggal.',
             'address.required'      => 'Alamat harus diisi.',
