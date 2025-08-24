@@ -351,7 +351,7 @@ export default function Index() {
                                         ></Column>
                                         <Column
                                             field="phone_number"
-                                            header="Phone Number"
+                                            header="No Telepon"
                                             body={(rowData) => (rowData.phone_number ? rowData.phone_number : '-')}
                                             className="min-w-[12rem]"
                                         ></Column>

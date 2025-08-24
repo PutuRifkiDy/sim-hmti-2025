@@ -106,7 +106,7 @@ export default function OprecSection({ oprecs, dateNow }) {
                                         </div>
                                         <div className="area-header-pamflet w-full flex justify-between items-end mt-[8px]">
                                             <div className="header-pamflet flex flex-col">
-                                                <h1 className='text-[20px] font-semibold h-fit leading-[100%] my-[8px]'>{oprec?.oprec_name}</h1>
+                                                <h1 className='text-[20px] font-semibold h-fit leading-[100%] my-[8px] line-clamp-1'>{oprec?.oprec_name}</h1>
                                                 <p className='text-[12px] leading-[100%] mb-[8px]'>
                                                     {templateDateTime(oprec?.start_date)} - {templateDateTime(oprec?.end_date)}
                                                 </p>

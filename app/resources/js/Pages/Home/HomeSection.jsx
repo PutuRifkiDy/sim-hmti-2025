@@ -23,7 +23,7 @@ export default function HomeSection({ title }) {
             <div className="w-full bg-white dark:bg-[#1e1e1e]">
                 <div className="flex flex-col lg:flex-row items-center lg:items-center h-full">
                     <div className="lg:w-1/2 w-full flex flex-col h-full lg:flex-row items-center lg:items-start p-8 lg:p-12 space-x-0 lg:space-x-4">
-                        <div className="mb-4 lg:mb-8 flex justify-center lg:justify-start">
+                        <div className="mb-4 lg:mb-8 flex-shrink-0 justify-center lg:justify-start">
                             <img
                                 src="/assets/icon/logo_hmti.png"
                                 alt="Logo HMTI"
