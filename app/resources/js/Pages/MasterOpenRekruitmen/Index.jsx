@@ -426,8 +426,8 @@ export default function Index() {
 Index.layout = (page) => (
 	<DashboardLayout
 		children={page}
-		title={'Master Open Rekruitmen'}
-		header={'Master Open Recruitmen'}
-		description={'Kelola master open recruitmen di page ini'}
+		title={'Master Open Rekruitment'}
+		header={'Master Open Recruitment'}
+		description={'Kelola master open recruitment di page ini'}
 	/>
 );

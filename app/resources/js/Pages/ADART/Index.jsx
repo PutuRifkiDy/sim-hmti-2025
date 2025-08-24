@@ -55,5 +55,5 @@ export default function Index() {
 }
 
 Index.layout = (page) => (
-	<DashboardLayout children={page} title={'ADART'} header={'ADART'} description={'Lihat ADART di periode ini'} />
+	<DashboardLayout children={page} title={'AD/ART'} header={'AD/ART'} description={'Lihat AD/ART di periode aktif'} />
 );

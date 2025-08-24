@@ -320,8 +320,8 @@ export default function Index() {
 Index.layout = (page) => (
 	<DashboardLayout
 		children={page}
-		title={'Master Position'}
-		header={'Master Position'}
-		description={'Kelola master position di page ini'}
+		title={'Master Jabatan'}
+		header={'Master Jabatan'}
+		description={'Kelola master jabatan di page ini'}
 	/>
 );

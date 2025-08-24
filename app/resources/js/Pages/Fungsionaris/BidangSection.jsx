@@ -85,7 +85,7 @@ export default function BidangSection({
                                 onClick={() => onChange(idx)}
                                 className={`flex justify-center items-center w-[183px] px-0 py-[8.6px] rounded-[7.215px] font-semibold transition duration-200 mx-auto ${activeIndex == idx
                                     ? "bg-[#ecc067] text-white border border-[#ecc067]"
-                                    : "text-[#ecc067] bg-white border border-[#ecc067] hover:bg-[#ecc067] hover:text-white"
+                                    : "text-[#ecc067] dark:bg-[#1f1f1f] bg-white border border-[#ecc067] hover:bg-[#ecc067] hover:text-white"
                                     }`}
                                 style={{ flexShrink: 0 }}
                             >

@@ -198,9 +198,11 @@ export default function Sidebar({ navigations, children, header, description }) 
 					className={`fixed left-0 top-0 z-50 h-full w-full transform bg-white transition-transform dark:bg-[#1F1F1F] ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:hidden`}
 				>
 					<div className="flex items-center justify-between border-b p-5">
-						<span className="text-xl font-bold text-[#785233]">
-							HMTI-<span className="text-[#ECBB4E]">NG</span>
-						</span>
+						<Link href={route('welcome')}>
+							<span className="text-xl font-bold text-[#785233]">
+								HMTI-<span className="text-[#ECBB4E]">NG</span>
+							</span>
+						</Link>
 						<button onClick={() => setIsSidebarOpen(false)} className="">
 							<Bars3BottomRightIcon className="h-6 w-6 text-gray-600" />
 						</button>

@@ -21,7 +21,7 @@ export default function DashboardLayout({ children, title, header, description }
 					},
 					{
 						icon: <IconOpenRekrutmen />,
-						text: 'Open Recruitmen',
+						text: 'Open Recruitment',
 						link: route('oprec-regist.index'),
 					},
 					{
@@ -49,7 +49,7 @@ export default function DashboardLayout({ children, title, header, description }
 						},
 						{
 							icon: <IconOpenRekrutmen />,
-							text: 'Open Recruitmen',
+							text: 'Open Recruitment',
 							link: route('oprec-regist.index'),
 						},
 						{
@@ -71,7 +71,7 @@ export default function DashboardLayout({ children, title, header, description }
 						},
 						{
 							icon: <IconOpenRekrutmen />,
-							text: 'Open Rekruitmen',
+							text: 'Open Rekruitment',
 							link: route('oprec-regist.index'),
 						},
 						{

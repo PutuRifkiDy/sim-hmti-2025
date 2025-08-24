@@ -88,7 +88,7 @@ export default function DivisiSection({ groups = [] }) {
                                 onClick={() => setActive(idx)}
                                 className={`flex justify-center items-center w-[183px] px-0 py-[8.6px] rounded-[7.215px] font-semibold transition duration-200 mx-auto ${active == idx
                                     ? "bg-[#ecc067] text-white border border-[#ecc067]"
-                                    : "bg-white text-[#ecc067] border border-[#ecc067] hover:bg-[#ecc067] hover:text-white"
+                                    : "dark:bg-[#1f1f1f] bg-white text-[#ecc067] border border-[#ecc067] hover:bg-[#ecc067] hover:text-white"
                                     }`}
                                 style={{ flexShrink: 0 }}
                             >

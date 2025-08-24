@@ -49,7 +49,7 @@ export default function OprecSection({ oprecs, dateNow }) {
                         <h1
                             data-aos="fade-up"
                             data-aos-duration="600"
-                            className='text-[#ECC067] font-black font-poppins text-[30px] text-center md:text-start'>OPEN RECRUITMEN</h1>
+                            className='text-[#ECC067] font-black font-poppins text-[30px] text-center md:text-start'>OPEN RECRUITMENT</h1>
                         <p
                             data-aos="fade-up"
                             data-aos-duration="1200"
