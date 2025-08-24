@@ -71,7 +71,7 @@ class FrontController extends Controller
             ->where('end_date', '>=', Carbon::now())
             ->first();
 
-        $data_periods = MasterPeriod::get();
+        $data_periods = MasterPeriod::orderBy('created_at', 'desc')->get();
 
         $requestPeriodInFrontend = request('period_id');
 
