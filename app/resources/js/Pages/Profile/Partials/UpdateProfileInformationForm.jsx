@@ -135,7 +135,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
 
 							<TextInput
 								id="email"
-								type="email"
+								type="text"
 								className="mt-1 block w-full dark:bg-[#1F1F1F]"
 								name="email"
 								value={data.email}

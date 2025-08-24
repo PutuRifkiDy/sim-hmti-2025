@@ -61,7 +61,7 @@ class ProfileUpdateRequest extends FormRequest
             'name'                  => 'Nama harus diisi.',
             'email.required'        => 'Email harus diisi.',
             'email.unique'          => 'Email sudah terdaftar',
-            'email.email'           => 'Email tidak valid.',
+            'email.email'           => 'Format email tidak valid.',
             'email.max'             => 'Email maksimal 255 karakter.',
             'email.lowercase'       => 'Email harus berupa huruf kecil.',
             'email.string'          => 'Email harus berupa string.',
