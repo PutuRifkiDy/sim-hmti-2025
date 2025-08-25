@@ -8,7 +8,6 @@ import * as AOS from 'aos';
 import 'aos/dist/aos.css';
 export default function DivisiSection({ groups = [] }) {
     const [active, setActive] = useState(0);
-
     useEffect(() => {
         setActive(0);
     }, [groups.length]);
@@ -18,6 +17,7 @@ export default function DivisiSection({ groups = [] }) {
 
     const kadivCard = activeGroup?.kadivCard ?? { nama: "-", jabatan: "Kadiv", foto: "/placeholder-user.png" };
     const anggota = activeGroup?.anggota ?? [];
+
 
     useEffect(() => {
         AOS.init({
@@ -63,7 +63,7 @@ export default function DivisiSection({ groups = [] }) {
             <h1
                 data-aos="fade-up" data-aos-duration="600"
                 className="text-[#ecc067] font-poppins font-black leading-[1.1] tracking-[-0.06em] uppercase whitespace-nowrap text-[clamp(2rem,6vw,5.5rem)] -mt-[0.5em]">
-                DIVISI
+                {kadivCard.jabatan == "Kabid Rohani" ? "Anggota Rohani" : "Divisi"}
             </h1>
 
             {/* Swiper Buttons */}
