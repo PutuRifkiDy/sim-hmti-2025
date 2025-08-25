@@ -34,10 +34,6 @@ class ADARTController extends Controller
                 ->first();
         }
 
-        // if (! $ad_art) {
-        //    $ad_art = collect();
-        // }
-
         return inertia(component: 'ADART/Index', props: [
             'ad_art' => fn() => $ad_art ? new MasterPeriodResource($ad_art) : null,
         ]);

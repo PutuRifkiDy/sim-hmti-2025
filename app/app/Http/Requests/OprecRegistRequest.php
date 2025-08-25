@@ -21,8 +21,8 @@ class OprecRegistRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'reason_join' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z\s]+$/'],
-            'experience'  => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z\s]+$/'],
+            'reason_join' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z0-9\s.,;?-]+$/'],
+            'experience'  => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z0-9\s.,;?-]+$/'],
             'sie_id'      => ['required'],
             'oprec_id'    => ['required'],
             'user_id'     => ['required'],

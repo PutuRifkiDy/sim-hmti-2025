@@ -115,6 +115,8 @@ class MasterHimpunanController extends Controller
     public function destroy($id): RedirectResponse
     {
         $himpunan = Himpunan::find($id);
+        $this->delete_file($himpunan, 'img_himpunan_path');
+
         $himpunan->delete();
         flashMessage('Fungsionaris berhasil dihapus', 'success');
         return to_route('master-himpunan.index', ['id' => $himpunan->period_id]);

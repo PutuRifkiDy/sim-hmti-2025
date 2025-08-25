@@ -130,6 +130,8 @@ class MasterOpenRekruitmen extends Controller
     public function destroy($id): RedirectResponse
     {
         $oprec = Oprec::find($id);
+        $this->delete_file($oprec, 'poster_path');
+
         $oprec->delete();
         flashMessage('Open Recruitmen berhasil dihapus', 'success');
         return to_route('master-open-rekruitmen.index');

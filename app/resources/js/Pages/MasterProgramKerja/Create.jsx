@@ -1,6 +1,7 @@
 import { ImageUpload } from '@/Components/ImageUpload';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
+import TextArea from '@/Components/TextArea';
 import TextInput from '@/Components/TextInput';
 import { Button } from '@/Components/ui/button';
 import DashboardLayout from '@/Layouts/DashboardLayout';
@@ -122,9 +123,9 @@ export default function Create() {
                         </div>
                         <div>
                             <InputLabel htmlFor="description" value="Deskripsi" />
-                            <TextInput
+                            <TextArea
                                 id="description"
-                                className="mt-1 block w-full dark:bg-[#1F1F1F]"
+                                className="mt-1 block w-full dark:bg-[#1F1F1F] h-32"
                                 value={data.description}
                                 name="description"
                                 type="text"

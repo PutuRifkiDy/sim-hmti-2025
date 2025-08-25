@@ -86,6 +86,8 @@ class MasterPeriodController extends Controller
     public function destroy($id): RedirectResponse
     {
         $period = MasterPeriod::find($id);
+        $this->delete_file($period, 'cover_path');
+
         $period->delete();
         flashMessage("Periode $period->title berhasil dihapus", 'success');
         return to_route('master-period.index');

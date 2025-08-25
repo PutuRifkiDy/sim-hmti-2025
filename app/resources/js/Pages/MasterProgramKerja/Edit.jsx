@@ -1,6 +1,7 @@
 import { ImageUpload } from '@/Components/ImageUpload';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
+import TextArea from '@/Components/TextArea';
 import TextInput from '@/Components/TextInput';
 import { Button } from '@/Components/ui/button';
 import DashboardLayout from '@/Layouts/DashboardLayout';
@@ -46,10 +47,10 @@ export default function Edit() {
     return (
         <>
             <div className="py-5">
-                <div className="flex flex-col justify-between gap-5 rounded-lg bg-white p-4 shadow dark:bg-[#040529] sm:p-8">
+                <div className="flex flex-col justify-between gap-5 rounded-lg bg-white p-4 shadow dark:bg-[#1F1F1F] sm:p-8">
                     <div className="flex w-full flex-row justify-between">
                         <header>
-                            <h2 className="text-lg font-medium text-gray-900">Edit Program Kerja</h2>
+                            <h2 className="text-lg font-medium text-gray-900 dark:text-white">Edit Program Kerja</h2>
 
                             <p className="mt-1 text-sm text-gray-600">
                                 Masukkan judul, deskripsi, dan juga gambar dari program kerja
@@ -98,7 +99,7 @@ export default function Edit() {
                             <InputLabel htmlFor="title" value="Judul Program Kerja" />
                             <TextInput
                                 id="title"
-                                className="mt-1 block w-full"
+                                className="mt-1 block w-full dark:bg-[#1F1F1F]"
                                 value={data.title}
                                 name="title"
                                 type="text"
@@ -110,10 +111,10 @@ export default function Edit() {
                             />
                         </div>
                         <div>
-                            <InputLabel htmlFor="description" value="Judul Program Kerja" />
-                            <TextInput
+                            <InputLabel htmlFor="description" value="Deskripsi" />
+                            <TextArea
                                 id="description"
-                                className="mt-1 block w-full"
+                                className="mt-1 block w-full h-32 dark:bg-[#1F1F1F]"
                                 value={data.description}
                                 name="description"
                                 type="text"
@@ -142,7 +143,7 @@ export default function Edit() {
                                 type="submit"
                                 variant="gold"
                                 disabled={processing}
-                                className="flex flex-row items-center justify-center gap-2 shadow-[0_0_15px_#ECBB4E] dark:bg-[#0F114C]"
+                                className="flex flex-row items-center justify-center gap-2 shadow-[0_0_15px_#ECBB4E] dark:bg-[#ECBB4E]"
                             >
                                 Simpan
                                 <CheckBadgeIcon className="h-6 w-6 text-white" />

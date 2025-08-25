@@ -122,6 +122,7 @@ class MasterUserController extends Controller
     {
         $user = User::find($id);
         $this->delete_file($user, 'img_path');
+        
         $user->delete();
         flashMessage('Mahasiswa berhasil dihapus', 'success');
         return to_route('master-user.index')->with('inertia_reload', true);

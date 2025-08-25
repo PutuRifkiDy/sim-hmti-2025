@@ -76,6 +76,9 @@ class MasterProgramKerjaController extends Controller
     public function destroy($id): RedirectResponse
     {
         $proker = MasterProgramKerja::find($id);
+
+        $this->delete_file($proker, 'img_path');
+
         $proker->delete();
         flashMessage('Program Kerja ini berhasil dihapus', 'success');
         return to_route('master-program-kerja.index', ['id' => $proker->period_id]);
