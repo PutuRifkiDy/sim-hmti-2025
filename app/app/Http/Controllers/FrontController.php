@@ -39,10 +39,14 @@ class FrontController extends Controller
 
         if ($periode_active) {
             $program_kerja = $periode_active->program_kerjas()
-                ->limit(5)
+                ->limit(4)
                 ->get();
 
-            $fungsionaris = $periode_active->himpunans()->get();
+            $fungsionaris_position = MasterPosition::where('title', 'like', '%anggota%')->get();
+            $fungsionaris = $periode_active->himpunans()
+                ->whereNotIn('position_id', $fungsionaris_position->pluck('id'))
+                ->get();
+            
         } else {
             $program_kerja = collect();
             $fungsionaris  = collect();
