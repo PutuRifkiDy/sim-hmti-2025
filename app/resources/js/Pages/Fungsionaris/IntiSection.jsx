@@ -21,8 +21,10 @@ export default function IntiSection({
                     <path d="M3 94a91 91 0 00182 0" stroke="#7B4B27" strokeWidth="2" strokeDasharray="6 6" strokeLinecap="round" />
                 </svg>
             </div>
-            <div className="mt-4 flex justify-center w-[159.791px] h-[21.79px] text-[#785233]  font-black leading-none tracking-[-1.017px] whitespace-nowrap text-center text-[clamp(1rem,4vw,25px)]">
-                {nama}
+            <div className="mt-4 flex justify-center w-[190.791px] text-[#785233]  font-black leading-none tracking-[-1.017px] text-center text-[clamp(1rem,4vw,18px)] ">
+                <p className="line-clamp-2">
+                    {nama}
+                </p>
             </div>
             <div className="flex flex-col justify-center w-[159.791px] h-[21.79px] text-[#785233] text-center  font-semibold leading-none tracking-[-0.581px] text-[clamp(0.75rem,3vw,14.5px)]">
                 {jabatan}
@@ -49,13 +51,13 @@ export default function IntiSection({
             </div>
 
             {/* Sekretaris & Bendahara*/}
-            <div className="mt-10 w-full grid grid-cols-2 gap-6 max-w-5xl">
-                <div className="flex flex-wrap justify-center gap-8">
+            <div className="mt-10 w-full grid grid-cols-2 gap-6">
+                <div className="flex flex-wrap md:justify-evenly justify-center gap-8">
                     {sekretariats.map((p, i) => (
                         <ProfileCard key={`sek-${i}`} {...p} />
                     ))}
                 </div>
-                <div className="flex flex-wrap justify-center gap-8">
+                <div className="flex flex-wrap md:justify-evenly justify-center gap-8">
                     {bendaharas.map((p, i) => (
                         <ProfileCard key={`ben-${i}`} {...p} />
                     ))}

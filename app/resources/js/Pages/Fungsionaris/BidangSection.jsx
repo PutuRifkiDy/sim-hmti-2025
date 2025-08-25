@@ -46,10 +46,12 @@ export default function BidangSection({
                 </svg>
             </div>
 
-            <div className="mt-4 flex justify-center w-[159.791px] h-[21.79px] text-[#785233] font-black leading-none tracking-[-1.017px] whitespace-nowrap text-center text-[clamp(1rem,4vw,25px)]">
-                {nama ?? "-"}
+            <div className="mt-4 flex justify-center w-[179.791px] text-[#785233] font-black leading-none tracking-[-1.017px] text-center text-[clamp(1rem,4vw,18px)]">
+                <p className="line-clamp-2 text-wrap">
+                    {nama ?? "-"}
+                </p>
             </div>
-            <div className="flex flex-col justify-center w-[159.791px] h-[21.79px] text-[#785233] text-center font-semibold leading-none tracking-[-0.581px] text-[clamp(0.75rem,3vw,14.5px)]">
+            <div className="mt-4 flex flex-col justify-end w-[159.791px] h-[21.79px] text-[#785233] text-center font-semibold leading-none tracking-[-0.581px] text-[clamp(0.75rem,3vw,14.5px)]">
                 {jabatan ?? "-"}
             </div>
         </div>
@@ -109,7 +111,7 @@ export default function BidangSection({
                 </svg>
             </div>
 
-            <div className="mt-4 flex flex-col justify-center w-[159.791px] h-[21.79px] text-[#785233] text-center font-black leading-none tracking-[-1.017px] whitespace-nowrap text-[clamp(1rem,4vw,25px)]">
+            <div className="mt-4 flex justify-center w-[159.791px] h-[21.79px] text-[#785233] text-center font-black leading-none tracking-[-1.017px] whitespace-nowrap text-[clamp(1rem,4vw,18px)]">
                 {kabidCard.nama ?? "-"}
             </div>
             <div className="flex flex-col justify-center w-[159.791px] h-[21.79px] text-[#785233] text-center font-semibold leading-none tracking-[-0.581px] text-[clamp(0.75rem,3vw,14.5px)]">
@@ -132,7 +134,7 @@ export default function BidangSection({
                 </div>
 
                 {/* Desktop layout */}
-                <div className="hidden sm:flex flex-wrap justify-center gap-16 max-w-full">
+                <div className="hidden sm:flex flex-wrap md:justify-evenly justify-center gap-16 max-w-full">
                     {kadivCards.map((item, i) => (
                         <ProfileCard key={i} {...item} />
                     ))}

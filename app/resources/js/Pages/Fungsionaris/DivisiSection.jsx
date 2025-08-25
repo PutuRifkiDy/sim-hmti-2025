@@ -49,8 +49,8 @@ export default function DivisiSection({ groups = [] }) {
                 </svg>
             </div>
 
-            <div className="mt-4 flex justify-center w-[159.791px] h-[21.79px] text-[#785233] font-black leading-none tracking-[-1.017px] whitespace-nowrap text-center text-[clamp(1rem,4vw,25px)]">
-                {nama ?? "-"}
+            <div className="mt-4 flex justify-center w-[159.791px] text-[#785233] font-black leading-none tracking-[-1.017px] text-center text-[clamp(1rem,4vw,18px)]">
+                    {nama ?? "-"}
             </div>
             <div className="mt-2 flex flex-col justify-center w-[159.791px] h-[21.79px] text-[#785233] text-center font-semibold leading-none tracking-[-0.581px] text-[clamp(0.75rem,3vw,14.5px)] whitespace-nowrap">
                 {jabatan ?? "-"}
@@ -112,7 +112,7 @@ export default function DivisiSection({ groups = [] }) {
                 </svg>
             </div>
 
-            <div className="mt-4 flex flex-col justify-center w-[159.791px] h-[21.79px] text-[#785233] text-center font-black leading-none tracking-[-1.017px] whitespace-nowrap text-[clamp(1rem,4vw,25px)]">
+            <div className="mt-4 flex justify-center w-[159.791px] h-[21.79px] text-[#785233] text-center font-black leading-none tracking-[-1.017px] whitespace-nowrap text-[clamp(1rem,4vw,18px)]">
                 {kadivCard.nama ?? "-"}
             </div>
             <div className="flex flex-col justify-center w-[159.791px] h-[21.79px] text-[#785233] text-center font-semibold leading-none tracking-[-0.581px] text-[clamp(0.75rem,3vw,14.5px)]">
