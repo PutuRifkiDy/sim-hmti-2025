@@ -118,7 +118,7 @@ export default function FungsionarisSection({ cover_path, fungsionaris }) {
                 </div>
 
                 <Button
-                    data-aos="zoom-in"
+                    data-aos="fade-up"
                     data-aos-duration="600"
                     variant="gold"
                     type="button"
