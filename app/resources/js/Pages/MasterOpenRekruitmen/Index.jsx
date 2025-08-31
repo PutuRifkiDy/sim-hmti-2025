@@ -277,7 +277,7 @@ export default function Index() {
 							</div>
 							<div className="flex flex-col gap-0">
 								<p className="light:text-[#202224]/70 text-[16px] font-medium tracking-[0.03em]">
-									Jumlah Open Rekruitmen
+									Jumlah Open Recruitment
 								</p>
 								<p className="text-[28px] font-bold tracking-[1px]">{total_oprec}</p>
 							</div>
@@ -426,7 +426,7 @@ export default function Index() {
 Index.layout = (page) => (
 	<DashboardLayout
 		children={page}
-		title={'Master Open Rekruitment'}
+		title={'Master Open Recruitment'}
 		header={'Master Open Recruitment'}
 		description={'Kelola master open recruitment di page ini'}
 	/>

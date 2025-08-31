@@ -387,7 +387,7 @@ SeeRegistered.layout = (page) => (
     <DashboardLayout
         children={page}
         title={'Pendaftar'}
-        header={'Open Rekruitmen'}
+        header={'Open Recruitment'}
         description={'Kelola pendaftar di page ini'}
     />
 );

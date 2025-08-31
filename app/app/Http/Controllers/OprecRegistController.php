@@ -15,10 +15,10 @@ use Inertia\Response;
 
 class OprecRegistController extends Controller
 {
-    public function index(): Response | RedirectResponse
+    public function index(): Response|RedirectResponse
     {
         $user = auth()->user();
-        if (! $user) {
+        if (!$user) {
             return to_route('login');
         }
 
@@ -29,15 +29,15 @@ class OprecRegistController extends Controller
         $date_now = Carbon::now()->format('Y-m-d H:i:s');
 
         return inertia(component: 'OprecRegist/Index', props: [
-            'oprecs'   => MasterOpenRekruitmenResource::collection($oprecs),
+            'oprecs' => MasterOpenRekruitmenResource::collection($oprecs),
             'date_now' => $date_now,
         ]);
     }
 
-    public function show($id): Response | RedirectResponse
+    public function show($id): Response|RedirectResponse
     {
         $user = auth()->user();
-        if (! $user) {
+        if (!$user) {
             return to_route('login');
         }
 
@@ -55,7 +55,7 @@ class OprecRegistController extends Controller
             ->exists();
 
         if ($oprec_is_active == false) {
-            flashMessage("Open Recruitmen ini sudah tidak aktif lagi", 'error');
+            flashMessage("Open Recruitment ini sudah tidak aktif lagi", 'error');
             return back();
         }
 
@@ -67,8 +67,8 @@ class OprecRegistController extends Controller
 
         return inertia(component: 'OprecRegist/Show', props: [
             'oprec' => new MasterOpenRekruitmenResource($oprec),
-            'sies'  => OprecSieResource::collection($sies),
-            'user'  => new UserSingleResource($user),
+            'sies' => OprecSieResource::collection($sies),
+            'user' => new UserSingleResource($user),
         ]);
     }
 
@@ -76,7 +76,7 @@ class OprecRegistController extends Controller
     {
 
         $user = auth()->user();
-        if (! $user) {
+        if (!$user) {
             return to_route('login');
         }
 
@@ -91,26 +91,26 @@ class OprecRegistController extends Controller
             ->exists();
 
         if ($oprec_is_active == false) {
-            flashMessage("Open Recruitmen ini sudah tidak aktif lagi", 'error');
+            flashMessage("Open Recruitment ini sudah tidak aktif lagi", 'error');
             return back();
         }
 
         $oprec_regist = OprecRegist::create([
             'reason_join' => $request->reason_join,
-            'experience'  => $request->experience,
-            'sie_id'      => $request->sie_id,
-            'oprec_id'    => $request->oprec_id,
-            'user_id'     => $request->user_id,
+            'experience' => $request->experience,
+            'sie_id' => $request->sie_id,
+            'oprec_id' => $request->oprec_id,
+            'user_id' => $request->user_id,
         ]);
 
         flashMessage("Pendaftaran berhasil disimpan", 'success');
         return to_route('oprec-regist.edit', ['idOprec' => $oprec_regist->oprec_id, 'idUser' => $oprec_regist->user_id]);
     }
 
-    public function registered($idOprec, $idUser): Response | RedirectResponse
+    public function registered($idOprec, $idUser): Response|RedirectResponse
     {
         $user = auth()->user();
-        if (! $user) {
+        if (!$user) {
             return to_route('login');
         }
 

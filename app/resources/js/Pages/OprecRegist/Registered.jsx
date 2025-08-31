@@ -118,8 +118,8 @@ export default function Registered() {
 Registered.layout = (page) => (
 	<DashboardLayout
 		children={page}
-		title={'Oprec Regist'}
-		header={'Oprec Regist'}
+		title={'Registrasi Open Recruitment'}
+		header={'Registrasi Open Recruitment'}
 		description={'Daftar kegiatan di page ini'}
 	/>
 );

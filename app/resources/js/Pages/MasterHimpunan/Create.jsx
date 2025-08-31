@@ -207,4 +207,4 @@ export default function Create() {
     );
 }
 
-Create.layout = (page) => <DashboardLayout children={page} title={'Create Master Sie'} />;
+Create.layout = (page) => <DashboardLayout children={page} title={'Create Master Himpunan'} />;

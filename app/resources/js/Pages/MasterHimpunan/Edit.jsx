@@ -211,4 +211,4 @@ export default function Edit() {
     );
 }
 
-Edit.layout = (page) => <DashboardLayout children={page} title={'Edit Master Sie'} />;
+Edit.layout = (page) => <DashboardLayout children={page} title={'Edit Master Himpunan'} />;

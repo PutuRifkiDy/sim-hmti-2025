@@ -140,4 +140,4 @@ export default function Create() {
 	);
 }
 
-Create.layout = (page) => <DashboardLayout children={page} title={'Create Master Financial'} />;
+Create.layout = (page) => <DashboardLayout children={page} title={'Create Master Keuangan'} />;

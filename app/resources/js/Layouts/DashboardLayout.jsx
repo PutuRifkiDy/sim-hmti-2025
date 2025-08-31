@@ -71,7 +71,7 @@ export default function DashboardLayout({ children, title, header, description }
 						},
 						{
 							icon: <IconOpenRekrutmen />,
-							text: 'Open Rekruitment',
+							text: 'Open Recruitment',
 							link: route('oprec-regist.index'),
 						},
 						{

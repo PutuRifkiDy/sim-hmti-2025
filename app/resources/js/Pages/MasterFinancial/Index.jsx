@@ -395,8 +395,8 @@ export default function Index() {
 Index.layout = (page) => (
 	<DashboardLayout
 		children={page}
-		title={'Master Financial'}
-		header={'Master Financial'}
-		description={'Kelola financial himpunan di page ini'}
+		title={'Master Keuangan'}
+		header={'Master Keuangan'}
+		description={'Kelola Keuangan himpunan di page ini'}
 	/>
 );

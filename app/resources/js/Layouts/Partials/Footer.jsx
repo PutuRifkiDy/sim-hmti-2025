@@ -70,7 +70,7 @@ export default function Footer({ ...props }) {
 								href={route('oprec-regist.index')}
 								className="group flex flex-row items-center justify-start gap-2 text-white"
 							>
-								Open Recruitmen{' '}
+								Open Recruitment{' '}
 								<ChevronRightIcon className="h-5 w-5 transform transition-transform duration-300 group-hover:translate-x-3" />
 							</Link>
 
@@ -96,19 +96,19 @@ export default function Footer({ ...props }) {
 								<h1 className="text-[18px] font-semibold text-white">Terkait</h1>
 								<a href="https://www.unud.ac.id/" target="_blank" rel="noopener noreferrer">
 									<p className="w-full text-[14px] leading-[140%] text-white md:w-[280px]">
-										UNUD | Teknologi Informasi
+										UNUD | Universitas Udayana
 									</p>
 								</a>
 								<a href="https://it.unud.ac.id/" target="_blank" rel="noopener noreferrer">
 									<p className="w-full text-[14px] leading-[140%] text-white md:w-[280px]">
-										BEM PM Udayana
+										UNUD | Teknologi Informasi
 									</p>
 								</a>
-                                <a href="https://smft.unud.ac.id/" target="_blank" rel="noopener noreferrer">
-                                    <p className="w-full text-[14px] leading-[140%] text-white md:w-[280px]">
-                                        SMFT UNUD
-                                    </p>
-                                </a>
+								<a href="https://smft.unud.ac.id/" target="_blank" rel="noopener noreferrer">
+									<p className="w-full text-[14px] leading-[140%] text-white md:w-[280px]">
+										SMFT UNUD
+									</p>
+								</a>
 							</div>
 							<div className="flex flex-col gap-5">
 								<h1 className="text-[18px] font-semibold text-white">Bug Report</h1>
@@ -217,7 +217,7 @@ export default function Footer({ ...props }) {
 								href={route('oprec-regist.index')}
 								className="group flex flex-row items-center justify-start gap-2 text-white"
 							>
-								Open Recruitmen{' '}
+								Open Recruitment{' '}
 								<ChevronRightIcon className="h-5 w-5 transform transition-transform duration-300 group-hover:translate-x-3" />
 							</Link>
 
@@ -241,13 +241,29 @@ export default function Footer({ ...props }) {
 						<div className="flex flex-col gap-10">
 							<div className="flex flex-col gap-5">
 								<h1 className="text-[18px] font-semibold text-white">Terkait</h1>
-								<p className="w-full text-[14px] leading-[140%] text-white md:w-[280px]">
-									UNUD | Teknologi Informasi
-								</p>
-								<p className="w-full text-[14px] leading-[140%] text-white md:w-[280px]">
-									BEM PM Udayana
-								</p>
-								<p className="w-full text-[14px] leading-[140%] text-white md:w-[280px]">SMFT UNUD</p>
+								<a href="https://www.unud.ac.id/" target="_blank" rel="noopener noreferrer">
+									<p className="w-full text-[14px] leading-[140%] text-white md:w-[280px]">
+										UNUD | Universitas Udayana
+									</p>
+								</a>
+								<a href="https://it.unud.ac.id/" target="_blank" rel="noopener noreferrer">
+									<p className="w-full text-[14px] leading-[140%] text-white md:w-[280px]">
+										UNUD | Teknologi Informasi
+									</p>
+								</a>
+								<a href="https://smft.unud.ac.id/" target="_blank" rel="noopener noreferrer">
+									<p className="w-full text-[14px] leading-[140%] text-white md:w-[280px]">
+										SMFT UNUD
+									</p>
+								</a>
+							</div>
+							<div className="flex flex-col gap-5">
+								<h1 className="text-[18px] font-semibold text-white">Bug Report</h1>
+								<a href="https://wa.me/62881038194017" target="_blank">
+									<p className="w-full text-[14px] leading-[140%] text-white md:w-[280px]">
+										+62881038194017
+									</p>
+								</a>
 							</div>
 						</div>
 

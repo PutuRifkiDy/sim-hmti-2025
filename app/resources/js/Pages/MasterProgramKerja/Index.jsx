@@ -209,7 +209,7 @@ export default function Index() {
                         Buka
                         <IconPreviewImageProfile />
                     </DialogTrigger>
-                    <DialogContent className="max-w-2xl dark:bg-[#0F114C]">
+                    <DialogContent className="max-w-2xl dark:bg-[#1F1F1F]">
                         <DialogTitle>Gambar Proker</DialogTitle>
                         <img
                             src={rowData?.img_path ? `${rowData.img_path}` : 'assets/icon/default_image_profile.png'}

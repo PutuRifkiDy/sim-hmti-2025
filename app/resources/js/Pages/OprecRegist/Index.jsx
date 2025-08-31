@@ -80,6 +80,6 @@ Index.layout = (page) => (
 		children={page}
 		title={'Open Recruitment'}
 		header={'Open Recruitment'}
-		description={'Daftar kegiatan himpunan di page ini'}
+		description={'Daftar open recruitment di seluruh periode aktif'}
 	/>
 );

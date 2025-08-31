@@ -91,7 +91,7 @@ export default function Edit() {
 					<div className="flex w-full flex-row justify-between">
 						<header>
 							<h2 className="text-lg font-medium text-gray-900 dark:text-white">
-								Tambah Open Rekruitmen
+								Tambah Open Recruitment
 							</h2>
 
 							<p className="mt-1 text-sm text-gray-600">
@@ -290,4 +290,4 @@ export default function Edit() {
 	);
 }
 
-Edit.layout = (page) => <DashboardLayout children={page} title={'Edit Master Sie'} />;
+Edit.layout = (page) => <DashboardLayout children={page} title={'Edit Master Open Recruitment'} />;

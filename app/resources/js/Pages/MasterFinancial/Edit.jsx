@@ -178,4 +178,4 @@ export default function Edit() {
         </>
     );
 }
-Edit.layout = (page) => <DashboardLayout children={page} title={'Edit Master Financial'} />;
+Edit.layout = (page) => <DashboardLayout children={page} title={'Edit Master Keuangan'} />;
