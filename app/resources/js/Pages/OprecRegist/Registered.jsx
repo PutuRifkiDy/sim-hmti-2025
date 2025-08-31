@@ -4,8 +4,16 @@ import DashboardLayout from '@/Layouts/DashboardLayout';
 import { ArrowLeftIcon, CheckBadgeIcon } from '@heroicons/react/24/solid';
 import { Link, usePage } from '@inertiajs/react';
 import DOMPurify from 'dompurify';
+import { useEffect } from 'react';
+import { toast } from 'sonner';
 
 export default function Registered() {
+	const flash_message = usePage().props.flash_message;
+	useEffect(() => {
+		if (flash_message?.message) {
+			toast[flash_message.type || 'success'](flash_message.message);
+		}
+	}, [flash_message]);
 	const oprec_regist = usePage().props.oprec_regist;
 	const cleanDescription = DOMPurify.sanitize(oprec_regist.oprec.description);
 	const cleanReasonJoin = DOMPurify.sanitize(oprec_regist.reason_join);
@@ -25,9 +33,9 @@ export default function Registered() {
 						<Link
 							as="button"
 							href={route('oprec-regist.index')}
-							className="group flex flex-row items-center text-[14px] font-bold gap-1"
+							className="group flex flex-row items-center gap-1 text-[14px] font-bold"
 						>
-							<ArrowLeftIcon className="h-3 w-3 font-bold transform transition-transform duration-300 group-hover:-translate-x-1" />
+							<ArrowLeftIcon className="h-3 w-3 transform font-bold transition-transform duration-300 group-hover:-translate-x-1" />
 							Kembali
 						</Link>
 					</Button>

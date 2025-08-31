@@ -103,8 +103,11 @@ class OprecRegistController extends Controller
             'user_id' => $request->user_id,
         ]);
 
-        flashMessage("Pendaftaran berhasil disimpan", 'success');
-        return to_route('oprec-regist.edit', ['idOprec' => $oprec_regist->oprec_id, 'idUser' => $oprec_regist->user_id]);
+        // flashMessage("Pendaftaran berhasil disimpan", 'success');
+        return to_route('oprec-regist.edit', ['idOprec' => $oprec_regist->oprec_id, 'idUser' => $oprec_regist->user_id])->with([
+            'message' => 'Anda berhasil mendaftar di kegiatan ini',
+            'type' => 'success',
+        ]);
     }
 
     public function registered($idOprec, $idUser): Response|RedirectResponse
