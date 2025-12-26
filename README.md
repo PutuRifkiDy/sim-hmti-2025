@@ -1,6 +1,6 @@
 # Sistem Informasi Himpunan Mahasiswa Teknologi Informasi
 
-Proyek ini adalah sistem informasi untuk mengelola kegiatan Himpunan Mahasiswa Teknologi Informasi (HMTI) menggunakan teknologi modern: Laravel sebagai backend, ReactJS dengan InertiaJS untuk frontend, dan SHADCNUI untuk komponen UI yang elegan dan responsif.
+Proyek ini adalah sistem informasi untuk mengelola kegiatan Himpunan Mahasiswa Teknologi Informasi (HMTI) menggunakan teknologi modern: Laravel sebagai backend, ReactJS dengan InertiaJS untuk frontend, dan SHADCNUI untuk komponen UI.
 
 ## Fitur Utama
 
