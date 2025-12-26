@@ -4,31 +4,37 @@ Proyek ini adalah sistem informasi untuk mengelola kegiatan Himpunan Mahasiswa T
 
 ## Fitur Utama
 
-Berdasarkan model dan komponen yang ada dalam proyek:
+Berdasarkan routes dan controller yang ada dalam proyek:
 
-### Manajemen Master Data
-- **Manajemen Himpunan**: Pengelolaan data himpunan.
-- **Manajemen Periode**: Pengaturan periode akademik.
-- **Manajemen Posisi**: Definisi posisi/jabatan dalam himpunan.
-- **Manajemen Program Kerja**: Pengelolaan program kerja himpunan.
-- **Manajemen Sie**: Pengaturan sie (bidang/divisi) himpunan.
+### Halaman Publik (Front-end)
+- **Halaman Welcome**: Halaman utama sistem.
+- **Program Kerja**: Tampilan program kerja himpunan.
+- **Fungsionaris**: Tampilan fungsionaris/struktur kepengurusan.
 
-### Sistem Open Recruitment (Oprec)
-- **Manajemen Oprec**: Pengelolaan data open recruitment.
-- **Registrasi Oprec**: Sistem pendaftaran untuk oprec.
-- **Manajemen Sie Oprec**: Pengaturan sie yang terkait dengan oprec.
+### Dashboard Admin (dengan Role-based Access Control)
+- **Manajemen Master User**: CRUD untuk pengguna sistem (role: divisi_it).
+- **Manajemen Master Sie**: CRUD untuk sie/bidang himpunan (role: divisi_it).
+- **Manajemen Master Period**: CRUD untuk periode akademik (role: divisi_it).
+- **Manajemen Master Position**: CRUD untuk posisi/jabatan (role: divisi_it).
+- **Manajemen Master Himpunan**: CRUD untuk data himpunan terkait periode (role: divisi_it).
+- **Manajemen Master Program Kerja**: CRUD untuk program kerja terkait periode (role: divisi_it).
+- **Manajemen Master Open Rekruitmen**: CRUD untuk open recruitment, termasuk melihat pendaftar (role: divisi_it, ketua_kegiatan).
+- **Manajemen Master Financial**: CRUD untuk data keuangan terkait periode (role: divisi_it).
+- **Grafik Keuangan**: Tampilan grafik dan laporan keuangan (role: divisi_it).
+- **ADART**: Sistem untuk AD/RT atau manajemen terkait (role: guest, ketua_kegiatan, divisi_it).
 
-### Manajemen Keuangan
-- **Master Financial**: Sistem untuk mengelola data keuangan himpunan.
+### Sistem Open Recruitment
+- **Oprec Registration**: Sistem pendaftaran oprec dengan show detail dan store data (role: guest, ketua_kegiatan, divisi_it).
+- **Registered Users**: Melihat pengguna yang sudah terdaftar di oprec tertentu.
 
-### Manajemen Pengguna
-- **Manajemen User**: Pengelolaan data pengguna sistem.
-- **Autentikasi**: Sistem login dan autentikasi pengguna (berdasarkan routes/auth.php).
+### Manajemen Profil dan Autentikasi
+- **Profile Management**: Edit, update, dan delete profil pengguna (authenticated users).
+- **Authentication**: Sistem login/logout dan autentikasi (berdasarkan routes/auth.php).
 
 ### Fitur Tambahan
-- **Upload File**: Fitur upload file menggunakan trait HasFile.
-- **Flash Messages**: Sistem notifikasi menggunakan FlashMessageHelper.
-- **Responsive UI**: Interface menggunakan ReactJS, InertiaJS, dan SHADCNUI dengan Tailwind CSS.
+- **Upload File**: Menggunakan trait HasFile untuk upload file.
+- **Flash Messages**: Notifikasi menggunakan FlashMessageHelper.
+- **Responsive UI**: Interface menggunakan ReactJS, InertiaJS, SHADCNUI, dan Tailwind CSS.
 
 ## Persyaratan Sistem
 
