@@ -4,46 +4,31 @@ Proyek ini adalah sistem informasi untuk mengelola kegiatan Himpunan Mahasiswa T
 
 ## Fitur Utama
 
-### Manajemen Data Dasar
-- **Manajemen Himpunan**: Pengelolaan informasi dasar himpunan, visi, misi, dan struktur organisasi.
-- **Manajemen Periode**: Pengaturan periode akademik untuk mengorganisir kegiatan berdasarkan tahun ajaran.
-- **Manajemen Posisi**: Definisi dan pengelolaan berbagai posisi/jabatan dalam himpunan.
-- **Manajemen Sie (Bidang)**: Pengaturan divisi atau bidang kegiatan himpunan.
+Berdasarkan model dan komponen yang ada dalam proyek:
+
+### Manajemen Master Data
+- **Manajemen Himpunan**: Pengelolaan data himpunan.
+- **Manajemen Periode**: Pengaturan periode akademik.
+- **Manajemen Posisi**: Definisi posisi/jabatan dalam himpunan.
+- **Manajemen Program Kerja**: Pengelolaan program kerja himpunan.
+- **Manajemen Sie**: Pengaturan sie (bidang/divisi) himpunan.
 
 ### Sistem Open Recruitment (Oprec)
-- **Pendaftaran Online**: Platform untuk calon anggota mendaftar secara online.
-- **Manajemen Registrasi**: Sistem untuk mengelola data pendaftaran oprec.
-- **Seleksi Sie**: Penentuan dan pengelolaan sie (bidang) yang tersedia untuk oprec.
-- **Tracking Status**: Monitoring status pendaftaran dan seleksi peserta.
-
-### Manajemen Program Kerja
-- **Perencanaan Program**: Pembuatan dan pengelolaan program kerja himpunan.
-- **Pelacakan Progress**: Sistem untuk memantau kemajuan program kerja.
-- **Evaluasi**: Fitur untuk mengevaluasi keberhasilan program kerja.
+- **Manajemen Oprec**: Pengelolaan data open recruitment.
+- **Registrasi Oprec**: Sistem pendaftaran untuk oprec.
+- **Manajemen Sie Oprec**: Pengaturan sie yang terkait dengan oprec.
 
 ### Manajemen Keuangan
-- **Pencatatan Pemasukan**: Sistem untuk mencatat berbagai sumber pemasukan himpunan.
-- **Pencatatan Pengeluaran**: Tracking pengeluaran dengan kategori yang terstruktur.
-- **Laporan Keuangan**: Generate laporan keuangan periodik dan real-time.
-- **Budget Planning**: Perencanaan anggaran untuk program kerja.
+- **Master Financial**: Sistem untuk mengelola data keuangan himpunan.
 
-### Manajemen Pengguna dan Autentikasi
-- **Sistem Login**: Autentikasi pengguna dengan email dan password.
-- **Role-Based Access Control**: Kontrol akses berdasarkan peran (admin, anggota, dll.).
-- **Manajemen Profil**: Pengelolaan data profil pengguna.
-- **Reset Password**: Fitur untuk mereset password melalui email.
-
-### Dashboard dan Reporting
-- **Dashboard Admin**: Interface utama untuk administrator dengan overview data.
-- **Dashboard Anggota**: Tampilan khusus untuk anggota himpunan.
-- **Laporan Terintegrasi**: Sistem pelaporan untuk semua aspek kegiatan himpunan.
-- **Analytics**: Analitik data untuk pengambilan keputusan.
+### Manajemen Pengguna
+- **Manajemen User**: Pengelolaan data pengguna sistem.
+- **Autentikasi**: Sistem login dan autentikasi pengguna (berdasarkan routes/auth.php).
 
 ### Fitur Tambahan
-- **Upload dan Manajemen File**: Sistem untuk upload dokumen, gambar, dan file terkait kegiatan.
-- **Flash Messages**: Notifikasi sistem untuk feedback pengguna.
-- **Responsive Design**: UI yang responsif menggunakan Tailwind CSS dan SHADCNUI.
-- **API Integration**: RESTful API untuk integrasi dengan sistem eksternal.
+- **Upload File**: Fitur upload file menggunakan trait HasFile.
+- **Flash Messages**: Sistem notifikasi menggunakan FlashMessageHelper.
+- **Responsive UI**: Interface menggunakan ReactJS, InertiaJS, dan SHADCNUI dengan Tailwind CSS.
 
 ## Persyaratan Sistem
 
