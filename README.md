@@ -4,14 +4,46 @@ Proyek ini adalah sistem informasi untuk mengelola kegiatan Himpunan Mahasiswa T
 
 ## Fitur Utama
 
-- **Manajemen Anggota**: Sistem untuk mengelola data anggota himpunan, termasuk posisi dan divisi.
-- **Open Recruitment (Oprec)**: Platform untuk pendaftaran dan seleksi anggota baru melalui berbagai sie (bidang).
-- **Manajemen Program Kerja**: Pengelolaan program kerja himpunan dan divisi.
-- **Keuangan**: Sistem untuk melacak keuangan himpunan, termasuk pemasukan dan pengeluaran.
-- **Dashboard Admin**: Interface untuk administrator mengelola data dan melihat laporan.
-- **Autentikasi dan Otorisasi**: Sistem login dan role-based access control.
-- **Upload File**: Fitur untuk mengupload dan mengelola file terkait kegiatan himpunan.
+### Manajemen Data Dasar
+- **Manajemen Himpunan**: Pengelolaan informasi dasar himpunan, visi, misi, dan struktur organisasi.
+- **Manajemen Periode**: Pengaturan periode akademik untuk mengorganisir kegiatan berdasarkan tahun ajaran.
+- **Manajemen Posisi**: Definisi dan pengelolaan berbagai posisi/jabatan dalam himpunan.
+- **Manajemen Sie (Bidang)**: Pengaturan divisi atau bidang kegiatan himpunan.
+
+### Sistem Open Recruitment (Oprec)
+- **Pendaftaran Online**: Platform untuk calon anggota mendaftar secara online.
+- **Manajemen Registrasi**: Sistem untuk mengelola data pendaftaran oprec.
+- **Seleksi Sie**: Penentuan dan pengelolaan sie (bidang) yang tersedia untuk oprec.
+- **Tracking Status**: Monitoring status pendaftaran dan seleksi peserta.
+
+### Manajemen Program Kerja
+- **Perencanaan Program**: Pembuatan dan pengelolaan program kerja himpunan.
+- **Pelacakan Progress**: Sistem untuk memantau kemajuan program kerja.
+- **Evaluasi**: Fitur untuk mengevaluasi keberhasilan program kerja.
+
+### Manajemen Keuangan
+- **Pencatatan Pemasukan**: Sistem untuk mencatat berbagai sumber pemasukan himpunan.
+- **Pencatatan Pengeluaran**: Tracking pengeluaran dengan kategori yang terstruktur.
+- **Laporan Keuangan**: Generate laporan keuangan periodik dan real-time.
+- **Budget Planning**: Perencanaan anggaran untuk program kerja.
+
+### Manajemen Pengguna dan Autentikasi
+- **Sistem Login**: Autentikasi pengguna dengan email dan password.
+- **Role-Based Access Control**: Kontrol akses berdasarkan peran (admin, anggota, dll.).
+- **Manajemen Profil**: Pengelolaan data profil pengguna.
+- **Reset Password**: Fitur untuk mereset password melalui email.
+
+### Dashboard dan Reporting
+- **Dashboard Admin**: Interface utama untuk administrator dengan overview data.
+- **Dashboard Anggota**: Tampilan khusus untuk anggota himpunan.
+- **Laporan Terintegrasi**: Sistem pelaporan untuk semua aspek kegiatan himpunan.
+- **Analytics**: Analitik data untuk pengambilan keputusan.
+
+### Fitur Tambahan
+- **Upload dan Manajemen File**: Sistem untuk upload dokumen, gambar, dan file terkait kegiatan.
+- **Flash Messages**: Notifikasi sistem untuk feedback pengguna.
 - **Responsive Design**: UI yang responsif menggunakan Tailwind CSS dan SHADCNUI.
+- **API Integration**: RESTful API untuk integrasi dengan sistem eksternal.
 
 ## Persyaratan Sistem
 
